@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>m_traits</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost QVM</a></h1>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>m_traits</h3>
+</div>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_m_traits_hpp.html">boost/qvm/m_traits.hpp</a></span>&gt;</p>
+<pre>namespace boost
+{
+    namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
+    {
+<span class="RenoIncludeSPAN">        template &lt;class M&gt;
+        struct <span class="RenoLink">m_traits</span>
+        {
+            /*main template members unspecified*/
+        };
+        
+        /*
+        User-defined (possibly partial) specializations:
+        
+        template &lt;&gt;
+        struct <span class="RenoLink">m_traits</span>&lt;M&gt;
+        {
+        <span class="RenoIncludeSPAN">    static int const <span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span> = /*user-defined*/;</span>        
+        <span class="RenoIncludeSPAN">    static int const <span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span> = /*user-defined*/;</span>        
+        <span class="RenoIncludeSPAN">    typedef /*user-defined*/ <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span>;</span>        
+        
+        <span class="RenoIncludeSPAN">    template &lt;int R,int C&gt; static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> <span class="RenoLink"><a href="m_traits_M_r.html">r</a></span>( Matrix const &amp; m );</span>        
+        <span class="RenoIncludeSPAN">    template &lt;int R,int C&gt; static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="m_traits_M_w.html">w</a></span>( Matrix &amp; m );</span>        
+        
+        <span class="RenoIncludeSPAN">    static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> <span class="RenoLink"><a href="m_traits_M_ir.html">ir</a></span>( int r, int c, Matrix const &amp; m );</span>        
+        <span class="RenoIncludeSPAN">    static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="m_traits_M_iw.html">iw</a></span>( int r, int c, Matrix &amp; m );</span>        
+        };
+        */</span>
+    }
+}</pre>
+</div><p>The <i><span class="RenoLink">m_traits</span></i> template must be specialized for (user-defined) matrix types in order to enable vector and matrix operations defined in Boost QVM headers for objects of those types.</p>
+<p><i>Note: matrix types are not required to be copyable.</i></p>
+<p>The main <i><span class="RenoLink">m_traits</span></i> template members are not specified. Valid specializations are required to define the following members:</p>
+<div><ul><li> <i><span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span></i> must evaluate to a compile-time integer constant greater than 0 that specifies the number of rows in a matrix.</li>
+<li> <i><span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span></i> must evaluate to a compile-time integer constant greater than 0 that specifies the number of columns in a matrix.</li>
+<li> <i><span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span></i> must be a value type which satisfies the <span class="RenoLink"><a href="scalar_requirements.html">scalar requirements</a></span>.</li>
+</ul></div>
+<p>In addition, valid specializations of the <i><span class="RenoLink">m_traits</span></i> template may define the following access functions as static members, where <i>m</i> is an object of type <i>Matrix</i>, <i>R</i> and <i>C</i> are compile-time integer constants, and <i>r</i> and <i>c</i> are variables of type <i>int</i>:</p>
+<div><ul><li> <i><span class="RenoLink"><a href="m_traits_M_r.html">r</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_M_r.html">r</a></span>&lt;R,C&gt;(m)</i> returns either a copy of or a const reference to the element at row <i>R</i> and column <i>C</i> of <i>m</i>.</li>
+<li> <i><span class="RenoLink"><a href="m_traits_M_w.html">w</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_M_w.html">w</a></span>&lt;R,C&gt;(m)</i> returns mutable reference to the element at row <i>R</i> and column <i>C</i> of <i>m</i>.</li>
+<li> <i><span class="RenoLink"><a href="m_traits_M_ir.html">ir</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_M_ir.html">ir</a></span>(r,c,m)</i> returns either a copy of or a const reference to the element at row <i>r</i> and column <i>c</i> of <i>m</i>.</li>
+<li> <i><span class="RenoLink"><a href="m_traits_M_iw.html">iw</a></span></i>: the expression <i><span class="RenoLink">m_traits</span>&lt;Matrix&gt;::<span class="RenoLink"><a href="m_traits_M_iw.html">iw</a></span>(r,c,m)</i> returns mutable reference to the element at row <i>r</i> and column <i>c</i> of <i>m</i>.</li>
+</ul></div>
+<p>It is illegal to call any of the above functions unless <i><span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;Matrix&gt;::value</i> is <i>true</i>. Even then, matrix types are allowed to define only a subset of the access functions. The general requirements are:</p>
+<div><ul><li> if <i><span class="RenoLink"><a href="m_traits_M_ir.html">ir</a></span></i> is defined, <i><span class="RenoLink"><a href="m_traits_M_r.html">r</a></span></i> must also be defined;</li>
+<li> if <i><span class="RenoLink"><a href="m_traits_M_iw.html">iw</a></span></i> is defined, <i><span class="RenoLink"><a href="m_traits_M_w.html">w</a></span></i> must also be defined.</li>
+</ul></div>
+<p>Below is an example of a user-defined 3x3 matrix type, and its corresponding specialization of the <i><span class="RenoLink">m_traits</span></i> template:</p>
+<div class="RenoIncludeDIV"><pre>#include &lt;<span class="RenoLink"><a href="boost_qvm_m_traits_hpp.html">boost/qvm/m_traits.hpp</a></span>&gt;
+
+struct float33 { float a[3][3]; };
+
+namespace boost
+{
+    namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
+    {
+        template &lt;&gt;
+        struct <span class="RenoLink">m_traits</span>&lt;float33&gt;
+        {
+            static int const <span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>=3;
+            static int const <span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span>=3;
+            typedef float <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span>;
+
+            template &lt;int R,int C&gt; static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="m_traits_M_w.html">w</a></span>( float33 &amp; m ) { return m.a[R][C]; }
+            template &lt;int R,int C&gt; static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> <span class="RenoLink"><a href="m_traits_M_r.html">r</a></span>( float33 const &amp; m ) { return m.a[R][C]; }
+
+            static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="m_traits_M_iw.html">iw</a></span>( int r, int c, float33 &amp; m ) { return m.a[r][c]; }
+            static inline <span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> <span class="RenoLink"><a href="m_traits_M_ir.html">ir</a></span>( int r, int c, float33 const &amp; m ) { return m.a[r][c]; }
+        };
+    }
+}</pre>
+</div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="assign_m_m_.html">assign(m,m)</a>&nbsp;| <a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_m_traits_hpp.html">boost/qvm/m_traits.hpp</a>&nbsp;| <a href="boost_qvm_m_traits_array_hpp.html">boost/qvm/m_traits_array.hpp</a>&nbsp;| <a href="cmp_m_m_.html">cmp(m,m)</a>&nbsp;| <a href="deduce_m.html">deduce_m</a>&nbsp;| <a href="deduce_m2.html">deduce_m2</a>&nbsp;| <a href="determinant.html">determinant</a>&nbsp;| <a href="inverse_m_.html">inverse(m)</a>&nbsp;| <a href="is_m.html">is_m</a>&nbsp;| <a href="m_index_read.html">m_index_read</a>&nbsp;| <a href="m_index_write.html">m_index_write</a>&nbsp;| <a href="m_traits_M_ir.html">m_traits&lt;M&gt;::ir</a>&nbsp;| <a href="m_traits_M_iw.html">m_traits&lt;M&gt;::iw</a>&nbsp;| <a href="m_traits_M_r.html">m_traits&lt;M&gt;::r</a>&nbsp;| <a href="m_traits_M_scalar_type.html">m_traits&lt;M&gt;::scalar_type</a>&nbsp;| <a href="m_traits_M_w.html">m_traits&lt;M&gt;::w</a>&nbsp;| <a href="m_traits_Matrix_cols.html">m_traits&lt;Matrix&gt;::cols</a>&nbsp;| <a href="m_traits_Matrix_rows.html">m_traits&lt;Matrix&gt;::rows</a>&nbsp;| <a href="make_m_.html">make(m)</a>&nbsp;| <a href="make_q_.html">make(q)</a>&nbsp;| <a href="mat.html">mat</a>&nbsp;| <a href="operator_not_eq_m_m_.html">operator!=(m,m)</a>&nbsp;| <a href="operator_times_m_m_.html">operator*(m,m)</a>&nbsp;| <a href="operator_times_m_v_.html">operator*(m,v)</a>&nbsp;| <a href="operator_times_v_m_.html">operator*(v,m)</a>&nbsp;| <a href="operator_mul_eq_m_m_.html">operator*=(m,m)</a>&nbsp;| <a href="operator_plus_m_m_.html">operator+(m,m)</a>&nbsp;| <a href="operator_add_m_m_.html">operator+=(m,m)</a>&nbsp;| <a href="operator_minus_m_m_.html">operator-(m,m)</a>&nbsp;| <a href="operator_sub_eq_m_m_.html">operator-=(m,m)</a>&nbsp;| <a href="operator_eq_m_m_.html">operator==(m,m)</a>&nbsp;| <a href="rotate_m_v_s_.html">rotate(m,v,s)</a>&nbsp;| <a href="rotate_x_m_s_.html">rotate_x(m,s)</a>&nbsp;| <a href="rotate_y_m_s_.html">rotate_y(m,s)</a>&nbsp;| <a href="rotate_z_m_s_.html">rotate_z(m,s)</a>&nbsp;| <a href="SFINAE.html">SFINAE</a>&nbsp;| <a href="scalar.html">scalar</a>&nbsp;| <a href="set_identity_m_.html">set_identity(m)</a>&nbsp;| <a href="set_rot_m_v_s_.html">set_rot(m,v,s)</a>&nbsp;| <a href="set_rotx_m_s_.html">set_rotx(m,s)</a>&nbsp;| <a href="set_roty_m_s_.html">set_roty(m,s)</a>&nbsp;| <a href="set_rotz_m_s_.html">set_rotz(m,s)</a>&nbsp;| <a href="set_zero_m_.html">set_zero(m)</a>&nbsp;| <a href="trans.html">trans</a>&nbsp;| <a href="transform_point.html">transform_point</a>&nbsp;| <a href="transform_vector.html">transform_vector</a>&nbsp;| <a href="view_proxy.html">View Proxy</a></span>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2015 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>code generator</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost QVM</a></h1>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Code Generator</h3>
+</div>
+<p>While Boost QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier on the eye than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.</p>
+<p>The code generator is a command-line utility program. Its source code can be found in the <i>libs/qvm/gen</i> directory. It was used to generate the following headers:</p>
+<div><ul><li> 2D, 3D and 4D matrix operations:<div><ul><li> <i>boost/qvm/gen/m2.hpp</i> (matrices of size 2x2, 2x1 and 1x2, included by <i><span class="RenoLink"><a href="boost_qvm_m2_hpp.html">boost/qvm/m2.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/m3.hpp</i> (matrices of size 3x3, 3x1 and 1x3, included by <i><span class="RenoLink"><a href="boost_qvm_m3_hpp.html">boost/qvm/m3.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/m4.hpp</i> (matrices of size 4x4, 4x1 and 1x4, included by <i><span class="RenoLink"><a href="boost_qvm_m4_hpp.html">boost/qvm/m4.hpp</a></span></i>)</li>
+</ul></div>
+</li>
+<li> 2D, 3D and 4D vector operations:<div><ul><li> <i>boost/qvm/gen/v2.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_v2_hpp.html">boost/qvm/v2.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/v3.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_v3_hpp.html">boost/qvm/v3.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/v4.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_v4_hpp.html">boost/qvm/v4.hpp</a></span></i>)</li>
+</ul></div>
+</li>
+<li> 2D, 3D and 4D vector-matrix operations:<div><ul><li> <i>boost/qvm/gen/vm2.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_vm2_hpp.html">boost/qvm/vm2.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/vm3.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_vm3_hpp.html">boost/qvm/vm3.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/vm4.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_vm4_hpp.html">boost/qvm/vm4.hpp</a></span></i>)</li>
+</ul></div>
+</li>
+<li> 2D, 3D and 4D vector swizzling operations:<div><ul><li> <i>boost/qvm/gen/sw2.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_sw2_hpp.html">boost/qvm/sw2.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/sw3.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_sw3_hpp.html">boost/qvm/sw3.hpp</a></span></i>)</li>
+<li> <i>boost/qvm/gen/sw4.hpp</i> (included by <i><span class="RenoLink"><a href="boost_qvm_sw4_hpp.html">boost/qvm/sw4.hpp</a></span></i>)</li>
+</ul></div>
+</li>
+</ul></div>
+<p>Any such generated headers must be included before the corresponding generic header file is included. For example, if one creates a header <i>boost/qvm/gen/m5.hpp</i>, it must be included before <i><span class="RenoLink"><a href="boost_qvm_m_hpp.html">boost/qvm/m.hpp</a></span></i>. However, the generic headers (<i><span class="RenoLink"><a href="boost_qvm_m_hpp.html">boost/qvm/m.hpp</a></span></i>, <i><span class="RenoLink"><a href="boost_qvm_v_hpp.html">boost/qvm/v.hpp</a></span></i>, <i><span class="RenoLink"><a href="boost_qvm_vm_hpp.html">boost/qvm/vm.hpp</a></span></i> and <i><span class="RenoLink"><a href="boost_qvm_sw_hpp.html">boost/qvm/sw.hpp</a></span></i>) already include the generated headers from the list above, so they don't need to be included manually.</p>
+</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a></span>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2015 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

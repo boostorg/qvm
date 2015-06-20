@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>c arrays</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost QVM</a></h1>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>C Arrays</h3>
+</div>
+<p>In <i><span class="RenoLink"><a href="boost_qvm_m_traits_array_hpp.html">boost/qvm/m_traits_array.hpp</a></span></i> and <i><span class="RenoLink"><a href="boost_qvm_v_traits_array_hpp.html">boost/qvm/v_traits_array.hpp</a></span></i> Boost QVM defines appropriate <i><span class="RenoLink"><a href="v_traits.html">v_traits</a></span></i> and <i><span class="RenoLink"><a href="m_traits.html">m_traits</a></span></i> specializations that allow Boost QVM functions to operate directly on plain old C arrays:</p>
+<pre>float v[3] = {0,0,7};
+float3 vrot = <span class="RenoLink"><a href="rotx_m_s_.html">rotx_m</a></span>&lt;3&gt;(3.14159f) <span class="RenoLink"><a href="operator_times_m_v_.html">*</a></span> v;</pre>
+<p>Naturally, operator overloads cannot kick in if all elements of an expression are of built-in types. The following is illegal:</p>
+<pre>float v[3] = {0,0,7};
+v *= 42;</pre>
+<p>The <i><span class="RenoLink"><a href="vref.html">vref</a></span></i> and <i><span class="RenoLink"><a href="mref.html">mref</a></span></i> function templates can be used to work around this issue:</p>
+<pre>float v[3] = {0,0,7};
+<span class="RenoLink"><a href="vref.html">vref</a></span>(v) <span class="RenoLink"><a href="operator_mul_eq_v_s_.html">*=</a></span> 42;</pre>
+</div><div class="RenoIncludeDIV"><div class="RenoHR"><hr/></div>
+<p><b>Tutorial navigation:</b> <span class="RenoLink"><a href="quaternion_vector_and_matrix_types.html">Quaternion, Vector and Matrix Types</a></span> | <span class="RenoLink">C Arrays</span> | <span class="RenoLink"><a href="Views.html">Views</a></span> | <span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span> | <span class="RenoLink"><a href="Interoperability.html">Interoperability</a></span><span class="RenoBR">&nbsp;</span><br/><span class="RenoBR">&nbsp;</span><br/>See also: <span class="RenoLink"><a href="index.html">Boost QVM</a></span> | <span class="RenoLink"><a href="Motivation.html">Motivation</a></span></p>
+</div><!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2015 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

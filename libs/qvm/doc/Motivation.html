@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+	<title>Motivation</title>
+	<link href='reno.css' type='text/css' rel='stylesheet'/>
+</head>
+<body>
+<div class="body-0">
+<div class="body-1">
+<div class="body-2">
+<div>
+<div id="reverge_logo">
+<a href="http://www.revergestudios.com"><img style="border:0" src="reverge.png" alt="Reverge"/></a>
+</div>
+<h1><a href="index.html">Boost QVM</a></h1>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Motivation</h3>
+</div>
+<p>In graphics and simulation applications, there is a need for a library that makes it easy to perform 2D and 3D transformations efficiently. C++ makes it possible to define vector and matrix types and to overload various operators to implement the standard algebraic operations. Because this is a relatively straightforward process, there are many such libraries in existence, each with its own types and operator overrloads. Such libraries are typically part of a higher level system, such as a graphics engine or a 3D modeling API. As a result, it is typical for programmers to have to integrate and to translate between several different matrix and vector types that come with the various APIs they use.</p>
+<p>On the other hand, performance considerations often lead to matrix and vector types becoming coupled with a particular platform, or to (over time) acquire various <i>#ifdefs</i> needed to enable optimizations through platform-specific compiler features that control the physical format or layout of their elements. However, such optimizations may interfere with ease of use and portability; for example on some platforms requiring 16-byte alignment for matrix types makes them incompatible with standard containers.</p>
+<p>Boost QVM solves both of these issues by decoupling the standard algebraic operations from the types they operate on -- without compromising type safety.</p>
+<h3>Key design features of Boost QVM:</h3>
+<div><ul><li> Emphasis on 2, 3 and 4-dimensional operations (including <span class="RenoLink"><a href="http://en.wikipedia.org/wiki/Quaternion">quaternions</a></span> and zero-overhead <span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span>) as needed in graphics and simulation applications.</li>
+<li> Zero-overhead <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> that present read-only or mutable views to the original object. For example, <i><span class="RenoLink"><a href="transp.html">transp</a></span></i> presents a transposed view to its matrix argument without the overhead of a temporary.</li>
+<li> Allow the integration of many user-defined or 3rd-party matrix, vector and quaternion types into a coherent type-safe system. This enables the user to build algebraic expressions using objects of diverse types that would otherwise be incompatible.</li>
+<li> When users need to implement platform-specific or even project-specific optimizations in a given user subsystem, Boost QVM makes it simple to define custom new types that automatically aquire the full set of algebraic operations so they can interface seamlessly with the rest of the program. At the same time, the user can define a limited number of overloads as needed to implement specific optimizations.</li>
+</ul></div>
+<h3>Tutorial:</h3>
+<div><ul><li><span class="RenoLink"><a href="quaternion_vector_and_matrix_types.html">Quaternion, Vector and Matrix Types</a></span></li>
+<li><span class="RenoLink"><a href="c_arrays.html">C Arrays</a></span></li>
+<li><span class="RenoLink"><a href="Views.html">Views</a></span></li>
+<li><span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span></li>
+<li><span class="RenoLink"><a href="SFINAE.html">SFINAE</a></span></li>
+<li><span class="RenoLink"><a href="Interoperability.html">Interoperability</a></span></li>
+</ul></div>
+</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a></span>
+</div>
+<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
+<!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
+<div id="footer">
+<p>
+<a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
+<a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
+<small>Copyright (c) 2008-2015 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
+</p>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+# Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+
+# Distributed under the Boost Software License, Version 1.0. (See accompanying
+# file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
+
+import testing ;
+import path ;
+
+rule
+headers-compile-test ( headers * : requirements * : target-tag ? )
+    {
+    local test-names = ;
+    for local header in $(headers)
+        {
+        local native-path = [ path.native $(header) ] ;
+        local target = hdr$(target-tag)-$(header:D=) ;
+        compile header-test.cpp : $(requirements) <define>REVERGE_HEADER=\\\"$(native-path)\\\" <dependency>$(header) : $(target) ;
+        test-names += $(target) ;
+        }
+    alias hdrtest$(target-tag) : $(test-names) ;
+    }
+
+headers-compile-test [ glob ../../../boost/qvm/*.hpp ]
+    : # requirements
+    : # target-tag
+        qvm
+    ;
+
+headers-compile-test [ glob ../../../boost/qvm/custom/*.hpp ]
+    : # requirements
+    : # target-tag
+        custom
+    ;
+
+run m_traits_array_test.cpp ;
+run v_traits_array_test.cpp ;
+run q_traits_array_test.cpp ;
+
+run access_m_test.cpp ;
+compile-fail access_m_fail1.cpp ;
+compile-fail access_m_fail2.cpp ;
+compile-fail access_m_fail3.cpp ;
+compile-fail access_m_fail4.cpp ;
+
+run access_q_test.cpp ;
+compile-fail access_q_fail.cpp ;
+
+run access_v_test.cpp ;
+compile-fail access_v_fail1.cpp ;
+compile-fail access_v_fail2.cpp ;
+compile-fail access_v_fail3.cpp ;
+compile-fail access_v_fail4.cpp ;
+
+run assign_test.cpp ;
+
+run to_string_test.cpp ;
+
+run cmp_vv_test.cpp ;
+run cross_test.cpp ;
+run div_eq_vs_test.cpp ;
+run div_vs_test.cpp ;
+run dot_vv_test.cpp ;
+run eq_vv_test.cpp ;
+run mag_v_test.cpp ;
+run mag2_v_test.cpp ;
+run minus_v_test.cpp ;
+run minus_eq_vv_test.cpp ;
+run minus_vv_test.cpp ;
+run mul_eq_vs_test.cpp ;
+run mul_vs_test.cpp ;
+run mul_vm_test.cpp ;
+run normalize_v_test.cpp ;
+run plus_eq_vv_test.cpp ;
+run plus_vv_test.cpp ;
+run scalar_cast_v_test.cpp ;
+run v_index_test.cpp ;
+
+run cmp_mm_test.cpp ;
+run determinant_test.cpp ;
+run div_eq_ms_test.cpp ;
+run div_ms_test.cpp ;
+run eq_mm_test.cpp ;
+run minus_m_test.cpp ;
+run minus_eq_mm_test.cpp ;
+run minus_mm_test.cpp ;
+run mul_eq_mm_test.cpp ;
+run mul_eq_ms_test.cpp ;
+run mul_mm_test.cpp ;
+run mul_ms_test.cpp ;
+run mul_mv_test.cpp ;
+run inverse_m_test.cpp ;
+run plus_eq_mm_test.cpp ;
+run plus_mm_test.cpp ;
+run scalar_cast_m_test.cpp ;
+run m_index_test.cpp ;
+
+run cmp_qq_test.cpp ;
+run conjugate_test.cpp ;
+run normalize_q_test.cpp ;
+run div_eq_qs_test.cpp ;
+run div_qs_test.cpp ;
+run dot_qq_test.cpp ;
+run eq_qq_test.cpp ;
+run inverse_q_test.cpp ;
+run mag_q_test.cpp ;
+run mag2_q_test.cpp ;
+run minus_q_test.cpp ;
+run minus_eq_qq_test.cpp ;
+run minus_qq_test.cpp ;
+run mul_eq_qs_test.cpp ;
+run mul_qs_test.cpp ;
+run mul_qv_test.cpp ;
+run mul_qq_test.cpp ;
+run mul_eq_qq_test.cpp ;
+run plus_eq_qq_test.cpp ;
+run plus_qq_test.cpp ;
+run scalar_cast_q_test.cpp ;
+run slerp_test.cpp ;
+
+run make_test.cpp ;
+
+run rot_m_test.cpp ;
+run rot_q_test.cpp ;
+run rotx_m_test.cpp ;
+run rotx_q_test.cpp ;
+run roty_m_test.cpp ;
+run roty_q_test.cpp ;
+run rotz_m_test.cpp ;
+run rotz_q_test.cpp ;
+
+run zero_v_test.cpp ;
+run zero_m_test.cpp ;
+run zero_q_test.cpp ;
+run identity_m_test.cpp ;
+run identity_q_test.cpp ;
+
+run col_test.cpp ;
+run col_mat_test.cpp ;
+run negc_test.cpp ;
+run negr_test.cpp ;
+run delc_test.cpp ;
+run delr_test.cpp ;
+run delrc_test.cpp ;
+run swapc_test.cpp ;
+run swapr_test.cpp ;
+run diag_test.cpp ;
+run diag_mat_test.cpp ;
+run row_test.cpp ;
+run row_mat_test.cpp ;
+run transpose_test.cpp ;
+run trans_test.cpp ;
+run trans_mat_test.cpp ;
+
+compile-fail swizzle2_fail2.cpp ;
+compile-fail swizzle2_fail3.cpp ;
+compile-fail swizzle2_fail4.cpp ;
+run swizzle2_test.cpp ;
+compile-fail swizzle3_fail2.cpp ;
+compile-fail swizzle3_fail3.cpp ;
+compile-fail swizzle3_fail4.cpp ;
+run swizzle3_test.cpp ;
+compile-fail swizzle4_fail2.cpp ;
+compile-fail swizzle4_fail3.cpp ;
+compile-fail swizzle4_fail4.cpp ;
+run swizzle4_test.cpp ;
+
+compile deduce_scalar_test.cpp ;
+compile-fail deduce_scalar_fail1.cpp ;
+compile-fail deduce_scalar_fail2.cpp ;
+compile-fail deduce_scalar_fail3.cpp ;
+
+compile deduce_matrix_test.cpp ;
+compile deduce_vector_test.cpp ;
+
+run interop_test.cpp ;
+
+run transform_test.cpp ;
+
+run projection_test.cpp ;
+
+compile s_traits_test.cpp ;
