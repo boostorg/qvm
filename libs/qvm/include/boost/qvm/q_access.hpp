@@ -92,7 +92,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             qvm_detail::quat_v_<Q> const &>::type
-        operator%( Q const & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
+        operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> const &>(a);
             }
@@ -102,7 +102,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             qvm_detail::quat_v_<Q> &>::type
-        operator%( Q & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
+        operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> &>(a);
             }
@@ -112,7 +112,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             qvm_detail::quat_v_<Q> const &>::type
-        operator%( Q const & a, quaternion_access_tag<qvm_detail::_v_> )
+        operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> const &>(a);
             }
@@ -122,7 +122,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             qvm_detail::quat_v_<Q> &>::type
-        operator%( Q & a, quaternion_access_tag<qvm_detail::_v_> )
+        operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> &>(a);
             }
@@ -132,7 +132,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type>::type
-        operator%( Q const & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
+        operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
             return q_traits<Q>::template r<0>(a);
             }
@@ -142,7 +142,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type &>::type
-        operator%( Q & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
+        operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
             return q_traits<Q>::template w<0>(a);
             }
@@ -152,7 +152,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type>::type
-        operator%( Q const & a, quaternion_access_tag<qvm_detail::_s_> )
+        operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> )
             {
             return q_traits<Q>::template r<0>(a);
             }
@@ -162,7 +162,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type &>::type
-        operator%( Q & a, quaternion_access_tag<qvm_detail::_s_> )
+        operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> )
             {
             return q_traits<Q>::template w<0>(a);
             }
@@ -172,7 +172,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type>::type
-        operator%( Q const & a, vector_access_tag<I> (*)() )
+        operator,( Q const & a, vector_access_tag<I> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
@@ -184,7 +184,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type &>::type
-        operator%( Q & a, vector_access_tag<I> (*)() )
+        operator,( Q & a, vector_access_tag<I> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
@@ -196,7 +196,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type>::type
-        operator%( Q const & a, vector_access_tag<I> )
+        operator,( Q const & a, vector_access_tag<I> )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
@@ -208,7 +208,7 @@ boost
         typename enable_if_c<
             is_q<Q>::value,
             typename q_traits<Q>::scalar_type &>::type
-        operator%( Q & a, vector_access_tag<I> )
+        operator,( Q & a, vector_access_tag<I> )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
@@ -223,7 +223,7 @@ boost
         namespace
         sfinae
             {
-            using ::boost::qvm::operator%;
+            using ::boost::qvm::operator,;
             }
 
         ////////////////////////////////////////////////

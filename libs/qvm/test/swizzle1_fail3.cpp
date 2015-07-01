@@ -30,6 +30,6 @@ int
 main()
     {
     using namespace boost::qvm;
-    my_vec<2>()%Z;
+    my_vec<2>(),Z;
     return 1;
     }

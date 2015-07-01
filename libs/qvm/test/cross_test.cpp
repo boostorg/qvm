@@ -27,15 +27,15 @@ main()
     test_qvm::vector<V1,3> x(42,1);
     test_qvm::vector<V1,3> y=x*2;
     test_qvm::matrix<M1,3,3> m;
-    m%A00 = 0;
-    m%A01 = -(x%A2);
-    m%A02 = x%A1;
-    m%A10 = x%A2;
-    m%A11 = 0;
-    m%A12 = -(x%A0);
-    m%A20 = -(x%A1);
-    m%A21 = x%A0;
-    m%A22 = 0;
+    (m,A00) = 0;
+    (m,A01) = -(x,A2);
+    (m,A02) = (x,A1);
+    (m,A10) = (x,A2);
+    (m,A11) = 0;
+    (m,A12) = -(x,A0);
+    (m,A20) = -(x,A1);
+    (m,A21) = (x,A0);
+    (m,A22) = 0;
         {
         test_same_type(x,cross(x,y));
         test_qvm::vector<V1,3> c=cross(x,y);

@@ -27,7 +27,7 @@ boost
         template <class M,int R,int C>
         BOOST_QVM_INLINE_TRIVIAL
         typename m_traits<M>::scalar_type &
-        operator%( M & a, matrix_access_tag<R,C> (*)() )
+        operator,( M & a, matrix_access_tag<R,C> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(R>=0);
             BOOST_QVM_STATIC_ASSERT(R<m_traits<M>::rows);
@@ -39,7 +39,7 @@ boost
         template <class M,int R,int C>
         BOOST_QVM_INLINE_TRIVIAL
         typename m_traits<M>::scalar_type
-        operator%( M const & a, matrix_access_tag<R,C> (*)() )
+        operator,( M const & a, matrix_access_tag<R,C> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(R>=0);
             BOOST_QVM_STATIC_ASSERT(R<m_traits<M>::rows);
@@ -51,7 +51,7 @@ boost
         template <class M,int R,int C>
         BOOST_QVM_INLINE_TRIVIAL
         typename m_traits<M>::scalar_type &
-        operator%( M & a, matrix_access_tag<R,C> )
+        operator,( M & a, matrix_access_tag<R,C> )
             {
             BOOST_QVM_STATIC_ASSERT(R>=0);
             BOOST_QVM_STATIC_ASSERT(R<m_traits<M>::rows);
@@ -63,7 +63,7 @@ boost
         template <class M,int R,int C>
         BOOST_QVM_INLINE_TRIVIAL
         typename m_traits<M>::scalar_type
-        operator%( M const & a, matrix_access_tag<R,C> )
+        operator,( M const & a, matrix_access_tag<R,C> )
             {
             BOOST_QVM_STATIC_ASSERT(R>=0);
             BOOST_QVM_STATIC_ASSERT(R<m_traits<M>::rows);
@@ -188,7 +188,7 @@ boost
         namespace
         sfinae
             {
-            using ::boost::qvm::operator%;
+            using ::boost::qvm::operator,;
             }
 
         ////////////////////////////////////////////////

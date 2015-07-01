@@ -239,7 +239,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>::type
-        operator%( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> )
+        operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> )
             {
             return reinterpret_cast<qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>(a);
             }
@@ -249,7 +249,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>::type
-        operator%( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> )
+        operator,( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> )
             {
             return reinterpret_cast<qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>(a);
             }
@@ -259,7 +259,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             typename v_traits<OriginalVector>::scalar_type>::type
-        operator%( OriginalVector const & a, qvm_detail::swizzle_idx<A> )
+        operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
@@ -271,7 +271,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             typename v_traits<OriginalVector>::scalar_type &>::type
-        operator%( OriginalVector & a, qvm_detail::swizzle_idx<A> )
+        operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
@@ -283,7 +283,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>::type
-        operator%( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> (*)() )
+        operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> (*)() )
             {
             return reinterpret_cast<qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>(a);
             }
@@ -293,7 +293,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>::type
-        operator%( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> (*)() )
+        operator,( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> (*)() )
             {
             return reinterpret_cast<qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>(a);
             }
@@ -303,7 +303,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             typename v_traits<OriginalVector>::scalar_type>::type
-        operator%( OriginalVector const & a, qvm_detail::swizzle_idx<A> (*)() )
+        operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
@@ -315,7 +315,7 @@ boost
         typename enable_if_c<
             is_v<OriginalVector>::value,
             typename v_traits<OriginalVector>::scalar_type &>::type
-        operator%( OriginalVector & a, qvm_detail::swizzle_idx<A> (*)() )
+        operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);

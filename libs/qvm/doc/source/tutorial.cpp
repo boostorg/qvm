@@ -90,9 +90,9 @@ f()
     {
         {
         float3 v;
-        v%X = 0;
-        v%Y = 0;
-        v%Z = 7;
+        (v,X) = 0;
+        (v,Y) = 0;
+        (v,Z) = 7;
         float vmag = mag(v);
         float33 m = rotx_m<3>(3.14159f);
         float3 vrot = m * v;
@@ -110,18 +110,18 @@ f()
 
         {
         float3 v = {0,0,7};
-        v%YXZ = rotx_m<3>(3.14159f) * v;
+        (v,YXZ) = rotx_m<3>(3.14159f) * v;
         }
 
         {
         float3 v = {0,0,7};
-        float4 point = v%XYZ1; //{0,0,7,1}
-        float4 vector = v%XYZ0; //{0,0,7,0}
+        float4 point = (v,XYZ1); //{0,0,7,1}
+        float4 vector = (v,XYZ0); //{0,0,7,0}
         }
 
         {
         float3 v = {0,0,7};
-        float4 v1 = v%ZZZZ; //{7,7,7,7}
+        float4 v1 = (v,ZZZZ); //{7,7,7,7}
         }
 
         {
@@ -131,8 +131,8 @@ f()
 
         {
         float3 v1, v2;
-        v1 = v2%sw<1,0,2>(); //swaps elements with index 0 and 1
-        v1 = v2%sw<_y_,_x_,_z_>(); //same as v2%YXZ;
+        v1 = (v2,sw<1,0,2>()); //swaps elements with index 0 and 1
+        v1 = (v2,sw<_y_,_x_,_z_>()); //same as (v2,YXZ);
         }
     }
 

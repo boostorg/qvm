@@ -19,37 +19,37 @@ main()
     q.a[3]=45.0f;
     test_qvm::quaternion<Q1> const & qq=q;
 
-    BOOST_TEST_EQ(qq%V%X,q.a[1]);
-    BOOST_TEST_EQ(qq%V%Y,q.a[2]);
-    BOOST_TEST_EQ(qq%V%Z,q.a[3]);
-    BOOST_TEST(&(q%V%X)==&q.a[1]);
-    BOOST_TEST(&(q%V%Y)==&q.a[2]);
-    BOOST_TEST(&(q%V%Z)==&q.a[3]);
+    BOOST_TEST_EQ((qq,V,X),q.a[1]);
+    BOOST_TEST_EQ((qq,V,Y),q.a[2]);
+    BOOST_TEST_EQ((qq,V,Z),q.a[3]);
+    BOOST_TEST(&(q,V,X)==&q.a[1]);
+    BOOST_TEST(&(q,V,Y)==&q.a[2]);
+    BOOST_TEST(&(q,V,Z)==&q.a[3]);
 
-    BOOST_TEST_EQ(qq%V()%X,q.a[1]);
-    BOOST_TEST_EQ(qq%V()%Y,q.a[2]);
-    BOOST_TEST_EQ(qq%V()%Z,q.a[3]);
-    BOOST_TEST(&(q%V()%X)==&q.a[1]);
-    BOOST_TEST(&(q%V()%Y)==&q.a[2]);
-    BOOST_TEST(&(q%V()%Z)==&q.a[3]);
+    BOOST_TEST_EQ((qq,V(),X),q.a[1]);
+    BOOST_TEST_EQ((qq,V(),Y),q.a[2]);
+    BOOST_TEST_EQ((qq,V(),Z),q.a[3]);
+    BOOST_TEST(&(q,V(),X)==&q.a[1]);
+    BOOST_TEST(&(q,V(),Y)==&q.a[2]);
+    BOOST_TEST(&(q,V(),Z)==&q.a[3]);
 
-    BOOST_TEST_EQ(qq%S,q.a[0]);
-    BOOST_TEST_EQ(qq%X,q.a[1]);
-    BOOST_TEST_EQ(qq%Y,q.a[2]);
-    BOOST_TEST_EQ(qq%Z,q.a[3]);
-    BOOST_TEST(&(q%S)==&q.a[0]);
-    BOOST_TEST(&(q%X)==&q.a[1]);
-    BOOST_TEST(&(q%Y)==&q.a[2]);
-    BOOST_TEST(&(q%Z)==&q.a[3]);
+    BOOST_TEST_EQ((qq,S),q.a[0]);
+    BOOST_TEST_EQ((qq,X),q.a[1]);
+    BOOST_TEST_EQ((qq,Y),q.a[2]);
+    BOOST_TEST_EQ((qq,Z),q.a[3]);
+    BOOST_TEST(&(q,S)==&q.a[0]);
+    BOOST_TEST(&(q,X)==&q.a[1]);
+    BOOST_TEST(&(q,Y)==&q.a[2]);
+    BOOST_TEST(&(q,Z)==&q.a[3]);
 
-    BOOST_TEST_EQ(qq%S(),q.a[0]);
-    BOOST_TEST_EQ(qq%X(),q.a[1]);
-    BOOST_TEST_EQ(qq%Y(),q.a[2]);
-    BOOST_TEST_EQ(qq%Z(),q.a[3]);
-    BOOST_TEST(&(q%S())==&q.a[0]);
-    BOOST_TEST(&(q%X())==&q.a[1]);
-    BOOST_TEST(&(q%Y())==&q.a[2]);
-    BOOST_TEST(&(q%Z())==&q.a[3]);
+    BOOST_TEST_EQ((qq,S()),q.a[0]);
+    BOOST_TEST_EQ((qq,X()),q.a[1]);
+    BOOST_TEST_EQ((qq,Y()),q.a[2]);
+    BOOST_TEST_EQ((qq,Z()),q.a[3]);
+    BOOST_TEST(&(q,S())==&q.a[0]);
+    BOOST_TEST(&(q,X())==&q.a[1]);
+    BOOST_TEST(&(q,Y())==&q.a[2]);
+    BOOST_TEST(&(q,Z())==&q.a[3]);
 
     return boost::report_errors();
     }

@@ -30,7 +30,7 @@ boost
         typename enable_if_c<
             is_v<V>::value,
             typename v_traits<V>::scalar_type &>::type
-        operator%( V & a, vector_access_tag<I> (*)() )
+        operator,( V & a, vector_access_tag<I> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<v_traits<V>::dim);
@@ -42,7 +42,7 @@ boost
         typename enable_if_c<
             is_v<V>::value,
             typename v_traits<V>::scalar_type>::type
-        operator%( V const & a, vector_access_tag<I> (*)() )
+        operator,( V const & a, vector_access_tag<I> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<v_traits<V>::dim);
@@ -54,7 +54,7 @@ boost
         typename enable_if_c<
             is_v<V>::value,
             typename v_traits<V>::scalar_type &>::type
-        operator%( V & a, vector_access_tag<I> )
+        operator,( V & a, vector_access_tag<I> )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<v_traits<V>::dim);
@@ -66,7 +66,7 @@ boost
         typename enable_if_c<
             is_v<V>::value,
             typename v_traits<V>::scalar_type>::type
-        operator%( V const & a, vector_access_tag<I> )
+        operator,( V const & a, vector_access_tag<I> )
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<v_traits<V>::dim);
@@ -102,7 +102,7 @@ boost
         namespace
         sfinae
             {
-            using ::boost::qvm::operator%;
+            using ::boost::qvm::operator,;
             }
 
         ////////////////////////////////////////////////

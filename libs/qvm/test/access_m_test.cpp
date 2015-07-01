@@ -32,24 +32,24 @@ main()
     m.a[0][1]=43.0f;
     m.a[1][0]=44.0f;
     m.a[1][1]=45.0f;
-    BOOST_TEST_EQ(m%A00,m.a[0][0]);
-    BOOST_TEST_EQ(m%A01,m.a[0][1]);
-    BOOST_TEST_EQ(m%A10,m.a[1][0]);
-    BOOST_TEST_EQ(m%A11,m.a[1][1]);
+    BOOST_TEST_EQ((m,A00),m.a[0][0]);
+    BOOST_TEST_EQ((m,A01),m.a[0][1]);
+    BOOST_TEST_EQ((m,A10),m.a[1][0]);
+    BOOST_TEST_EQ((m,A11),m.a[1][1]);
     test_qvm::matrix<M1,2,2> m1=m;
-    m%A00 *= 2;
+    (m,A00) *= 2;
     BOOST_TEST_EQ(m.a[0][0],m1.a[0][0]*2);
-    m%A01 *= 2;
+    (m,A01) *= 2;
     BOOST_TEST_EQ(m.a[0][1],m1.a[0][1]*2);
-    m%A10 *= 2;
+    (m,A10) *= 2;
     BOOST_TEST_EQ(m.a[1][0],m1.a[1][0]*2);
-    m%A11 *= 2;
+    (m,A11) *= 2;
     BOOST_TEST_EQ(m.a[1][1],m1.a[1][1]*2);
 
-    check_type<float>(m%A00);
-    check_type<float>(static_cast<test_qvm::matrix<M1,2,2> const &>(m)%A00);
-    check_type<float>(m%A00());
-    check_type<float>(static_cast<test_qvm::matrix<M1,2,2> const &>(m)%A00());
+    check_type<float>((m,A00));
+    check_type<float>((const_cast<test_qvm::matrix<M1,2,2> const &>(m),A00));
+    check_type<float>((m,A00()));
+    check_type<float>((const_cast<test_qvm::matrix<M1,2,2> const &>(m),A00()));
 
 #define CHECK_A(i,j) check_idx<i,j>(A##i##j); check_idx<i,j>(A<i,j>)
     CHECK_A(0,0);

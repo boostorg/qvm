@@ -32,24 +32,24 @@ main()
     v.a[1]=43.0f;
     v.a[2]=44.0f;
     v.a[3]=45.0f;
-    BOOST_TEST_EQ(v%X,v.a[0]);
-    BOOST_TEST_EQ(v%Y,v.a[1]);
-    BOOST_TEST_EQ(v%Z,v.a[2]);
-    BOOST_TEST_EQ(v%W,v.a[3]);
+    BOOST_TEST_EQ((v,X),v.a[0]);
+    BOOST_TEST_EQ((v,Y),v.a[1]);
+    BOOST_TEST_EQ((v,Z),v.a[2]);
+    BOOST_TEST_EQ((v,W),v.a[3]);
     test_qvm::vector<V1,4> v1=v;
-    v%X *= 2;
+    (v,X) *= 2;
     BOOST_TEST_EQ(v.a[0],v1.a[0]*2);
-    v%Y *= 2;
+    (v,Y) *= 2;
     BOOST_TEST_EQ(v.a[1],v1.a[1]*2);
-    v%Z *= 2;
+    (v,Z) *= 2;
     BOOST_TEST_EQ(v.a[2],v1.a[2]*2);
-    v%W *= 2;
+    (v,W) *= 2;
     BOOST_TEST_EQ(v.a[3],v1.a[3]*2);
 
-    check_type<float>(v%X);
-    check_type<float>(static_cast<test_qvm::vector<V1,4> const &>(v)%X);
-    check_type<float>(v%X());
-    check_type<float>(static_cast<test_qvm::vector<V1,4> const &>(v)%X());
+    check_type<float>((v,X));
+    check_type<float>((const_cast<test_qvm::vector<V1,4> const &>(v),X));
+    check_type<float>((v,X()));
+    check_type<float>((const_cast<test_qvm::vector<V1,4> const &>(v),X()));
 
     check_idx<0>(X);
     check_idx<1>(Y);
