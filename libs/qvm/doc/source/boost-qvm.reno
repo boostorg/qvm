@@ -87,18 +87,18 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>3</size>
-																		<strong>E0CF5A27697146D710ACF0D31A205CB314E1B4EAFA0B80122C986CE7E090F83D</strong>
-																		<weak>2514710596</weak>
+																		<strong>747D80DA2191F02E0C645BB4070E53A0445105BA7C7ED567E30CE9EA72D6F34D</strong>
+																		<weak>2241097831</weak>
 																		<size>12594</size>
 																		<position>431</position>
-																		<strong>ECDD083B9E32F4D30A8C526E4C4A8DF36CB3C23C170B6E442992B6B5660E8C7E</strong>
-																		<weak>3326634012</weak>
+																		<strong>115A5B59392A921BAFAB68B27C361912A6EFE759C73B927E372C5E6215A199F6</strong>
+																		<weak>3036964927</weak>
 																		<size>12562</size>
 																		<position>26</position>
-																		<strong>6F174277B7975591AA7B24749DEE825A5DAE89E886A695E203BFF7991E28FCC7</strong>
-																		<weak>2683395783</weak>
-																		<size>12516</size>
-																		<position>36</position>
+																		<strong>32F3C821636A757C804BD0F8081BA9F2570B9137CEE51B8F92CAAE8AF40CC573</strong>
+																		<weak>153757659</weak>
+																		<size>12225</size>
+																		<position>96</position>
 																	</stream_hook_path>
 																</hook>
 																<file>
@@ -2535,16 +2535,16 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>3</size>
-																		<strong>67A9B0437F75ADF9DD9D59E70CCD05ED802D26AB36D07E931077EA03E64BB62C</strong>
-																		<weak>2175723849</weak>
+																		<strong>6FDBDD5E422D8F41C74048669A29B8E813C06CB22F27B07788D540FD6E7931D7</strong>
+																		<weak>243394980</weak>
 																		<size>6845</size>
 																		<position>469</position>
-																		<strong>0F3BA147409B6F77E711BD9FA8FF0480D7F1D2CD45F6E953489D7DBC079FC93E</strong>
-																		<weak>1460986145</weak>
+																		<strong>CAF866983CB7A1F856B18189AD993A5E906490042D2F9B14967899FD45A4EAD9</strong>
+																		<weak>3781878140</weak>
 																		<size>6813</size>
 																		<position>26</position>
-																		<strong>FE994ED5DE87D79C99D9E2723CFAEFBA6747BD283E4AC27C9C9B9F944D4863B1</strong>
-																		<weak>3887702212</weak>
+																		<strong>275CD38ECBB78B0C7AD40DB6BE4F05B95E62C662EED7E9C8448B56CA5EF2B869</strong>
+																		<weak>540123416</weak>
 																		<size>6476</size>
 																		<position>96</position>
 																	</stream_hook_path>
@@ -4277,16 +4277,16 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>3</size>
-																		<strong>249FE5A415A689FD52DDBC999A7F660267D16C60039DE8136949DE196537600C</strong>
-																		<weak>2578835264</weak>
+																		<strong>7C6EE49C3730508C651701BDB5407DC9C140E9C02A35EB9DB4D277CBE02A2531</strong>
+																		<weak>3126912867</weak>
 																		<size>3674</size>
 																		<position>469</position>
-																		<strong>AABB017DEBD45FFA3CD024072C92503490F7D547A5CF958D2E4FD64DF7893C39</strong>
-																		<weak>706141976</weak>
+																		<strong>6B46350DC487B255099A82CE32FA5D4A21232DF6CC8A805C7A25313FA145310A</strong>
+																		<weak>1238163259</weak>
 																		<size>3642</size>
 																		<position>26</position>
-																		<strong>FDF5B3FE00B708BE7FE4316068BB16947235A51846C5347091E37B2BE55946B7</strong>
-																		<weak>2015010491</weak>
+																		<strong>0ADA6A6EE37898C005A83BE82109CF760905D5372F3CC6EB820ACBDB33F5F024</strong>
+																		<weak>2061672151</weak>
 																		<size>3305</size>
 																		<position>96</position>
 																	</stream_hook_path>
@@ -6047,7 +6047,7 @@
 																</file>
 															</hook>
 															<title>
-																<string>%</string>
+																<string>,</string>
 															</title>
 															<file_name>
 																<string>operator_mod_rationale</string>
@@ -6264,8 +6264,8 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>1</size>
-																		<strong>02F63F86644EEE003128D66F59366284AE08C64EF5D41EC9E42755DA974CD7E0</strong>
-																		<weak>845749360</weak>
+																		<strong>6D9D1579C7D7D8C21CB61397121CA03F4C6EFC75A5B00C2B88E952880961EA83</strong>
+																		<weak>3208387787</weak>
 																		<size>6991</size>
 																		<position>323</position>
 																	</stream_hook_path>
@@ -11465,8 +11465,8 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>1</size>
-																		<strong>444C07A8C756634F459D49E33D3EFA936664EAD85AB2FA603875C87A7D857BC9</strong>
-																		<weak>2072876747</weak>
+																		<strong>4CBDC0FF19910706F5DA26A48B04CF7552ECE6C39F20E9B09AC9211410EC5567</strong>
+																		<weak>1799263982</weak>
 																		<size>12704</size>
 																		<position>321</position>
 																	</stream_hook_path>
@@ -11506,8 +11506,8 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>1</size>
-																		<strong>DC0808DAD7A0E74F4915862FF8AFFFFBE3F5CD3D7FE74081B921EB4AE82713C3</strong>
-																		<weak>4285471340</weak>
+																		<strong>BC7719454D1E08C5A7241A10CE504399591968BA7E7B397804120F712CD6CE07</strong>
+																		<weak>538581647</weak>
 																		<size>3820</size>
 																		<position>323</position>
 																	</stream_hook_path>
@@ -30835,9 +30835,9 @@
 														<id>-6</id>
 													</shared_ptr>
 												</weak_ptr>
-												<size>9</size>
+												<size>11</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form of &apos;&apos;m(:link </string>
+												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form &apos;&apos;(m(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -30855,16 +30855,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|A:)&lt;R,C&gt;&apos;&apos; can be used to access the element at row &apos;&apos;R&apos;&apos; and column &apos;&apos;C&apos;&apos; of a matrix object &apos;&apos;m&apos;&apos;. For example, the expression:&#10;&#10;[@(:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-6</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string>|A:)&lt;4,2&gt;(m) *= 42;@]&#10;&#10;can be used to multiply the element at row 4 and column 2 of a matrix &apos;&apos;m&apos;&apos; by 2.&#10;&#10;For convenience, there are also non-template overloads for &apos;&apos;R&apos;&apos; from 0 to 9 and &apos;&apos;C&apos;&apos; from 0 to 9; an alternative way to write the above expression is:&#10;&#10;[@m(:link </string>
+												<string>|A:)&lt;R,C&gt;)&apos;&apos; can be used to access the element at row &apos;&apos;R&apos;&apos; and column &apos;&apos;C&apos;&apos; of a matrix object &apos;&apos;m&apos;&apos;. For example, the expression:&#10;&#10;[@(m(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -30873,7 +30864,25 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)A42 *= 42;@]&#10;</string>
+												<string>:)(:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-6</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>|A:)&lt;4,2&gt;) *= 42;@]&#10;&#10;can be used to multiply the element at row 4 and column 2 of a matrix &apos;&apos;m&apos;&apos; by 2.&#10;&#10;For convenience, there are also non-template overloads for &apos;&apos;R&apos;&apos; from 0 to 9 and &apos;&apos;C&apos;&apos; from 0 to 9; an alternative way to write the above expression is:&#10;&#10;[@(m(:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-137</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>:)A42) *= 42;@]&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -31757,9 +31766,9 @@
 														<id>-26</id>
 													</shared_ptr>
 												</weak_ptr>
-												<size>43</size>
+												<size>49</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;Boost QVM allows </string>
+												<string>(:auto !!!:)&#10;&#10;Boost QVM allows (:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31768,7 +31777,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>, exposing vector views of different dimensions, and/or views with reordered elements. The example below rotates &apos;&apos;v&apos;&apos; around the X axis, and stores the resulting vector back in &apos;&apos;v&apos;&apos; but with the X and Y elements swapped:&#10;&#10;[@float3 v = {0,0,7};&#10;v(:link </string>
+												<string>:), exposing vector views of different dimensions, and/or views with reordered elements. The example below rotates &apos;&apos;v&apos;&apos; around the X axis, and stores the resulting vector back in &apos;&apos;v&apos;&apos; but with the X and Y elements swapped:&#10;&#10;[@float3 v = {0,0,7};&#10;(v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31786,7 +31795,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|YXZ:) = (:link </string>
+												<string>|YXZ:)) = (:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31804,7 +31813,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|*:) v;@]&#10;&#10;A special case of swizzling provides next-dimension-view to a vector object, adding either 0 or 1 as its last component. Assuming &apos;&apos;float3&apos;&apos; is a 3D vector type, and &apos;&apos;float4&apos;&apos; is a 4D vector type, the following statements are valid:&#10;&#10;[@float3 v = {0,0,7};&#10;float4 point = v(:link </string>
+												<string>|*:) v;@]&#10;&#10;A special case of swizzling provides next-dimension-view to a vector object, adding either 0 or 1 as its last component. Assuming &apos;&apos;float3&apos;&apos; is a 3D vector type, and &apos;&apos;float4&apos;&apos; is a 4D vector type, the following statements are valid:&#10;&#10;[@float3 v = {0,0,7};&#10;float4 point = (v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31822,7 +31831,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|XYZ1:); //{0,0,7,1}&#10;float4 vector = v(:link </string>
+												<string>|XYZ1:)); //{0,0,7,1}&#10;float4 vector = (v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31840,7 +31849,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|XYZ0:); //{0,0,7,0}@]&#10;&#10;It is also valid for swizzling to address vector elements more than once:&#10;&#10;[@float3 v = {0,0,7};&#10;float4 v1 = v(:link </string>
+												<string>|XYZ0:)); //{0,0,7,0}@]&#10;&#10;It is also valid for swizzling to address vector elements more than once:&#10;&#10;[@float3 v = {0,0,7};&#10;float4 v1 = (v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31858,7 +31867,16 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|ZZZZ:); //{7,7,7,7}@]&#10;&#10;More generic swizzling is supported by the &apos;&apos;(:link </string>
+												<string>|ZZZZ:)); //{7,7,7,7}@]&#10;&#10;&apos;&apos;(:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-72</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>:)&apos;&apos; defines all permutations of &apos;&apos;X&apos;&apos;, &apos;&apos;Y&apos;&apos;, &apos;&apos;Z&apos;&apos;, &apos;&apos;W&apos;&apos; for 1D, 2D, 3D and 4D swizzling, plus each dimension defines variants with &apos;&apos;0&apos;&apos; or &apos;&apos;1&apos;&apos; used as the last component (e.g. &apos;&apos;YZ1&apos;&apos;). More generic swizzling is supported by the &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31867,7 +31885,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos; function template. It provides overloads that can be instantiated either by a list of vector element indexes or by a list of vector element names, for example:&#10;&#10;[@float3 v1, v2;&#10;v1 = v2(:link </string>
+												<string>:)&apos;&apos; function template. It provides overloads that can be instantiated either by a list of vector element indexes or by a list of vector element names, for example:&#10;&#10;[@float3 v1, v2;&#10;v1 = (v2(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31885,7 +31903,25 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&lt;1,0,2&gt;; //swaps elements with index 0 and 1&#10;v1 = v2(:link </string>
+												<string>:)&lt;1,0,2&gt;); //same as (v2(:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-137</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>:)(:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-224</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>|YXZ:));&#10;v1 = (v2(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31930,7 +31966,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|_z_:)&gt;; //same as v2(:link </string>
+												<string>|_z_:)&gt;); //same as (v2(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -31948,7 +31984,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|YXZ:);@]&#10;</string>
+												<string>|YXZ:));@]&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -33083,7 +33119,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos;n definitions of functions that are critical for the overall performance of the library, such as functions that access individual vector and matrix elements.&#10;</string>
+												<string>:)&apos;&apos; in definitions of functions that are critical for the overall performance of the library, such as functions that access individual vector and matrix elements.&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -33094,7 +33130,7 @@
 												</weak_ptr>
 												<size>13</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form of &apos;&apos;q(:link </string>
+												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form &apos;&apos;(q(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33103,7 +33139,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)V&apos;&apos; can be used to access the vector component of the quaternion &apos;&apos;q&apos;&apos;. For example,&#10;&#10;[@q(:link </string>
+												<string>:)V)&apos;&apos; can be used to access the vector component of the quaternion &apos;&apos;q&apos;&apos;. For example,&#10;&#10;[@(q(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33112,7 +33148,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)V (:link </string>
+												<string>:)V) (:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33121,7 +33157,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|*=:) 42@]&#10;&#10; can be used to multiply the vector component of &apos;&apos;q&apos;&apos; by the scalar 42.&#10;&#10;An expression of the form of &apos;&apos;q(:link </string>
+												<string>|*=:) 42@]&#10;&#10;can be used to multiply the vector component of &apos;&apos;q&apos;&apos; by the scalar 42.&#10;&#10;An expression of the form &apos;&apos;(q(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33130,7 +33166,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)S&apos;&apos; can be used to access the scalar component of the quaternion &apos;&apos;q&apos;&apos;. For example,&#10;&#10;[@q(:link </string>
+												<string>:)S)&apos;&apos; can be used to access the scalar component of the quaternion &apos;&apos;q&apos;&apos;. For example,&#10;&#10;[@(q(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33139,7 +33175,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)S (:link </string>
+												<string>:)S) (:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33197,7 +33233,7 @@
 														<id>-62</id>
 													</shared_ptr>
 												</weak_ptr>
-												<size>33</size>
+												<size>35</size>
 												<variant>2</variant>
 												<string>(:auto !!!:)&#10;&#10;!!!Capturing view proxies with &apos;&apos;auto&apos;&apos;&#10;&#10;By design (:link </string>
 												<variant>1</variant>
@@ -33307,7 +33343,16 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string> mod=&quot;(&quot;:); }@]&#10;&#10;!!!Link errors when calling math functions with &apos;&apos;int&apos;&apos; arguments&#10;&#10;Boost QVM does not call standard math functions (e.g. &apos;&apos;sin&apos;&apos;, &apos;&apos;cos&apos;&apos;, etc.) directly. Instead, it calls function templates declared in &apos;&apos;(:link </string>
+												<string> mod=&quot;(&quot;:); }@]&#10;&#10;!!!Link errors when calling math functions with &apos;&apos;int&apos;&apos; arguments&#10;&#10;&apos;&apos;</string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-72</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>&apos;&apos; does not call standard math functions (e.g. &apos;&apos;sin&apos;&apos;, &apos;&apos;cos&apos;&apos;, etc.) directly. Instead, it calls function templates declared in &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -34155,7 +34200,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|Rationale for overloading operator%:)&#10;#(:link </string>
+												<string>|Rationale for overloading operator,:)&#10;#(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -34981,7 +35026,7 @@
 												</weak_ptr>
 												<size>13</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form of &apos;&apos;v(:link </string>
+												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;An expression of the form of &apos;&apos;(v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -34999,7 +35044,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|A:)&lt;I&gt;&apos;&apos; can be used to access the &apos;&apos;I&apos;&apos;-th element a vector object &apos;&apos;v&apos;&apos;. For example, the expression:&#10;&#10;[@v(:link </string>
+												<string>|A:)&lt;I&gt;)&apos;&apos; can be used to access the &apos;&apos;I&apos;&apos;-th element a vector object &apos;&apos;v&apos;&apos;. For example, the expression:&#10;&#10;[@(v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -35017,7 +35062,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|A:)&lt;1&gt; *= 42;@]&#10;&#10;can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector &apos;&apos;v&apos;&apos; by 2.&#10;&#10;For convenience, there are also non-template overloads for &apos;&apos;I&apos;&apos; from 0 to 9; an alternative way to write the above expression is:&#10;&#10;[@v(:link </string>
+												<string>|A:)&lt;1&gt;) *= 42;@]&#10;&#10;can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector &apos;&apos;v&apos;&apos; by 2.&#10;&#10;For convenience, there are also non-template overloads for &apos;&apos;I&apos;&apos; from 0 to 9; an alternative way to write the above expression is:&#10;&#10;[@(v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -35026,7 +35071,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)A1 *= 42;@]&#10;&#10;&apos;&apos;X&apos;&apos;, &apos;&apos;Y&apos;&apos;, &apos;&apos;Z&apos;&apos; and &apos;&apos;W&apos;&apos; act the same as &apos;&apos;A0&apos;&apos;/&apos;&apos;A1&apos;&apos;/&apos;&apos;A2&apos;&apos;/&apos;&apos;A3&apos;&apos;; yet another alternative way to write the above expression is:&#10;&#10;[@v(:link </string>
+												<string>:)A1) *= 42;@]&#10;&#10;&apos;&apos;X&apos;&apos;, &apos;&apos;Y&apos;&apos;, &apos;&apos;Z&apos;&apos; and &apos;&apos;W&apos;&apos; act the same as &apos;&apos;A0&apos;&apos;/&apos;&apos;A1&apos;&apos;/&apos;&apos;A2&apos;&apos;/&apos;&apos;A3&apos;&apos;; yet another alternative way to write the above expression is:&#10;&#10;[@(v(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -35035,7 +35080,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)Y *= 42;@]&#10;</string>
+												<string>:)Y) *= 42;@]&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -35542,7 +35587,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos;, Boost QVM declares such overloads in a way that they retain their generic signature but only appear (in overload resolutions) if the passed parameters make sense depending on the semantics of the operation being defined:&#10;&#10;[@template &lt;class A,class B&gt;&#10;typename (:link </string>
+												<string>:)&apos;&apos;, Boost QVM declares such overloads in a way that they retain their generic signature but only participate (in overload resolutions) if the passed parameters make sense depending on the semantics of the operation being defined:&#10;&#10;[@template &lt;class A,class B&gt;&#10;typename (:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -36092,7 +36137,7 @@
 														<id>-137</id>
 													</shared_ptr>
 												</weak_ptr>
-												<size>9</size>
+												<size>11</size>
 												<variant>2</variant>
 												<string>!!!Rationale for overloading operator (:link </string>
 												<variant>1</variant>
@@ -36103,34 +36148,43 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&#10;&#10;Many libraries that are similar to Boost QVM provide access to the elements of quaternion, vector and matrix objects by overloading &apos;&apos;operator[]&apos;&apos; or &apos;&apos;operator()&apos;&apos; of the quaternion/vector/matrix types they define. For example, for a 3D vector object &apos;&apos;v&apos;&apos;, one would use &apos;&apos;v[0]&apos;&apos;, &apos;&apos;v[1]&apos;&apos; and &apos;&apos;v[2]&apos;&apos; to access the X, Y and Z element of &apos;&apos;v&apos;&apos;.&#10;&#10;Boost QVM is designed to work with user-defined quaternion, vector and matrix types. It provides namespace-scope function and operator overloads that kick-in for objects of any compatible type. Unfortunately, it is not possible to use the same technique to provide generic &apos;&apos;operator[]&apos;&apos; or &apos;&apos;operator()&apos;&apos; overloads, because they are required to be member functions.&#10;&#10;While the user-defined types themselves can provide those overloads, a generic function (which is presumably supposed to work with &apos;&apos;any&apos;&apos; quaternion/vector/matrix object) can not rely on such overloads being available. Moreover, Boost QVM itself generates many quaternion, vector and matrix types; defining member operator overloads for each of these types would be tedious, and very difficult to test.&#10;&#10;A (non-operator) function overload would work, however a notation like&#10;&#10;[@el(v,X) *= 42; //use X as an lvalue.&#10;el(v1,YXZ) = v2; //use v1 as a swizzled lvalue and copy v2&apos;s elements in it.@]&#10;&#10;is uglier than&#10;&#10;[@v(:link </string>
+												<string>:) (comma)&#10;&#10;&apos;&apos;</string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
-														<id>-137</id>
+														<id>-72</id>
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)X *= 42;&#10;v1(:link </string>
+												<string>&apos;&apos; overloads &apos;&apos;operator,&apos;&apos; to implement &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
-														<id>-137</id>
+														<id>-26</id>
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)YXZ = v2;@]&#10;&#10;&apos;&apos;Operator(:link </string>
+												<string>|swizzling:)&apos;&apos;. Suppose we have a 3D vector &apos;&apos;v3&apos;&apos; and a 2D vector &apos;&apos;v2&apos;&apos;. Obviously, if we wanted to multiply &apos;&apos;v3&apos;&apos; by a scalar, we&apos;d use:&#10;&#10;[@v3 *= 42;@]&#10;&#10;By overloading &apos;&apos;operator,&apos;&apos; &apos;&apos;</string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
-														<id>-137</id>
+														<id>-72</id>
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos; was chosen over other suitable binary operators because of its relatively high precedence.&#10;</string>
+												<string>&apos;&apos; makes the following expressions legal as well:&#10;&#10;[@(v3,Y) *= 42; //Multiply only the Y component of v3 by 42.&#10;(v3,YZ) *= 42; //Multiply only the Y and Z components of v3 by 42.&#10;v2 = (v3,ZX); //Assign v3&apos;s Z component to v2&apos;s X component, and v3&apos;s X component to v2&apos;s Y component.@]&#10;&#10;&apos;&apos;Operator,&apos;&apos; was chosen for its visual appeal and because other operators with more appropriate precedence (for example, &apos;&apos;operator()&apos;&apos; or &apos;&apos;operator[]&apos;&apos;) are required to be member functions. Since &apos;&apos;</string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-72</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>&apos;&apos; is designed to work with user-defined quaternion, vector and matrix types, it can not provide generic definitions of those operators.&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -36360,7 +36414,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>|operator%:)&apos;&apos; instead.&#10;</string>
+												<string>|operator,:)&apos;&apos; instead.&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -38788,7 +38842,7 @@
 												</weak_ptr>
 												<size>7</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;Swizzling allows zero-overhead direct access to a (possibly rearranged) subset of the elements of 2D, 3D and 4D vectors. For example, if &apos;&apos;v&apos;&apos; is a 4D vector, the expression &apos;&apos;v%YX&apos;&apos; is a 2D </string>
+												<string>(:auto !!!:)&#10;&#10;(:include synopsis:)&#10;&#10;Swizzling allows zero-overhead direct access to a (possibly rearranged) subset of the elements of 2D, 3D and 4D vectors. For example, if &apos;&apos;v&apos;&apos; is a 4D vector, the expression &apos;&apos;(v,YX)&apos;&apos; is a 2D </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -38806,7 +38860,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string> mod=&quot;p&quot;:) &apos;&apos;YX&apos;&apos; is an lvalue, that is, if &apos;&apos;v2&apos;&apos; is a 2D vector, one could write:&#10;&#10;[@v%YX = v2;@]&#10;&#10;The above will leave the &apos;&apos;Z&apos;&apos; and &apos;&apos;W&apos;&apos; elements of &apos;&apos;v&apos;&apos; unchanged but assign the &apos;&apos;Y&apos;&apos; element of &apos;&apos;v2&apos;&apos; to the &apos;&apos;X&apos;&apos; element of &apos;&apos;v&apos;&apos; and the &apos;&apos;X&apos;&apos; element of &apos;&apos;v2&apos;&apos; to the &apos;&apos;Y&apos;&apos; element of &apos;&apos;v&apos;&apos;.&#10;&#10;It is also possible to repeat the same vector element in rvalue swizzling: the expression &apos;&apos;v%ZZZ&apos;&apos; is a 3D vector whose &apos;&apos;X&apos;&apos;, &apos;&apos;Y&apos;&apos; and &apos;&apos;Z&apos;&apos; elements all refer to the &apos;&apos;Z&apos;&apos; element of &apos;&apos;v&apos;&apos;.&#10;&#10;Finally, the &apos;&apos;</string>
+												<string> mod=&quot;p&quot;:) &apos;&apos;YX&apos;&apos; is an lvalue, that is, if &apos;&apos;v2&apos;&apos; is a 2D vector, one could write:&#10;&#10;[@(v,YX) = v2;@]&#10;&#10;The above will leave the &apos;&apos;Z&apos;&apos; and &apos;&apos;W&apos;&apos; elements of &apos;&apos;v&apos;&apos; unchanged but assign the &apos;&apos;Y&apos;&apos; element of &apos;&apos;v2&apos;&apos; to the &apos;&apos;X&apos;&apos; element of &apos;&apos;v&apos;&apos; and the &apos;&apos;X&apos;&apos; element of &apos;&apos;v2&apos;&apos; to the &apos;&apos;Y&apos;&apos; element of &apos;&apos;v&apos;&apos;.&#10;&#10;It is also possible to repeat the same vector element in rvalue swizzling: the expression &apos;&apos;(v,ZZZ)&apos;&apos; is a 3D vector whose &apos;&apos;X&apos;&apos;, &apos;&apos;Y&apos;&apos; and &apos;&apos;Z&apos;&apos; elements all refer to the &apos;&apos;Z&apos;&apos; element of &apos;&apos;v&apos;&apos;.&#10;&#10;Finally, the &apos;&apos;</string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -51655,19 +51709,11 @@
 								<pair>
 									<hook>
 										<stream_hook_path>
-											<size>3</size>
-											<strong>249FE5A415A689FD52DDBC999A7F660267D16C60039DE8136949DE196537600C</strong>
-											<weak>2578835264</weak>
-											<size>3674</size>
-											<position>469</position>
-											<strong>AABB017DEBD45FFA3CD024072C92503490F7D547A5CF958D2E4FD64DF7893C39</strong>
-											<weak>706141976</weak>
-											<size>3642</size>
-											<position>26</position>
-											<strong>FDF5B3FE00B708BE7FE4316068BB16947235A51846C5347091E37B2BE55946B7</strong>
-											<weak>2015010491</weak>
-											<size>3305</size>
-											<position>96</position>
+											<size>1</size>
+											<strong>BC7719454D1E08C5A7241A10CE504399591968BA7E7B397804120F712CD6CE07</strong>
+											<weak>538581647</weak>
+											<size>3820</size>
+											<position>323</position>
 										</stream_hook_path>
 									</hook>
 									<file>
@@ -51679,7 +51725,7 @@
 										</path>
 									</file>
 									<shared_ptr>
-										<id>-98</id>
+										<id>-259</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -52294,36 +52340,6 @@
 									<hook>
 										<stream_hook_path>
 											<size>3</size>
-											<strong>67A9B0437F75ADF9DD9D59E70CCD05ED802D26AB36D07E931077EA03E64BB62C</strong>
-											<weak>2175723849</weak>
-											<size>6845</size>
-											<position>469</position>
-											<strong>0F3BA147409B6F77E711BD9FA8FF0480D7F1D2CD45F6E953489D7DBC079FC93E</strong>
-											<weak>1460986145</weak>
-											<size>6813</size>
-											<position>26</position>
-											<strong>FE994ED5DE87D79C99D9E2723CFAEFBA6747BD283E4AC27C9C9B9F944D4863B1</strong>
-											<weak>3887702212</weak>
-											<size>6476</size>
-											<position>96</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/q_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-59</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>3</size>
 											<strong>DEC98AB8023B5E97C7A7361C116E6998FFFB200EC6BCFC55091822E95964972D</strong>
 											<weak>3175548892</weak>
 											<size>3122</size>
@@ -52414,6 +52430,36 @@
 									</file>
 									<shared_ptr>
 										<id>-75</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>3</size>
+											<strong>7C6EE49C3730508C651701BDB5407DC9C140E9C02A35EB9DB4D277CBE02A2531</strong>
+											<weak>3126912867</weak>
+											<size>3674</size>
+											<position>469</position>
+											<strong>6B46350DC487B255099A82CE32FA5D4A21232DF6CC8A805C7A25313FA145310A</strong>
+											<weak>1238163259</weak>
+											<size>3642</size>
+											<position>26</position>
+											<strong>0ADA6A6EE37898C005A83BE82109CF760905D5372F3CC6EB820ACBDB33F5F024</strong>
+											<weak>2061672151</weak>
+											<size>3305</size>
+											<position>96</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/v_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-98</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -52546,36 +52592,6 @@
 									</file>
 									<shared_ptr>
 										<id>-105</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>3</size>
-											<strong>E0CF5A27697146D710ACF0D31A205CB314E1B4EAFA0B80122C986CE7E090F83D</strong>
-											<weak>2514710596</weak>
-											<size>12594</size>
-											<position>431</position>
-											<strong>ECDD083B9E32F4D30A8C526E4C4A8DF36CB3C23C170B6E442992B6B5660E8C7E</strong>
-											<weak>3326634012</weak>
-											<size>12562</size>
-											<position>26</position>
-											<strong>6F174277B7975591AA7B24749DEE825A5DAE89E886A695E203BFF7991E28FCC7</strong>
-											<weak>2683395783</weak>
-											<size>12516</size>
-											<position>36</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/m_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-6</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -52716,6 +52732,36 @@
 									</file>
 									<shared_ptr>
 										<id>-225</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>3</size>
+											<strong>747D80DA2191F02E0C645BB4070E53A0445105BA7C7ED567E30CE9EA72D6F34D</strong>
+											<weak>2241097831</weak>
+											<size>12594</size>
+											<position>431</position>
+											<strong>115A5B59392A921BAFAB68B27C361912A6EFE759C73B927E372C5E6215A199F6</strong>
+											<weak>3036964927</weak>
+											<size>12562</size>
+											<position>26</position>
+											<strong>32F3C821636A757C804BD0F8081BA9F2570B9137CEE51B8F92CAAE8AF40CC573</strong>
+											<weak>153757659</weak>
+											<size>12225</size>
+											<position>96</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/m_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-6</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -53820,6 +53866,28 @@
 									</file>
 									<shared_ptr>
 										<id>-24</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>1</size>
+											<strong>4CBDC0FF19910706F5DA26A48B04CF7552ECE6C39F20E9B09AC9211410EC5567</strong>
+											<weak>1799263982</weak>
+											<size>12704</size>
+											<position>321</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/m_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-258</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -55236,6 +55304,28 @@
 									</file>
 									<shared_ptr>
 										<id>-60</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>1</size>
+											<strong>6D9D1579C7D7D8C21CB61397121CA03F4C6EFC75A5B00C2B88E952880961EA83</strong>
+											<weak>3208387787</weak>
+											<size>6991</size>
+											<position>323</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/q_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-142</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -56969,28 +57059,6 @@
 								<pair>
 									<hook>
 										<stream_hook_path>
-											<size>1</size>
-											<strong>DC0808DAD7A0E74F4915862FF8AFFFFBE3F5CD3D7FE74081B921EB4AE82713C3</strong>
-											<weak>4285471340</weak>
-											<size>3820</size>
-											<position>323</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/v_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-259</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
 											<size>3</size>
 											<strong>1E1CF1C94F4F80A932CBC062980E4D6E38159799D5EB53AEC8EAB57621654BC4</strong>
 											<weak>4110505564</weak>
@@ -57186,28 +57254,6 @@
 									<hook>
 										<stream_hook_path>
 											<size>1</size>
-											<strong>444C07A8C756634F459D49E33D3EFA936664EAD85AB2FA603875C87A7D857BC9</strong>
-											<weak>2072876747</weak>
-											<size>12704</size>
-											<position>321</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/m_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-258</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>1</size>
 											<strong>3D7E2DF61B0CA01B9AED4604B19E326EC8F501EDD4B841C0ADBFB588674299CA</strong>
 											<weak>3351251727</weak>
 											<size>33</size>
@@ -57290,6 +57336,36 @@
 									</file>
 									<shared_ptr>
 										<id>-134</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>3</size>
+											<strong>6FDBDD5E422D8F41C74048669A29B8E813C06CB22F27B07788D540FD6E7931D7</strong>
+											<weak>243394980</weak>
+											<size>6845</size>
+											<position>469</position>
+											<strong>CAF866983CB7A1F856B18189AD993A5E906490042D2F9B14967899FD45A4EAD9</strong>
+											<weak>3781878140</weak>
+											<size>6813</size>
+											<position>26</position>
+											<strong>275CD38ECBB78B0C7AD40DB6BE4F05B95E62C662EED7E9C8448B56CA5EF2B869</strong>
+											<weak>540123416</weak>
+											<size>6476</size>
+											<position>96</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/q_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-59</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -57416,28 +57492,6 @@
 									</file>
 									<shared_ptr>
 										<id>-162</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>1</size>
-											<strong>02F63F86644EEE003128D66F59366284AE08C64EF5D41EC9E42755DA974CD7E0</strong>
-											<weak>845749360</weak>
-											<size>6991</size>
-											<position>323</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/q_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-142</id>
 									</shared_ptr>
 								</pair>
 								<pair>

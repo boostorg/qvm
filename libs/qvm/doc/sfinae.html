@@ -27,7 +27,7 @@
 <pre>template &lt;class Matrix,class Vector&gt;
 Vector operator*( Matrix const &amp; m, Vector const &amp; v );</pre>
 <p>Even if the function definition might contain code that would compile only for <i>Matrix</i> and <i>Vector</i> types, because the function declaration itself is valid, it will participate in overload rezolutions when multiplying objects of any two types whatsoever. This typically renders overload resolutions ambiguous and the compiler (correctly) issues an error.</p>
-<p>Using <i><span class="RenoLink"><a href="enable_if.html">enable_if</a></span></i>, Boost QVM declares such overloads in a way that they retain their generic signature but only appear (in overload resolutions) if the passed parameters make sense depending on the semantics of the operation being defined:</p>
+<p>Using <i><span class="RenoLink"><a href="enable_if.html">enable_if</a></span></i>, Boost QVM declares such overloads in a way that they retain their generic signature but only participate (in overload resolutions) if the passed parameters make sense depending on the semantics of the operation being defined:</p>
 <pre>template &lt;class A,class B&gt;
 typename <span class="RenoLink"><a href="enable_if.html">enable_if_c</a></span>&lt;
     <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>, //Condition

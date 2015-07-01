@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-	<title>%</title>
+	<title>,</title>
 	<link href='reno.css' type='text/css' rel='stylesheet'/>
 </head>
 <body>
@@ -19,17 +19,14 @@
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
-<div class="RenoIncludeDIV"><h3>Rationale for overloading operator <span class="RenoLink">%</span></h3>
-<p>Many libraries that are similar to Boost QVM provide access to the elements of quaternion, vector and matrix objects by overloading <i>operator[]</i> or <i>operator()</i> of the quaternion/vector/matrix types they define. For example, for a 3D vector object <i>v</i>, one would use <i>v[0]</i>, <i>v[1]</i> and <i>v[2]</i> to access the X, Y and Z element of <i>v</i>.</p>
-<p>Boost QVM is designed to work with user-defined quaternion, vector and matrix types. It provides namespace-scope function and operator overloads that kick-in for objects of any compatible type. Unfortunately, it is not possible to use the same technique to provide generic <i>operator[]</i> or <i>operator()</i> overloads, because they are required to be member functions.</p>
-<p>While the user-defined types themselves can provide those overloads, a generic function (which is presumably supposed to work with <i>any</i> quaternion/vector/matrix object) can not rely on such overloads being available. Moreover, Boost QVM itself generates many quaternion, vector and matrix types; defining member operator overloads for each of these types would be tedious, and very difficult to test.</p>
-<p>A (non-operator) function overload would work, however a notation like</p>
-<pre>el(v,X) *= 42; //use X as an lvalue.
-el(v1,YXZ) = v2; //use v1 as a swizzled lvalue and copy v2's elements in it.</pre>
-<p>is uglier than</p>
-<pre>v<span class="RenoLink">%</span>X *= 42;
-v1<span class="RenoLink">%</span>YXZ = v2;</pre>
-<p><i>Operator<span class="RenoLink">%</span></i> was chosen over other suitable binary operators because of its relatively high precedence.</p>
+<div class="RenoIncludeDIV"><h3>Rationale for overloading operator <span class="RenoLink">,</span> (comma)</h3>
+<p><i><span class="RenoLink"><a href="index.html">Boost QVM</a></span></i> overloads <i>operator,</i> to implement <i><span class="RenoLink"><a href="Swizzling.html">swizzling</a></span></i>. Suppose we have a 3D vector <i>v3</i> and a 2D vector <i>v2</i>. Obviously, if we wanted to multiply <i>v3</i> by a scalar, we'd use:</p>
+<pre>v3 *= 42;</pre>
+<p>By overloading <i>operator,</i> <i><span class="RenoLink"><a href="index.html">Boost QVM</a></span></i> makes the following expressions legal as well:</p>
+<pre>(v3,Y) *= 42; //Multiply only the Y component of v3 by 42.
+(v3,YZ) *= 42; //Multiply only the Y and Z components of v3 by 42.
+v2 = (v3,ZX); //Assign v3's Z component to v2's X component, and v3's X component to v2's Y component.</pre>
+<p><i>Operator,</i> was chosen for its visual appeal and because other operators with more appropriate precedence (for example, <i>operator()</i> or <i>operator[]</i>) are required to be member functions. Since <i><span class="RenoLink"><a href="index.html">Boost QVM</a></span></i> is designed to work with user-defined quaternion, vector and matrix types, it can not provide generic definitions of those operators.</p>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
 See also: <span class="RenoPageList"><a href="accessing_matrix_elements.html">Accessing Matrix Elements</a>&nbsp;| <a href="accessing_quaternion_elements.html">Accessing Quaternion Elements</a>&nbsp;| <a href="accessing_vector_elements.html">Accessing Vector Elements</a>&nbsp;| <a href="index.html">Boost QVM</a>&nbsp;| <a href="sw.html">sw</a>&nbsp;| <a href="transform_point.html">transform_point</a>&nbsp;| <a href="transform_vector.html">transform_vector</a></span>
 </div>

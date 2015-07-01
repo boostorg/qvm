@@ -92,10 +92,10 @@
         -unspecified-return-type- WWW1();</span></span>
     }
 }</pre>
-</div><p>Swizzling allows zero-overhead direct access to a (possibly rearranged) subset of the elements of 2D, 3D and 4D vectors. For example, if <i>v</i> is a 4D vector, the expression <i>v%YX</i> is a 2D <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> whose <i>X</i> element refers to the <i>Y</i> element of <i>v</i>, and whose <i>Y</i> element refers to the <i>X</i> element of <i>v</i>. Like other <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> <i>YX</i> is an lvalue, that is, if <i>v2</i> is a 2D vector, one could write:</p>
-<pre>v%YX = v2;</pre>
+</div><p>Swizzling allows zero-overhead direct access to a (possibly rearranged) subset of the elements of 2D, 3D and 4D vectors. For example, if <i>v</i> is a 4D vector, the expression <i>(v,YX)</i> is a 2D <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> whose <i>X</i> element refers to the <i>Y</i> element of <i>v</i>, and whose <i>Y</i> element refers to the <i>X</i> element of <i>v</i>. Like other <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> <i>YX</i> is an lvalue, that is, if <i>v2</i> is a 2D vector, one could write:</p>
+<pre>(v,YX) = v2;</pre>
 <p>The above will leave the <i>Z</i> and <i>W</i> elements of <i>v</i> unchanged but assign the <i>Y</i> element of <i>v2</i> to the <i>X</i> element of <i>v</i> and the <i>X</i> element of <i>v2</i> to the <i>Y</i> element of <i>v</i>.</p>
-<p>It is also possible to repeat the same vector element in rvalue swizzling: the expression <i>v%ZZZ</i> is a 3D vector whose <i>X</i>, <i>Y</i> and <i>Z</i> elements all refer to the <i>Z</i> element of <i>v</i>.</p>
+<p>It is also possible to repeat the same vector element in rvalue swizzling: the expression <i>(v,ZZZ)</i> is a 3D vector whose <i>X</i>, <i>Y</i> and <i>Z</i> elements all refer to the <i>Z</i> element of <i>v</i>.</p>
 <p>Finally, the <i><span class="RenoLink"><a href="sw.html">sw</a></span></i> template can be used to access the swizzling support more generically.</p>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
 See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_sw2_hpp.html">boost/qvm/sw2.hpp</a>&nbsp;| <a href="boost_qvm_sw3_hpp.html">boost/qvm/sw3.hpp</a>&nbsp;| <a href="boost_qvm_sw4_hpp.html">boost/qvm/sw4.hpp</a>&nbsp;| <a href="Synopsis.html">Synopsis</a>&nbsp;| <a href="transform_point.html">transform_point</a>&nbsp;| <a href="transform_vector.html">transform_vector</a></span>
