@@ -47,9 +47,9 @@ namespace boost
 }</pre>
 </div><p>After a similar specialization of the <i><span class="RenoLink"><a href="m_traits.html">m_traits</a></span></i> template for a user-defined 3x3 matrix type <i>float33</i>, a full range of vector and matrix operations defined in Boost QVM headers become available automatically:</p>
 <pre>float3 v;
-v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">X</a></span> = 0;
-v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">Y</a></span> = 0;
-v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">Z</a></span> = 7;
+v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">X</a></span> = 0;
+v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">Y</a></span> = 0;
+v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements.html">Z</a></span> = 7;
 float vmag = <span class="RenoLink"><a href="mag_v_.html">mag</a></span>(v);
 float33 m = <span class="RenoLink"><a href="rotx_m_s_.html">rotx_m</a></span>&lt;3&gt;(3.14159f);
 float3 vrot = m <span class="RenoLink"><a href="operator_times_m_v_.html">*</a></span> v;</pre>

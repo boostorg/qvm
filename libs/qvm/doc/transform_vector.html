@@ -26,7 +26,7 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>==4 &amp;&amp; <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span>==4 &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
@@ -37,7 +37,7 @@
 }</pre>
 </div><h4>Effects:</h4>
 <p>As if:</p>
-<pre>return a <span class="RenoLink"><a href="operator_times_m_v_.html">*</a></span> (b<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements_and_swizzling_reference.html">XYZ0</a></span>);</pre>
+<pre>return a <span class="RenoLink"><a href="operator_times_m_v_.html">*</a></span> (b<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements_and_swizzling_reference.html">XYZ0</a></span>);</pre>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
 See also: <span class="RenoPageList"><a href="boost_qvm_vm_hpp.html">boost/qvm/vm.hpp</a></span>
 </div>

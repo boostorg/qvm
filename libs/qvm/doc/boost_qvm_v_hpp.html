@@ -26,116 +26,116 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         A &amp; <span class="RenoLink"><a href="assign_v_v_.html">assign</a></span>( A &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;R&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;R&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class R,class A&gt;
         R <span class="RenoLink"><a href="make_v_.html">make</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         A &amp; <span class="RenoLink"><a href="operator_sub_eq_v_v_.html">operator-=</a></span>( A &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         typename <span class="RenoLink"><a href="deduce_v.html">deduce_v</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="operator_minus_v_.html">operator-</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         typename <span class="RenoLink"><a href="deduce_v2.html">deduce_v2</a></span>&lt;A,B,<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>&gt;::type
         <span class="RenoLink"><a href="operator_minus_v_v_.html">operator-</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         A &amp; <span class="RenoLink"><a href="operator_add_v_v_.html">operator+=</a></span>( A &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         typename <span class="RenoLink"><a href="deduce_v2.html">deduce_v2</a></span>&lt;A,B,<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>&gt;::type
         <span class="RenoLink"><a href="operator_plus_v_v_.html">operator+</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
         A &amp; <span class="RenoLink"><a href="operator_div_eq_v_s_.html">operator/=</a></span>( A &amp; a, B b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
         typename <span class="RenoLink"><a href="deduce_v.html">deduce_v</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="operator_over_v_s_.html">operator/</a></span>( A const &amp; a, B b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
         A &amp; <span class="RenoLink"><a href="operator_mul_eq_v_s_.html">operator*=</a></span>( A &amp; a, B b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;B&gt;::value
         template &lt;class A&gt;
         typename <span class="RenoLink"><a href="deduce_v.html">deduce_v</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="operator_times_v_s_.html">operator*</a></span>( A const &amp; a, B b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         bool <span class="RenoLink"><a href="operator_eq_v_v_.html">operator==</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         bool <span class="RenoLink"><a href="operator_not_eq_v_v_.html">operator!=</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B,class Cmp&gt;
         bool <span class="RenoLink"><a href="cmp_m_m_.html">cmp</a></span>( A const &amp; a, B const &amp; b, Cmp pred );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span>
         <span class="RenoLink"><a href="mag2_v_.html">mag2</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span>
         <span class="RenoLink"><a href="mag_v_.html">mag</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         typename <span class="RenoLink"><a href="deduce_v.html">deduce_v</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="normalized_v_.html">normalized</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         void <span class="RenoLink"><a href="normalize_v_.html">normalize</a></span>( A &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>
         template &lt;class A,class B&gt;
         typename <span class="RenoLink"><a href="deduce_s.html">deduce_s</a></span>&lt;A,B&gt;::type
         <span class="RenoLink"><a href="dot_v_v_.html">dot</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3 &amp;&amp; <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
         template &lt;class A,class B&gt;
@@ -145,16 +145,16 @@
         <span class="RenoIncludeSPAN">template &lt;class T,int S&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="zero_v.html">zero_v</a></span>();</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>:
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         void <span class="RenoLink"><a href="set_zero_v_.html">set_zero</a></span>( A &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="vref.html">vref</a></span>( A &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
         template &lt;class Scalar,class A&gt;
         -unspecified-return_type- <span class="RenoLink"><a href="scalar_cast_v_.html">scalar_cast</a></span>( A const &amp; a );</span></span>
     }

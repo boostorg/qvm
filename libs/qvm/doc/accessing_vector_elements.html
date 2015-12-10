@@ -40,15 +40,15 @@
         -unspecified-return-type- W();</span></span>
     }
 }</pre>
-</div></div><p>An expression of the form of <i>(v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;I&gt;)</i> can be used to access the <i>I</i>-th element a vector object <i>v</i>. For example, the expression:</p>
-<pre>(v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;1&gt;) *= 42;</pre>
+</div></div><p>An expression of the form of <i>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;I&gt;)</i> can be used to access the <i>I</i>-th element a vector object <i>v</i>. For example, the expression:</p>
+<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;1&gt;) *= 42;</pre>
 <p>can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector <i>v</i> by 2.</p>
 <p>For convenience, there are also non-template overloads for <i>I</i> from 0 to 9; an alternative way to write the above expression is:</p>
-<pre>(v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span>A1) *= 42;</pre>
+<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span>A1) *= 42;</pre>
 <p><i>X</i>, <i>Y</i>, <i>Z</i> and <i>W</i> act the same as <i>A0</i>/<i>A1</i>/<i>A2</i>/<i>A3</i>; yet another alternative way to write the above expression is:</p>
-<pre>(v<span class="RenoLink"><a href="operator_mod_rationale.html">,</a></span>Y) *= 42;</pre>
+<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span>Y) *= 42;</pre>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_v_access_hpp.html">boost/qvm/v_access.hpp</a>&nbsp;| <a href="Synopsis.html">Synopsis</a></span>
+See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_v_access_hpp.html">boost/qvm/v_access.hpp</a>&nbsp;| <a href="known_quirks_and_issues.html">Known Quirks and Issues</a>&nbsp;| <a href="Synopsis.html">Synopsis</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
