@@ -59124,7 +59124,7 @@
 											<id>-166</id>
 										</shared_ptr>
 									</weak_ptr>
-									<string>function</string>
+									<string>function view</string>
 								</pair>
 								<pair>
 									<weak_ptr>
@@ -59133,7 +59133,7 @@
 											<id>-167</id>
 										</shared_ptr>
 									</weak_ptr>
-									<string>function</string>
+									<string>function view</string>
 								</pair>
 								<pair>
 									<weak_ptr>
