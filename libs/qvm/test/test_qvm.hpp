@@ -24,24 +24,18 @@ test_qvm
     namespace
     detail
         {
-		//for develop branch, use this instead:
-		//#include <boost/test/tools/floating_point_comparison.hpp>
-		//boost::math::fpc::close_at_tolerance<float>(tolerance)(a,b);
-
         inline
         bool
         close_at_tolerance( float a, float b, float tolerance )
             {
-            using namespace boost::test_tools;
-            return check_is_close(a,b,fraction_tolerance(tolerance));
+			return boost::math::fpc::close_at_tolerance<float>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
             }
 
         inline
         bool
         close_at_tolerance( double a, double b, double tolerance )
             {
-            using namespace boost::test_tools;
-            return check_is_close(a,b,fraction_tolerance(tolerance));
+			return boost::math::fpc::close_at_tolerance<double>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
             }
 
         template <class A,class B>
