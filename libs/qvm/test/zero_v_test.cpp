@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/v.hpp>
+#include <boost/qvm/vec_operations.hpp>
 #include <boost/qvm/vec.hpp>
 #include "test_qvm_vector.hpp"
 
@@ -22,7 +22,7 @@ namespace
     void
     check_deduction( T const &, U const & )
         {
-        same_type<T,typename boost::qvm::deduce_v<U>::type>();
+        same_type<T,typename boost::qvm::deduce_vec<U>::type>();
         }
 
     template <int Dim>

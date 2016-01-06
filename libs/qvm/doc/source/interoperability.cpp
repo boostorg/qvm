@@ -29,7 +29,7 @@ boost
         {
         template <>
         struct
-        m_traits<n1::user_matrix1>
+        mat_traits<n1::user_matrix1>
             {
             typedef float scalar_type;
             static int const rows=3;
@@ -47,7 +47,7 @@ boost
 
         template <>
         struct
-        m_traits<n1::user_matrix2>
+        mat_traits<n1::user_matrix2>
             {
             typedef float scalar_type;
             static int const rows=3;
@@ -65,7 +65,7 @@ boost
 
         template <>
         struct
-        m_traits<n2::user_matrix1>
+        mat_traits<n2::user_matrix1>
             {
             typedef float scalar_type;
             static int const rows=3;
@@ -83,7 +83,7 @@ boost
 
         template <>
         struct
-        m_traits<n2::user_matrix2>
+        mat_traits<n2::user_matrix2>
             {
             typedef float scalar_type;
             static int const rows=3;

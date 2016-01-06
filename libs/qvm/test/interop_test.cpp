@@ -38,7 +38,7 @@ boost
         {
         template <>
         struct
-        m_traits<my_stuff::mat>
+        mat_traits<my_stuff::mat>
             {
             typedef float scalar_type;
             static int const rows=3;
@@ -95,7 +95,7 @@ boost
 
         template <>
         struct
-        v_traits<my_stuff::vec>
+        vec_traits<my_stuff::vec>
             {
             static int const dim=3;
             typedef float scalar_type;
@@ -143,7 +143,7 @@ boost
 
         template <>
         struct
-        q_traits<my_stuff::quat>
+        quat_traits<my_stuff::quat>
             {
             typedef float scalar_type;
 

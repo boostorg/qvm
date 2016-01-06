@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/m.hpp>
+#include <boost/qvm/mat_operations.hpp>
 #include <boost/qvm/mat.hpp>
 #include "test_qvm_matrix.hpp"
 
@@ -22,7 +22,7 @@ namespace
     void
     check_deduction( T const &, U const & )
         {
-        same_type<T,typename boost::qvm::deduce_m<U>::type>();
+        same_type<T,typename boost::qvm::deduce_mat<U>::type>();
         }
 
     template <int Rows,int Cols>

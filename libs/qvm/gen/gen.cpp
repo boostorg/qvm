@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -30,14 +30,14 @@
 #define INCLUDE_THROW_EXCEPTION "boost/throw_exception.hpp"
 #define INCLUDE_ERROR "boost/qvm/error.hpp"
 #define INCLUDE_INLINE "boost/qvm/inline.hpp"
-#define INCLUDE_M_TRAITS "boost/qvm/m_traits.hpp"
-#define INCLUDE_V_TRAITS "boost/qvm/v_traits.hpp"
-#define INCLUDE_Q_TRAITS "boost/qvm/q_traits.hpp"
-#define INCLUDE_S_TRAITS "boost/qvm/s_traits.hpp"
-#define INCLUDE_DEDUCE_M "boost/qvm/deduce_m.hpp"
-#define INCLUDE_DEDUCE_V "boost/qvm/deduce_v.hpp"
-#define INCLUDE_DEDUCE_Q "boost/qvm/deduce_q.hpp"
-#define INCLUDE_DEDUCE_S "boost/qvm/deduce_s.hpp"
+#define INCLUDE_M_TRAITS "boost/qvm/mat_traits.hpp"
+#define INCLUDE_V_TRAITS "boost/qvm/vec_traits.hpp"
+#define INCLUDE_Q_TRAITS "boost/qvm/quat_traits.hpp"
+#define INCLUDE_S_TRAITS "boost/qvm/scalar_traits.hpp"
+#define INCLUDE_DEDUCE_M "boost/qvm/deduce_mat.hpp"
+#define INCLUDE_DEDUCE_V "boost/qvm/deduce_vec.hpp"
+#define INCLUDE_DEDUCE_Q "boost/qvm/deduce_quat.hpp"
+#define INCLUDE_DEDUCE_S "boost/qvm/deduce_scalar.hpp"
 #define INCLUDE_SWIZZLE_TRAITS "boost/qvm/detail/swizzle_traits.hpp"
 #define INCLUDE_ENABLE_IF "boost/qvm/enable_if.hpp"
 #define INCLUDE_ASSERT "boost/qvm/assert.hpp"
@@ -143,7 +143,7 @@ namespace
             out->exceptions(std::ofstream::eofbit|std::ofstream::failbit|std::ofstream::badbit);
             std::string include_guard=get_include_guard();
             *out <<
-                "//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc."NL
+                "//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc."NL
                 NL
                 "//Distributed under the Boost Software License, Version 1.0. (See accompanying"NL
                 "//file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)"NL
@@ -218,9 +218,9 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<B>::rows=="<<r<<" &&"NL
-            TAB3"m_traits<A>::cols=="<<c<<" && m_traits<B>::cols=="<<c<<","NL
-            TAB3"deduce_m2<A,B,"<<r<<','<<c<<"> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&"NL
+            TAB3"mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<","NL
+            TAB3"deduce_mat2<A,B,"<<r<<','<<c<<"> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -239,9 +239,9 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<m<<" && m_traits<B>::rows=="<<n<<" &&"NL
-            TAB3"m_traits<A>::cols=="<<n<<" && m_traits<B>::cols=="<<p<<","NL
-            TAB3"deduce_m2<A,B,"<<m<<','<<p<<"> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<m<<" && mat_traits<B>::rows=="<<n<<" &&"NL
+            TAB3"mat_traits<A>::cols=="<<n<<" && mat_traits<B>::cols=="<<p<<","NL
+            TAB3"deduce_mat2<A,B,"<<m<<','<<p<<"> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -259,9 +259,9 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<A>::cols=="<<c<<" &&"NL
-            TAB3"v_traits<B>::dim=="<<c<<","NL
-            TAB3"deduce_v2<A,B,"<<c<<"> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" &&"NL
+            TAB3"vec_traits<B>::dim=="<<c<<","NL
+            TAB3"deduce_vec2<A,B,"<<c<<"> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -279,9 +279,9 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<B>::rows=="<<r<<" && m_traits<B>::cols=="<<c<<" &&"NL
-            TAB3"v_traits<A>::dim=="<<c<<","NL
-            TAB3"deduce_v2<A,B,"<<r<<"> >::type"NL
+            TAB3"mat_traits<B>::rows=="<<r<<" && mat_traits<B>::cols=="<<c<<" &&"NL
+            TAB3"vec_traits<A>::dim=="<<c<<","NL
+            TAB3"deduce_vec2<A,B,"<<r<<"> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -298,8 +298,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && v_traits<B>::dim=="<<d<<","NL
-            TAB3"deduce_v2<A,B,"<<d<<"> >::type"NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<","NL
+            TAB3"deduce_vec2<A,B,"<<d<<"> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -317,8 +317,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<B>::rows=="<<r<<" &&"NL
-            TAB3"m_traits<A>::cols=="<<c<<" && m_traits<B>::cols=="<<c<<","NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&"NL
+            TAB3"mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<","NL
             TAB3"bool>::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
@@ -336,7 +336,7 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && v_traits<B>::dim=="<<d<<","NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<","NL
             TAB2"bool>::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
@@ -355,8 +355,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<B>::rows=="<<r<<" &&"NL
-            TAB3"m_traits<A>::cols=="<<c<<" && m_traits<B>::cols=="<<c<<","NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&"NL
+            TAB3"mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<","NL
             TAB3"A &>::type"NL
             TAB2<<name<<"( A & a, B const & b )"NL
             ;
@@ -374,7 +374,7 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && v_traits<B>::dim=="<<d<<","NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<","NL
             TAB3"A &>::type"NL
             TAB2<<name<<"( A & a, B const & b )"NL
             ;
@@ -393,8 +393,8 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<A>::cols=="<<c<<","NL
-            TAB3"typename m_traits<A>::scalar_type>::type"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<","NL
+            TAB3"typename mat_traits<A>::scalar_type>::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
         }
@@ -412,8 +412,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && v_traits<B>::dim=="<<d<<","NL
-            TAB3"deduce_s<typename v_traits<A>::scalar_type,typename v_traits<B>::scalar_type> >::type"NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<","NL
+            TAB3"deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type"NL
             TAB2<<name<<"( A const & a, B const & b )"NL
             ;
         }
@@ -430,8 +430,8 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"is_v<A>::value && v_traits<A>::dim=="<<d<<","NL
-            TAB3"typename v_traits<A>::scalar_type>::type"NL
+            TAB3"is_v<A>::value && vec_traits<A>::dim=="<<d<<","NL
+            TAB3"typename vec_traits<A>::scalar_type>::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
         }
@@ -449,8 +449,8 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<A>::cols=="<<c<<","NL
-            TAB3"deduce_m<A> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<","NL
+            TAB3"deduce_mat<A> >::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
         }
@@ -467,8 +467,8 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<","NL
-            TAB3"deduce_v<A> >::type"NL
+            TAB3"vec_traits<A>::dim=="<<d<<","NL
+            TAB3"deduce_vec<A> >::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
         }
@@ -486,7 +486,7 @@ namespace
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
             TAB3"is_v<A>::value &&"NL
-            TAB3"v_traits<R>::dim=="<<d<<" && v_traits<A>::dim=="<<d<<","NL
+            TAB3"vec_traits<R>::dim=="<<d<<" && vec_traits<A>::dim=="<<d<<","NL
             TAB3"R>::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
@@ -505,8 +505,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<A>::cols=="<<c<<" && is_s<B>::value,"NL
-            TAB3"deduce_m<A> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" && is_s<B>::value,"NL
+            TAB3"deduce_mat<A> >::type"NL
             TAB2<<name<<"( A const & a, B b )"NL
             ;
         }
@@ -523,8 +523,8 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && is_s<B>::value,"NL
-            TAB3"deduce_v<A> >::type"NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && is_s<B>::value,"NL
+            TAB3"deduce_vec<A> >::type"NL
             TAB2<<name<<"( A const & a, B b )"NL
             ;
         }
@@ -542,7 +542,7 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<r<<" && m_traits<A>::cols=="<<c<<" && is_s<B>::value,"NL
+            TAB3"mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" && is_s<B>::value,"NL
             TAB3"A &>::type"NL
             TAB2<<name<<"( A & a, B b )"NL
             ;
@@ -560,7 +560,7 @@ namespace
             TAB2"template <class A,class  B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<" && is_s<B>::value,"NL
+            TAB3"vec_traits<A>::dim=="<<d<<" && is_s<B>::value,"NL
             TAB3"A &>::type"NL
             TAB2<<name<<"( A & a, B b )"NL
             ;
@@ -676,25 +676,25 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type Ta;"NL
-            TAB3"typedef typename m_traits<B>::scalar_type Tb;"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type Ta;"NL
+            TAB3"typedef typename mat_traits<B>::scalar_type Tb;"NL
             ;
         for( int i=0; i!=m; ++i )
             for( int j=0; j!=n; ++j )
-                g<<TAB3"Ta const a"<<i<<j<<" = m_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
+                g<<TAB3"Ta const a"<<i<<j<<" = mat_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
         for( int i=0; i!=n; ++i )
             for( int j=0; j!=p; ++j )
-                g<<TAB3"Tb const b"<<i<<j<<" = m_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
+                g<<TAB3"Tb const b"<<i<<j<<" = mat_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
         g<<
-            TAB3"typedef typename deduce_m2<A,B,"<<m<<','<<p<<">::type R;"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(m_traits<R>::rows=="<<m<<");"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(m_traits<R>::cols=="<<p<<");"NL
+            TAB3"typedef typename deduce_mat2<A,B,"<<m<<','<<p<<">::type R;"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows=="<<m<<");"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols=="<<p<<");"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=m; ++i )
             for( int j=0; j!=p; ++j )
                 {
-                g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r)=";
+                g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r)=";
                 for( int k=0; k!=n; ++k )
                     {
                     if( k )
@@ -719,19 +719,19 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type Ta;"NL
-            TAB3"typedef typename m_traits<B>::scalar_type Tb;"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type Ta;"NL
+            TAB3"typedef typename mat_traits<B>::scalar_type Tb;"NL
             ;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
-                g<<TAB3"Ta const a"<<i<<j<<" = m_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
+                g<<TAB3"Ta const a"<<i<<j<<" = mat_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
-                g<<TAB3"Tb const b"<<i<<j<<" = m_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
+                g<<TAB3"Tb const b"<<i<<j<<" = mat_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
                 {
-                g<<TAB3"m_traits<A>::template w<"<<i<<","<<j<<">(a)=";
+                g<<TAB3"mat_traits<A>::template w<"<<i<<","<<j<<">(a)=";
                 for( int k=0; k!=d; ++k )
                     {
                     if( k )
@@ -758,22 +758,22 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type Ta;"NL
-            TAB3"typedef typename v_traits<B>::scalar_type Tb;"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type Ta;"NL
+            TAB3"typedef typename vec_traits<B>::scalar_type Tb;"NL
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"Ta const a"<<i<<j<<" = m_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
+                g<<TAB3"Ta const a"<<i<<j<<" = mat_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
         for( int i=0; i!=c; ++i )
-            g<<TAB3"Tb const b"<<i<<" = v_traits<B>::template r<"<<i<<">(b);"NL;
+            g<<TAB3"Tb const b"<<i<<" = vec_traits<B>::template r<"<<i<<">(b);"NL;
         g<<
-            TAB3"typedef typename deduce_v2<A,B,"<<c<<">::type R;"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(v_traits<R>::dim=="<<c<<");"NL
+            TAB3"typedef typename deduce_vec2<A,B,"<<c<<">::type R;"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(vec_traits<R>::dim=="<<c<<");"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=r; ++i )
             {
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=";
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=";
             for( int j=0; j!=c; ++j )
                 {
                 if( j )
@@ -800,22 +800,22 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type Ta;"NL
-            TAB3"typedef typename m_traits<B>::scalar_type Tb;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type Ta;"NL
+            TAB3"typedef typename mat_traits<B>::scalar_type Tb;"NL
             ;
         for( int i=0; i!=r; ++i )
-            g<<TAB3"Ta const a"<<i<<" = v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"Ta const a"<<i<<" = vec_traits<A>::template r<"<<i<<">(a);"NL;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"Tb const b"<<i<<j<<" = m_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
+                g<<TAB3"Tb const b"<<i<<j<<" = mat_traits<B>::template r<"<<i<<','<<j<<">(b);"NL;
         g<<
-            TAB3"typedef typename deduce_v2<A,B,"<<r<<">::type R;"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(v_traits<R>::dim=="<<r<<");"NL
+            TAB3"typedef typename deduce_vec2<A,B,"<<r<<">::type R;"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(vec_traits<R>::dim=="<<r<<");"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=c; ++i )
             {
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=";
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=";
             for( int j=0; j!=r; ++j )
                 {
                 if( j )
@@ -840,12 +840,12 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_v2<A,B,"<<d<<">::type R;"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(v_traits<R>::dim=="<<d<<");"NL
+            TAB3"typedef typename deduce_vec2<A,B,"<<d<<">::type R;"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(vec_traits<R>::dim=="<<d<<");"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=v_traits<A>::template r<"<<i<<">(a)"<<op<<"v_traits<B>::template r<"<<i<<">(b);"NL;
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=vec_traits<A>::template r<"<<i<<">(a)"<<op<<"vec_traits<B>::template r<"<<i<<">(b);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -866,7 +866,7 @@ namespace
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
                 g<<
-                    TAB4"m_traits<A>::template r<"<<i<<','<<j<<">(a)==m_traits<B>::template r<"<<i<<','<<j<<">(b)"<<(i!=r-1||j!=c-1?" &&":";")<<NL;
+                    TAB4"mat_traits<A>::template r<"<<i<<','<<j<<">(a)==mat_traits<B>::template r<"<<i<<','<<j<<">(b)"<<(i!=r-1||j!=c-1?" &&":";")<<NL;
                     ;
         g<<
             TAB3"}"NL
@@ -886,7 +886,7 @@ namespace
             ;
         for( int i=0; i!=d; ++i )
             g<<
-                TAB4"v_traits<A>::template r<"<<i<<">(a)==v_traits<B>::template r<"<<i<<">(b)"<<(i!=d-1?" &&":";")<<NL;
+                TAB4"vec_traits<A>::template r<"<<i<<">(a)==vec_traits<B>::template r<"<<i<<">(b)"<<(i!=d-1?" &&":";")<<NL;
                 ;
         g<<
             TAB3"}"NL
@@ -907,7 +907,7 @@ namespace
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
                 g<<
-                    TAB4"!(m_traits<A>::template r<"<<i<<','<<j<<">(a)==m_traits<B>::template r<"<<i<<','<<j<<">(b))"<<(i!=r-1||j!=c-1?" ||":";")<<NL;
+                    TAB4"!(mat_traits<A>::template r<"<<i<<','<<j<<">(a)==mat_traits<B>::template r<"<<i<<','<<j<<">(b))"<<(i!=r-1||j!=c-1?" ||":";")<<NL;
                     ;
         g<<
             TAB3"}"NL
@@ -927,7 +927,7 @@ namespace
             ;
         for( int i=0; i!=d; ++i )
             g<<
-                TAB4"!(v_traits<A>::template r<"<<i<<">(a)==v_traits<B>::template r<"<<i<<">(b))"<<(i!=d-1?" ||":";")<<NL;
+                TAB4"!(vec_traits<A>::template r<"<<i<<">(a)==vec_traits<B>::template r<"<<i<<">(b))"<<(i!=d-1?" ||":";")<<NL;
                 ;
         g<<
             TAB3"}"NL
@@ -946,14 +946,14 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_m2<A,B,"<<r<<','<<c<<">::type R;"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(m_traits<R>::rows=="<<r<<");"NL
-            TAB3"BOOST_QVM_STATIC_ASSERT(m_traits<R>::cols=="<<c<<");"NL
+            TAB3"typedef typename deduce_mat2<A,B,"<<r<<','<<c<<">::type R;"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows=="<<r<<");"NL
+            TAB3"BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols=="<<c<<");"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r)=m_traits<A>::template r<"<<i<<","<<j<<">(a)"<<op<<"m_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
+                g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r)=mat_traits<A>::template r<"<<i<<","<<j<<">(a)"<<op<<"mat_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -971,7 +971,7 @@ namespace
         g<<TAB3"{"NL;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<A>::template w<"<<i<<","<<j<<">(a)"<<op<<"m_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
+                g<<TAB3"mat_traits<A>::template w<"<<i<<","<<j<<">(a)"<<op<<"mat_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -988,7 +988,7 @@ namespace
         std::ostream & g=out.stream();
         g<<TAB3"{"NL;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<A>::template w<"<<i<<">(a)"<<op<<"v_traits<B>::template r<"<<i<<">(b);"NL;
+            g<<TAB3"vec_traits<A>::template w<"<<i<<">(a)"<<op<<"vec_traits<B>::template r<"<<i<<">(b);"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -1005,12 +1005,12 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_m<A>::type R;"NL
+            TAB3"typedef typename deduce_mat<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r)="<<op<<"m_traits<A>::template r<"<<i<<","<<j<<">(a);"NL;
+                g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r)="<<op<<"mat_traits<A>::template r<"<<i<<","<<j<<">(a);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1027,11 +1027,11 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_v<A>::type R;"NL
+            TAB3"typedef typename deduce_vec<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)="<<op<<"v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)="<<op<<"vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1049,12 +1049,12 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_m<A>::type R;"NL
+            TAB3"typedef typename deduce_mat<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r)=m_traits<A>::template r<"<<i<<","<<j<<">(a)"<<op<<"b;"NL;
+                g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r)=mat_traits<A>::template r<"<<i<<","<<j<<">(a)"<<op<<"b;"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1071,11 +1071,11 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename deduce_v<A>::type R;"NL
+            TAB3"typedef typename deduce_vec<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=v_traits<A>::template r<"<<i<<">(a)"<<op<<"b;"NL;
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=vec_traits<A>::template r<"<<i<<">(a)"<<op<<"b;"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1095,7 +1095,7 @@ namespace
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<A>::template w<"<<i<<","<<j<<">(a)"<<op<<"b;"NL;
+                g<<TAB3"mat_traits<A>::template w<"<<i<<","<<j<<">(a)"<<op<<"b;"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -1114,7 +1114,7 @@ namespace
             TAB3"{"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<A>::template w<"<<i<<">(a)"<<op<<"b;"NL;
+            g<<TAB3"vec_traits<A>::template w<"<<i<<">(a)"<<op<<"b;"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -1131,7 +1131,7 @@ namespace
         g<<TAB3"{"NL;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<A>::template w<"<<i<<","<<j<<">(a)=m_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
+                g<<TAB3"mat_traits<A>::template w<"<<i<<","<<j<<">(a)=mat_traits<B>::template r<"<<i<<","<<j<<">(b);"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -1147,7 +1147,7 @@ namespace
         std::ostream & g=out.stream();
         g<<TAB3"{"NL;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<A>::template w<"<<i<<">(a)=v_traits<B>::template r<"<<i<<">(b);"NL;
+            g<<TAB3"vec_traits<A>::template w<"<<i<<">(a)=vec_traits<B>::template r<"<<i<<">(b);"NL;
         g<<
             TAB3"return a;"NL
             TAB3"}"NL
@@ -1171,8 +1171,8 @@ namespace
             TAB2"template <class R,class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"m_traits<R>::rows=="<<r<<" && m_traits<A>::rows=="<<r<<" &&"NL
-            TAB3"m_traits<R>::cols=="<<c<<" && m_traits<A>::cols=="<<c<<","NL
+            TAB3"mat_traits<R>::rows=="<<r<<" && mat_traits<A>::rows=="<<r<<" &&"NL
+            TAB3"mat_traits<R>::cols=="<<c<<" && mat_traits<A>::cols=="<<c<<","NL
             TAB3"R>::type"NL
             TAB2<<"make( A const & a )"NL
             TAB3"{"NL
@@ -1180,7 +1180,7 @@ namespace
             ;
         for( int i=0; i!=r; ++i )
             for( int j=0; j!=c; ++j )
-                g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r) = m_traits<A>::template r<"<<i<<","<<j<<">(a);"NL;
+                g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r) = mat_traits<A>::template r<"<<i<<","<<j<<">(a);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1193,15 +1193,15 @@ namespace
                 TAB2"BOOST_QVM_INLINE"NL
                 TAB2"typename enable_if_c<"NL
                 TAB3"is_m<R>::value && is_q<A>::value &&"NL
-                TAB3"m_traits<R>::rows=="<<r<<" && m_traits<R>::cols=="<<c<<","NL
+                TAB3"mat_traits<R>::rows=="<<r<<" && mat_traits<R>::cols=="<<c<<","NL
                 TAB3"R>::type"NL
                 TAB2"make( A const & q )"NL
                 TAB3"{"NL
-                TAB3"typedef typename m_traits<R>::scalar_type T;"NL
-                TAB3"T const a=q_traits<A>::template r<0>(q);"NL
-                TAB3"T const b=q_traits<A>::template r<1>(q);"NL
-                TAB3"T const c=q_traits<A>::template r<2>(q);"NL
-                TAB3"T const d=q_traits<A>::template r<3>(q);"NL
+                TAB3"typedef typename mat_traits<R>::scalar_type T;"NL
+                TAB3"T const a=quat_traits<A>::template r<0>(q);"NL
+                TAB3"T const b=quat_traits<A>::template r<1>(q);"NL
+                TAB3"T const c=quat_traits<A>::template r<2>(q);"NL
+                TAB3"T const d=quat_traits<A>::template r<3>(q);"NL
                 TAB3"T const bb = b*b;"NL
                 TAB3"T const cc = c*c;"NL
                 TAB3"T const dd = d*d;"NL
@@ -1211,33 +1211,33 @@ namespace
                 TAB3"T const ab = a*b;"NL
                 TAB3"T const ac = a*c;"NL
                 TAB3"T const ad = a*d;"NL<<
-                (r>3?TAB3"T const zero = s_traits<T>::value(0);"NL:"")<<
-                TAB3"T const one = s_traits<T>::value(1);"NL
+                (r>3?TAB3"T const zero = scalar_traits<T>::value(0);"NL:"")<<
+                TAB3"T const one = scalar_traits<T>::value(1);"NL
                 TAB3"T const two = one+one;"NL
                 TAB3"R r;"NL
-                TAB3"m_traits<R>::template w<0,0>(r) = one - two*(cc+dd);"NL
-                TAB3"m_traits<R>::template w<0,1>(r) = two*(bc-ad);"NL
-                TAB3"m_traits<R>::template w<0,2>(r) = two*(bd+ac);"NL
+                TAB3"mat_traits<R>::template w<0,0>(r) = one - two*(cc+dd);"NL
+                TAB3"mat_traits<R>::template w<0,1>(r) = two*(bc-ad);"NL
+                TAB3"mat_traits<R>::template w<0,2>(r) = two*(bd+ac);"NL
                 ;
             for( int i=3; i!=c; ++i )
-                g<<TAB3"m_traits<R>::template w<0,"<<i<<">(r) = zero;"NL;
+                g<<TAB3"mat_traits<R>::template w<0,"<<i<<">(r) = zero;"NL;
             g<<
-                TAB3"m_traits<R>::template w<1,0>(r) = two*(bc+ad);"NL
-                TAB3"m_traits<R>::template w<1,1>(r) = one - two*(bb+dd);"NL
-                TAB3"m_traits<R>::template w<1,2>(r) = two*(cd-ab);"NL
+                TAB3"mat_traits<R>::template w<1,0>(r) = two*(bc+ad);"NL
+                TAB3"mat_traits<R>::template w<1,1>(r) = one - two*(bb+dd);"NL
+                TAB3"mat_traits<R>::template w<1,2>(r) = two*(cd-ab);"NL
                 ;
             for( int i=3; i!=c; ++i )
-                g<<TAB3"m_traits<R>::template w<1,"<<i<<">(r) = zero;"NL;
+                g<<TAB3"mat_traits<R>::template w<1,"<<i<<">(r) = zero;"NL;
             g<<
-                TAB3"m_traits<R>::template w<2,0>(r) = two*(bd-ac);"NL
-                TAB3"m_traits<R>::template w<2,1>(r) = two*(cd+ab);"NL
-                TAB3"m_traits<R>::template w<2,2>(r) = one - two*(bb+cc);"NL
+                TAB3"mat_traits<R>::template w<2,0>(r) = two*(bd-ac);"NL
+                TAB3"mat_traits<R>::template w<2,1>(r) = two*(cd+ab);"NL
+                TAB3"mat_traits<R>::template w<2,2>(r) = one - two*(bb+cc);"NL
                 ;
             for( int i=3; i!=c; ++i )
-                g<<TAB3"m_traits<R>::template w<2,"<<i<<">(r) = zero;"NL;
+                g<<TAB3"mat_traits<R>::template w<2,"<<i<<">(r) = zero;"NL;
             for( int i=3; i!=r; ++i )
                 for( int j=0; j!=c; ++j )
-                    g<<TAB3"m_traits<R>::template w<"<<i<<","<<j<<">(r) = "<<(i==j?"one":"zero")<<";"NL;
+                    g<<TAB3"mat_traits<R>::template w<"<<i<<","<<j<<">(r) = "<<(i==j?"one":"zero")<<";"NL;
             g<<
                 TAB3"return r;"NL
                 TAB3"}"NL
@@ -1256,7 +1256,7 @@ namespace
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1328,11 +1328,11 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type T;"NL
             ;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
-                g<<TAB3<<"T const a"<<i<<j<<"=m_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
+                g<<TAB3<<"T const a"<<i<<j<<"=mat_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
         g<<TAB3"T det=";
         determinant_impl(g,d,delrc('a'));
         g<<";"NL;
@@ -1358,25 +1358,25 @@ namespace
             TAB2"template <class A,class B>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<d<<" && m_traits<A>::cols=="<<d<<" && is_s<B>::value,"NL
-            TAB3"deduce_m<A> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<d<<" && mat_traits<A>::cols=="<<d<<" && is_s<B>::value,"NL
+            TAB3"deduce_mat<A> >::type"NL
             TAB2"inverse( A const & a, B det )"NL
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type T;"NL
-            TAB3"BOOST_QVM_ASSERT(det!=s_traits<B>::value(0));"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type T;"NL
+            TAB3"BOOST_QVM_ASSERT(det!=scalar_traits<B>::value(0));"NL
             ;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
-                g<<TAB3"T const a"<<i<<j<<"=m_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
+                g<<TAB3"T const a"<<i<<j<<"=mat_traits<A>::template r<"<<i<<','<<j<<">(a);"NL;
         g<<
-            TAB3"T const f=s_traits<T>::value(1)/det;"NL
-            TAB3"typedef typename deduce_m<A>::type R;"NL
+            TAB3"T const f=scalar_traits<T>::value(1)/det;"NL
+            TAB3"typedef typename deduce_mat<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
             for( int j=0; j!=d; ++j )
                 {
-                g<<TAB3"m_traits<R>::template w<"<<i<<','<<j<<">(r)="<<(((i+j)&1)?'-':' ')<<"f*";
+                g<<TAB3"mat_traits<R>::template w<"<<i<<','<<j<<">(r)="<<(((i+j)&1)?'-':' ')<<"f*";
                 determinant_impl(g,d-1,delrc(delrc('a'),j,i));
                 g<<";"NL;
                 }
@@ -1387,13 +1387,13 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename lazy_enable_if_c<"NL
-            TAB3"m_traits<A>::rows=="<<d<<" && m_traits<A>::cols=="<<d<<","NL
-            TAB3"deduce_m<A> >::type"NL
+            TAB3"mat_traits<A>::rows=="<<d<<" && mat_traits<A>::cols=="<<d<<","NL
+            TAB3"deduce_mat<A> >::type"NL
             TAB2"inverse( A const & a )"NL
             TAB3"{"NL
-            TAB3"typedef typename m_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename mat_traits<A>::scalar_type T;"NL
             TAB3"T det=determinant(a);"NL
-            TAB3"if( det==s_traits<T>::value(0) )"NL
+            TAB3"if( det==scalar_traits<T>::value(0) )"NL
             TAB4"BOOST_THROW_EXCEPTION(zero_determinant_error());"NL
             TAB3"return inverse(a,det);"NL
             TAB3"}"NL
@@ -1410,10 +1410,10 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type T;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"T const a"<<i<<"=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"T const a"<<i<<"=vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<TAB3"T const mag2=";
         for( int i=0; i!=d; ++i )
             {
@@ -1438,10 +1438,10 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type T;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"T const a"<<i<<"=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"T const a"<<i<<"=vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<TAB3"T const mag2=";
         for( int i=0; i!=d; ++i )
             {
@@ -1469,10 +1469,10 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type T;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"T const a"<<i<<"=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"T const a"<<i<<"=vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<TAB3"T const mag2=";
         for( int i=0; i!=d; ++i )
             {
@@ -1482,14 +1482,14 @@ namespace
             }
         g<<
             ";"NL
-            TAB3"if( mag2==s_traits<typename v_traits<A>::scalar_type>::value(0) )"NL
+            TAB3"if( mag2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )"NL
             TAB4"BOOST_THROW_EXCEPTION(zero_magnitude_error());"NL
-            TAB3"T const rm=s_traits<T>::value(1)/sqrt<T>(mag2);"NL
-            TAB3"typedef typename deduce_v<A>::type R;"NL
+            TAB3"T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);"NL
+            TAB3"typedef typename deduce_vec<A>::type R;"NL
             TAB3"R r;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<R>::template w<"<<i<<">(r)=a"<<i<<"*rm;"NL;
+            g<<TAB3"vec_traits<R>::template w<"<<i<<">(r)=a"<<i<<"*rm;"NL;
         g<<
             TAB3"return r;"NL
             TAB3"}"NL
@@ -1503,14 +1503,14 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"v_traits<A>::dim=="<<d<<","NL
+            TAB3"vec_traits<A>::dim=="<<d<<","NL
             TAB3"void>::type"NL
             TAB2<<"normalize( A & a )"NL
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type T;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type T;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"T const a"<<i<<"=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"T const a"<<i<<"=vec_traits<A>::template r<"<<i<<">(a);"NL;
         g<<TAB3"T const mag2=";
         for( int i=0; i!=d; ++i )
             {
@@ -1520,12 +1520,12 @@ namespace
             }
         g<<
             ";"NL
-            TAB3"if( mag2==s_traits<typename v_traits<A>::scalar_type>::value(0) )"NL
+            TAB3"if( mag2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )"NL
             TAB4"BOOST_THROW_EXCEPTION(zero_magnitude_error());"NL
-            TAB3"T const rm=s_traits<T>::value(1)/sqrt<T>(mag2);"NL
+            TAB3"T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"v_traits<A>::template w<"<<i<<">(a)*=rm;"NL;
+            g<<TAB3"vec_traits<A>::template w<"<<i<<">(a)*=rm;"NL;
         g<<TAB3"}"NL;
         defined(g,d,"normalize",suffix);
         }
@@ -1540,14 +1540,14 @@ namespace
         std::ostream & g=out.stream();
         g<<
             TAB3"{"NL
-            TAB3"typedef typename v_traits<A>::scalar_type Ta;"NL
-            TAB3"typedef typename v_traits<B>::scalar_type Tb;"NL
-            TAB3"typedef typename deduce_s<Ta,Tb>::type Tr;"NL
+            TAB3"typedef typename vec_traits<A>::scalar_type Ta;"NL
+            TAB3"typedef typename vec_traits<B>::scalar_type Tb;"NL
+            TAB3"typedef typename deduce_scalar<Ta,Tb>::type Tr;"NL
             ;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"Ta const a"<<i<<"=v_traits<A>::template r<"<<i<<">(a);"NL;
+            g<<TAB3"Ta const a"<<i<<"=vec_traits<A>::template r<"<<i<<">(a);"NL;
         for( int i=0; i!=d; ++i )
-            g<<TAB3"Tb const b"<<i<<"=v_traits<B>::template r<"<<i<<">(b);"NL;
+            g<<TAB3"Tb const b"<<i<<"=vec_traits<B>::template r<"<<i<<">(b);"NL;
         g<<TAB3"Tr const dot=";
         for( int i=0; i!=d; ++i )
             {
@@ -1717,7 +1717,7 @@ namespace
             ma_mult_ma_mb(f,d,"mm");
             mr_mult_ma_mb(f,d,d,1,"mm");
             mr_mult_ma_mb(f,1,d,d,"mm");
-            f.dump("m"+to_string(d)+".hpp");
+            f.dump("mat_operations"+to_string(d)+".hpp");
             }
 
         for( int d=2; d!=5; ++d )
@@ -1740,7 +1740,7 @@ namespace
             mag2(f,d,"v");
             normalize(f,d,"v");
             dot(f,d,"vv");
-            f.dump("v"+to_string(d)+".hpp");
+            f.dump("vec_operations"+to_string(d)+".hpp");
             }
 
         for( int d=2; d!=5; ++d )
@@ -1748,23 +1748,23 @@ namespace
             output_file f(opt);
             vr_mult_ma_vb(f,d,d,"mv");
             vr_mult_va_mb(f,d,d,"vm");
-            f.dump("vm"+to_string(d)+".hpp");
+            f.dump("vec_mat_operations"+to_string(d)+".hpp");
             }
 
             {
             output_file f(opt);
             swizzle(f,2);
-            f.dump("sw2.hpp");
+            f.dump("swizzle2.hpp");
             }
             {
             output_file f(opt);
             swizzle(f,3);
-            f.dump("sw3.hpp");
+            f.dump("swizzle3.hpp");
             }
             {
             output_file f(opt);
             swizzle(f,4);
-            f.dump("sw4.hpp");
+            f.dump("swizzle4.hpp");
             }
         }
     }

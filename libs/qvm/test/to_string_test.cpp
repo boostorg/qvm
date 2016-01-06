@@ -4,9 +4,9 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/to_string.hpp>
-#include <boost/qvm/q.hpp>
-#include <boost/qvm/v.hpp>
-#include <boost/qvm/m.hpp>
+#include <boost/qvm/quat_operations.hpp>
+#include <boost/qvm/vec_operations.hpp>
+#include <boost/qvm/mat_operations.hpp>
 #include "test_qvm_matrix.hpp"
 #include "test_qvm_quaternion.hpp"
 #include "test_qvm_vector.hpp"

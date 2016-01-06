@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/deduce_s.hpp>
+#include <boost/qvm/deduce_scalar.hpp>
 
 template <class T,class U>
 struct same_type;
@@ -18,8 +18,8 @@ template <class A,class B,class R>
 struct
 check
     {
-    same_type<typename boost::qvm::deduce_s<A,B>::type,R> a;
-    same_type<typename boost::qvm::deduce_s<B,A>::type,R> b;
+    same_type<typename boost::qvm::deduce_scalar<A,B>::type,R> a;
+    same_type<typename boost::qvm::deduce_scalar<B,A>::type,R> b;
     };
 
 int

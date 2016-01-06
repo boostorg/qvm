@@ -6,7 +6,7 @@
 #ifndef UUID_EF9152E42E4711DFB699737156D89593
 #define UUID_EF9152E42E4711DFB699737156D89593
 
-#include <boost/qvm/deduce_q.hpp>
+#include <boost/qvm/deduce_quat.hpp>
 #include <boost/qvm/assert.hpp>
 #include "test_qvm.hpp"
 
@@ -44,7 +44,7 @@ boost
         {
         template <class Tag,class T>
         struct
-        q_traits< test_qvm::quaternion<Tag,T> >
+        quat_traits< test_qvm::quaternion<Tag,T> >
             {
             typedef T scalar_type;
             typedef test_qvm::quaternion<Tag,T> this_quaternion_type;
@@ -92,7 +92,7 @@ boost
 
         template <class Tag,class T>
         struct
-        deduce_q2<test_qvm::quaternion<Tag,T>,test_qvm::quaternion<Tag,T> >
+        deduce_quat2<test_qvm::quaternion<Tag,T>,test_qvm::quaternion<Tag,T> >
             {
             typedef test_qvm::quaternion<Tag,T> type;
             };

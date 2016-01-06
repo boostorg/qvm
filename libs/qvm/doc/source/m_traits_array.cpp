@@ -4,7 +4,7 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/m.hpp>
-#include <boost/qvm/m_traits_array.hpp>
+#include <boost/qvm/mat_traits_array.hpp>
 using namespace boost::qvm::sfinae;
 
 void

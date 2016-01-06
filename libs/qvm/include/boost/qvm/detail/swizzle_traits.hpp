@@ -7,7 +7,7 @@
 #define UUID_E831FAD6B38F11DE8CECBF0D56D89593
 
 #include <boost/qvm/inline.hpp>
-#include <boost/qvm/deduce_v.hpp>
+#include <boost/qvm/deduce_vec.hpp>
 #include <boost/qvm/enable_if.hpp>
 #include <boost/qvm/assert.hpp>
 
@@ -68,7 +68,7 @@ boost
                 S
                 value()
                     {
-                    return s_traits<S>::value(0);
+                    return scalar_traits<S>::value(0);
                     }
                 };
 
@@ -81,7 +81,7 @@ boost
                 S
                 value()
                     {
-                    return s_traits<S>::value(1);
+                    return scalar_traits<S>::value(1);
                     }
                 };
 
@@ -158,7 +158,7 @@ boost
                 swizzle_ & operator=( swizzle_ const & );
                 ~swizzle_();
 
-                BOOST_QVM_STATIC_ASSERT((validate_swizzle_list<SwizzleList,v_traits<OriginalType>::dim>::value));
+                BOOST_QVM_STATIC_ASSERT((validate_swizzle_list<SwizzleList,vec_traits<OriginalType>::dim>::value));
 
                 public:
 
@@ -184,10 +184,10 @@ boost
 
         template <class OriginalVector,class SwizzleList>
         struct
-        v_traits< qvm_detail::swizzle_<OriginalVector,SwizzleList> >
+        vec_traits< qvm_detail::swizzle_<OriginalVector,SwizzleList> >
             {
             typedef qvm_detail::swizzle_<OriginalVector,SwizzleList> this_vector;
-            typedef typename v_traits<OriginalVector>::scalar_type scalar_type;
+            typedef typename vec_traits<OriginalVector>::scalar_type scalar_type;
             static int const dim=qvm_detail::swizzle_list_length<SwizzleList>::value;
 
             template <int I>
@@ -199,9 +199,9 @@ boost
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
                 int const v=qvm_detail::swizzle<SwizzleList,I>::value;
-                BOOST_QVM_STATIC_ASSERT(v<v_traits<OriginalVector>::dim);
+                BOOST_QVM_STATIC_ASSERT(v<vec_traits<OriginalVector>::dim);
                 return v>=0?
-                    v_traits<OriginalVector>::template r<qvm_detail::neg_zero<v>::value>(reinterpret_cast<OriginalVector const &>(x)) :
+                    vec_traits<OriginalVector>::template r<qvm_detail::neg_zero<v>::value>(reinterpret_cast<OriginalVector const &>(x)) :
                     qvm_detail::const_value<scalar_type,v>::value();
                 }
 
@@ -215,23 +215,23 @@ boost
                 BOOST_QVM_STATIC_ASSERT(I<dim);
                 int const v=qvm_detail::swizzle<SwizzleList,I>::value;
                 BOOST_QVM_STATIC_ASSERT(v>=0);
-                BOOST_QVM_STATIC_ASSERT(v<v_traits<OriginalVector>::dim);
-                return v_traits<OriginalVector>::template w<v>(reinterpret_cast<OriginalVector &>(x));
+                BOOST_QVM_STATIC_ASSERT(v<vec_traits<OriginalVector>::dim);
+                return vec_traits<OriginalVector>::template w<v>(reinterpret_cast<OriginalVector &>(x));
                 }
             };
 
         template <class OriginalVector,class SwizzleList,int D>
         struct
-        deduce_v<qvm_detail::swizzle_<OriginalVector,SwizzleList>,D>
+        deduce_vec<qvm_detail::swizzle_<OriginalVector,SwizzleList>,D>
             {
-            typedef vec<typename v_traits<OriginalVector>::scalar_type,D> type;
+            typedef vec<typename vec_traits<OriginalVector>::scalar_type,D> type;
             };
 
         template <class OriginalVector,class SwizzleList,int D>
         struct
-        deduce_v2<qvm_detail::swizzle_<OriginalVector,SwizzleList>,qvm_detail::swizzle_<OriginalVector,SwizzleList>,D>
+        deduce_vec2<qvm_detail::swizzle_<OriginalVector,SwizzleList>,qvm_detail::swizzle_<OriginalVector,SwizzleList>,D>
             {
-            typedef vec<typename v_traits<OriginalVector>::scalar_type,D> type;
+            typedef vec<typename vec_traits<OriginalVector>::scalar_type,D> type;
             };
 
         template <class OriginalVector,int A,class Next>
@@ -258,24 +258,24 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_v<OriginalVector>::value,
-            typename v_traits<OriginalVector>::scalar_type>::type
+            typename vec_traits<OriginalVector>::scalar_type>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
-            BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
-            return v_traits<OriginalVector>::template r<A>(a);
+            BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
+            return vec_traits<OriginalVector>::template r<A>(a);
             }
 
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_v<OriginalVector>::value,
-            typename v_traits<OriginalVector>::scalar_type &>::type
+            typename vec_traits<OriginalVector>::scalar_type &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
-            BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
-            return v_traits<OriginalVector>::template w<A>(a);
+            BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
+            return vec_traits<OriginalVector>::template w<A>(a);
             }
 
         template <class OriginalVector,int A,class Next>
@@ -302,24 +302,24 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_v<OriginalVector>::value,
-            typename v_traits<OriginalVector>::scalar_type>::type
+            typename vec_traits<OriginalVector>::scalar_type>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
-            BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
-            return v_traits<OriginalVector>::template r<A>(a);
+            BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
+            return vec_traits<OriginalVector>::template r<A>(a);
             }
 
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_v<OriginalVector>::value,
-            typename v_traits<OriginalVector>::scalar_type &>::type
+            typename vec_traits<OriginalVector>::scalar_type &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> (*)() )
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
-            BOOST_QVM_STATIC_ASSERT(A<v_traits<OriginalVector>::dim);
-            return v_traits<OriginalVector>::template w<A>(a);
+            BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
+            return vec_traits<OriginalVector>::template w<A>(a);
             }
         }
     }

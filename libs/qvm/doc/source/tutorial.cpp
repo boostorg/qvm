@@ -4,13 +4,13 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/qvm.hpp>
-#include <boost/qvm/map_mm.hpp>
-#include <boost/qvm/map_mv.hpp>
-#include <boost/qvm/v_access.hpp>
-#include <boost/qvm/v_traits_array.hpp>
+#include <boost/qvm/map_mat_mat.hpp>
+#include <boost/qvm/map_mat_vec.hpp>
+#include <boost/qvm/vec_access.hpp>
+#include <boost/qvm/vec_traits_array.hpp>
 #include <boost/qvm/vec.hpp>
 #include <boost/qvm/mat.hpp>
-#include <boost/qvm/sw.hpp>
+#include <boost/qvm/swizzle.hpp>
 using namespace boost::qvm;
 
 struct float3 { float a[3]; };
@@ -26,7 +26,7 @@ boost
         {
         template <>
         struct
-        v_traits<float3>
+        vec_traits<float3>
             {
             static int const dim=3;
             typedef float scalar_type;
@@ -40,7 +40,7 @@ boost
 
         template <>
         struct
-        v_traits<float4>
+        vec_traits<float4>
             {
             static int const dim=4;
             typedef float scalar_type;
@@ -54,7 +54,7 @@ boost
 
         template <>
         struct
-        m_traits<float33>
+        mat_traits<float33>
             {
             typedef float scalar_type;
             static int const rows=3;
@@ -72,7 +72,7 @@ boost
 
         template <>
         struct
-        q_traits<fquat>
+        quat_traits<fquat>
             {
             typedef float scalar_type;
 

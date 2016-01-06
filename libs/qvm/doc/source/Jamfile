@@ -7,5 +7,5 @@ import testing ;
 
 compile tutorial.cpp ;
 compile interoperability.cpp ;
-compile m_traits_array.cpp ;
-compile v_traits_array.cpp ;
+compile mat_traits_array.cpp ;
+compile vec_traits_array.cpp ;

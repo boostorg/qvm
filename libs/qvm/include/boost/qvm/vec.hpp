@@ -31,11 +31,11 @@ boost
             };
 
         template <class V>
-        struct v_traits;
+        struct vec_traits;
 
         template <class T,int Dim>
         struct
-        v_traits< vec<T,Dim> >
+        vec_traits< vec<T,Dim> >
             {
             typedef vec<T,Dim> this_vector;
             typedef T scalar_type;

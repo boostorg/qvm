@@ -31,11 +31,11 @@ boost
             };
 
         template <class Q>
-        struct q_traits;
+        struct quat_traits;
 
         template <class T>
         struct
-        q_traits< quat<T> >
+        quat_traits< quat<T> >
             {
             typedef quat<T> this_quaternion;
             typedef T scalar_type;

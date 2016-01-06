@@ -6,7 +6,7 @@
 #ifndef UUID_B3B8081A277711E09E007F2DDFD72085
 #define UUID_B3B8081A277711E09E007F2DDFD72085
 
-#include <boost/qvm/deduce_m.hpp>
+#include <boost/qvm/deduce_mat.hpp>
 #include <boost/qvm/static_assert.hpp>
 #include <boost/qvm/assert.hpp>
 
@@ -51,12 +51,12 @@ boost
 
         template <class OriginalMatrix>
         struct
-        m_traits< qvm_detail::transp_<OriginalMatrix> >
+        mat_traits< qvm_detail::transp_<OriginalMatrix> >
             {
-            typedef typename m_traits<OriginalMatrix>::scalar_type scalar_type;
+            typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             typedef qvm_detail::transp_<OriginalMatrix> this_matrix;
-            static int const rows=m_traits<OriginalMatrix>::cols;
-            static int const cols=m_traits<OriginalMatrix>::rows;
+            static int const rows=mat_traits<OriginalMatrix>::cols;
+            static int const cols=mat_traits<OriginalMatrix>::rows;
 
             template <int Row,int Col>
             static
@@ -68,7 +68,7 @@ boost
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
                 BOOST_QVM_STATIC_ASSERT(Col<cols);
-                return m_traits<OriginalMatrix>::template r<Col,Row>(reinterpret_cast<OriginalMatrix const &>(x));
+                return mat_traits<OriginalMatrix>::template r<Col,Row>(reinterpret_cast<OriginalMatrix const &>(x));
                 }
 
             template <int Row,int Col>
@@ -81,7 +81,7 @@ boost
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
                 BOOST_QVM_STATIC_ASSERT(Col<cols);
-                return m_traits<OriginalMatrix>::template w<Col,Row>(reinterpret_cast<OriginalMatrix &>(x));
+                return mat_traits<OriginalMatrix>::template w<Col,Row>(reinterpret_cast<OriginalMatrix &>(x));
                 }
 
             static
@@ -93,7 +93,7 @@ boost
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
                 BOOST_QVM_ASSERT(col<cols);
-                return m_traits<OriginalMatrix>::ir(col,row,reinterpret_cast<OriginalMatrix const &>(x));
+                return mat_traits<OriginalMatrix>::ir(col,row,reinterpret_cast<OriginalMatrix const &>(x));
                 }
 
             static
@@ -105,22 +105,22 @@ boost
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
                 BOOST_QVM_ASSERT(col<cols);
-                return m_traits<OriginalMatrix>::iw(col,row,reinterpret_cast<OriginalMatrix &>(x));
+                return mat_traits<OriginalMatrix>::iw(col,row,reinterpret_cast<OriginalMatrix &>(x));
                 }
             };
 
         template <class OriginalMatrix,int R,int C>
         struct
-        deduce_m<qvm_detail::transp_<OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::transp_<OriginalMatrix>,R,C>
             {
-            typedef mat<typename m_traits<OriginalMatrix>::scalar_type,R,C> type;
+            typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <class OriginalMatrix,int R,int C>
         struct
-        deduce_m2<qvm_detail::transp_<OriginalMatrix>,qvm_detail::transp_<OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::transp_<OriginalMatrix>,qvm_detail::transp_<OriginalMatrix>,R,C>
             {
-            typedef mat<typename m_traits<OriginalMatrix>::scalar_type,R,C> type;
+            typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
         }
     }

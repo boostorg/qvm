@@ -6,10 +6,10 @@
 #ifndef UUID_0B9D9FB6B95D11DEA8E0305E55D89593
 #define UUID_0B9D9FB6B95D11DEA8E0305E55D89593
 
-#include <boost/qvm/q.hpp>
-#include <boost/qvm/v.hpp>
-#include <boost/qvm/m.hpp>
-#include <boost/qvm/qv.hpp>
-#include <boost/qvm/vm.hpp>
+#include <boost/qvm/quat_operations.hpp>
+#include <boost/qvm/vec_operations.hpp>
+#include <boost/qvm/mat_operations.hpp>
+#include <boost/qvm/quat_vec_operations.hpp>
+#include <boost/qvm/vec_mat_operations.hpp>
 
 #endif

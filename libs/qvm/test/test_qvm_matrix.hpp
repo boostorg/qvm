@@ -6,7 +6,7 @@
 #ifndef UUID_9C471450B3A611DEAF56C1F155D89593
 #define UUID_9C471450B3A611DEAF56C1F155D89593
 
-#include <boost/qvm/deduce_m.hpp>
+#include <boost/qvm/deduce_mat.hpp>
 #include <boost/qvm/assert.hpp>
 #include "test_qvm.hpp"
 
@@ -45,7 +45,7 @@ boost
         {
         template <class Tag,int Rows,int Cols,class T>
         struct
-        m_traits< test_qvm::matrix<Tag,Rows,Cols,T> >
+        mat_traits< test_qvm::matrix<Tag,Rows,Cols,T> >
             {
             static int const rows=Rows;
             static int const cols=Cols;
@@ -103,7 +103,7 @@ boost
 
         template <class Tag,class T,int R1,int C1,int R2,int C2,int Rows,int Cols>
         struct
-        deduce_m2<test_qvm::matrix<Tag,R1,C1,T>,test_qvm::matrix<Tag,R2,C2,T>,Rows,Cols>
+        deduce_mat2<test_qvm::matrix<Tag,R1,C1,T>,test_qvm::matrix<Tag,R2,C2,T>,Rows,Cols>
             {
             typedef test_qvm::matrix<Tag,Rows,Cols,T> type;
             };

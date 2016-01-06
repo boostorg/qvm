@@ -7,7 +7,7 @@
 #define UUID_995547FAAE0E11DE8CF511E755D89593
 
 #include <boost/qvm/detail/determinant_impl.hpp>
-#include <boost/qvm/m_traits.hpp>
+#include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/static_assert.hpp>
 
 namespace
@@ -21,14 +21,14 @@ boost
             {
             template <class A>
             BOOST_QVM_INLINE_OPERATIONS
-            typename deduce_m<A>::type
+            typename deduce_mat<A>::type
             cofactor_impl( A const & a )
                 {
-                BOOST_QVM_STATIC_ASSERT(m_traits<A>::rows==m_traits<A>::cols);
-                int const N=m_traits<A>::rows;
-                typedef typename m_traits<A>::scalar_type T;
+                BOOST_QVM_STATIC_ASSERT(mat_traits<A>::rows==mat_traits<A>::cols);
+                int const N=mat_traits<A>::rows;
+                typedef typename mat_traits<A>::scalar_type T;
                 T c[N-1][N-1];
-                typedef typename deduce_m<A>::type R;
+                typedef typename deduce_mat<A>::type R;
                 R b;
                 for( int j=0; j!=N; ++j )
                     {
@@ -44,7 +44,7 @@ boost
                                 {
                                 if( jj==j )
                                     continue;
-                                c[i1][j1] = m_traits<A>::ir(ii,jj,a);
+                                c[i1][j1] = mat_traits<A>::ir(ii,jj,a);
                                 ++j1;
                                 }
                             ++i1;
@@ -52,7 +52,7 @@ boost
                         T det = determinant_impl(c);
                         if( (i+j)&1 )
                             det=-det;
-                        m_traits<R>::iw(i,j,b) = det;
+                        mat_traits<R>::iw(i,j,b) = det;
                         }
                     }
                 return b;

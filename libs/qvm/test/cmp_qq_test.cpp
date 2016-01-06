@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Qersion 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/q.hpp>
+#include <boost/qvm/quat_operations.hpp>
 #include "test_qvm_quaternion.hpp"
 #include "gold.hpp"
 #include <functional>

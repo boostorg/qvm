@@ -3,8 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/q.hpp>
-#include <boost/qvm/m.hpp>
+#include <boost/qvm/quat_operations.hpp>
+#include <boost/qvm/mat_operations.hpp>
 #include "test_qvm_quaternion.hpp"
 #include "test_qvm_matrix.hpp"
 #include "gold.hpp"

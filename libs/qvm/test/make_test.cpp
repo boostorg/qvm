@@ -4,7 +4,7 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/qvm.hpp>
-#include <boost/qvm/map_mm.hpp>
+#include <boost/qvm/map_mat_mat.hpp>
 #include "test_qvm_matrix.hpp"
 #include "test_qvm_quaternion.hpp"
 #include "test_qvm_vector.hpp"

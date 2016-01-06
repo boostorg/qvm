@@ -3,8 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/v_traits.hpp>
-#include <boost/qvm/sw3.hpp>
+#include <boost/qvm/vec_traits.hpp>
+#include <boost/qvm/swizzle3.hpp>
 
 template <int D> struct my_vec { };
 
@@ -16,7 +16,7 @@ boost
         {
         template <int D>
         struct
-        v_traits< my_vec<D> >
+        vec_traits< my_vec<D> >
             {
             typedef int scalar_type;
             static int const dim=D;

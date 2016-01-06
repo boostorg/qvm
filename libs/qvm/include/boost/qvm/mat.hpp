@@ -31,11 +31,11 @@ boost
             };
 
         template <class M>
-        struct m_traits;
+        struct mat_traits;
 
         template <class T,int Rows,int Cols>
         struct
-        m_traits< mat<T,Rows,Cols> >
+        mat_traits< mat<T,Rows,Cols> >
             {
             typedef mat<T,Rows,Cols> this_matrix;
             typedef T scalar_type;

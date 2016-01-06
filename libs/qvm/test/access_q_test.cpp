@@ -3,8 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/q_access.hpp>
-#include <boost/qvm/v_access.hpp>
+#include <boost/qvm/quat_access.hpp>
+#include <boost/qvm/vec_access.hpp>
 #include "test_qvm_quaternion.hpp"
 
 int

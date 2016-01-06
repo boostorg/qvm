@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/m_access.hpp>
+#include <boost/qvm/mat_access.hpp>
 
 template <int R,int C> struct my_mat { };
 
@@ -15,7 +15,7 @@ boost
         {
         template <int R,int C>
         struct
-        m_traits< my_mat<R,C> >
+        mat_traits< my_mat<R,C> >
             {
             typedef int scalar_type;
             static int const rows=R;
