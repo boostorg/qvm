@@ -19,9 +19,9 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::quaternion<Q1> x=rotx_q(4.2f);
+        test_qvm::quaternion<Q1> x=rotx_quat(4.2f);
         test_same_type(x,inverse(x));
-        test_qvm::quaternion<Q1> y=rotx_q(-4.2f);
+        test_qvm::quaternion<Q1> y=rotx_quat(-4.2f);
             {
             test_qvm::quaternion<Q1> z=inverse(x);
             BOOST_QVM_TEST_CLOSE_QUAT(z.a,y.a,0.00001f);

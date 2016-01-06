@@ -19,13 +19,13 @@ namespace
         {
         using namespace boost::qvm;
         test_qvm::vector<V1,Dim> x(42,1);
-        float y[1][Dim]; assign(y,row_m(x));
+        float y[1][Dim]; assign(y,row_mat(x));
         BOOST_QVM_TEST_EQ(x.a,y[0]);
         test_qvm::scalar_multiply_v(x.b,x.a,2.0f);
-        row<0>(row_m(x)) *= 2;
+        row<0>(row_mat(x)) *= 2;
         BOOST_QVM_TEST_EQ(x.a,x.b);
-        row_m(x) + row_m(x);
-        -row_m(x);
+        row_mat(x) + row_mat(x);
+        -row_mat(x);
         }
     }
 

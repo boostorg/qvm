@@ -375,7 +375,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_quat<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_scalar<B>::value,
             A &>::type
         operator/=( A & a, B b )
             {
@@ -389,7 +389,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_quat<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_scalar<B>::value,
             deduce_quat<A> >::type
         operator/( A const & a, B b )
             {
@@ -451,10 +451,10 @@ boost
             TA ab = quat_traits<A>::template r<1>(a);
             TA ac = quat_traits<A>::template r<2>(a);
             TA ad = quat_traits<A>::template r<3>(a);
-            TA mag2 = ab*ab + ac*ac + ad*ad + aa*aa;
-            if( mag2==scalar_traits<TA>::value(0) )
+            TA mag_sqr = ab*ab + ac*ac + ad*ad + aa*aa;
+            if( mag_sqr==scalar_traits<TA>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            TA rm=scalar_traits<TA>::value(1)/mag2;
+            TA rm=scalar_traits<TA>::value(1)/mag_sqr;
             R r;
             quat_traits<R>::template w<0>(r) = aa*rm;
             quat_traits<R>::template w<1>(r) = -ab*rm;
@@ -468,7 +468,7 @@ boost
         typename enable_if_c<
             is_quat<A>::value,
             typename quat_traits<A>::scalar_type>::type
-        mag2( A const & a )
+        mag_sqr( A const & a )
             {
             typedef typename quat_traits<A>::scalar_type T;
             T x=quat_traits<A>::template r<0>(a);
@@ -566,7 +566,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_quat<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_scalar<B>::value,
             A &>::type
         operator*=( A & a, B b )
             {
@@ -606,7 +606,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_quat<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_scalar<B>::value,
             deduce_quat<A> >::type
         operator*( A const & a, B b )
             {
@@ -645,10 +645,10 @@ boost
             T const a1=quat_traits<A>::template r<1>(a);
             T const a2=quat_traits<A>::template r<2>(a);
             T const a3=quat_traits<A>::template r<3>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2+a3*a3;
-            if( mag2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
+            T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
+            if( mag_sqr==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
             typedef typename deduce_quat<A>::type R;
             R r;
             quat_traits<R>::template w<0>(r)=a0*rm;
@@ -670,10 +670,10 @@ boost
             T const a1=quat_traits<A>::template r<1>(a);
             T const a2=quat_traits<A>::template r<2>(a);
             T const a3=quat_traits<A>::template r<3>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2+a3*a3;
-            if( mag2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
+            T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
+            if( mag_sqr==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
             quat_traits<A>::template w<0>(a)*=rm;
             quat_traits<A>::template w<1>(a)*=rm;
             quat_traits<A>::template w<2>(a)*=rm;
@@ -713,7 +713,7 @@ boost
         template <class A,class B,class C>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_quat<A>::value && is_quat<B>::value && is_s<C>::value,
+            is_quat<A>::value && is_quat<B>::value && is_scalar<C>::value,
             deduce_quat2<A,B> >::type
         slerp( A const & a, B const & b, C t )
             {
@@ -916,14 +916,14 @@ boost
             {
             template <class V>
             struct
-            rot_q_
+            rot_quat_
                 {
                 typedef typename vec_traits<V>::scalar_type scalar_type;
                 scalar_type a[4];
 
                 template <class Angle>
                 BOOST_QVM_INLINE
-                rot_q_( V const & axis, Angle angle )
+                rot_quat_( V const & axis, Angle angle )
                     {
                     scalar_type const x=vec_traits<V>::template r<0>(axis);
                     scalar_type const y=vec_traits<V>::template r<1>(axis);
@@ -953,9 +953,9 @@ boost
 
         template <class V>
         struct
-        quat_traits< qvm_detail::rot_q_<V> >
+        quat_traits< qvm_detail::rot_quat_<V> >
             {
-            typedef qvm_detail::rot_q_<V> this_quaternion;
+            typedef qvm_detail::rot_quat_<V> this_quaternion;
             typedef typename this_quaternion::scalar_type scalar_type;
 
             template <int I>
@@ -972,7 +972,7 @@ boost
 
         template <class V>
         struct
-        deduce_quat< qvm_detail::rot_q_<V> >
+        deduce_quat< qvm_detail::rot_quat_<V> >
             {
             typedef quat<typename vec_traits<V>::scalar_type> type;
             };
@@ -981,10 +981,10 @@ boost
         BOOST_QVM_INLINE
         typename enable_if_c<
             is_vec<A>::value && vec_traits<A>::dim==3,
-            qvm_detail::rot_q_<A> >::type
-        rot_q( A const & axis, Angle angle )
+            qvm_detail::rot_quat_<A> >::type
+        rot_quat( A const & axis, Angle angle )
             {
-            return qvm_detail::rot_q_<A>(axis,angle);
+            return qvm_detail::rot_quat_<A>(axis,angle);
             }
 
         template <class A,class B,class Angle>
@@ -995,7 +995,7 @@ boost
             void>::type
         set_rot( A & a, B const & axis, Angle angle )
             {
-            assign(a,rot_q(axis,angle));
+            assign(a,rot_quat(axis,angle));
             }
 
         template <class A,class B,class Angle>
@@ -1006,7 +1006,7 @@ boost
             void>::type
         rotate( A & a, B const & axis, Angle angle )
             {
-            a *= rot_q(axis,angle);
+            a *= rot_quat(axis,angle);
             }
 
         ////////////////////////////////////////////////
@@ -1016,10 +1016,10 @@ boost
             {
             template <class T>
             struct
-            rotx_q_
+            rotx_quat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                rotx_q_()
+                rotx_quat_()
                     {
                     }
 
@@ -1034,9 +1034,9 @@ boost
 
                 private:
 
-                rotx_q_( rotx_q_ const & );
-                rotx_q_ & operator=( rotx_q_ const & );
-                ~rotx_q_();
+                rotx_quat_( rotx_quat_ const & );
+                rotx_quat_ & operator=( rotx_quat_ const & );
+                ~rotx_quat_();
                 };
 
             template <int I>
@@ -1084,9 +1084,9 @@ boost
 
         template <class Angle>
         struct
-        quat_traits< qvm_detail::rotx_q_<Angle> >
+        quat_traits< qvm_detail::rotx_quat_<Angle> >
             {
-            typedef qvm_detail::rotx_q_<Angle> this_quaternion;
+            typedef qvm_detail::rotx_quat_<Angle> this_quaternion;
             typedef Angle scalar_type;
 
             template <int I>
@@ -1103,24 +1103,24 @@ boost
 
         template <class Angle>
         struct
-        deduce_quat< qvm_detail::rotx_q_<Angle> >
+        deduce_quat< qvm_detail::rotx_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         struct
-        deduce_quat2< qvm_detail::rotx_q_<Angle>, qvm_detail::rotx_q_<Angle> >
+        deduce_quat2< qvm_detail::rotx_quat_<Angle>, qvm_detail::rotx_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::rotx_q_<Angle> const &
-        rotx_q( Angle const & angle )
+        qvm_detail::rotx_quat_<Angle> const &
+        rotx_quat( Angle const & angle )
             {
-            return reinterpret_cast<qvm_detail::rotx_q_<Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::rotx_quat_<Angle> const &>(angle);
             }
 
         template <class A,class Angle>
@@ -1130,7 +1130,7 @@ boost
             void>::type
         set_rotx( A & a, Angle angle )
             {
-            assign(a,rotx_q(angle));
+            assign(a,rotx_quat(angle));
             }
 
         template <class A,class Angle>
@@ -1140,7 +1140,7 @@ boost
             void>::type
         rotate_x( A & a, Angle angle )
             {
-            a *= rotx_q(angle);
+            a *= rotx_quat(angle);
             }
 
         ////////////////////////////////////////////////
@@ -1150,10 +1150,10 @@ boost
             {
             template <class T>
             struct
-            roty_q_
+            roty_quat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                roty_q_()
+                roty_quat_()
                     {
                     }
 
@@ -1168,9 +1168,9 @@ boost
 
                 private:
 
-                roty_q_( roty_q_ const & );
-                roty_q_ & operator=( roty_q_ const & );
-                ~roty_q_();
+                roty_quat_( roty_quat_ const & );
+                roty_quat_ & operator=( roty_quat_ const & );
+                ~roty_quat_();
                 };
 
             template <int I>
@@ -1218,9 +1218,9 @@ boost
 
         template <class Angle>
         struct
-        quat_traits< qvm_detail::roty_q_<Angle> >
+        quat_traits< qvm_detail::roty_quat_<Angle> >
             {
-            typedef qvm_detail::roty_q_<Angle> this_quaternion;
+            typedef qvm_detail::roty_quat_<Angle> this_quaternion;
             typedef Angle scalar_type;
 
             template <int I>
@@ -1237,24 +1237,24 @@ boost
 
         template <class Angle>
         struct
-        deduce_quat< qvm_detail::roty_q_<Angle> >
+        deduce_quat< qvm_detail::roty_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         struct
-        deduce_quat2< qvm_detail::roty_q_<Angle>, qvm_detail::roty_q_<Angle> >
+        deduce_quat2< qvm_detail::roty_quat_<Angle>, qvm_detail::roty_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::roty_q_<Angle> const &
-        roty_q( Angle const & angle )
+        qvm_detail::roty_quat_<Angle> const &
+        roty_quat( Angle const & angle )
             {
-            return reinterpret_cast<qvm_detail::roty_q_<Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::roty_quat_<Angle> const &>(angle);
             }
 
         template <class A,class Angle>
@@ -1264,7 +1264,7 @@ boost
             void>::type
         set_roty( A & a, Angle angle )
             {
-            assign(a,roty_q(angle));
+            assign(a,roty_quat(angle));
             }
 
         template <class A,class Angle>
@@ -1274,7 +1274,7 @@ boost
             void>::type
         rotate_y( A & a, Angle angle )
             {
-            a *= roty_q(angle);
+            a *= roty_quat(angle);
             }
 
         ////////////////////////////////////////////////
@@ -1284,10 +1284,10 @@ boost
             {
             template <class T>
             struct
-            rotz_q_
+            rotz_quat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                rotz_q_()
+                rotz_quat_()
                     {
                     }
 
@@ -1302,9 +1302,9 @@ boost
 
                 private:
 
-                rotz_q_( rotz_q_ const & );
-                rotz_q_ & operator=( rotz_q_ const & );
-                ~rotz_q_();
+                rotz_quat_( rotz_quat_ const & );
+                rotz_quat_ & operator=( rotz_quat_ const & );
+                ~rotz_quat_();
                 };
 
             template <int I>
@@ -1352,9 +1352,9 @@ boost
 
         template <class Angle>
         struct
-        quat_traits< qvm_detail::rotz_q_<Angle> >
+        quat_traits< qvm_detail::rotz_quat_<Angle> >
             {
-            typedef qvm_detail::rotz_q_<Angle> this_quaternion;
+            typedef qvm_detail::rotz_quat_<Angle> this_quaternion;
             typedef Angle scalar_type;
 
             template <int I>
@@ -1371,24 +1371,24 @@ boost
 
         template <class Angle>
         struct
-        deduce_quat< qvm_detail::rotz_q_<Angle> >
+        deduce_quat< qvm_detail::rotz_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         struct
-        deduce_quat2< qvm_detail::rotz_q_<Angle>, qvm_detail::rotz_q_<Angle> >
+        deduce_quat2< qvm_detail::rotz_quat_<Angle>, qvm_detail::rotz_quat_<Angle> >
             {
             typedef quat<Angle> type;
             };
 
         template <class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::rotz_q_<Angle> const &
-        rotz_q( Angle const & angle )
+        qvm_detail::rotz_quat_<Angle> const &
+        rotz_quat( Angle const & angle )
             {
-            return reinterpret_cast<qvm_detail::rotz_q_<Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::rotz_quat_<Angle> const &>(angle);
             }
 
         template <class A,class Angle>
@@ -1398,7 +1398,7 @@ boost
             void>::type
         set_rotz( A & a, Angle angle )
             {
-            assign(a,rotz_q(angle));
+            assign(a,rotz_quat(angle));
             }
 
         template <class A,class Angle>
@@ -1408,7 +1408,7 @@ boost
             void>::type
         rotate_z( A & a, Angle angle )
             {
-            a *= rotz_q(angle);
+            a *= rotz_quat(angle);
             }
 
         template <class A,class B>
@@ -1425,10 +1425,10 @@ boost
             T a3=quat_traits<A>::template r<3>(a);
             if( a0>1 )
                 {
-                T const mag2=a0*a0+a1*a1+a2*a2+a3*a3;
-                if( mag2==scalar_traits<T>::value(0) )
+                T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
+                if( mag_sqr==scalar_traits<T>::value(0) )
                     BOOST_THROW_EXCEPTION(zero_magnitude_error());
-                T const s=sqrt<T>(mag2);
+                T const s=sqrt<T>(mag_sqr);
                 a0/=s;
                 a1/=s;
                 a2/=s;
@@ -1466,7 +1466,7 @@ boost
             using ::boost::qvm::dot;
             using ::boost::qvm::operator==;
             using ::boost::qvm::inverse;
-            using ::boost::qvm::mag2;
+            using ::boost::qvm::mag_sqr;
             using ::boost::qvm::mag;
             using ::boost::qvm::slerp;
             using ::boost::qvm::operator-=;
@@ -1479,16 +1479,16 @@ boost
             using ::boost::qvm::operator+=;
             using ::boost::qvm::operator+;
             using ::boost::qvm::qref;
-            using ::boost::qvm::rot_q;
+            using ::boost::qvm::rot_quat;
             using ::boost::qvm::set_rot;
             using ::boost::qvm::rotate;
-            using ::boost::qvm::rotx_q;
+            using ::boost::qvm::rotx_quat;
             using ::boost::qvm::set_rotx;
             using ::boost::qvm::rotate_x;
-            using ::boost::qvm::roty_q;
+            using ::boost::qvm::roty_quat;
             using ::boost::qvm::set_roty;
             using ::boost::qvm::rotate_y;
-            using ::boost::qvm::rotz_q;
+            using ::boost::qvm::rotz_quat;
             using ::boost::qvm::set_rotz;
             using ::boost::qvm::rotate_z;
             }

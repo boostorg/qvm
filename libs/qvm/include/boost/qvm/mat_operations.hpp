@@ -514,7 +514,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_mat<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_scalar<B>::value &&
             !qvm_detail::div_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             A &>::type
         operator/=( A & a, B b )
@@ -541,7 +541,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_mat<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_scalar<B>::value &&
             !qvm_detail::div_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_mat<A> >::type
         operator/( A const & a, B b )
@@ -600,7 +600,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_TRIVIAL
         typename lazy_enable_if_c<
-            is_mat<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_scalar<B>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
             deduce_mat<A> >::type
@@ -776,7 +776,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_mat<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_scalar<B>::value &&
             !qvm_detail::mul_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             A &>::type
         operator*=( A & a, B b )
@@ -839,7 +839,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_mat<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_scalar<B>::value &&
             !qvm_detail::mul_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_mat<A> >::type
         operator*( A const & a, B b )

@@ -19,7 +19,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[0]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::quaternion<Q1> q1=rot_q(axis,r);
+            test_qvm::quaternion<Q1> q1=rot_quat(axis,r);
             test_qvm::matrix<M1,3,3> x1=make< test_qvm::matrix<M1,3,3> >(q1);
             test_qvm::rotation_x(x1.b,r);
             BOOST_QVM_TEST_CLOSE(x1.a,x1.b,0.000001f);
@@ -43,7 +43,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[1]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::quaternion<Q1> q1=rot_q(axis,r);
+            test_qvm::quaternion<Q1> q1=rot_quat(axis,r);
             test_qvm::matrix<M1,3,3> x1=make< test_qvm::matrix<M1,3,3> >(q1);
             test_qvm::rotation_y(x1.b,r);
             BOOST_QVM_TEST_CLOSE(x1.a,x1.b,0.000001f);
@@ -67,7 +67,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[2]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::quaternion<Q1> q1=rot_q(axis,r);
+            test_qvm::quaternion<Q1> q1=rot_quat(axis,r);
             test_qvm::matrix<M1,3,3> x1=make< test_qvm::matrix<M1,3,3> >(q1);
             test_qvm::rotation_z(x1.b,r);
             BOOST_QVM_TEST_CLOSE(x1.a,x1.b,0.000001f);

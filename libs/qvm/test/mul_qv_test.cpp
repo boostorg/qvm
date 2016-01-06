@@ -22,9 +22,9 @@ namespace
         using namespace boost::qvm;
         for( float a=0; a<6.28f; a+=0.2f )
             {
-            test_qvm::quaternion<Q1> const qx=rotx_q(a);
-            test_qvm::quaternion<Q1> const qy=roty_q(a);
-            test_qvm::quaternion<Q1> const qz=rotz_q(a);
+            test_qvm::quaternion<Q1> const qx=rotx_quat(a);
+            test_qvm::quaternion<Q1> const qy=roty_quat(a);
+            test_qvm::quaternion<Q1> const qz=rotz_quat(a);
             test_qvm::matrix<M1,3,3> const mx=rotx_mat<3>(a);
             test_qvm::matrix<M1,3,3> const my=roty_mat<3>(a);
             test_qvm::matrix<M1,3,3> const mz=rotz_mat<3>(a);

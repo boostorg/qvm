@@ -24,16 +24,16 @@ namespace
             for( int j=0; j!=Cols; ++j )
                 r1[i][j]=x.a[i==R1?R2:i==R2?R1:i][j];
         float r2[Rows][Cols];
-        assign(r2,swapr<R1,R2>(x));
+        assign(r2,swap_row<R1,R2>(x));
         BOOST_QVM_TEST_EQ(r1,r2);
-        swapr<R1,R2>(x) *= 2;
+        swap_row<R1,R2>(x) *= 2;
         for( int i=0; i!=Rows; ++i )
             for( int j=0; j!=Cols; ++j )
                 r1[i][j]=x.a[i==R1?R2:i==R2?R1:i][j];
-        assign(r2,swapr<R1,R2>(x));
+        assign(r2,swap_row<R1,R2>(x));
         BOOST_QVM_TEST_EQ(r1,r2);
-        swapr<R1,R2>(x)+swapr<R1,R2>(x);
-        -swapr<R1,R2>(x);
+        swap_row<R1,R2>(x)+swap_row<R1,R2>(x);
+        -swap_row<R1,R2>(x);
         }
     }
 

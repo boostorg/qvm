@@ -387,7 +387,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_vec<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_scalar<B>::value &&
             !qvm_detail::div_eq_vs_defined<vec_traits<A>::dim>::value,
             A &>::type
         operator/=( A & a, B b )
@@ -413,7 +413,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_vec<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_scalar<B>::value &&
             !qvm_detail::div_vs_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         operator/( A const & a, B b )
@@ -501,7 +501,7 @@ boost
             is_vec<A>::value &&
             !qvm_detail::mag2_v_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
-        mag2( A const & a )
+        mag_sqr( A const & a )
             {
             typedef typename vec_traits<A>::scalar_type T;
             T m(scalar_traits<T>::value(0));
@@ -644,7 +644,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_vec<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_scalar<B>::value &&
             !qvm_detail::mul_eq_vs_defined<vec_traits<A>::dim>::value,
             A &>::type
         operator*=( A & a, B b )
@@ -670,7 +670,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_vec<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_scalar<B>::value &&
             !qvm_detail::mul_vs_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         operator*( A const & a, B b )
@@ -955,7 +955,7 @@ boost
             using ::boost::qvm::operator/;
             using ::boost::qvm::dot;
             using ::boost::qvm::operator==;
-            using ::boost::qvm::mag2;
+            using ::boost::qvm::mag_sqr;
             using ::boost::qvm::mag;
             using ::boost::qvm::operator-=;
             using ::boost::qvm::operator-;

@@ -56,7 +56,7 @@ namespace
             BOOST_TEST(my.a[3][1]==0);
             BOOST_TEST(my.a[3][2]==0);
             BOOST_TEST(my.a[3][3]==1);
-            test_qvm::quaternion<Q1> const qy=make< test_qvm::quaternion<Q1> >(delrc<3,3>(my));
+            test_qvm::quaternion<Q1> const qy=make< test_qvm::quaternion<Q1> >(del_row_col<3,3>(my));
             BOOST_QVM_TEST_CLOSE(x.a,qy.a,0.00001f);
             }
         }

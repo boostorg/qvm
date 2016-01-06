@@ -25,17 +25,17 @@ boost
             {
             template <int Row,class OriginalMatrix>
             class
-            delr_
+            del_row_
                 {
-                delr_( delr_ const & );
-                delr_ & operator=( delr_ const & );
-                ~delr_();
+                del_row_( del_row_ const & );
+                del_row_ & operator=( del_row_ const & );
+                ~del_row_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                delr_ &
+                del_row_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -55,9 +55,9 @@ boost
 
         template <int I,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::delr_<I,OriginalMatrix> >
+        mat_traits< qvm_detail::del_row_<I,OriginalMatrix> >
             {
-            typedef qvm_detail::delr_<I,OriginalMatrix> this_matrix;
+            typedef qvm_detail::del_row_<I,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows-1;
             static int const cols=mat_traits<OriginalMatrix>::cols;
@@ -115,14 +115,14 @@ boost
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::delr_<J,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::del_row_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::delr_<J,OriginalMatrix>,qvm_detail::delr_<J,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::del_row_<J,OriginalMatrix>,qvm_detail::del_row_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -130,21 +130,21 @@ boost
         template <int Row,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delr_<Row,A> const &>::type
+            qvm_detail::del_row_<Row,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delr( A const & a )
+        del_row( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::delr_<Row,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::del_row_<Row,A> const &>(a);
             }
 
         template <int Row,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delr_<Row,A> &>::type
+            qvm_detail::del_row_<Row,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delr( A & a )
+        del_row( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::delr_<Row,A> &>(a);
+            return reinterpret_cast<typename qvm_detail::del_row_<Row,A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -154,17 +154,17 @@ boost
             {
             template <int Col,class OriginalMatrix>
             class
-            delc_
+            del_col_
                 {
-                delc_( delc_ const & );
-                delc_ & operator=( delc_ const & );
-                ~delc_();
+                del_col_( del_col_ const & );
+                del_col_ & operator=( del_col_ const & );
+                ~del_col_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                delc_ &
+                del_col_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -184,9 +184,9 @@ boost
 
         template <int J,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::delc_<J,OriginalMatrix> >
+        mat_traits< qvm_detail::del_col_<J,OriginalMatrix> >
             {
-            typedef qvm_detail::delc_<J,OriginalMatrix> this_matrix;
+            typedef qvm_detail::del_col_<J,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows;
             static int const cols=mat_traits<OriginalMatrix>::cols-1;
@@ -244,14 +244,14 @@ boost
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::delc_<J,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::del_col_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::delc_<J,OriginalMatrix>,qvm_detail::delc_<J,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::del_col_<J,OriginalMatrix>,qvm_detail::del_col_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -259,21 +259,21 @@ boost
         template <int Col,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delc_<Col,A> const &>::type
+            qvm_detail::del_col_<Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delc( A const & a )
+        del_col( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::delc_<Col,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::del_col_<Col,A> const &>(a);
             }
 
         template <int Col,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delc_<Col,A> &>::type
+            qvm_detail::del_col_<Col,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delc( A & a )
+        del_col( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::delc_<Col,A> &>(a);
+            return reinterpret_cast<typename qvm_detail::del_col_<Col,A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -283,16 +283,16 @@ boost
             {
             template <int Row,int Col,class OriginalMatrix>
             class
-            delrc_
+            del_row_col_
                 {
-                delrc_( delrc_ const & );
-                ~delrc_();
+                del_row_col_( del_row_col_ const & );
+                ~del_row_col_();
 
                 public:
 
                 BOOST_QVM_INLINE_TRIVIAL
-                delrc_ &
-                operator=( delrc_ const & x )
+                del_row_col_ &
+                operator=( del_row_col_ const & x )
                     {
                     assign(*this,x);
                     return *this;
@@ -300,7 +300,7 @@ boost
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                delrc_ &
+                del_row_col_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -320,9 +320,9 @@ boost
 
         template <int I,int J,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::delrc_<I,J,OriginalMatrix> >
+        mat_traits< qvm_detail::del_row_col_<I,J,OriginalMatrix> >
             {
-            typedef qvm_detail::delrc_<I,J,OriginalMatrix> this_matrix;
+            typedef qvm_detail::del_row_col_<I,J,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows-1;
             static int const cols=mat_traits<OriginalMatrix>::cols-1;
@@ -380,14 +380,14 @@ boost
 
         template <int I,int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::delrc_<I,J,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::del_row_col_<I,J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int I,int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::delrc_<I,J,OriginalMatrix>,qvm_detail::delrc_<I,J,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::del_row_col_<I,J,OriginalMatrix>,qvm_detail::del_row_col_<I,J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -395,21 +395,21 @@ boost
         template <int Row,int Col,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delrc_<Row,Col,A> const &>::type
+            qvm_detail::del_row_col_<Row,Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delrc( A const & a )
+        del_row_col( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::delrc_<Row,Col,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::del_row_col_<Row,Col,A> const &>(a);
             }
 
         template <int Row,int Col,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::delrc_<Row,Col,A> &>::type
+            qvm_detail::del_row_col_<Row,Col,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        delrc( A & a )
+        del_row_col( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::delrc_<Row,Col,A> &>(a);
+            return reinterpret_cast<typename qvm_detail::del_row_col_<Row,Col,A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -419,17 +419,17 @@ boost
             {
             template <int Row,class OriginalMatrix>
             class
-            negr_
+            neg_row_
                 {
-                negr_( negr_ const & );
-                negr_ & operator=( negr_ const & );
-                ~negr_();
+                neg_row_( neg_row_ const & );
+                neg_row_ & operator=( neg_row_ const & );
+                ~neg_row_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                negr_ &
+                neg_row_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -449,9 +449,9 @@ boost
 
         template <int I,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::negr_<I,OriginalMatrix> >
+        mat_traits< qvm_detail::neg_row_<I,OriginalMatrix> >
             {
-            typedef qvm_detail::negr_<I,OriginalMatrix> this_matrix;
+            typedef qvm_detail::neg_row_<I,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows;
             static int const cols=mat_traits<OriginalMatrix>::cols;
@@ -488,14 +488,14 @@ boost
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::negr_<J,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::neg_row_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::negr_<J,OriginalMatrix>,qvm_detail::negr_<J,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::neg_row_<J,OriginalMatrix>,qvm_detail::neg_row_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -503,11 +503,11 @@ boost
         template <int Row,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::negr_<Row,A> const &>::type
+            qvm_detail::neg_row_<Row,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        negr( A const & a )
+        neg_row( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::negr_<Row,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::neg_row_<Row,A> const &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -517,17 +517,17 @@ boost
             {
             template <int Col,class OriginalMatrix>
             class
-            negc_
+            neg_col_
                 {
-                negc_( negc_ const & );
-                negc_ & operator=( negc_ const & );
-                ~negc_();
+                neg_col_( neg_col_ const & );
+                neg_col_ & operator=( neg_col_ const & );
+                ~neg_col_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                negc_ &
+                neg_col_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -547,9 +547,9 @@ boost
 
         template <int J,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::negc_<J,OriginalMatrix> >
+        mat_traits< qvm_detail::neg_col_<J,OriginalMatrix> >
             {
-            typedef qvm_detail::negc_<J,OriginalMatrix> this_matrix;
+            typedef qvm_detail::neg_col_<J,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows;
             static int const cols=mat_traits<OriginalMatrix>::cols;
@@ -586,14 +586,14 @@ boost
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::negc_<J,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::neg_col_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int J,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::negc_<J,OriginalMatrix>,qvm_detail::negc_<J,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::neg_col_<J,OriginalMatrix>,qvm_detail::neg_col_<J,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -601,11 +601,11 @@ boost
         template <int Col,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::negc_<Col,A> const &>::type
+            qvm_detail::neg_col_<Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        negc( A const & a )
+        neg_col( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::negc_<Col,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::neg_col_<Col,A> const &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -637,17 +637,17 @@ boost
             {
             template <int Row1,int Row2,class OriginalMatrix>
             class
-            swapr_
+            swap_row_
                 {
-                swapr_( swapr_ const & );
-                swapr_ & operator=( swapr_ const & );
-                ~swapr_();
+                swap_row_( swap_row_ const & );
+                swap_row_ & operator=( swap_row_ const & );
+                ~swap_row_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                swapr_ &
+                swap_row_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -667,9 +667,9 @@ boost
 
         template <int R1,int R2,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::swapr_<R1,R2,OriginalMatrix> >
+        mat_traits< qvm_detail::swap_row_<R1,R2,OriginalMatrix> >
             {
-            typedef qvm_detail::swapr_<R1,R2,OriginalMatrix> this_matrix;
+            typedef qvm_detail::swap_row_<R1,R2,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows;
             static int const cols=mat_traits<OriginalMatrix>::cols;
@@ -727,14 +727,14 @@ boost
 
         template <int R1,int R2,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::swapr_<R1,R2,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::swap_row_<R1,R2,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int R1,int R2,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::swapr_<R1,R2,OriginalMatrix>,qvm_detail::swapr_<R1,R2,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::swap_row_<R1,R2,OriginalMatrix>,qvm_detail::swap_row_<R1,R2,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -742,21 +742,21 @@ boost
         template <int R1,int R2,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::swapr_<R1,R2,A> const &>::type
+            qvm_detail::swap_row_<R1,R2,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        swapr( A const & a )
+        swap_row( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::swapr_<R1,R2,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::swap_row_<R1,R2,A> const &>(a);
             }
 
         template <int R1,int R2,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::swapr_<R1,R2,A> &>::type
+            qvm_detail::swap_row_<R1,R2,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        swapr( A & a )
+        swap_row( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::swapr_<R1,R2,A> &>(a);
+            return reinterpret_cast<typename qvm_detail::swap_row_<R1,R2,A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -766,17 +766,17 @@ boost
             {
             template <int Row1,int Row2,class OriginalMatrix>
             class
-            swapc_
+            swap_col_
                 {
-                swapc_( swapc_ const & );
-                swapc_ & operator=( swapc_ const & );
-                ~swapc_();
+                swap_col_( swap_col_ const & );
+                swap_col_ & operator=( swap_col_ const & );
+                ~swap_col_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                swapc_ &
+                swap_col_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -796,9 +796,9 @@ boost
 
         template <int C1,int C2,class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::swapc_<C1,C2,OriginalMatrix> >
+        mat_traits< qvm_detail::swap_col_<C1,C2,OriginalMatrix> >
             {
-            typedef qvm_detail::swapc_<C1,C2,OriginalMatrix> this_matrix;
+            typedef qvm_detail::swap_col_<C1,C2,OriginalMatrix> this_matrix;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const rows=mat_traits<OriginalMatrix>::rows;
             static int const cols=mat_traits<OriginalMatrix>::cols;
@@ -856,14 +856,14 @@ boost
 
         template <int C1,int C2,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::swapc_<C1,C2,OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::swap_col_<C1,C2,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <int C1,int C2,class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::swapc_<C1,C2,OriginalMatrix>,qvm_detail::swapc_<C1,C2,OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::swap_col_<C1,C2,OriginalMatrix>,qvm_detail::swap_col_<C1,C2,OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
@@ -871,21 +871,21 @@ boost
         template <int C1,int C2,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::swapc_<C1,C2,A> const &>::type
+            qvm_detail::swap_col_<C1,C2,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        swapc( A const & a )
+        swap_col( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::swapc_<C1,C2,A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::swap_col_<C1,C2,A> const &>(a);
             }
 
         template <int C1,int C2,class A>
         typename boost::enable_if_c<
             is_mat<A>::value,
-            qvm_detail::swapc_<C1,C2,A> &>::type
+            qvm_detail::swap_col_<C1,C2,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        swapc( A & a )
+        swap_col( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::swapc_<C1,C2,A> &>(a);
+            return reinterpret_cast<typename qvm_detail::swap_col_<C1,C2,A> &>(a);
             }
 
         ////////////////////////////////////////////////

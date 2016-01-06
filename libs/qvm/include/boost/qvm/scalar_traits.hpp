@@ -32,21 +32,21 @@ boost
 
         template <class T>
         struct
-        is_s
+        is_scalar
             {
             static bool const value=false;
             };
-        template <> struct is_s<char> { static bool const value=true; };
-        template <> struct is_s<signed char> { static bool const value=true; };
-        template <> struct is_s<unsigned char> { static bool const value=true; };
-        template <> struct is_s<signed short> { static bool const value=true; };
-        template <> struct is_s<unsigned short> { static bool const value=true; };
-        template <> struct is_s<signed int> { static bool const value=true; };
-        template <> struct is_s<unsigned int> { static bool const value=true; };
-        template <> struct is_s<signed long> { static bool const value=true; };
-        template <> struct is_s<unsigned long> { static bool const value=true; };
-        template <> struct is_s<float> { static bool const value=true; };
-        template <> struct is_s<double> { static bool const value=true; };
+        template <> struct is_scalar<char> { static bool const value=true; };
+        template <> struct is_scalar<signed char> { static bool const value=true; };
+        template <> struct is_scalar<unsigned char> { static bool const value=true; };
+        template <> struct is_scalar<signed short> { static bool const value=true; };
+        template <> struct is_scalar<unsigned short> { static bool const value=true; };
+        template <> struct is_scalar<signed int> { static bool const value=true; };
+        template <> struct is_scalar<unsigned int> { static bool const value=true; };
+        template <> struct is_scalar<signed long> { static bool const value=true; };
+        template <> struct is_scalar<unsigned long> { static bool const value=true; };
+        template <> struct is_scalar<float> { static bool const value=true; };
+        template <> struct is_scalar<double> { static bool const value=true; };
 
         namespace
         qvm_detail

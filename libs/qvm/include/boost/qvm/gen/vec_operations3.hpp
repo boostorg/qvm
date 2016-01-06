@@ -165,7 +165,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            vec_traits<A>::dim==3 && is_s<B>::value,
+            vec_traits<A>::dim==3 && is_scalar<B>::value,
             deduce_vec<A> >::type
         operator*( A const & a, B b )
             {
@@ -200,7 +200,7 @@ boost
         template <class A,class  B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            vec_traits<A>::dim==3 && is_s<B>::value,
+            vec_traits<A>::dim==3 && is_scalar<B>::value,
             A &>::type
         operator*=( A & a, B b )
             {
@@ -233,7 +233,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            vec_traits<A>::dim==3 && is_s<B>::value,
+            vec_traits<A>::dim==3 && is_scalar<B>::value,
             deduce_vec<A> >::type
         operator/( A const & a, B b )
             {
@@ -268,7 +268,7 @@ boost
         template <class A,class  B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            vec_traits<A>::dim==3 && is_s<B>::value,
+            vec_traits<A>::dim==3 && is_scalar<B>::value,
             A &>::type
         operator/=( A & a, B b )
             {
@@ -478,8 +478,8 @@ boost
             T const a0=vec_traits<A>::template r<0>(a);
             T const a1=vec_traits<A>::template r<1>(a);
             T const a2=vec_traits<A>::template r<2>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2;
-            T const mag=sqrt<T>(mag2);
+            T const mag_sqr=a0*a0+a1*a1+a2*a2;
+            T const mag=sqrt<T>(mag_sqr);
             return mag;
             }
 
@@ -508,20 +508,20 @@ boost
         typename enable_if_c<
             is_vec<A>::value && vec_traits<A>::dim==3,
             typename vec_traits<A>::scalar_type>::type
-        mag2( A const & a )
+        mag_sqr( A const & a )
             {
             typedef typename vec_traits<A>::scalar_type T;
             T const a0=vec_traits<A>::template r<0>(a);
             T const a1=vec_traits<A>::template r<1>(a);
             T const a2=vec_traits<A>::template r<2>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2;
-            return mag2;
+            T const mag_sqr=a0*a0+a1*a1+a2*a2;
+            return mag_sqr;
             }
 
         namespace
         sfinae
             {
-            using ::boost::qvm::mag2;
+            using ::boost::qvm::mag_sqr;
             }
 
         namespace
@@ -549,10 +549,10 @@ boost
             T const a0=vec_traits<A>::template r<0>(a);
             T const a1=vec_traits<A>::template r<1>(a);
             T const a2=vec_traits<A>::template r<2>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2;
-            if( mag2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
+            T const mag_sqr=a0*a0+a1*a1+a2*a2;
+            if( mag_sqr==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
             typedef typename deduce_vec<A>::type R;
             R r;
             vec_traits<R>::template w<0>(r)=a0*rm;
@@ -578,10 +578,10 @@ boost
             T const a0=vec_traits<A>::template r<0>(a);
             T const a1=vec_traits<A>::template r<1>(a);
             T const a2=vec_traits<A>::template r<2>(a);
-            T const mag2=a0*a0+a1*a1+a2*a2;
-            if( mag2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
+            T const mag_sqr=a0*a0+a1*a1+a2*a2;
+            if( mag_sqr==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag2);
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
             vec_traits<A>::template w<0>(a)*=rm;
             vec_traits<A>::template w<1>(a)*=rm;
             vec_traits<A>::template w<2>(a)*=rm;

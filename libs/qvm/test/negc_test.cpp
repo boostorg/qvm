@@ -24,10 +24,10 @@ namespace
             for( int j=0; j!=Cols; ++j )
                 r1[i][j]=(j==Col?-x.a[i][j]:x.a[i][j]);
         float r2[Rows][Cols];
-        assign(r2,negc<Col>(x));
+        assign(r2,neg_col<Col>(x));
         BOOST_QVM_TEST_EQ(r1,r2);
-        negc<Col>(x) + negc<Col>(x);
-        -negc<Col>(x);
+        neg_col<Col>(x) + neg_col<Col>(x);
+        -neg_col<Col>(x);
         }
     }
 

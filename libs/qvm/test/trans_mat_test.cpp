@@ -25,7 +25,7 @@ namespace
         assign(r2,trans_m(x));
         BOOST_QVM_TEST_EQ(r1,r2);
         test_qvm::scalar_multiply_v(x.b,x.a,2.0f);
-        col<Dim-1>(delr<Dim-1>(trans_m(x))) *= 2;
+        col<Dim-1>(del_row<Dim-1>(trans_m(x))) *= 2;
         BOOST_QVM_TEST_EQ(x.a,x.b);
         trans_m(x) + trans_m(x);
         -trans_m(x);

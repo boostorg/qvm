@@ -18,7 +18,7 @@ namespace
         using namespace boost::qvm;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::quaternion<Q1> q1=rotz_q(r);
+            test_qvm::quaternion<Q1> q1=rotz_quat(r);
             test_qvm::matrix<M1,3,3> m1=make< test_qvm::matrix<M1,3,3> >(q1);
             test_qvm::rotation_z(m1.b,r);
             BOOST_QVM_TEST_CLOSE(m1.a,m1.b,0.000001f);
@@ -32,8 +32,8 @@ namespace
             rotate_z(q3,r);
             BOOST_QVM_TEST_EQ(q3.a,r1.a);
             }
-        rotz_q(0.0f)+rotz_q(0.0f);
-        -rotz_q(0.0f);
+        rotz_quat(0.0f)+rotz_quat(0.0f);
+        -rotz_quat(0.0f);
         }
     }
 

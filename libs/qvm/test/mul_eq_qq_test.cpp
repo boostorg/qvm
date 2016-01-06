@@ -21,9 +21,9 @@ namespace
         using namespace boost::qvm;
         for( float a=0; a<6.28f; a+=0.2f )
             {
-            test_qvm::quaternion<Q1> const qx=rotx_q(a);
-            test_qvm::quaternion<Q1> const qy=roty_q(a);
-            test_qvm::quaternion<Q1> const qz=rotz_q(a);
+            test_qvm::quaternion<Q1> const qx=rotx_quat(a);
+            test_qvm::quaternion<Q1> const qy=roty_quat(a);
+            test_qvm::quaternion<Q1> const qz=rotz_quat(a);
             test_qvm::quaternion<Q1> q1=identity_quat<float>();
             q1 *= qx;
             q1 *= qy;

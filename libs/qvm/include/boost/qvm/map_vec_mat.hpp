@@ -25,17 +25,17 @@ boost
             {
             template <class OriginalVector>
             class
-            col_m_
+            col_mat_
                 {
-                col_m_( col_m_ const & );
-                col_m_ & operator=( col_m_ const & );
-                ~col_m_();
+                col_mat_( col_mat_ const & );
+                col_mat_ & operator=( col_mat_ const & );
+                ~col_mat_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                col_m_ &
+                col_mat_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -55,9 +55,9 @@ boost
 
         template <class OriginalVector>
         struct
-        mat_traits< qvm_detail::col_m_<OriginalVector> >
+        mat_traits< qvm_detail::col_mat_<OriginalVector> >
             {
-            typedef qvm_detail::col_m_<OriginalVector> this_matrix;
+            typedef qvm_detail::col_mat_<OriginalVector> this_matrix;
             typedef typename vec_traits<OriginalVector>::scalar_type scalar_type;
             static int const rows=vec_traits<OriginalVector>::dim;
             static int const cols=1;
@@ -111,14 +111,14 @@ boost
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat<qvm_detail::col_m_<OriginalVector>,R,C>
+        deduce_mat<qvm_detail::col_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat2<qvm_detail::col_m_<OriginalVector>,qvm_detail::col_m_<OriginalVector>,R,C>
+        deduce_mat2<qvm_detail::col_mat_<OriginalVector>,qvm_detail::col_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
@@ -126,21 +126,21 @@ boost
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::col_m_<A> const &>::type
+            qvm_detail::col_mat_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        col_m( A const & a )
+        col_mat( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::col_m_<A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::col_mat_<A> const &>(a);
             }
 
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::col_m_<A> &>::type
+            qvm_detail::col_mat_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        col_m( A & a )
+        col_mat( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::col_m_<A> &>(a);
+            return reinterpret_cast<typename qvm_detail::col_mat_<A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -150,17 +150,17 @@ boost
             {
             template <class OriginalVector>
             class
-            row_m_
+            row_mat_
                 {
-                row_m_( row_m_ const & );
-                row_m_ & operator=( row_m_ const & );
-                ~row_m_();
+                row_mat_( row_mat_ const & );
+                row_mat_ & operator=( row_mat_ const & );
+                ~row_mat_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                row_m_ &
+                row_mat_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -180,9 +180,9 @@ boost
 
         template <class OriginalVector>
         struct
-        mat_traits< qvm_detail::row_m_<OriginalVector> >
+        mat_traits< qvm_detail::row_mat_<OriginalVector> >
             {
-            typedef qvm_detail::row_m_<OriginalVector> this_matrix;
+            typedef qvm_detail::row_mat_<OriginalVector> this_matrix;
             typedef typename vec_traits<OriginalVector>::scalar_type scalar_type;
             static int const rows=1;
             static int const cols=vec_traits<OriginalVector>::dim;
@@ -236,14 +236,14 @@ boost
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat<qvm_detail::row_m_<OriginalVector>,R,C>
+        deduce_mat<qvm_detail::row_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat2<qvm_detail::row_m_<OriginalVector>,qvm_detail::row_m_<OriginalVector>,R,C>
+        deduce_mat2<qvm_detail::row_mat_<OriginalVector>,qvm_detail::row_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
@@ -251,21 +251,21 @@ boost
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::row_m_<A> const &>::type
+            qvm_detail::row_mat_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        row_m( A const & a )
+        row_mat( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::row_m_<A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::row_mat_<A> const &>(a);
             }
 
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::row_m_<A> &>::type
+            qvm_detail::row_mat_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        row_m( A & a )
+        row_mat( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::row_m_<A> &>(a);
+            return reinterpret_cast<typename qvm_detail::row_mat_<A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -464,17 +464,17 @@ boost
             {
             template <class OriginalVector>
             class
-            diag_m_
+            diag_mat_
                 {
-                diag_m_( diag_m_ const & );
-                diag_m_ & operator=( diag_m_ const & );
-                ~diag_m_();
+                diag_mat_( diag_mat_ const & );
+                diag_mat_ & operator=( diag_mat_ const & );
+                ~diag_mat_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                diag_m_ &
+                diag_mat_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -494,9 +494,9 @@ boost
 
         template <class OriginalVector>
         struct
-        mat_traits< qvm_detail::diag_m_<OriginalVector> >
+        mat_traits< qvm_detail::diag_mat_<OriginalVector> >
             {
-            typedef qvm_detail::diag_m_<OriginalVector> this_matrix;
+            typedef qvm_detail::diag_mat_<OriginalVector> this_matrix;
             typedef typename vec_traits<OriginalVector>::scalar_type scalar_type;
             static int const rows=vec_traits<OriginalVector>::dim;
             static int const cols=vec_traits<OriginalVector>::dim;
@@ -552,14 +552,14 @@ boost
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat<qvm_detail::diag_m_<OriginalVector>,R,C>
+        deduce_mat<qvm_detail::diag_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
 
         template <class OriginalVector,int R,int C>
         struct
-        deduce_mat2<qvm_detail::diag_m_<OriginalVector>,qvm_detail::diag_m_<OriginalVector>,R,C>
+        deduce_mat2<qvm_detail::diag_mat_<OriginalVector>,qvm_detail::diag_mat_<OriginalVector>,R,C>
             {
             typedef mat<typename vec_traits<OriginalVector>::scalar_type,R,C> type;
             };
@@ -567,21 +567,21 @@ boost
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::diag_m_<A> const &>::type
+            qvm_detail::diag_mat_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        diag_m( A const & a )
+        diag_mat( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::diag_m_<A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::diag_mat_<A> const &>(a);
             }
 
         template <class A>
         typename boost::enable_if_c<
             is_vec<A>::value,
-            qvm_detail::diag_m_<A> &>::type
+            qvm_detail::diag_mat_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        diag_m( A & a )
+        diag_mat( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::diag_m_<A> &>(a);
+            return reinterpret_cast<typename qvm_detail::diag_mat_<A> &>(a);
             }
 
         ////////////////////////////////////////////////
