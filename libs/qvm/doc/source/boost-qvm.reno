@@ -70,7 +70,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -159,6 +159,15 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>8</id>
 														<type>
 															<string>reno_context</string>
@@ -185,7 +194,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m.hpp</string>
+																		<string>../../../../boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -281,7 +290,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mv.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -396,7 +405,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -445,7 +454,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_q.hpp</string>
+																		<string>../../include/boost/qvm/deduce_quat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -486,7 +495,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/sw.hpp</string>
+																		<string>../../include/boost/qvm/swizzle.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -535,7 +544,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m_traits.hpp</string>
+																		<string>../../../../boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -601,15 +610,6 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
-														<id>-7</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
 														<id>18</id>
 														<type>
 															<string>reno_context</string>
@@ -640,7 +640,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -689,7 +689,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -738,7 +738,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m.hpp</string>
+																		<string>../../../../boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -787,7 +787,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -836,7 +836,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -977,7 +977,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1026,7 +1026,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1075,7 +1075,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1124,7 +1124,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mv.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1165,7 +1165,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mv.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1248,7 +1248,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_m.hpp</string>
+																		<string>../../include/boost/qvm/deduce_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1297,7 +1297,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1346,7 +1346,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1429,7 +1429,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1478,7 +1478,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1519,7 +1519,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_v.hpp</string>
+																		<string>../../include/boost/qvm/deduce_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1568,7 +1568,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1658,7 +1658,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1707,7 +1707,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1756,7 +1756,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1805,7 +1805,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1854,7 +1854,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1903,7 +1903,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1952,7 +1952,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -1993,7 +1993,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/vm.hpp</string>
+																		<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2042,7 +2042,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2091,7 +2091,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2230,7 +2230,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2313,7 +2313,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2362,7 +2362,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2452,7 +2452,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_access.hpp</string>
+																		<string>../../include/boost/qvm/quat_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2501,7 +2501,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mv.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2618,7 +2618,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2708,7 +2708,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2757,7 +2757,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2806,7 +2806,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2923,7 +2923,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -2972,7 +2972,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3055,7 +3055,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3104,7 +3104,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3194,7 +3194,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3243,7 +3243,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m_traits.hpp</string>
+																		<string>../../../../boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3292,7 +3292,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3341,7 +3341,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3390,7 +3390,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3431,7 +3431,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/qv.hpp</string>
+																		<string>../../include/boost/qvm/quat_vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3521,7 +3521,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/vm.hpp</string>
+																		<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3570,7 +3570,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/s_traits.hpp</string>
+																		<string>../../include/boost/qvm/scalar_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3619,7 +3619,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3702,7 +3702,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/s_traits.hpp</string>
+																		<string>../../include/boost/qvm/scalar_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -3751,7 +3751,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/sw.hpp</string>
+																		<string>../../include/boost/qvm/swizzle.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4047,7 +4047,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4096,7 +4096,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4145,7 +4145,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4194,7 +4194,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_access.hpp</string>
+																		<string>../../include/boost/qvm/vec_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4243,7 +4243,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4326,7 +4326,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4409,7 +4409,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4462,7 +4462,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4503,7 +4503,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_m.hpp</string>
+																		<string>../../include/boost/qvm/deduce_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4552,7 +4552,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_q.hpp</string>
+																		<string>../../include/boost/qvm/deduce_quat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4601,7 +4601,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/vm.hpp</string>
+																		<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4650,7 +4650,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_v.hpp</string>
+																		<string>../../include/boost/qvm/deduce_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4740,7 +4740,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4789,7 +4789,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4838,7 +4838,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4921,7 +4921,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -4970,7 +4970,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5011,7 +5011,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5094,7 +5094,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5307,7 +5307,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5356,7 +5356,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5405,7 +5405,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5503,7 +5503,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5552,7 +5552,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5601,7 +5601,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5684,7 +5684,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5733,7 +5733,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5782,7 +5782,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5872,7 +5872,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -5981,7 +5981,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6030,7 +6030,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6083,7 +6083,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6132,7 +6132,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/vm.hpp</string>
+																		<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6173,7 +6173,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_access.hpp</string>
+																		<string>../../include/boost/qvm/quat_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6324,7 +6324,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_index.hpp</string>
+																		<string>../../include/boost/qvm/vec_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6365,7 +6365,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_index.hpp</string>
+																		<string>../../include/boost/qvm/vec_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6463,7 +6463,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_index.hpp</string>
+																		<string>../../include/boost/qvm/vec_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6561,7 +6561,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mv.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6602,7 +6602,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6651,7 +6651,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6700,7 +6700,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6766,24 +6766,24 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>3</size>
-																		<strong>747D80DA2191F02E0C645BB4070E53A0445105BA7C7ED567E30CE9EA72D6F34D</strong>
-																		<weak>2241097831</weak>
+																		<strong>5BD43193AFA27136D636C2B9F8528AE3224DC35E09DD67E20241B7766C1D6532</strong>
+																		<weak>2539158967</weak>
+																		<size>12626</size>
+																		<position>433</position>
+																		<strong>DED92023A38798A001F191D6995B9728A5740773202D144A854F03DD4725BA92</strong>
+																		<weak>2266527119</weak>
 																		<size>12594</size>
-																		<position>431</position>
-																		<strong>115A5B59392A921BAFAB68B27C361912A6EFE759C73B927E372C5E6215A199F6</strong>
-																		<weak>3036964927</weak>
-																		<size>12562</size>
 																		<position>26</position>
-																		<strong>32F3C821636A757C804BD0F8081BA9F2570B9137CEE51B8F92CAAE8AF40CC573</strong>
-																		<weak>153757659</weak>
-																		<size>12225</size>
+																		<strong>CB1BBB3FBCED86D45CB36B35670F763320F64C9E95C1F7DD06508DE9BE896019</strong>
+																		<weak>230569259</weak>
+																		<size>12257</size>
 																		<position>96</position>
 																	</stream_hook_path>
 																</hook>
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_access.hpp</string>
+																		<string>../../include/boost/qvm/mat_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6873,7 +6873,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6922,7 +6922,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -6971,7 +6971,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7020,7 +7020,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7069,7 +7069,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7118,7 +7118,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_index.hpp</string>
+																		<string>../../include/boost/qvm/mat_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7167,7 +7167,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_index.hpp</string>
+																		<string>../../include/boost/qvm/mat_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7208,7 +7208,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_index.hpp</string>
+																		<string>../../include/boost/qvm/mat_index.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7306,7 +7306,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7355,7 +7355,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7396,7 +7396,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7445,7 +7445,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7494,7 +7494,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7543,7 +7543,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7633,7 +7633,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7791,7 +7791,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7840,7 +7840,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -7889,7 +7889,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8040,7 +8040,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8089,7 +8089,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8138,7 +8138,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8191,7 +8191,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8383,7 +8383,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8516,7 +8516,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8548,9 +8548,9 @@
 																<hook>
 																	<stream_hook_path>
 																		<size>1</size>
-																		<strong>F58A617F9D02D7C9C23C052C810E89FBEE965EC4B9441201139994D4D026FE73</strong>
-																		<weak>549137378</weak>
-																		<size>3818</size>
+																		<strong>65D25D10ADEA5C54E966DEACED22EBC099A9E001157EA69205D2123E66AAEAB9</strong>
+																		<weak>3568449112</weak>
+																		<size>3843</size>
 																		<position>227</position>
 																	</stream_hook_path>
 																</hook>
@@ -8615,7 +8615,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_s.hpp</string>
+																		<string>../../include/boost/qvm/deduce_scalar.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8713,7 +8713,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8754,7 +8754,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m2.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations2.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8795,7 +8795,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_s.hpp</string>
+																		<string>../../include/boost/qvm/deduce_scalar.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8844,7 +8844,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -8959,7 +8959,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9027,7 +9027,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9076,7 +9076,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9125,7 +9125,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9289,7 +9289,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/mat_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9330,7 +9330,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits_array.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits_array.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9452,7 +9452,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_v.hpp</string>
+																		<string>../../include/boost/qvm/deduce_vec.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9505,7 +9505,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9595,7 +9595,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9644,7 +9644,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9761,7 +9761,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9844,7 +9844,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9893,7 +9893,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_vm.hpp</string>
+																		<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9942,7 +9942,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -9991,7 +9991,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10074,7 +10074,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_vm.hpp</string>
+																		<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10123,7 +10123,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/vm.hpp</string>
+																		<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10164,7 +10164,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10213,7 +10213,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10266,7 +10266,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_traits.hpp</string>
+																		<string>../../include/boost/qvm/vec_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10383,7 +10383,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10432,7 +10432,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/sw.hpp</string>
+																		<string>../../../../boost/qvm/swizzle.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10522,7 +10522,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q_traits.hpp</string>
+																		<string>../../include/boost/qvm/quat_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10571,7 +10571,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10620,7 +10620,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10669,7 +10669,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10718,7 +10718,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10767,7 +10767,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10816,7 +10816,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10932,7 +10932,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -10981,7 +10981,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11030,7 +11030,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11079,7 +11079,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11120,7 +11120,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_q.hpp</string>
+																		<string>../../include/boost/qvm/deduce_quat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11203,7 +11203,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11286,7 +11286,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m.hpp</string>
+																		<string>../../../../boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11335,7 +11335,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11384,7 +11384,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/qv.hpp</string>
+																		<string>../../include/boost/qvm/quat_vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11433,7 +11433,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/deduce_m.hpp</string>
+																		<string>../../include/boost/qvm/deduce_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11474,7 +11474,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m_access.hpp</string>
+																		<string>../../include/boost/qvm/mat_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11515,7 +11515,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v_access.hpp</string>
+																		<string>../../include/boost/qvm/vec_access.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11564,7 +11564,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11613,7 +11613,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/q.hpp</string>
+																		<string>../../include/boost/qvm/quat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11662,7 +11662,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11711,7 +11711,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_vm.hpp</string>
+																		<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11760,7 +11760,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11843,7 +11843,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../../../boost/qvm/m.hpp</string>
+																		<string>../../../../boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11931,7 +11931,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_mm.hpp</string>
+																		<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -11972,7 +11972,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/s_traits.hpp</string>
+																		<string>../../include/boost/qvm/scalar_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12021,7 +12021,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12152,7 +12152,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m4.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations4.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12193,7 +12193,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m3.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations3.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12234,7 +12234,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_vm.hpp</string>
+																		<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12283,7 +12283,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12332,7 +12332,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/v.hpp</string>
+																		<string>../../include/boost/qvm/vec_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12415,7 +12415,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/map_vm.hpp</string>
+																		<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12498,7 +12498,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/m.hpp</string>
+																		<string>../../include/boost/qvm/mat_operations.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12547,7 +12547,7 @@
 																<file>
 																	<path>
 																		<empty>0</empty>
-																		<string>../../include/boost/qvm/s_traits.hpp</string>
+																		<string>../../include/boost/qvm/scalar_traits.hpp</string>
 																		<type>0</type>
 																		<base>0</base>
 																	</path>
@@ -12594,6 +12594,15 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-6</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -12778,15 +12787,6 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -16285,6 +16285,15 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>-8</id>
 													</shared_ptr>
 												</weak_ptr>
@@ -16405,15 +16414,6 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -21101,6 +21101,15 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>-8</id>
 													</shared_ptr>
 												</weak_ptr>
@@ -21279,15 +21288,6 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -30906,6 +30906,80 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>15</size>
+												<variant>2</variant>
+												<string>----&#10;&apos;&apos;&apos;Tutorial navigation:&apos;&apos;&apos; (:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-17</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string> mod=&quot;w&quot;:) | (:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-191</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string> mod=&quot;w&quot;:) | (:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-6</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string> mod=&quot;w&quot;:) | (:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-24</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string> mod=&quot;w&quot;:) | (:link </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-193</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>:)&#10;\\&#10;\\&#10;See also: </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-70</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string> | </string>
+												<variant>1</variant>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
+														<id>-34</id>
+													</shared_ptr>
+												</weak_ptr>
+												<variant>2</variant>
+												<string>&#10;</string>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>-8</id>
 													</shared_ptr>
 												</weak_ptr>
@@ -31596,80 +31670,6 @@
 												</weak_ptr>
 												<variant>2</variant>
 												<string>:)&apos;&apos; template.&#10;</string>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>15</size>
-												<variant>2</variant>
-												<string>----&#10;&apos;&apos;&apos;Tutorial navigation:&apos;&apos;&apos; (:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string> mod=&quot;w&quot;:) | (:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-191</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string> mod=&quot;w&quot;:) | (:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-6</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string> mod=&quot;w&quot;:) | (:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-24</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string> mod=&quot;w&quot;:) | (:link </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-193</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string>:)&#10;\\&#10;\\&#10;See also: </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-70</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string> | </string>
-												<variant>1</variant>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-34</id>
-													</shared_ptr>
-												</weak_ptr>
-												<variant>2</variant>
-												<string>&#10;</string>
 											</pair>
 											<pair>
 												<weak_ptr>
@@ -33531,7 +33531,7 @@
 												</weak_ptr>
 												<size>35</size>
 												<variant>2</variant>
-												<string>(:auto !!!:)&#10;&#10;While Boost QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier on the eye than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.&#10;&#10;The code generator is a command-line utility program. Its source code can be found in the &apos;&apos;libs/qvm/gen&apos;&apos; directory. It was used to generate the following headers:&#10;&#10;* 2D, 3D and 4D matrix operations:&#10;** &apos;&apos;boost/qvm/gen/m2.hpp&apos;&apos; (matrices of size 2x2, 2x1 and 1x2, included by &apos;&apos;(:link </string>
+												<string>(:auto !!!:)&#10;&#10;While Boost QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier on the eye than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.&#10;&#10;The code generator is a command-line utility program. Its source code can be found in the &apos;&apos;libs/qvm/gen&apos;&apos; directory. It was used to generate the following headers:&#10;&#10;* 2D, 3D and 4D matrix operations:&#10;** &apos;&apos;boost/qvm/gen/mat_operations2.hpp&apos;&apos; (matrices of size 2x2, 2x1 and 1x2, included by &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33540,7 +33540,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos;)&#10;** &apos;&apos;boost/qvm/gen/m3.hpp&apos;&apos; (matrices of size 3x3, 3x1 and 1x3, included by &apos;&apos;(:link </string>
+												<string>:)&apos;&apos;)&#10;** &apos;&apos;boost/qvm/gen/mat_operations3.hpp&apos;&apos; (matrices of size 3x3, 3x1 and 1x3, included by &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -33549,7 +33549,7 @@
 													</shared_ptr>
 												</weak_ptr>
 												<variant>2</variant>
-												<string>:)&apos;&apos;)&#10;** &apos;&apos;boost/qvm/gen/m4.hpp&apos;&apos; (matrices of size 4x4, 4x1 and 1x4, included by &apos;&apos;(:link </string>
+												<string>:)&apos;&apos;)&#10;** &apos;&apos;boost/qvm/gen/mat_operations4.hpp&apos;&apos; (matrices of size 4x4, 4x1 and 1x4, included by &apos;&apos;(:link </string>
 												<variant>1</variant>
 												<weak_ptr>
 													<expired>0</expired>
@@ -40526,6 +40526,15 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>-8</id>
 													</shared_ptr>
 												</weak_ptr>
@@ -40608,15 +40617,6 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -43095,6 +43095,15 @@
 												<weak_ptr>
 													<expired>0</expired>
 													<shared_ptr>
+														<id>-7</id>
+													</shared_ptr>
+												</weak_ptr>
+												<size>0</size>
+											</pair>
+											<pair>
+												<weak_ptr>
+													<expired>0</expired>
+													<shared_ptr>
 														<id>-8</id>
 													</shared_ptr>
 												</weak_ptr>
@@ -43297,15 +43306,6 @@
 													<expired>0</expired>
 													<shared_ptr>
 														<id>-17</id>
-													</shared_ptr>
-												</weak_ptr>
-												<size>0</size>
-											</pair>
-											<pair>
-												<weak_ptr>
-													<expired>0</expired>
-													<shared_ptr>
-														<id>-7</id>
 													</shared_ptr>
 												</weak_ptr>
 												<size>0</size>
@@ -49914,6 +49914,9 @@
 									<id>-6</id>
 								</shared_ptr>
 								<shared_ptr>
+									<id>-7</id>
+								</shared_ptr>
+								<shared_ptr>
 									<id>-8</id>
 								</shared_ptr>
 								<shared_ptr>
@@ -49942,9 +49945,6 @@
 								</shared_ptr>
 								<shared_ptr>
 									<id>-17</id>
-								</shared_ptr>
-								<shared_ptr>
-									<id>-7</id>
 								</shared_ptr>
 								<shared_ptr>
 									<id>-18</id>
@@ -51562,7 +51562,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_m.hpp</string>
+											<string>../../include/boost/qvm/deduce_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51592,7 +51592,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_m.hpp</string>
+											<string>../../include/boost/qvm/deduce_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51622,7 +51622,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_vm.hpp</string>
+											<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51652,7 +51652,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_vm.hpp</string>
+											<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51682,7 +51682,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_vm.hpp</string>
+											<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51712,7 +51712,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_vm.hpp</string>
+											<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51742,7 +51742,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/qv.hpp</string>
+											<string>../../include/boost/qvm/quat_vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51764,7 +51764,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_access.hpp</string>
+											<string>../../include/boost/qvm/vec_access.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51786,7 +51786,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51816,7 +51816,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_q.hpp</string>
+											<string>../../include/boost/qvm/deduce_quat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51846,7 +51846,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_q.hpp</string>
+											<string>../../include/boost/qvm/deduce_quat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51890,7 +51890,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_vm.hpp</string>
+											<string>../../include/boost/qvm/map_vec_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51920,7 +51920,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_index.hpp</string>
+											<string>../../include/boost/qvm/mat_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51950,7 +51950,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_index.hpp</string>
+											<string>../../include/boost/qvm/mat_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -51980,7 +51980,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits_array.hpp</string>
+											<string>../../include/boost/qvm/quat_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52002,7 +52002,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/sw.hpp</string>
+											<string>../../include/boost/qvm/swizzle.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52024,7 +52024,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m4.hpp</string>
+											<string>../../include/boost/qvm/mat_operations4.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52046,7 +52046,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits.hpp</string>
+											<string>../../include/boost/qvm/quat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52076,7 +52076,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits.hpp</string>
+											<string>../../include/boost/qvm/quat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52110,7 +52110,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits.hpp</string>
+											<string>../../include/boost/qvm/quat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52140,7 +52140,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits.hpp</string>
+											<string>../../include/boost/qvm/quat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52162,7 +52162,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits.hpp</string>
+											<string>../../include/boost/qvm/vec_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52192,7 +52192,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits.hpp</string>
+											<string>../../include/boost/qvm/vec_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52226,7 +52226,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits.hpp</string>
+											<string>../../include/boost/qvm/vec_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52260,7 +52260,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits.hpp</string>
+											<string>../../include/boost/qvm/vec_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52290,7 +52290,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits.hpp</string>
+											<string>../../include/boost/qvm/vec_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52342,7 +52342,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/sw.hpp</string>
+											<string>../../include/boost/qvm/swizzle.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52372,7 +52372,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/sw.hpp</string>
+											<string>../../../../boost/qvm/swizzle.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52402,7 +52402,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits_array.hpp</string>
+											<string>../../include/boost/qvm/mat_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52424,7 +52424,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_traits_array.hpp</string>
+											<string>../../include/boost/qvm/quat_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52446,7 +52446,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_index.hpp</string>
+											<string>../../include/boost/qvm/mat_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52498,13 +52498,43 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_access.hpp</string>
+											<string>../../include/boost/qvm/vec_access.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
 									</file>
 									<shared_ptr>
 										<id>-96</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>3</size>
+											<strong>5BD43193AFA27136D636C2B9F8528AE3224DC35E09DD67E20241B7766C1D6532</strong>
+											<weak>2539158967</weak>
+											<size>12626</size>
+											<position>433</position>
+											<strong>DED92023A38798A001F191D6995B9728A5740773202D144A854F03DD4725BA92</strong>
+											<weak>2266527119</weak>
+											<size>12594</size>
+											<position>26</position>
+											<strong>CB1BBB3FBCED86D45CB36B35670F763320F64C9E95C1F7DD06508DE9BE896019</strong>
+											<weak>230569259</weak>
+											<size>12257</size>
+											<position>96</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>../../include/boost/qvm/mat_access.hpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-154</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -52520,7 +52550,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52586,7 +52616,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_s.hpp</string>
+											<string>../../include/boost/qvm/deduce_scalar.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52630,7 +52660,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_m.hpp</string>
+											<string>../../include/boost/qvm/deduce_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52726,7 +52756,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_s.hpp</string>
+											<string>../../include/boost/qvm/deduce_scalar.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52748,7 +52778,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -52777,36 +52807,6 @@
 									</file>
 									<shared_ptr>
 										<id>-236</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>3</size>
-											<strong>747D80DA2191F02E0C645BB4070E53A0445105BA7C7ED567E30CE9EA72D6F34D</strong>
-											<weak>2241097831</weak>
-											<size>12594</size>
-											<position>431</position>
-											<strong>115A5B59392A921BAFAB68B27C361912A6EFE759C73B927E372C5E6215A199F6</strong>
-											<weak>3036964927</weak>
-											<size>12562</size>
-											<position>26</position>
-											<strong>32F3C821636A757C804BD0F8081BA9F2570B9137CEE51B8F92CAAE8AF40CC573</strong>
-											<weak>153757659</weak>
-											<size>12225</size>
-											<position>96</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>../../include/boost/qvm/m_access.hpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-154</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -52852,7 +52852,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_index.hpp</string>
+											<string>../../include/boost/qvm/vec_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53000,7 +53000,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53030,7 +53030,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53060,7 +53060,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53090,7 +53090,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53120,7 +53120,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53150,7 +53150,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53180,7 +53180,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53210,7 +53210,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53240,7 +53240,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53270,7 +53270,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53300,7 +53300,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53330,7 +53330,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53360,7 +53360,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53390,7 +53390,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53420,7 +53420,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53450,7 +53450,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53480,7 +53480,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53510,7 +53510,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53540,7 +53540,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53570,7 +53570,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53600,7 +53600,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53630,7 +53630,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53660,7 +53660,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53690,7 +53690,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v.hpp</string>
+											<string>../../include/boost/qvm/vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53720,7 +53720,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m_traits.hpp</string>
+											<string>../../../../boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53750,7 +53750,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m_traits.hpp</string>
+											<string>../../../../boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53784,7 +53784,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits.hpp</string>
+											<string>../../include/boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53818,7 +53818,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits.hpp</string>
+											<string>../../include/boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53852,7 +53852,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits.hpp</string>
+											<string>../../include/boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53882,7 +53882,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits.hpp</string>
+											<string>../../include/boost/qvm/mat_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53904,7 +53904,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_access.hpp</string>
+											<string>../../include/boost/qvm/mat_access.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53934,7 +53934,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/s_traits.hpp</string>
+											<string>../../include/boost/qvm/scalar_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53964,7 +53964,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/s_traits.hpp</string>
+											<string>../../include/boost/qvm/scalar_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -53994,35 +53994,13 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/s_traits.hpp</string>
+											<string>../../include/boost/qvm/scalar_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
 									</file>
 									<shared_ptr>
 										<id>-82</id>
-									</shared_ptr>
-								</pair>
-								<pair>
-									<hook>
-										<stream_hook_path>
-											<size>1</size>
-											<strong>F58A617F9D02D7C9C23C052C810E89FBEE965EC4B9441201139994D4D026FE73</strong>
-											<weak>549137378</weak>
-											<size>3818</size>
-											<position>227</position>
-										</stream_hook_path>
-									</hook>
-									<file>
-										<path>
-											<empty>0</empty>
-											<string>interoperability.cpp</string>
-											<type>0</type>
-											<base>0</base>
-										</path>
-									</file>
-									<shared_ptr>
-										<id>-193</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -54038,7 +54016,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m3.hpp</string>
+											<string>../../include/boost/qvm/mat_operations3.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54068,7 +54046,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54098,7 +54076,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54128,7 +54106,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54158,7 +54136,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54188,7 +54166,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54218,7 +54196,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54248,7 +54226,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54278,7 +54256,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54308,7 +54286,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54338,7 +54316,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54368,7 +54346,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54398,7 +54376,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54428,7 +54406,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54458,7 +54436,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m.hpp</string>
+											<string>../../../../boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54488,7 +54466,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m.hpp</string>
+											<string>../../../../boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54518,7 +54496,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54548,7 +54526,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54578,7 +54556,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m.hpp</string>
+											<string>../../../../boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54608,7 +54586,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../../../boost/qvm/m.hpp</string>
+											<string>../../../../boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54638,7 +54616,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54668,7 +54646,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54698,7 +54676,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54728,7 +54706,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54758,7 +54736,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54788,7 +54766,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54818,7 +54796,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54848,7 +54826,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54878,7 +54856,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54908,7 +54886,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54938,7 +54916,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54968,7 +54946,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -54998,7 +54976,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55028,7 +55006,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55058,7 +55036,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55088,7 +55066,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55118,7 +55096,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55148,7 +55126,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55178,7 +55156,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m.hpp</string>
+											<string>../../include/boost/qvm/mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55200,7 +55178,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mv.hpp</string>
+											<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55252,7 +55230,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mv.hpp</string>
+											<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55282,7 +55260,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mv.hpp</string>
+											<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55312,7 +55290,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mv.hpp</string>
+											<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55342,7 +55320,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mv.hpp</string>
+											<string>../../include/boost/qvm/map_mat_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55364,7 +55342,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_access.hpp</string>
+											<string>../../include/boost/qvm/quat_access.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55408,7 +55386,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m_traits_array.hpp</string>
+											<string>../../include/boost/qvm/mat_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55438,7 +55416,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/vm.hpp</string>
+											<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55468,7 +55446,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/vm.hpp</string>
+											<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55498,7 +55476,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/vm.hpp</string>
+											<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55528,7 +55506,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/vm.hpp</string>
+											<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55580,7 +55558,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits_array.hpp</string>
+											<string>../../include/boost/qvm/vec_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55632,7 +55610,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55662,7 +55640,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55692,7 +55670,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55722,7 +55700,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55752,7 +55730,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55782,7 +55760,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55812,7 +55790,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55842,7 +55820,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55872,7 +55850,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55902,7 +55880,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55932,7 +55910,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55962,7 +55940,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -55992,7 +55970,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56022,7 +56000,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56052,7 +56030,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56082,7 +56060,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56112,7 +56090,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56142,7 +56120,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56172,7 +56150,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56202,7 +56180,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56232,7 +56210,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56262,7 +56240,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56292,7 +56270,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56322,7 +56300,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56352,7 +56330,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56382,7 +56360,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56412,7 +56390,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56442,7 +56420,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56472,7 +56450,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56502,7 +56480,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56532,7 +56510,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56562,7 +56540,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56592,7 +56570,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56622,7 +56600,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56652,7 +56630,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56682,7 +56660,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56712,7 +56690,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56742,7 +56720,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56772,7 +56750,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56802,7 +56780,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56832,7 +56810,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56862,7 +56840,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56944,7 +56922,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_index.hpp</string>
+											<string>../../include/boost/qvm/vec_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -56974,7 +56952,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_index.hpp</string>
+											<string>../../include/boost/qvm/vec_index.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57070,13 +57048,35 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q.hpp</string>
+											<string>../../include/boost/qvm/quat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
 									</file>
 									<shared_ptr>
 										<id>-150</id>
+									</shared_ptr>
+								</pair>
+								<pair>
+									<hook>
+										<stream_hook_path>
+											<size>1</size>
+											<strong>65D25D10ADEA5C54E966DEACED22EBC099A9E001157EA69205D2123E66AAEAB9</strong>
+											<weak>3568449112</weak>
+											<size>3843</size>
+											<position>227</position>
+										</stream_hook_path>
+									</hook>
+									<file>
+										<path>
+											<empty>0</empty>
+											<string>interoperability.cpp</string>
+											<type>0</type>
+											<base>0</base>
+										</path>
+									</file>
+									<shared_ptr>
+										<id>-193</id>
 									</shared_ptr>
 								</pair>
 								<pair>
@@ -57264,7 +57264,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/qv.hpp</string>
+											<string>../../include/boost/qvm/quat_vec_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57308,7 +57308,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/m2.hpp</string>
+											<string>../../include/boost/qvm/mat_operations2.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57330,7 +57330,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_v.hpp</string>
+											<string>../../include/boost/qvm/deduce_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57404,7 +57404,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/q_access.hpp</string>
+											<string>../../include/boost/qvm/quat_access.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57456,7 +57456,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_v.hpp</string>
+											<string>../../include/boost/qvm/deduce_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57486,7 +57486,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_v.hpp</string>
+											<string>../../include/boost/qvm/deduce_vec.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57612,7 +57612,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57642,7 +57642,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57672,7 +57672,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57702,7 +57702,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57732,7 +57732,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57762,7 +57762,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57792,7 +57792,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57822,7 +57822,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/map_mm.hpp</string>
+											<string>../../include/boost/qvm/map_mat_mat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57844,7 +57844,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/v_traits_array.hpp</string>
+											<string>../../include/boost/qvm/vec_traits_array.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57866,7 +57866,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/s_traits.hpp</string>
+											<string>../../include/boost/qvm/scalar_traits.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57910,7 +57910,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/deduce_q.hpp</string>
+											<string>../../include/boost/qvm/deduce_quat.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>
@@ -57932,7 +57932,7 @@
 									<file>
 										<path>
 											<empty>0</empty>
-											<string>../../include/boost/qvm/vm.hpp</string>
+											<string>../../include/boost/qvm/vec_mat_operations.hpp</string>
 											<type>0</type>
 											<base>0</base>
 										</path>

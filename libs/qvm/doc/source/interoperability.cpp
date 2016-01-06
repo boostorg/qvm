@@ -3,7 +3,7 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/m.hpp>
+#include <boost/qvm/mat_operations.hpp>
 #include <boost/qvm/mat.hpp>
 using namespace boost::qvm;
 
@@ -101,12 +101,12 @@ boost
 
         template <>
         struct
-        deduce_m2<n2::user_matrix1,n2::user_matrix2,3,3>
+        deduce_mat2<n2::user_matrix1,n2::user_matrix2,3,3>
             { typedef n2::user_matrix1 type; };
 
         template <>
         struct
-        deduce_m2<n2::user_matrix2,n2::user_matrix1,3,3>
+        deduce_mat2<n2::user_matrix2,n2::user_matrix1,3,3>
             { typedef n2::user_matrix1 type; };
         }
     }
