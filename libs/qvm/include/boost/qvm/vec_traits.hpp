@@ -22,7 +22,7 @@ boost
 
         template <class T>
         struct
-        is_v
+        is_vec
             {
             static bool const value=vec_traits<T>::dim>0;
             };

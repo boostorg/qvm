@@ -23,7 +23,7 @@ boost
 
         template <class T>
         struct
-        is_m
+        is_mat
             {
             static bool const value=mat_traits<T>::rows>0 && mat_traits<T>::cols>0;
             };

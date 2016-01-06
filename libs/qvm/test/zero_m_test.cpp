@@ -30,7 +30,7 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::matrix<M1,Rows,Cols> m1=zero_m<float,Rows,Cols>();
+        test_qvm::matrix<M1,Rows,Cols> m1=zero_mat<float,Rows,Cols>();
         for( int i=0; i!=Rows; ++i )
             for( int j=0; j!=Cols; ++j )
                 BOOST_TEST(!m1.a[i][j]);
@@ -39,8 +39,8 @@ namespace
         for( int i=0; i!=Rows; ++i )
             for( int j=0; j!=Cols; ++j )
                 BOOST_TEST(!m2.a[i][j]);
-        check_deduction(mat<float,Rows,Cols>(),zero_m<float,Rows,Cols>());
-        check_deduction(mat<int,Rows,Cols>(),zero_m<int,Rows,Cols>());
+        check_deduction(mat<float,Rows,Cols>(),zero_mat<float,Rows,Cols>());
+        check_deduction(mat<int,Rows,Cols>(),zero_mat<int,Rows,Cols>());
         }
 
     template <int Dim>
@@ -48,7 +48,7 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::matrix<M1,Dim,Dim> m1=zero_m<float,Dim>();
+        test_qvm::matrix<M1,Dim,Dim> m1=zero_mat<float,Dim>();
         for( int i=0; i!=Dim; ++i )
             for( int j=0; j!=Dim; ++j )
                 BOOST_TEST(!m1.a[i][j]);

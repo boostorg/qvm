@@ -334,7 +334,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             vec_traits<R>::dim==3 && vec_traits<A>::dim==3,
             R>::type
         make( A const & a )
@@ -470,7 +470,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && vec_traits<A>::dim==3,
+            is_vec<A>::value && vec_traits<A>::dim==3,
             typename vec_traits<A>::scalar_type>::type
         mag( A const & a )
             {
@@ -506,7 +506,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && vec_traits<A>::dim==3,
+            is_vec<A>::value && vec_traits<A>::dim==3,
             typename vec_traits<A>::scalar_type>::type
         mag2( A const & a )
             {

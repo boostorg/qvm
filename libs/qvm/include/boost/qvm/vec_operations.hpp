@@ -70,7 +70,7 @@ boost
         template <class A>
         inline
         typename boost::enable_if_c<
-            is_v<A>::value  &&
+            is_vec<A>::value  &&
             !qvm_detail::to_string_v_defined<vec_traits<A>::dim>::value,
             std::string>::type
         to_string( A const & a )
@@ -120,7 +120,7 @@ boost
         template <class A,class B>
         inline
         typename boost::enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::assign_vv_defined<vec_traits<A>::dim>::value,
             A &>::type
@@ -146,7 +146,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<R>::value && is_v<A>::value &&
+            is_vec<R>::value && is_vec<A>::value &&
             vec_traits<R>::dim==vec_traits<A>::dim &&
             !qvm_detail::make_v_defined<vec_traits<R>::dim>::value,
             R>::type
@@ -161,7 +161,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
             deduce_vec2<A,B,3> >::type
         cross( A const & a, B const & b )
@@ -185,7 +185,7 @@ boost
         template <class A,class B,class Cmp>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim,
             bool>::type
         cmp( A const & a, B const & b, Cmp f )
@@ -209,11 +209,11 @@ boost
             {
             template <class T,int Dim>
             class
-            zero_v_
+            zero_vec_
                 {
-                zero_v_( zero_v_ const & );
-                zero_v_ & operator=( zero_v_ const & );
-                ~zero_v_();
+                zero_vec_( zero_vec_ const & );
+                zero_vec_ & operator=( zero_vec_ const & );
+                ~zero_vec_();
 
                 public:
 
@@ -233,9 +233,9 @@ boost
 
         template <class T,int Dim>
         struct
-        vec_traits< qvm_detail::zero_v_<T,Dim> >
+        vec_traits< qvm_detail::zero_vec_<T,Dim> >
             {
-            typedef qvm_detail::zero_v_<T,Dim> this_vector;
+            typedef qvm_detail::zero_vec_<T,Dim> this_vector;
             typedef T scalar_type;
             static int const dim=Dim;
 
@@ -265,27 +265,27 @@ boost
 
         template <class T,int Dim,int D>
         struct
-        deduce_vec<qvm_detail::zero_v_<T,Dim>,D>
+        deduce_vec<qvm_detail::zero_vec_<T,Dim>,D>
             {
             typedef vec<T,D> type;
             };
 
         template <class T,int Dim>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::zero_v_<T,Dim> const &
-        zero_v()
+        qvm_detail::zero_vec_<T,Dim> const &
+        zero_vec()
             {
-            return *(qvm_detail::zero_v_<T,Dim> const *)0;
+            return *(qvm_detail::zero_vec_<T,Dim> const *)0;
             }
 
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             void>::type
         set_zero( A & a )
             {
-            assign(a,zero_v<typename vec_traits<A>::scalar_type,vec_traits<A>::dim>());
+            assign(a,zero_vec<typename vec_traits<A>::scalar_type,vec_traits<A>::dim>());
             }
 
         ////////////////////////////////////////////////
@@ -366,7 +366,7 @@ boost
         template <class Scalar,class T>
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::vector_scalar_cast_<T,Scalar> const &
-        scalar_cast( T const & x, typename qvm_detail::scalar_cast_vector_filter<is_v<T>::value>::type=0 )
+        scalar_cast( T const & x, typename qvm_detail::scalar_cast_vector_filter<is_vec<T>::value>::type=0 )
             {
             return reinterpret_cast<qvm_detail::vector_scalar_cast_<T,Scalar> const &>(x);
             }
@@ -387,7 +387,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_s<B>::value &&
             !qvm_detail::div_eq_vs_defined<vec_traits<A>::dim>::value,
             A &>::type
         operator/=( A & a, B b )
@@ -413,7 +413,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_s<B>::value &&
             !qvm_detail::div_vs_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         operator/( A const & a, B b )
@@ -441,7 +441,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::dot_vv_defined<vec_traits<A>::dim>::value,
             deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type
@@ -470,7 +470,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::eq_vv_defined<vec_traits<A>::dim>::value,
             bool>::type
@@ -498,7 +498,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::mag2_v_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
         mag2( A const & a )
@@ -529,7 +529,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::mag_v_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
         mag( A const & a )
@@ -560,7 +560,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::minus_eq_vv_defined<vec_traits<A>::dim>::value,
             A &>::type
@@ -587,7 +587,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::minus_v_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         operator-( A const & a )
@@ -615,7 +615,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::minus_vv_defined<vec_traits<A>::dim>::value,
             deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -644,7 +644,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_s<B>::value &&
             !qvm_detail::mul_eq_vs_defined<vec_traits<A>::dim>::value,
             A &>::type
         operator*=( A & a, B b )
@@ -670,7 +670,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_s<B>::value &&
+            is_vec<A>::value && is_s<B>::value &&
             !qvm_detail::mul_vs_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         operator*( A const & a, B b )
@@ -698,7 +698,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::neq_vv_defined<vec_traits<A>::dim>::value,
             bool>::type
@@ -726,7 +726,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::normalize_v_defined<vec_traits<A>::dim>::value,
             deduce_vec<A> >::type
         normalized( A const & a )
@@ -751,7 +751,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::normalize_v_defined<vec_traits<A>::dim>::value,
             void>::type
         normalize( A & a )
@@ -786,7 +786,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::plus_eq_vv_defined<vec_traits<A>::dim>::value,
             A &>::type
@@ -813,7 +813,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_v<B>::value &&
+            is_vec<A>::value && is_vec<B>::value &&
             vec_traits<A>::dim==vec_traits<B>::dim &&
             !qvm_detail::plus_vv_defined<vec_traits<A>::dim>::value,
             deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -922,7 +922,7 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             qvm_detail::vref_<V> const &>::type
         vref( V const & a )
             {
@@ -932,7 +932,7 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             qvm_detail::vref_<V> &>::type
         vref( V & a )
             {

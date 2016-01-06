@@ -32,7 +32,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_v<B>::value &&
+            is_mat<A>::value && is_vec<B>::value &&
             mat_traits<A>::cols==vec_traits<B>::dim &&
             !qvm_detail::mul_mv_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_vec2<A,B,mat_traits<A>::rows> >::type
@@ -65,7 +65,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_v<A>::value && is_m<B>::value &&
+            is_vec<A>::value && is_mat<B>::value &&
             vec_traits<A>::dim==mat_traits<B>::rows &&
             !qvm_detail::mul_vm_defined<mat_traits<B>::rows,mat_traits<B>::cols>::value,
             deduce_vec2<A,B,mat_traits<B>::cols> >::type

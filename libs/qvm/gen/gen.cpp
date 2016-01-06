@@ -430,7 +430,7 @@ namespace
             TAB2"template <class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"is_v<A>::value && vec_traits<A>::dim=="<<d<<","NL
+            TAB3"is_vec<A>::value && vec_traits<A>::dim=="<<d<<","NL
             TAB3"typename vec_traits<A>::scalar_type>::type"NL
             TAB2<<name<<"( A const & a )"NL
             ;
@@ -485,7 +485,7 @@ namespace
             TAB2"template <class R,class A>"NL
             TAB2"BOOST_QVM_INLINE_OPERATIONS"NL
             TAB2"typename enable_if_c<"NL
-            TAB3"is_v<A>::value &&"NL
+            TAB3"is_vec<A>::value &&"NL
             TAB3"vec_traits<R>::dim=="<<d<<" && vec_traits<A>::dim=="<<d<<","NL
             TAB3"R>::type"NL
             TAB2<<name<<"( A const & a )"NL
@@ -1192,7 +1192,7 @@ namespace
                 TAB2"template <class R,class A>"NL
                 TAB2"BOOST_QVM_INLINE"NL
                 TAB2"typename enable_if_c<"NL
-                TAB3"is_m<R>::value && is_q<A>::value &&"NL
+                TAB3"is_mat<R>::value && is_quat<A>::value &&"NL
                 TAB3"mat_traits<R>::rows=="<<r<<" && mat_traits<R>::cols=="<<c<<","NL
                 TAB3"R>::type"NL
                 TAB2"make( A const & q )"NL

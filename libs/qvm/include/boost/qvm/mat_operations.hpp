@@ -80,7 +80,7 @@ boost
         template <class A>
         inline
         typename boost::enable_if_c<
-            is_m<A>::value  &&
+            is_mat<A>::value  &&
             !qvm_detail::to_string_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             std::string>::type
         to_string( A const & a )
@@ -133,7 +133,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::assign_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -149,7 +149,7 @@ boost
         template <class A,class B,class Cmp>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols,
             bool>::type
@@ -185,7 +185,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_m<R>::value && is_m<A>::value &&
+            is_mat<R>::value && is_mat<A>::value &&
             mat_traits<R>::rows==mat_traits<A>::rows &&
             mat_traits<R>::cols==mat_traits<A>::cols &&
             !qvm_detail::make_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -212,7 +212,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             !qvm_detail::determinant_defined<mat_traits<A>::rows>::value,
             typename mat_traits<A>::scalar_type>::type
@@ -228,11 +228,11 @@ boost
             {
             template <class T,int Dim>
             class
-            identity_m_
+            identity_mat_
                 {
-                identity_m_( identity_m_ const & );
-                identity_m_ & operator=( identity_m_ const & );
-                ~identity_m_();
+                identity_mat_( identity_mat_ const & );
+                identity_mat_ & operator=( identity_mat_ const & );
+                ~identity_mat_();
 
                 public:
 
@@ -249,9 +249,9 @@ boost
 
         template <class T,int Dim>
         struct
-        mat_traits< qvm_detail::identity_m_<T,Dim> >
+        mat_traits< qvm_detail::identity_mat_<T,Dim> >
             {
-            typedef qvm_detail::identity_m_<T,Dim> this_matrix;
+            typedef qvm_detail::identity_mat_<T,Dim> this_matrix;
             typedef T scalar_type;
             static int const rows=Dim;
             static int const cols=Dim;
@@ -286,21 +286,21 @@ boost
 
         template <class T,int Dim>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::identity_m_<T,Dim> const &
-        identity_m()
+        qvm_detail::identity_mat_<T,Dim> const &
+        identity_mat()
             {
-            return *(qvm_detail::identity_m_<T,Dim> const *)0;
+            return *(qvm_detail::identity_mat_<T,Dim> const *)0;
             }
 
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         set_identity( A & a )
             {
-            assign(a,identity_m<typename mat_traits<A>::scalar_type,mat_traits<A>::rows>());
+            assign(a,identity_mat<typename mat_traits<A>::scalar_type,mat_traits<A>::rows>());
             }
 
         ////////////////////////////////////////////////
@@ -493,7 +493,7 @@ boost
         template <class Scalar,class T>
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::matrix_scalar_cast_<T,Scalar> const &
-        scalar_cast( T const & x, typename qvm_detail::scalar_cast_matrix_filter<is_m<T>::value>::type=0 )
+        scalar_cast( T const & x, typename qvm_detail::scalar_cast_matrix_filter<is_mat<T>::value>::type=0 )
             {
             return reinterpret_cast<qvm_detail::matrix_scalar_cast_<T,Scalar> const &>(x);
             }
@@ -514,7 +514,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_s<B>::value &&
             !qvm_detail::div_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             A &>::type
         operator/=( A & a, B b )
@@ -541,7 +541,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_s<B>::value &&
             !qvm_detail::div_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_mat<A> >::type
         operator/( A const & a, B b )
@@ -570,7 +570,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::eq_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -600,7 +600,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_TRIVIAL
         typename lazy_enable_if_c<
-            is_m<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_s<B>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
             deduce_mat<A> >::type
@@ -611,13 +611,13 @@ boost
             T f=scalar_traits<T>::value(1)/det;
             typedef typename deduce_mat<A>::type cofactor_return_type;
             cofactor_return_type c=qvm_detail::cofactor_impl(a);
-            return reinterpret_cast<qvm_detail::transp_<cofactor_return_type> const &>(c) * f;
+            return reinterpret_cast<qvm_detail::transposed_<cofactor_return_type> const &>(c) * f;
             }
 
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename lazy_enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
             deduce_mat<A> >::type
@@ -646,7 +646,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::minus_eq_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -675,7 +675,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             !qvm_detail::minus_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_mat<A> >::type
         operator-( A const & a )
@@ -704,7 +704,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::minus_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -735,8 +735,8 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
-            is_m<B>::value &&
+            is_mat<A>::value &&
+            is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
@@ -776,7 +776,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_s<B>::value &&
             !qvm_detail::mul_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             A &>::type
         operator*=( A & a, B b )
@@ -803,7 +803,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::cols==mat_traits<B>::rows &&
             !qvm_detail::mul_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols,mat_traits<B>::cols>::value,
             deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<B>::cols> >::type
@@ -839,7 +839,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_s<B>::value &&
+            is_mat<A>::value && is_s<B>::value &&
             !qvm_detail::mul_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             deduce_mat<A> >::type
         operator*( A const & a, B b )
@@ -868,7 +868,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::neq_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -898,7 +898,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::plus_eq_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -927,7 +927,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_m<A>::value && is_m<B>::value &&
+            is_mat<A>::value && is_mat<B>::value &&
             mat_traits<A>::rows==mat_traits<B>::rows &&
             mat_traits<A>::cols==mat_traits<B>::cols &&
             !qvm_detail::plus_mm_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -1047,7 +1047,7 @@ boost
         template <class M>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_m<M>::value,
+            is_mat<M>::value,
             qvm_detail::mref_<M> const &>::type
         mref( M const & a )
             {
@@ -1057,7 +1057,7 @@ boost
         template <class M>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_m<M>::value,
+            is_mat<M>::value,
             qvm_detail::mref_<M> &>::type
         mref( M & a )
             {
@@ -1071,11 +1071,11 @@ boost
             {
             template <class T,int Rows,int Cols>
             class
-            zero_m_
+            zero_mat_
                 {
-                zero_m_( zero_m_ const & );
-                zero_m_ & operator=( zero_m_ const & );
-                ~zero_m_();
+                zero_mat_( zero_mat_ const & );
+                zero_mat_ & operator=( zero_mat_ const & );
+                ~zero_mat_();
 
                 public:
 
@@ -1092,9 +1092,9 @@ boost
 
         template <class T,int Rows,int Cols>
         struct
-        mat_traits< qvm_detail::zero_m_<T,Rows,Cols> >
+        mat_traits< qvm_detail::zero_mat_<T,Rows,Cols> >
             {
-            typedef qvm_detail::zero_m_<T,Rows,Cols> this_matrix;
+            typedef qvm_detail::zero_mat_<T,Rows,Cols> this_matrix;
             typedef T scalar_type;
             static int const rows=Rows;
             static int const cols=Cols;
@@ -1129,35 +1129,35 @@ boost
 
         template <class T,int Rows,int Cols,int R,int C>
         struct
-        deduce_mat<qvm_detail::zero_m_<T,Rows,Cols>,R,C>
+        deduce_mat<qvm_detail::zero_mat_<T,Rows,Cols>,R,C>
             {
             typedef mat<T,R,C> type;
             };
 
         template <class T,int Rows,int Cols>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::zero_m_<T,Rows,Cols> const &
-        zero_m()
+        qvm_detail::zero_mat_<T,Rows,Cols> const &
+        zero_mat()
             {
-            return *(qvm_detail::zero_m_<T,Rows,Cols> const *)0;
+            return *(qvm_detail::zero_mat_<T,Rows,Cols> const *)0;
             }
 
         template <class T,int Dim>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::zero_m_<T,Dim,Dim> const &
-        zero_m()
+        qvm_detail::zero_mat_<T,Dim,Dim> const &
+        zero_mat()
             {
-            return *(qvm_detail::zero_m_<T,Dim,Dim> const *)0;
+            return *(qvm_detail::zero_mat_<T,Dim,Dim> const *)0;
             }
 
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             void>::type
         set_zero( A & a )
             {
-            assign(a,zero_m<typename mat_traits<A>::scalar_type,mat_traits<A>::rows,mat_traits<A>::cols>());
+            assign(a,zero_mat<typename mat_traits<A>::scalar_type,mat_traits<A>::rows,mat_traits<A>::cols>());
             }
 
         ////////////////////////////////////////////////
@@ -1167,14 +1167,14 @@ boost
             {
             template <int D,class V>
             struct
-            rot_m_
+            rot_mat_
                 {
                 typedef typename vec_traits<V>::scalar_type scalar_type;
                 scalar_type a[3][3];
 
                 template <class Angle>
                 BOOST_QVM_INLINE
-                rot_m_( V const & axis, Angle angle )
+                rot_mat_( V const & axis, Angle angle )
                     {
                     scalar_type const x=vec_traits<V>::template r<0>(axis);
                     scalar_type const y=vec_traits<V>::template r<1>(axis);
@@ -1246,9 +1246,9 @@ boost
 
         template <int D,class V>
         struct
-        mat_traits< qvm_detail::rot_m_<D,V> >
+        mat_traits< qvm_detail::rot_mat_<D,V> >
             {
-            typedef qvm_detail::rot_m_<D,V> this_matrix;
+            typedef qvm_detail::rot_mat_<D,V> this_matrix;
             typedef typename this_matrix::scalar_type scalar_type;
             static int const rows=D;
             static int const cols=D;
@@ -1284,37 +1284,37 @@ boost
         template <int Dim,class A,class Angle>
         BOOST_QVM_INLINE
         typename enable_if_c<
-            is_v<A>::value && vec_traits<A>::dim==3,
-            qvm_detail::rot_m_<Dim,A> >::type
-        rot_m( A const & axis, Angle angle )
+            is_vec<A>::value && vec_traits<A>::dim==3,
+            qvm_detail::rot_mat_<Dim,A> >::type
+        rot_mat( A const & axis, Angle angle )
             {
-            return qvm_detail::rot_m_<Dim,A>(axis,angle);
+            return qvm_detail::rot_mat_<Dim,A>(axis,angle);
             }
 
         template <class A,class B,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             mat_traits<A>::rows>=3 &&
-            is_v<B>::value && vec_traits<B>::dim==3,
+            is_vec<B>::value && vec_traits<B>::dim==3,
             void>::type
         set_rot( A & a, B const & axis, Angle angle )
             {
-            assign(a,rot_m<mat_traits<A>::rows>(axis,angle));
+            assign(a,rot_mat<mat_traits<A>::rows>(axis,angle));
             }
 
         template <class A,class B,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows==mat_traits<A>::cols &&
             mat_traits<A>::rows>=3 &&
-            is_v<B>::value && vec_traits<B>::dim==3,
+            is_vec<B>::value && vec_traits<B>::dim==3,
             void>::type
         rotate( A & a, B const & axis, Angle angle )
             {
-            a *= rot_m<mat_traits<A>::rows>(axis,angle);
+            a *= rot_mat<mat_traits<A>::rows>(axis,angle);
             }
 
         ////////////////////////////////////////////////
@@ -1324,10 +1324,10 @@ boost
             {
             template <int Dim,class Angle>
             struct
-            rotx_m_
+            rotx_mat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                rotx_m_()
+                rotx_mat_()
                     {
                     }
 
@@ -1342,9 +1342,9 @@ boost
 
                 private:
 
-                rotx_m_( rotx_m_ const & );
-                rotx_m_ & operator=( rotx_m_ const & );
-                ~rotx_m_();
+                rotx_mat_( rotx_mat_ const & );
+                rotx_mat_ & operator=( rotx_mat_ const & );
+                ~rotx_mat_();
                 };
 
             template <int Row,int Col>
@@ -1420,9 +1420,9 @@ boost
 
         template <int Dim,class Angle>
         struct
-        mat_traits< qvm_detail::rotx_m_<Dim,Angle> >
+        mat_traits< qvm_detail::rotx_mat_<Dim,Angle> >
             {
-            typedef qvm_detail::rotx_m_<Dim,Angle> this_matrix;
+            typedef qvm_detail::rotx_mat_<Dim,Angle> this_matrix;
             typedef Angle scalar_type;
             static int const rows=Dim;
             static int const cols=Dim;
@@ -1470,49 +1470,49 @@ boost
 
         template <int Dim,class Angle>
         struct
-        deduce_mat<qvm_detail::rotx_m_<Dim,Angle>,Dim,Dim>
+        deduce_mat<qvm_detail::rotx_mat_<Dim,Angle>,Dim,Dim>
             {
             typedef mat<Angle,Dim,Dim> type;
             };
 
         template <int Dim,class Angle>
         struct
-        deduce_mat2<qvm_detail::rotx_m_<Dim,Angle>,qvm_detail::rotx_m_<Dim,Angle>,Dim,Dim>
+        deduce_mat2<qvm_detail::rotx_mat_<Dim,Angle>,qvm_detail::rotx_mat_<Dim,Angle>,Dim,Dim>
             {
             typedef mat<Angle,Dim,Dim> type;
             };
 
         template <int Dim,class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::rotx_m_<Dim,Angle> const &
-        rotx_m( Angle const & angle )
+        qvm_detail::rotx_mat_<Dim,Angle> const &
+        rotx_mat( Angle const & angle )
             {
             BOOST_QVM_STATIC_ASSERT(Dim>=3);
-            return reinterpret_cast<qvm_detail::rotx_m_<Dim,Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::rotx_mat_<Dim,Angle> const &>(angle);
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=3 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         set_rotx( A & a, Angle angle )
             {
-            assign(a,rotx_m<mat_traits<A>::rows>(angle));
+            assign(a,rotx_mat<mat_traits<A>::rows>(angle));
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=3 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         rotate_x( A & a, Angle angle )
             {
-            a *= rotx_m<mat_traits<A>::rows>(angle);
+            a *= rotx_mat<mat_traits<A>::rows>(angle);
             }
 
         ////////////////////////////////////////////////
@@ -1522,10 +1522,10 @@ boost
             {
             template <int Dim,class Angle>
             struct
-            roty_m_
+            roty_mat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                roty_m_()
+                roty_mat_()
                     {
                     }
 
@@ -1540,9 +1540,9 @@ boost
 
                 private:
 
-                roty_m_( roty_m_ const & );
-                roty_m_ & operator=( roty_m_ const & );
-                ~roty_m_();
+                roty_mat_( roty_mat_ const & );
+                roty_mat_ & operator=( roty_mat_ const & );
+                ~roty_mat_();
                 };
 
             template <int Row,int Col>
@@ -1618,9 +1618,9 @@ boost
 
         template <int Dim,class Angle>
         struct
-        mat_traits< qvm_detail::roty_m_<Dim,Angle> >
+        mat_traits< qvm_detail::roty_mat_<Dim,Angle> >
             {
-            typedef qvm_detail::roty_m_<Dim,Angle> this_matrix;
+            typedef qvm_detail::roty_mat_<Dim,Angle> this_matrix;
             typedef Angle scalar_type;
             static int const rows=Dim;
             static int const cols=Dim;
@@ -1668,49 +1668,49 @@ boost
 
         template <int Dim,class Angle>
         struct
-        deduce_mat<qvm_detail::roty_m_<Dim,Angle>,Dim,Dim>
+        deduce_mat<qvm_detail::roty_mat_<Dim,Angle>,Dim,Dim>
             {
             typedef mat<Angle,Dim,Dim> type;
             };
 
         template <int Dim,class Angle>
         struct
-        deduce_mat2<qvm_detail::roty_m_<Dim,Angle>,qvm_detail::roty_m_<Dim,Angle>,Dim,Dim>
+        deduce_mat2<qvm_detail::roty_mat_<Dim,Angle>,qvm_detail::roty_mat_<Dim,Angle>,Dim,Dim>
             {
             typedef mat<Angle,Dim,Dim> type;
             };
 
         template <int Dim,class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::roty_m_<Dim,Angle> const &
-        roty_m( Angle const & angle )
+        qvm_detail::roty_mat_<Dim,Angle> const &
+        roty_mat( Angle const & angle )
             {
             BOOST_QVM_STATIC_ASSERT(Dim>=3);
-            return reinterpret_cast<qvm_detail::roty_m_<Dim,Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::roty_mat_<Dim,Angle> const &>(angle);
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=2 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         set_roty( A & a, Angle angle )
             {
-            assign(a,roty_m<mat_traits<A>::rows>(angle));
+            assign(a,roty_mat<mat_traits<A>::rows>(angle));
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=3 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         rotate_y( A & a, Angle angle )
             {
-            a *= roty_m<mat_traits<A>::rows>(angle);
+            a *= roty_mat<mat_traits<A>::rows>(angle);
             }
 
         ////////////////////////////////////////////////
@@ -1720,10 +1720,10 @@ boost
             {
             template <int Dim,class Angle>
             struct
-            rotz_m_
+            rotz_mat_
                 {
                 BOOST_QVM_INLINE_TRIVIAL
-                rotz_m_()
+                rotz_mat_()
                     {
                     }
 
@@ -1738,9 +1738,9 @@ boost
 
                 private:
 
-                rotz_m_( rotz_m_ const & );
-                rotz_m_ & operator=( rotz_m_ const & );
-                ~rotz_m_();
+                rotz_mat_( rotz_mat_ const & );
+                rotz_mat_ & operator=( rotz_mat_ const & );
+                ~rotz_mat_();
                 };
 
             template <int Row,int Col>
@@ -1816,9 +1816,9 @@ boost
 
         template <int Dim,class Angle>
         struct
-        mat_traits< qvm_detail::rotz_m_<Dim,Angle> >
+        mat_traits< qvm_detail::rotz_mat_<Dim,Angle> >
             {
-            typedef qvm_detail::rotz_m_<Dim,Angle> this_matrix;
+            typedef qvm_detail::rotz_mat_<Dim,Angle> this_matrix;
             typedef Angle scalar_type;
             static int const rows=Dim;
             static int const cols=Dim;
@@ -1866,49 +1866,49 @@ boost
 
         template <int Dim,class Angle>
         struct
-        deduce_mat<qvm_detail::rotz_m_<Dim,Angle>,Dim,Dim>
+        deduce_mat<qvm_detail::rotz_mat_<Dim,Angle>,Dim,Dim>
             {
             typedef mat<Angle,Dim,Dim> type;
             };
 
         template <int Dim,class Angle,int R,int C>
         struct
-        deduce_mat2<qvm_detail::rotz_m_<Dim,Angle>,qvm_detail::rotz_m_<Dim,Angle>,R,C>
+        deduce_mat2<qvm_detail::rotz_mat_<Dim,Angle>,qvm_detail::rotz_mat_<Dim,Angle>,R,C>
             {
             typedef mat<Angle,R,C> type;
             };
 
         template <int Dim,class Angle>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::rotz_m_<Dim,Angle> const &
-        rotz_m( Angle const & angle )
+        qvm_detail::rotz_mat_<Dim,Angle> const &
+        rotz_mat( Angle const & angle )
             {
             BOOST_QVM_STATIC_ASSERT(Dim>=2);
-            return reinterpret_cast<qvm_detail::rotz_m_<Dim,Angle> const &>(angle);
+            return reinterpret_cast<qvm_detail::rotz_mat_<Dim,Angle> const &>(angle);
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=2 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         set_rotz( A & a, Angle angle )
             {
-            assign(a,rotz_m<mat_traits<A>::rows>(angle));
+            assign(a,rotz_mat<mat_traits<A>::rows>(angle));
             }
 
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_m<A>::value &&
+            is_mat<A>::value &&
             mat_traits<A>::rows>=2 &&
             mat_traits<A>::rows==mat_traits<A>::cols,
             void>::type
         rotate_z( A & a, Angle angle )
             {
-            a *= rotz_m<mat_traits<A>::rows>(angle);
+            a *= rotz_mat<mat_traits<A>::rows>(angle);
             }
 
         ////////////////////////////////////////////////
@@ -1936,7 +1936,7 @@ boost
             using ::boost::qvm::operator+;
             using ::boost::qvm::inverse;
             using ::boost::qvm::mref;
-            using ::boost::qvm::rot_m;
+            using ::boost::qvm::rot_mat;
             using ::boost::qvm::set_rot;
             using ::boost::qvm::rotate;
             using ::boost::qvm::set_rotx;

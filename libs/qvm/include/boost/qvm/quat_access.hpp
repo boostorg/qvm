@@ -90,7 +90,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::quat_v_<Q> const &>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
             {
@@ -100,7 +100,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::quat_v_<Q> &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
             {
@@ -110,7 +110,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::quat_v_<Q> const &>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> )
             {
@@ -120,7 +120,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::quat_v_<Q> &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> )
             {
@@ -130,7 +130,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
@@ -140,7 +140,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
@@ -150,7 +150,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> )
             {
@@ -160,7 +160,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> )
             {
@@ -170,7 +170,7 @@ boost
         template <class Q,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, vector_access_tag<I> (*)() )
             {
@@ -182,7 +182,7 @@ boost
         template <class Q,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, vector_access_tag<I> (*)() )
             {
@@ -194,7 +194,7 @@ boost
         template <class Q,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, vector_access_tag<I> )
             {
@@ -206,7 +206,7 @@ boost
         template <class Q,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, vector_access_tag<I> )
             {

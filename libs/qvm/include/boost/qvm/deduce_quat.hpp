@@ -23,7 +23,7 @@ boost
         struct
         deduce_quat
             {
-            BOOST_QVM_STATIC_ASSERT(is_q<Q>::value);
+            BOOST_QVM_STATIC_ASSERT(is_quat<Q>::value);
             typedef Q type;
             };
 
@@ -31,8 +31,8 @@ boost
         qvm_detail
             {
             template <class A,class B,
-                bool QA=is_q<A>::value,
-                bool QB=is_q<B>::value>
+                bool QA=is_quat<A>::value,
+                bool QB=is_quat<B>::value>
             struct
             deduce_quat2_default
                 {
@@ -54,7 +54,7 @@ boost
         struct
         deduce_quat2
             {
-            BOOST_QVM_STATIC_ASSERT(is_q<A>::value || is_q<B>::value);
+            BOOST_QVM_STATIC_ASSERT(is_quat<A>::value || is_quat<B>::value);
             typedef typename qvm_detail::deduce_quat2_default<A,B>::type type;
             };
         }

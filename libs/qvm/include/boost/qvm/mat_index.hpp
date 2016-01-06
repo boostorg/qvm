@@ -25,7 +25,7 @@ boost
             {
             template <int R,int C>
             struct
-            m_index_read_defined
+            mat_index_read_defined
                 {
                 static bool const value=false;
                 };
@@ -66,10 +66,10 @@ boost
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
-            is_m<A>::value &&
-            !qvm_detail::m_index_read_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
+            is_mat<A>::value &&
+            !qvm_detail::mat_index_read_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             typename mat_traits<A>::scalar_type>::type
-        m_index_read( A const & a, int r, int c )
+        mat_index_read( A const & a, int r, int c )
             {
             return qvm_detail::matrix_r<0,mat_traits<A>::rows*mat_traits<A>::cols>::ir(a,r,c);
             }
@@ -81,7 +81,7 @@ boost
             {
             template <int R,int C>
             struct
-            m_index_write_defined
+            mat_index_write_defined
                 {
                 static bool const value=false;
                 };
@@ -122,10 +122,10 @@ boost
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
-            is_m<A>::value &&
-            !qvm_detail::m_index_write_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
+            is_mat<A>::value &&
+            !qvm_detail::mat_index_write_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             typename mat_traits<A>::scalar_type &>::type
-        m_index_write( A & a, int r, int c )
+        mat_index_write( A & a, int r, int c )
             {
             return qvm_detail::matrix_w<0,mat_traits<A>::rows*mat_traits<A>::cols>::iw(a,r,c);
             }
@@ -135,8 +135,8 @@ boost
         namespace
         sfinae
             {
-            using ::boost::qvm::m_index_read;
-            using ::boost::qvm::m_index_write;
+            using ::boost::qvm::mat_index_read;
+            using ::boost::qvm::mat_index_write;
             }
 
         ////////////////////////////////////////////////

@@ -17,7 +17,7 @@ namespace
         using namespace boost::qvm;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::matrix<M1,Dim,Dim> const m1=rotz_m<Dim>(r);
+            test_qvm::matrix<M1,Dim,Dim> const m1=rotz_mat<Dim>(r);
             test_qvm::rotation_z(m1.b,r);
             BOOST_QVM_TEST_CLOSE(m1.a,m1.b,0.000001f);
             test_qvm::matrix<M1,Dim,Dim> m2(42,1);
@@ -29,8 +29,8 @@ namespace
             rotate_z(m3,r);
             BOOST_QVM_TEST_EQ(m3.a,r1.a);
             }
-        rotz_m<Dim>(0.0f)+rotz_m<Dim>(0.0f);
-        -rotz_m<Dim>(0.0f);
+        rotz_mat<Dim>(0.0f)+rotz_mat<Dim>(0.0f);
+        -rotz_mat<Dim>(0.0f);
         }
     }
 

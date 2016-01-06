@@ -125,7 +125,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::col_m_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         col_m( A const & a )
@@ -135,7 +135,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::col_m_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         col_m( A & a )
@@ -250,7 +250,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::row_m_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         row_m( A const & a )
@@ -260,7 +260,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::row_m_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         row_m( A & a )
@@ -439,7 +439,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::trans_m_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         trans_m( A const & a )
@@ -449,7 +449,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::trans_m_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         trans_m( A & a )
@@ -566,7 +566,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::diag_m_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         diag_m( A const & a )
@@ -576,7 +576,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_v<A>::value,
+            is_vec<A>::value,
             qvm_detail::diag_m_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         diag_m( A & a )

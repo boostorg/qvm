@@ -32,7 +32,7 @@ boost
 			struct
 			quats
 				{
-				static bool const value=is_q<A>::value && is_q<B>::value;
+				static bool const value=is_quat<A>::value && is_quat<B>::value;
 				};
 			}
 
@@ -46,7 +46,7 @@ boost
         template <class A>
         inline
         typename boost::enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             std::string>::type
         to_string( A const & a )
             {
@@ -63,7 +63,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             A &>::type
         assign( A & a, B const & b )
             {
@@ -77,7 +77,7 @@ boost
         template <class A,class B,class Cmp>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             bool>::type
         cmp( A const & a, B const & b, Cmp f )
             {
@@ -115,7 +115,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<R>::value && is_q<A>::value,
+            is_quat<R>::value && is_quat<A>::value,
             R>::type
         make( A const & a )
             {
@@ -130,7 +130,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<R>::value && is_m<A>::value &&
+            is_quat<R>::value && is_mat<A>::value &&
             mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
             R>::type
         make( A const & a )
@@ -187,7 +187,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             deduce_quat<A> >::type
         conjugate( A const & a )
             {
@@ -207,11 +207,11 @@ boost
             {
             template <class T>
             class
-            identity_q_
+            identity_quat_
                 {
-                identity_q_( identity_q_ const & );
-                identity_q_ & operator=( identity_q_ const & );
-                ~identity_q_();
+                identity_quat_( identity_quat_ const & );
+                identity_quat_ & operator=( identity_quat_ const & );
+                ~identity_quat_();
 
                 public:
 
@@ -228,9 +228,9 @@ boost
 
         template <class T>
         struct
-        quat_traits< qvm_detail::identity_q_<T> >
+        quat_traits< qvm_detail::identity_quat_<T> >
             {
-            typedef qvm_detail::identity_q_<T> this_quaternion;
+            typedef qvm_detail::identity_quat_<T> this_quaternion;
             typedef T scalar_type;
 
             template <int I>
@@ -259,30 +259,30 @@ boost
 
         template <class T>
         struct
-        deduce_quat< qvm_detail::identity_q_<T> >
+        deduce_quat< qvm_detail::identity_quat_<T> >
             {
             typedef quat<T> type;
             };
 
         template <class T>
         struct
-        deduce_quat2< qvm_detail::identity_q_<T>, qvm_detail::identity_q_<T> >
+        deduce_quat2< qvm_detail::identity_quat_<T>, qvm_detail::identity_quat_<T> >
             {
             typedef quat<T> type;
             };
 
         template <class T>
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::identity_q_<T> const &
-        identity_q()
+        qvm_detail::identity_quat_<T> const &
+        identity_quat()
             {
-            return *(qvm_detail::identity_q_<T> const *)0;
+            return *(qvm_detail::identity_quat_<T> const *)0;
             }
 
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         set_identity( A & a )
             {
@@ -365,7 +365,7 @@ boost
         template <class Scalar,class T>
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::quaternion_scalar_cast_<T,Scalar> const &
-        scalar_cast( T const & x, typename qvm_detail::scalar_cast_quaternion_filter<is_q<T>::value>::type=0 )
+        scalar_cast( T const & x, typename qvm_detail::scalar_cast_quaternion_filter<is_quat<T>::value>::type=0 )
             {
             return reinterpret_cast<qvm_detail::quaternion_scalar_cast_<T,Scalar> const &>(x);
             }
@@ -375,7 +375,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_s<B>::value,
             A &>::type
         operator/=( A & a, B b )
             {
@@ -389,7 +389,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_s<B>::value,
             deduce_quat<A> >::type
         operator/( A const & a, B b )
             {
@@ -405,7 +405,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             deduce_scalar<typename quat_traits<A>::scalar_type,typename quat_traits<B>::scalar_type> >::type
         dot( A const & a, B const & b )
             {
@@ -427,7 +427,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             bool>::type
         operator==( A const & a, B const & b )
             {
@@ -441,7 +441,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             deduce_quat<A> >::type
         inverse( A const & a )
             {
@@ -466,7 +466,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             typename quat_traits<A>::scalar_type>::type
         mag2( A const & a )
             {
@@ -481,7 +481,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             typename quat_traits<A>::scalar_type>::type
         mag( A const & a )
             {
@@ -510,7 +510,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             deduce_quat2<A,B> >::type
         operator-( A const & a, B const & b )
             {
@@ -526,7 +526,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             deduce_quat<A> >::type
         operator-( A const & a )
             {
@@ -566,7 +566,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_s<B>::value,
             A &>::type
         operator*=( A & a, B b )
             {
@@ -580,7 +580,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             deduce_quat2<A,B> >::type
         operator*( A const & a, B const & b )
             {
@@ -606,7 +606,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_s<B>::value,
+            is_quat<A>::value && is_s<B>::value,
             deduce_quat<A> >::type
         operator*( A const & a, B b )
             {
@@ -622,7 +622,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             bool>::type
         operator!=( A const & a, B const & b )
             {
@@ -636,7 +636,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             deduce_quat<A> >::type
         normalized( A const & a )
             {
@@ -661,7 +661,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         normalize( A & a )
             {
@@ -697,7 +697,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_q<B>::value,
+            is_quat<A>::value && is_quat<B>::value,
             deduce_quat2<A,B> >::type
         operator+( A const & a, B const & b )
             {
@@ -713,7 +713,7 @@ boost
         template <class A,class B,class C>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value && is_q<B>::value && is_s<C>::value,
+            is_quat<A>::value && is_quat<B>::value && is_s<C>::value,
             deduce_quat2<A,B> >::type
         slerp( A const & a, B const & b, C t )
             {
@@ -812,7 +812,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::qref_<Q> const &>::type
         qref( Q const & a )
             {
@@ -822,7 +822,7 @@ boost
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_q<Q>::value,
+            is_quat<Q>::value,
             qvm_detail::qref_<Q> &>::type
         qref( Q & a )
             {
@@ -889,7 +889,7 @@ boost
         template <class T>
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::zero_q_<T> const &
-        zero_q()
+        zero_quat()
             {
             return *(qvm_detail::zero_q_<T> const *)0;
             }
@@ -897,7 +897,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         set_zero( A & a )
             {
@@ -980,7 +980,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE
         typename enable_if_c<
-            is_v<A>::value && vec_traits<A>::dim==3,
+            is_vec<A>::value && vec_traits<A>::dim==3,
             qvm_detail::rot_q_<A> >::type
         rot_q( A const & axis, Angle angle )
             {
@@ -990,8 +990,8 @@ boost
         template <class A,class B,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value &&
-            is_v<B>::value && vec_traits<B>::dim==3,
+            is_quat<A>::value &&
+            is_vec<B>::value && vec_traits<B>::dim==3,
             void>::type
         set_rot( A & a, B const & axis, Angle angle )
             {
@@ -1001,8 +1001,8 @@ boost
         template <class A,class B,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value &&
-            is_v<B>::value && vec_traits<B>::dim==3,
+            is_quat<A>::value &&
+            is_vec<B>::value && vec_traits<B>::dim==3,
             void>::type
         rotate( A & a, B const & axis, Angle angle )
             {
@@ -1126,7 +1126,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         set_rotx( A & a, Angle angle )
             {
@@ -1136,7 +1136,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         rotate_x( A & a, Angle angle )
             {
@@ -1260,7 +1260,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         set_roty( A & a, Angle angle )
             {
@@ -1270,7 +1270,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         rotate_y( A & a, Angle angle )
             {
@@ -1394,7 +1394,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         set_rotz( A & a, Angle angle )
             {
@@ -1404,7 +1404,7 @@ boost
         template <class A,class Angle>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value,
+            is_quat<A>::value,
             void>::type
         rotate_z( A & a, Angle angle )
             {
@@ -1414,7 +1414,7 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
-            is_q<A>::value && is_v<B>::value && vec_traits<B>::dim==3,
+            is_quat<A>::value && is_vec<B>::value && vec_traits<B>::dim==3,
             typename quat_traits<A>::scalar_type>::type
         axis_angle( A const & a, B & b )
             {

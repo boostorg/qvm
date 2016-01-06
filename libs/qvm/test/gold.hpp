@@ -213,7 +213,7 @@ test_qvm
 
     template <class T,int M,int N>
     void
-    zero_m( T (&r)[M][N] )
+    zero_mat( T (&r)[M][N] )
         {
         for( int i=0; i<M; ++i )
             for( int j=0; j<N; ++j )
@@ -222,7 +222,7 @@ test_qvm
 
     template <class T,int D>
     void
-    zero_v( T (&r)[D] )
+    zero_vec( T (&r)[D] )
         {
         for( int i=0; i<D; ++i )
             r[i] = T(0);
@@ -416,7 +416,7 @@ test_qvm
         {
         T ys=T(1)/::tanf(fov_y/T(2));
         T xs=ys/aspect_ratio;
-        zero_m(r);
+        zero_mat(r);
         r[0][0] = xs;
         r[1][1] = ys;
         r[2][2] = zf/(zf-zn);

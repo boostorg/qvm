@@ -122,7 +122,7 @@ boost
 
         template <int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::col_<Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         col( A const & a )
@@ -132,7 +132,7 @@ boost
 
         template <int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::col_<Col,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         col( A & a )
@@ -244,7 +244,7 @@ boost
 
         template <int Row,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::row_<Row,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         row( A const & a )
@@ -254,7 +254,7 @@ boost
 
         template <int Row,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::row_<Row,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         row( A & a )
@@ -384,7 +384,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::diag_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         diag( A const & a )
@@ -394,7 +394,7 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::diag_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         diag( A & a )
@@ -409,15 +409,15 @@ boost
             {
             template <class OriginalMatrix>
             class
-            trans_
+            translation_
                 {
-                trans_( trans_ const & );
-                ~trans_();
+                translation_( translation_ const & );
+                ~translation_();
 
                 public:
 
-                trans_ &
-                operator=( trans_ const & x )
+                translation_ &
+                operator=( translation_ const & x )
                     {
                     assign(*this,x);
                     return *this;
@@ -425,7 +425,7 @@ boost
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                trans_ &
+                translation_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -445,9 +445,9 @@ boost
 
         template <class OriginalMatrix>
         struct
-        vec_traits< qvm_detail::trans_<OriginalMatrix> >
+        vec_traits< qvm_detail::translation_<OriginalMatrix> >
             {
-            typedef qvm_detail::trans_<OriginalMatrix> this_vector;
+            typedef qvm_detail::translation_<OriginalMatrix> this_vector;
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
             static int const dim=mat_traits<OriginalMatrix>::rows-1;
             BOOST_QVM_STATIC_ASSERT(mat_traits<OriginalMatrix>::rows==mat_traits<OriginalMatrix>::cols);
@@ -498,36 +498,36 @@ boost
 
         template <class OriginalMatrix,int D>
         struct
-        deduce_vec<qvm_detail::trans_<OriginalMatrix>,D>
+        deduce_vec<qvm_detail::translation_<OriginalMatrix>,D>
             {
             typedef vec<typename mat_traits<OriginalMatrix>::scalar_type,D> type;
             };
 
         template <class OriginalMatrix,int D>
         struct
-        deduce_vec2<qvm_detail::trans_<OriginalMatrix>,qvm_detail::trans_<OriginalMatrix>,D>
+        deduce_vec2<qvm_detail::translation_<OriginalMatrix>,qvm_detail::translation_<OriginalMatrix>,D>
             {
             typedef vec<typename mat_traits<OriginalMatrix>::scalar_type,D> type;
             };
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
-            qvm_detail::trans_<A> const &>::type
+            is_mat<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
+            qvm_detail::translation_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        trans( A const & a )
+        translation( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::trans_<A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::translation_<A> const &>(a);
             }
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
-            qvm_detail::trans_<A> &>::type
+            is_mat<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
+            qvm_detail::translation_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        trans( A & a )
+        translation( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::trans_<A> &>(a);
+            return reinterpret_cast<typename qvm_detail::translation_<A> &>(a);
             }
 
         ////////////////////////////////////////////////

@@ -30,15 +30,15 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::vector<V1,Dim> v1=zero_v<float,Dim>();
+        test_qvm::vector<V1,Dim> v1=zero_vec<float,Dim>();
         for( int i=0; i!=Dim; ++i )
                 BOOST_TEST(!v1.a[i]);
         test_qvm::vector<V2,Dim> v2(42,1);
         set_zero(v2);
         for( int i=0; i!=Dim; ++i )
                 BOOST_TEST(!v2.a[i]);
-        check_deduction(vec<float,Dim>(),zero_v<float,Dim>());
-        check_deduction(vec<int,Dim>(),zero_v<int,Dim>());
+        check_deduction(vec<float,Dim>(),zero_vec<float,Dim>());
+        check_deduction(vec<int,Dim>(),zero_vec<int,Dim>());
         }
     }
 

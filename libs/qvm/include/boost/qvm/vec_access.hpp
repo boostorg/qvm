@@ -28,7 +28,7 @@ boost
         template <class V,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             typename vec_traits<V>::scalar_type &>::type
         operator,( V & a, vector_access_tag<I> (*)() )
             {
@@ -40,7 +40,7 @@ boost
         template <class V,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             typename vec_traits<V>::scalar_type>::type
         operator,( V const & a, vector_access_tag<I> (*)() )
             {
@@ -52,7 +52,7 @@ boost
         template <class V,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             typename vec_traits<V>::scalar_type &>::type
         operator,( V & a, vector_access_tag<I> )
             {
@@ -64,7 +64,7 @@ boost
         template <class V,int I>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<V>::value,
+            is_vec<V>::value,
             typename vec_traits<V>::scalar_type>::type
         operator,( V const & a, vector_access_tag<I> )
             {

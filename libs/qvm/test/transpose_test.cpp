@@ -23,13 +23,13 @@ namespace
             for( int j=0; j!=Cols; ++j )
                 r1[j][i]=x.a[i][j];
         float r2[Cols][Rows];
-        assign(r2,transp(x));
+        assign(r2,transposed(x));
         BOOST_QVM_TEST_EQ(r1,r2);
         test_qvm::scalar_multiply_m(x.b,x.a,2.0f);
-        transp(x) *= 2;
+        transposed(x) *= 2;
         BOOST_QVM_TEST_EQ(x.a,x.b);
-        transp(x) + transp(x);
-        -transp(x);
+        transposed(x) + transposed(x);
+        -transposed(x);
         }
     }
 

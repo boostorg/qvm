@@ -12,7 +12,7 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::quaternion<Q1> q=identity_q<float>();
+        test_qvm::quaternion<Q1> q=identity_quat<float>();
         BOOST_TEST(q.a[0]==1);
         BOOST_TEST(q.a[1]==0);
         BOOST_TEST(q.a[2]==0);

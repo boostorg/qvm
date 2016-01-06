@@ -129,7 +129,7 @@ boost
 
         template <int Row,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delr_<Row,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delr( A const & a )
@@ -139,7 +139,7 @@ boost
 
         template <int Row,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delr_<Row,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delr( A & a )
@@ -258,7 +258,7 @@ boost
 
         template <int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delc_<Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delc( A const & a )
@@ -268,7 +268,7 @@ boost
 
         template <int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delc_<Col,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delc( A & a )
@@ -394,7 +394,7 @@ boost
 
         template <int Row,int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delrc_<Row,Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delrc( A const & a )
@@ -404,7 +404,7 @@ boost
 
         template <int Row,int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::delrc_<Row,Col,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         delrc( A & a )
@@ -502,7 +502,7 @@ boost
 
         template <int Row,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::negr_<Row,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         negr( A const & a )
@@ -600,7 +600,7 @@ boost
 
         template <int Col,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::negc_<Col,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         negc( A const & a )
@@ -612,22 +612,22 @@ boost
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
-            qvm_detail::transp_<A> const &>::type
+            is_mat<A>::value,
+            qvm_detail::transposed_<A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        transp( A const & a )
+        transposed( A const & a )
             {
-            return reinterpret_cast<typename qvm_detail::transp_<A> const &>(a);
+            return reinterpret_cast<typename qvm_detail::transposed_<A> const &>(a);
             }
 
         template <class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
-            qvm_detail::transp_<A> &>::type
+            is_mat<A>::value,
+            qvm_detail::transposed_<A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
-        transp( A & a )
+        transposed( A & a )
             {
-            return reinterpret_cast<typename qvm_detail::transp_<A> &>(a);
+            return reinterpret_cast<typename qvm_detail::transposed_<A> &>(a);
             }
 
         ////////////////////////////////////////////////
@@ -741,7 +741,7 @@ boost
 
         template <int R1,int R2,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::swapr_<R1,R2,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         swapr( A const & a )
@@ -751,7 +751,7 @@ boost
 
         template <int R1,int R2,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::swapr_<R1,R2,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         swapr( A & a )
@@ -870,7 +870,7 @@ boost
 
         template <int C1,int C2,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::swapc_<C1,C2,A> const &>::type
         BOOST_QVM_INLINE_TRIVIAL
         swapc( A const & a )
@@ -880,7 +880,7 @@ boost
 
         template <int C1,int C2,class A>
         typename boost::enable_if_c<
-            is_m<A>::value,
+            is_mat<A>::value,
             qvm_detail::swapc_<C1,C2,A> &>::type
         BOOST_QVM_INLINE_TRIVIAL
         swapc( A & a )

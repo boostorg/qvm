@@ -21,17 +21,17 @@ boost
             {
             template <class OriginalMatrix>
             class
-            transp_
+            transposed_
                 {
-                transp_( transp_ const & );
-                transp_ & operator=( transp_ const & );
-                ~transp_();
+                transposed_( transposed_ const & );
+                transposed_ & operator=( transposed_ const & );
+                ~transposed_();
 
                 public:
 
                 template <class T>
                 BOOST_QVM_INLINE_TRIVIAL
-                transp_ &
+                transposed_ &
                 operator=( T const & x )
                     {
                     assign(*this,x);
@@ -51,10 +51,10 @@ boost
 
         template <class OriginalMatrix>
         struct
-        mat_traits< qvm_detail::transp_<OriginalMatrix> >
+        mat_traits< qvm_detail::transposed_<OriginalMatrix> >
             {
             typedef typename mat_traits<OriginalMatrix>::scalar_type scalar_type;
-            typedef qvm_detail::transp_<OriginalMatrix> this_matrix;
+            typedef qvm_detail::transposed_<OriginalMatrix> this_matrix;
             static int const rows=mat_traits<OriginalMatrix>::cols;
             static int const cols=mat_traits<OriginalMatrix>::rows;
 
@@ -111,14 +111,14 @@ boost
 
         template <class OriginalMatrix,int R,int C>
         struct
-        deduce_mat<qvm_detail::transp_<OriginalMatrix>,R,C>
+        deduce_mat<qvm_detail::transposed_<OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };
 
         template <class OriginalMatrix,int R,int C>
         struct
-        deduce_mat2<qvm_detail::transp_<OriginalMatrix>,qvm_detail::transp_<OriginalMatrix>,R,C>
+        deduce_mat2<qvm_detail::transposed_<OriginalMatrix>,qvm_detail::transposed_<OriginalMatrix>,R,C>
             {
             typedef mat<typename mat_traits<OriginalMatrix>::scalar_type,R,C> type;
             };

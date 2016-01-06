@@ -21,7 +21,7 @@ void
 test_ref_cast( T & v, P * ptr )
     {
     using namespace boost::qvm;
-    BOOST_QVM_STATIC_ASSERT(is_v<T>::value);
+    BOOST_QVM_STATIC_ASSERT(is_vec<T>::value);
     BOOST_QVM_STATIC_ASSERT(vec_traits<T>::dim==3);
     BOOST_TEST(vec_traits<T>::template r<0>(v)==ptr[0]);
     BOOST_TEST(vec_traits<T>::template r<1>(v)==ptr[1]);
@@ -39,9 +39,9 @@ main()
     {
     using namespace boost::qvm;
         {
-        BOOST_QVM_STATIC_ASSERT(is_v<int[3]>::value);
-        BOOST_QVM_STATIC_ASSERT(!is_v<int[3][3]>::value);
-        BOOST_QVM_STATIC_ASSERT(!is_v<int[3][3][3]>::value);
+        BOOST_QVM_STATIC_ASSERT(is_vec<int[3]>::value);
+        BOOST_QVM_STATIC_ASSERT(!is_vec<int[3][3]>::value);
+        BOOST_QVM_STATIC_ASSERT(!is_vec<int[3][3][3]>::value);
         BOOST_QVM_STATIC_ASSERT((vec_traits<int[3]>::dim==3));
         same_type<vec_traits<int[3]>::scalar_type,int>();
         same_type< vec<int,3>, deduce_vec<int[3]>::type >();

@@ -65,7 +65,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::v_index_read_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
         v_index_read( A const & a, int i )
@@ -120,7 +120,7 @@ boost
         template <class A>
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
-            is_v<A>::value &&
+            is_vec<A>::value &&
             !qvm_detail::v_index_write_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type &>::type
         v_index_write( A & a, int i )

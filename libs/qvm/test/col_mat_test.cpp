@@ -19,7 +19,7 @@ namespace
         {
         using namespace boost::qvm;
         test_qvm::vector<V1,Dim> x(42,1);
-        float y[1][Dim]; assign(y,transp(col_m(x)));
+        float y[1][Dim]; assign(y,transposed(col_m(x)));
         BOOST_QVM_TEST_EQ(x.a,y[0]);
         test_qvm::scalar_multiply_v(x.b,x.a,2.0f);
         col<0>(col_m(x)) *= 2;

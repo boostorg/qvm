@@ -25,14 +25,14 @@ boost
             template <class V,int D,
                 int VD=vec_traits<V>::dim>
             struct
-            deduce_v_default
+            deduce_vec_default
                 {
                 typedef vec<typename vec_traits<V>::scalar_type,D> type;
                 };
 
             template <class V,int D>
             struct
-            deduce_v_default<V,D,D>
+            deduce_vec_default<V,D,D>
                 {
                 typedef V type;
                 };
@@ -42,16 +42,16 @@ boost
         struct
         deduce_vec
             {
-            BOOST_QVM_STATIC_ASSERT(is_v<V>::value);
-            typedef typename qvm_detail::deduce_v_default<V,Dim>::type type;
+            BOOST_QVM_STATIC_ASSERT(is_vec<V>::value);
+            typedef typename qvm_detail::deduce_vec_default<V,Dim>::type type;
             };
 
         namespace
         qvm_detail
             {
             template <class A,class B,int D,
-                bool VA=is_v<A>::value,
-                bool VB=is_v<B>::value,
+                bool VA=is_vec<A>::value,
+                bool VB=is_vec<B>::value,
                 int AD=vec_traits<A>::dim,
                 int BD=vec_traits<B>::dim>
             struct
@@ -76,7 +76,7 @@ boost
         struct
         deduce_vec2
             {
-            BOOST_QVM_STATIC_ASSERT(is_v<A>::value || is_v<B>::value);
+            BOOST_QVM_STATIC_ASSERT(is_vec<A>::value || is_vec<B>::value);
             typedef typename qvm_detail::deduce_v2_default<A,B,D>::type type;
             };
         }

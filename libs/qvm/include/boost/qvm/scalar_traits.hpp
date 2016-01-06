@@ -51,7 +51,7 @@ boost
         namespace
         qvm_detail
             {
-            template <class A,bool M=is_m<A>::value,bool Q=is_q<A>::value,bool V=is_v<A>::value>
+            template <class A,bool M=is_mat<A>::value,bool Q=is_quat<A>::value,bool V=is_vec<A>::value>
             struct
             scalar_impl
                 {

@@ -25,9 +25,9 @@ namespace
             test_qvm::quaternion<Q1> const qx=rotx_q(a);
             test_qvm::quaternion<Q1> const qy=roty_q(a);
             test_qvm::quaternion<Q1> const qz=rotz_q(a);
-            test_qvm::matrix<M1,3,3> const mx=rotx_m<3>(a);
-            test_qvm::matrix<M1,3,3> const my=roty_m<3>(a);
-            test_qvm::matrix<M1,3,3> const mz=rotz_m<3>(a);
+            test_qvm::matrix<M1,3,3> const mx=rotx_mat<3>(a);
+            test_qvm::matrix<M1,3,3> const my=roty_mat<3>(a);
+            test_qvm::matrix<M1,3,3> const mz=rotz_mat<3>(a);
             test_qvm::vector<V1,3> const v(42,1);
             test_same_type(vec<float,3>(),qx*v);
             test_qvm::vector<V1,3> const q_vx=qx*v;

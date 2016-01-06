@@ -1133,7 +1133,7 @@ boost
         template <class R,class A>
         BOOST_QVM_INLINE
         typename enable_if_c<
-            is_m<R>::value && is_q<A>::value &&
+            is_mat<R>::value && is_quat<A>::value &&
             mat_traits<R>::rows==4 && mat_traits<R>::cols==4,
             R>::type
         make( A const & q )

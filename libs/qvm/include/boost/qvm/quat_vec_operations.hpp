@@ -20,8 +20,8 @@ boost
         template <class A,class B>
         BOOST_QVM_INLINE_OPERATIONS
         typename lazy_enable_if_c<
-            is_q<A>::value &&
-            is_v<B>::value && vec_traits<B>::dim==3,
+            is_quat<A>::value &&
+            is_vec<B>::value && vec_traits<B>::dim==3,
             deduce_vec2<A,B,3> >::type
         operator*( A const & a, B const & b )
             {

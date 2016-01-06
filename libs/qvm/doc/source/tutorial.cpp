@@ -94,23 +94,23 @@ f()
         (v,Y) = 0;
         (v,Z) = 7;
         float vmag = mag(v);
-        float33 m = rotx_m<3>(3.14159f);
+        float33 m = rotx_mat<3>(3.14159f);
         float3 vrot = m * v;
         }
 
         {
         float v[3] = {0,0,7};
-        float3 vrot = rotx_m<3>(3.14159f) * v;
+        float3 vrot = rotx_mat<3>(3.14159f) * v;
         }
 
         {
         float3 v = {0,0,7};
-        float3 vrot = transp(rotx_m<3>(3.14159f)) * v;
+        float3 vrot = transposed(rotx_mat<3>(3.14159f)) * v;
         }
 
         {
         float3 v = {0,0,7};
-        (v,YXZ) = rotx_m<3>(3.14159f) * v;
+        (v,YXZ) = rotx_mat<3>(3.14159f) * v;
         }
 
         {

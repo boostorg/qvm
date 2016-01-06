@@ -39,7 +39,7 @@ boost
 
         template <class T>
         struct
-        is_q
+        is_quat
             {
             static bool const value=!is_quaternion_detail::is_void<typename quat_traits<T>::scalar_type>::value;
             };

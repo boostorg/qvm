@@ -18,16 +18,16 @@ namespace
         {
         using namespace boost::qvm;
         test_qvm::matrix<M1,D,D> x(42,1);
-        test_qvm::vector<V1,D-1> y=trans(x);
+        test_qvm::vector<V1,D-1> y=translation(x);
         for( int i=0; i!=D-1; ++i )
             y.b[i]=x.a[i][D-1];
         BOOST_QVM_TEST_EQ(y.a,y.b);
-        trans(x) *= 2;
+        translation(x) *= 2;
         for( int i=0; i!=D-1; ++i )
             x.b[i][D-1] *= 2;
         BOOST_QVM_TEST_EQ(x.a,x.b);
-        trans(x) + trans(x);
-        -trans(x);
+        translation(x) + translation(x);
+        -translation(x);
         }
     }
 

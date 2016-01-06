@@ -21,7 +21,7 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::matrix<M1,4,4> m=rot_m<4>(test_qvm::vector<V1,3>(1,0),1.0f);
+        test_qvm::matrix<M1,4,4> m=rot_mat<4>(test_qvm::vector<V1,3>(1,0),1.0f);
         (col<3>(m),X) = 42;
         (col<3>(m),Y) = 42;
         (col<3>(m),Z) = 42;

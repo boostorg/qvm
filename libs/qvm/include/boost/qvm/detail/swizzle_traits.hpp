@@ -237,7 +237,7 @@ boost
         template <class OriginalVector,int A,class Next>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> )
             {
@@ -247,7 +247,7 @@ boost
         template <class OriginalVector,int A,class Next>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> )
             {
@@ -257,7 +257,7 @@ boost
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             typename vec_traits<OriginalVector>::scalar_type>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> )
             {
@@ -269,7 +269,7 @@ boost
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             typename vec_traits<OriginalVector>::scalar_type &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> )
             {
@@ -281,7 +281,7 @@ boost
         template <class OriginalVector,int A,class Next>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > const &>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A,Next> (*)() )
             {
@@ -291,7 +291,7 @@ boost
         template <class OriginalVector,int A,class Next>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             qvm_detail::swizzle_<OriginalVector,qvm_detail::swizzle_idx<A,Next> > &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A,Next> (*)() )
             {
@@ -301,7 +301,7 @@ boost
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             typename vec_traits<OriginalVector>::scalar_type>::type
         operator,( OriginalVector const & a, qvm_detail::swizzle_idx<A> (*)() )
             {
@@ -313,7 +313,7 @@ boost
         template <class OriginalVector,int A>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_v<OriginalVector>::value,
+            is_vec<OriginalVector>::value,
             typename vec_traits<OriginalVector>::scalar_type &>::type
         operator,( OriginalVector & a, qvm_detail::swizzle_idx<A> (*)() )
             {

@@ -26,17 +26,17 @@ boost
                 int MR=mat_traits<M>::rows,
                 int MC=mat_traits<M>::cols>
             struct
-            deduce_m_default
+            deduce_mat_default
                 {
-                BOOST_QVM_STATIC_ASSERT(is_m<M>::value);
+                BOOST_QVM_STATIC_ASSERT(is_mat<M>::value);
                 typedef mat<typename mat_traits<M>::scalar_type,R,C> type;
                 };
 
             template <class M,int R,int C>
             struct
-            deduce_m_default<M,R,C,R,C>
+            deduce_mat_default<M,R,C,R,C>
                 {
-                BOOST_QVM_STATIC_ASSERT(is_m<M>::value);
+                BOOST_QVM_STATIC_ASSERT(is_mat<M>::value);
                 typedef M type;
                 };
             }
@@ -45,16 +45,16 @@ boost
         struct
         deduce_mat
             {
-            BOOST_QVM_STATIC_ASSERT(is_m<Type>::value);
-            typedef typename qvm_detail::deduce_m_default<Type,Rows,Cols>::type type;
+            BOOST_QVM_STATIC_ASSERT(is_mat<Type>::value);
+            typedef typename qvm_detail::deduce_mat_default<Type,Rows,Cols>::type type;
             };
 
         namespace
         qvm_detail
             {
             template <class A,class B,int R,int C,
-                bool VA=is_m<A>::value,
-                bool VB=is_m<B>::value,
+                bool VA=is_mat<A>::value,
+                bool VB=is_mat<B>::value,
                 int AR=mat_traits<A>::rows,
                 int AC=mat_traits<A>::cols,
                 int BR=mat_traits<B>::rows,
@@ -81,7 +81,7 @@ boost
         struct
         deduce_mat2
             {
-            BOOST_QVM_STATIC_ASSERT(is_m<A>::value || is_m<B>::value);
+            BOOST_QVM_STATIC_ASSERT(is_mat<A>::value || is_mat<B>::value);
             typedef typename qvm_detail::deduce_m2_default<A,B,R,C>::type type;
             };
         }

@@ -18,7 +18,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[0]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::matrix<M1,D,D> const m1=rot_m<D>(axis,r);
+            test_qvm::matrix<M1,D,D> const m1=rot_mat<D>(axis,r);
             test_qvm::rotation_x(m1.b,r);
             BOOST_QVM_TEST_EQ(m1.a,m1.b);
             test_qvm::matrix<M1,D,D> m2(42,1);
@@ -41,7 +41,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[1]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::matrix<M1,D,D> m1=rot_m<D>(axis,r);
+            test_qvm::matrix<M1,D,D> m1=rot_mat<D>(axis,r);
             test_qvm::rotation_y(m1.b,r);
             BOOST_QVM_TEST_EQ(m1.a,m1.b);
             test_qvm::matrix<M1,D,D> m2(42,1);
@@ -64,7 +64,7 @@ namespace
         test_qvm::vector<V1,3> axis; axis.a[2]=1;
         for( float r=0; r<6.28f; r+=0.5f )
             {
-            test_qvm::matrix<M1,D,D> m1=rot_m<D>(axis,r);
+            test_qvm::matrix<M1,D,D> m1=rot_mat<D>(axis,r);
             test_qvm::rotation_z(m1.b,r);
             BOOST_QVM_TEST_EQ(m1.a,m1.b);
             test_qvm::matrix<M1,D,D> m2(42,1);

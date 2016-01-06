@@ -13,7 +13,7 @@ namespace
     test()
         {
         using namespace boost::qvm;
-        test_qvm::matrix<M1,Dim,Dim> m=identity_m<float,Dim>();
+        test_qvm::matrix<M1,Dim,Dim> m=identity_mat<float,Dim>();
         for( int i=0; i!=Dim; ++i )
             for( int j=0; j!=Dim; ++j )
                 BOOST_TEST(m.a[i][j]==float(i==j));
