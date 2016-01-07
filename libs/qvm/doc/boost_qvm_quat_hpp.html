@@ -35,21 +35,21 @@
             operator R() const
             {
                 R r;
-                <span class="RenoLink"><a href="assign_q_q_.html">assign</a></span>(r,*this);
+                <span class="RenoLink"><a href="assign_quat_quat_.html">assign</a></span>(r,*this);
                 return r;
             }
         };
         
         template &lt;class Quaternion&gt;
-        struct <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>;
+        struct <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>;
         
         template &lt;class T&gt;
-        struct <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt; <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; &gt;
+        struct <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt; <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; &gt;
         {
             typedef T scalar_type;
         
-            template &lt;int I&gt; static scalar_type <span class="RenoLink"><a href="q_traits_Q_r.html">r</a></span>( <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; const &amp; x ) { return x.a[I]; }
-            template &lt;int I&gt; static scalar_type &amp; <span class="RenoLink"><a href="q_traits_Q_w.html">w</a></span>( <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; &amp; x ) { return x.a[I]; }
+            template &lt;int I&gt; static scalar_type <span class="RenoLink"><a href="quat_traits_Q_read_element.html">read_element</a></span>( <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; const &amp; x ) { return x.a[I]; }
+            template &lt;int I&gt; static scalar_type &amp; <span class="RenoLink"><a href="quat_traits_Q_write_element.html">write_element</a></span>( <span class="RenoLink"><a href="quat.html">quat</a></span>&lt;T&gt; &amp; x ) { return x.a[I]; }
         };</span></span>
     }
 }</pre>

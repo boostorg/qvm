@@ -21,8 +21,8 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>View Proxies</h3>
 </div>
-<p>Boost QVM defines various function templates which take a reference to a quaternion/vector/matrix object and return an object of unspecified static quaternion/vector/matrix type for which the <i><span class="RenoLink"><a href="q_traits.html">q_traits</a></span>/<span class="RenoLink"><a href="v_traits.html">v_traits</a></span>/<span class="RenoLink"><a href="m_traits.html">m_traits</a></span></i> template is specialized to provide a different (possibly mutable) view to the original quaternion/vector/matrix object.</p>
-<p>For example, given a vector <i>v</i>, the expression <i><span class="RenoLink"><a href="col_m.html">col_m</a></span>(v)</i> returns a <span class="RenoLink">view proxy</span> that makes <i>v</i> look and feel like a matrix-column. More complex views are created by simple composition, for example <i><span class="RenoLink"><a href="transp.html">transp</a></span>(<span class="RenoLink"><a href="col_m.html">col_m</a></span>(v))</i> is equivalent to <i><span class="RenoLink"><a href="row_m.html">row_m</a></span>(v)</i>.</p>
+<p>Boost QVM defines various function templates which take a reference to a quaternion/vector/matrix object and return an object of unspecified static quaternion/vector/matrix type for which the <i><span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>/<span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>/<span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span></i> template is specialized to provide a different (possibly mutable) view to the original quaternion/vector/matrix object.</p>
+<p>For example, given a vector <i>v</i>, the expression <i><span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v)</i> returns a <span class="RenoLink">view proxy</span> that makes <i>v</i> look and feel like a matrix-column. More complex views are created by simple composition, for example <i><span class="RenoLink"><a href="transposed.html">transposed</a></span>(<span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v))</i> is equivalent to <i><span class="RenoLink"><a href="row_mat.html">row_mat</a></span>(v)</i>.</p>
 <blockquote><p><i>Note: typically, the returned <span class="RenoLink">view proxies</span> are simply the original object reference </i>reinterpret_cast<i>ed to an internal quaternion/vector/matrix type. This technique avoids creating a temporary object (these internal types are made non-copyable to prevent potential undefined behavior, however they do define operator= that acts on the original object.)</i></p></blockquote>
 <p>Below is a list of all <span class="RenoLink">view proxies</span> supported by Boost QVM:</p>
 <div class="RenoPageList"><a href="accessing_matrix_elements.html">Accessing Matrix Elements</a><br/>
@@ -30,28 +30,28 @@
 <a href="accessing_vector_elements.html">Accessing Vector Elements</a><br/>
 <a href="accessing_vector_elements_and_swizzling_reference.html">Accessing Vector Elements by Swizzling</a><br/>
 <a href="col.html">col</a><br/>
-<a href="col_m.html">col_m</a><br/>
-<a href="delc.html">delc</a><br/>
-<a href="delr.html">delr</a><br/>
-<a href="delrc.html">delrc</a><br/>
+<a href="col_mat.html">col_mat</a><br/>
+<a href="del_col.html">del_col</a><br/>
+<a href="del_row.html">del_row</a><br/>
+<a href="del_row_col.html">del_row_col</a><br/>
 <a href="diag.html">diag</a><br/>
-<a href="diag_m.html">diag_m</a><br/>
+<a href="diag_mat.html">diag_mat</a><br/>
 <a href="mref.html">mref</a><br/>
 <a href="qref.html">qref</a><br/>
 <a href="row.html">row</a><br/>
-<a href="row_m.html">row_m</a><br/>
-<a href="scalar_cast_m_.html">scalar_cast(m)</a><br/>
-<a href="scalar_cast_q_.html">scalar_cast(q)</a><br/>
-<a href="scalar_cast_v_.html">scalar_cast(v)</a><br/>
+<a href="row_mat.html">row_mat</a><br/>
+<a href="scalar_cast_mat_.html">scalar_cast(mat)</a><br/>
+<a href="scalar_cast_quat_.html">scalar_cast(quat)</a><br/>
+<a href="scalar_cast_vec_.html">scalar_cast(vec)</a><br/>
 <a href="sw.html">sw</a><br/>
-<a href="swapc.html">swapc</a><br/>
-<a href="swapr.html">swapr</a><br/>
-<a href="trans.html">trans</a><br/>
-<a href="trans_m.html">trans_m</a><br/>
-<a href="transp.html">transp</a><br/>
+<a href="swap_cols.html">swap_cols</a><br/>
+<a href="swap_rows.html">swap_rows</a><br/>
+<a href="translation.html">translation</a><br/>
+<a href="translation_mat.html">translation_mat</a><br/>
+<a href="transposed.html">transposed</a><br/>
 <a href="vref.html">vref</a></div>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="accessing_vector_elements_and_swizzling_reference.html">Accessing Vector Elements by Swizzling</a>&nbsp;| <a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_map_mv_hpp.html">boost/qvm/map_mv.hpp</a>&nbsp;| <a href="boost_qvm_map_vm_hpp.html">boost/qvm/map_vm.hpp</a>&nbsp;| <a href="boost_qvm_sw_hpp.html">boost/qvm/sw.hpp</a>&nbsp;| <a href="col.html">col</a>&nbsp;| <a href="col_m.html">col_m</a>&nbsp;| <a href="delc.html">delc</a>&nbsp;| <a href="delr.html">delr</a>&nbsp;| <a href="delrc.html">delrc</a>&nbsp;| <a href="diag.html">diag</a>&nbsp;| <a href="diag_m.html">diag_m</a>&nbsp;| <a href="known_quirks_and_issues.html">Known Quirks and Issues</a>&nbsp;| <a href="Motivation.html">Motivation</a>&nbsp;| <a href="mref.html">mref</a>&nbsp;| <a href="negc.html">negc</a>&nbsp;| <a href="negr.html">negr</a>&nbsp;| <a href="qref.html">qref</a>&nbsp;| <a href="row.html">row</a>&nbsp;| <a href="row_m.html">row_m</a>&nbsp;| <a href="scalar_cast_m_.html">scalar_cast(m)</a>&nbsp;| <a href="scalar_cast_q_.html">scalar_cast(q)</a>&nbsp;| <a href="scalar_cast_v_.html">scalar_cast(v)</a>&nbsp;| <a href="sw.html">sw</a>&nbsp;| <a href="swapc.html">swapc</a>&nbsp;| <a href="swapr.html">swapr</a>&nbsp;| <a href="trans.html">trans</a>&nbsp;| <a href="trans_m.html">trans_m</a>&nbsp;| <a href="transp.html">transp</a>&nbsp;| <a href="vref.html">vref</a></span>
+See also: <span class="RenoPageList"><a href="accessing_vector_elements_and_swizzling_reference.html">Accessing Vector Elements by Swizzling</a>&nbsp;| <a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_map_mat_vec_hpp.html">boost/qvm/map_mat_vec.hpp</a>&nbsp;| <a href="boost_qvm_map_vec_mat_hpp.html">boost/qvm/map_vec_mat.hpp</a>&nbsp;| <a href="boost_qvm_swizzle_hpp.html">boost/qvm/swizzle.hpp</a>&nbsp;| <a href="col.html">col</a>&nbsp;| <a href="col_mat.html">col_mat</a>&nbsp;| <a href="del_col.html">del_col</a>&nbsp;| <a href="del_row.html">del_row</a>&nbsp;| <a href="del_row_col.html">del_row_col</a>&nbsp;| <a href="diag.html">diag</a>&nbsp;| <a href="diag_mat.html">diag_mat</a>&nbsp;| <a href="known_quirks_and_issues.html">Known Quirks and Issues</a>&nbsp;| <a href="Motivation.html">Motivation</a>&nbsp;| <a href="mref.html">mref</a>&nbsp;| <a href="neg_col.html">neg_col</a>&nbsp;| <a href="neg_row.html">neg_row</a>&nbsp;| <a href="qref.html">qref</a>&nbsp;| <a href="row.html">row</a>&nbsp;| <a href="row_mat.html">row_mat</a>&nbsp;| <a href="scalar_cast_mat_.html">scalar_cast(mat)</a>&nbsp;| <a href="scalar_cast_quat_.html">scalar_cast(quat)</a>&nbsp;| <a href="scalar_cast_vec_.html">scalar_cast(vec)</a>&nbsp;| <a href="sw.html">sw</a>&nbsp;| <a href="swap_cols.html">swap_cols</a>&nbsp;| <a href="swap_rows.html">swap_rows</a>&nbsp;| <a href="translation.html">translation</a>&nbsp;| <a href="translation_mat.html">translation_mat</a>&nbsp;| <a href="transposed.html">transposed</a>&nbsp;| <a href="vref.html">vref</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

@@ -20,30 +20,30 @@
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><h3>Matrix-to-vector <span class="RenoLink"><a href="view_proxy.html">View Proxies</a></span></h3>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_m_access_hpp.html">boost/qvm/m_access.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_mat_access_hpp.html">boost/qvm/mat_access.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
 <span class="RenoIncludeSPAN">        //*** Matrix-to-vector view proxies ***
         
-        <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;int C,class A&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="col.html">col</a></span>( A &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;int C,class A&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="row.html">row</a></span>( A &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="diag.html">diag</a></span>( A &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value &amp;&amp;
-        //  <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>==<span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span> &amp;&amp; <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>&gt;=3
+        //  <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span>==<span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_cols.html">cols</a></span> &amp;&amp; <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span>&gt;=3
         template &lt;class A&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="trans.html">trans</a></span>( A &amp; a );</span></span></span>
+        -unspecified-return-type- <span class="RenoLink"><a href="translation.html">translation</a></span>( A &amp; a );</span></span></span>
     }
 }</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>

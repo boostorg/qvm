@@ -21,7 +21,7 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>sw</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_sw_hpp.html">boost/qvm/sw.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_swizzle_hpp.html">boost/qvm/swizzle.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
@@ -41,9 +41,9 @@
     }
 }</pre>
 </div><p>The expression <i>v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">sw</span>&lt;I1,I2...&gt;</i>, where <i>I1</i>, <i>I2</i>... are compile-time integer constants, returns a mutable <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> that accesses the vector <i>v</i> as if the view's element 0 is the <i>I1</i>-th element of <i>v</i>, the view's element 1 is the <i>I2</i>-th element of <i>v</i>, and so on.</p>
-<p>The expression <i>v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">sw</span>&lt;A1,A2,...&gt;</i>, where <i>A1</i>, <i>A2</i>... are from the set [_x_,_y_,_z_,_w_,_0_,_1_], is similar except that <i>v</i>'s elements are specified by name, such that _x_/_y_/_z_/_w_ refer to <i>v</i>'s element with index 0/1/2/3. If _0_/_1_ is specified at some position, the value <i><span class="RenoLink"><a href="s_traits.html">s_traits</a></span>&lt;&gt;::value(0)</i>/<i><span class="RenoLink"><a href="s_traits.html">s_traits</a></span>&lt;&gt;::value(1)</i> (depending on <i>v</i>'s <span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span>) is substituted.</p>
+<p>The expression <i>v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">sw</span>&lt;A1,A2,...&gt;</i>, where <i>A1</i>, <i>A2</i>... are from the set [_x_,_y_,_z_,_w_,_0_,_1_], is similar except that <i>v</i>'s elements are specified by name, such that _x_/_y_/_z_/_w_ refer to <i>v</i>'s element with index 0/1/2/3. If _0_/_1_ is specified at some position, the value <i><span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span>&lt;&gt;::value(0)</i>/<i><span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span>&lt;&gt;::value(1)</i> (depending on <i>v</i>'s <span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span>) is substituted.</p>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="accessing_vector_elements_and_swizzling_reference.html">Accessing Vector Elements by Swizzling</a>&nbsp;| <a href="boost_qvm_sw_hpp.html">boost/qvm/sw.hpp</a></span>
+See also: <span class="RenoPageList"><a href="accessing_vector_elements_and_swizzling_reference.html">Accessing Vector Elements by Swizzling</a>&nbsp;| <a href="boost_qvm_swizzle_hpp.html">boost/qvm/swizzle.hpp</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

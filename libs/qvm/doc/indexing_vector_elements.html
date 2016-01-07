@@ -21,7 +21,7 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Indexing Vector Elements</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_m_access_hpp.html">boost/qvm/m_access.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_mat_access_hpp.html">boost/qvm/mat_access.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
@@ -29,16 +29,16 @@
 <span class="RenoIncludeSPAN">        //*** Indexing vector elements ***
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span>
-        <span class="RenoLink"><a href="v_index_read.html">v_index_read</a></span>( A const &amp; a, int i );</span>        
+        typename <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span>
+        <span class="RenoLink"><a href="vec_index_read.html">vec_index_read</a></span>( A const &amp; a, int i );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span> &amp;
-        <span class="RenoLink"><a href="v_index_write.html">v_index_write</a></span>( A &amp; a, int i );</span></span></span>
+        typename <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span> &amp;
+        <span class="RenoLink"><a href="vec_index_write.html">vec_index_write</a></span>( A &amp; a, int i );</span></span></span>
     }
 }</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>

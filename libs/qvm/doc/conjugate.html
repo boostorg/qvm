@@ -21,21 +21,21 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>conjugate</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_q_hpp.html">boost/qvm/q.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_quat_operations_hpp.html">boost/qvm/quat_operations.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
         <span class="RenoLink">conjugate</span>( A const &amp; a );</span>
     }
 }</pre>
 </div><h4>Returns:</h4>
 <p>Computes the <span class="RenoLink"><a href="http://en.wikipedia.org/wiki/Quaternion#Conjugation.2C_the_norm.2C_and_reciprocal">conjugate</a></span> of <i>a</i>.</p>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="boost_qvm_q_hpp.html">boost/qvm/q.hpp</a>&nbsp;| <a href="inverse_q_.html">inverse(q)</a></span>
+See also: <span class="RenoPageList"><a href="boost_qvm_quat_operations_hpp.html">boost/qvm/quat_operations.hpp</a>&nbsp;| <a href="inverse_quat_.html">inverse(quat)</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

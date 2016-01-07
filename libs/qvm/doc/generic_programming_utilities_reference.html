@@ -21,7 +21,7 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Generic Programming Utilities</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_q_hpp.html">boost/qvm/deduce_q.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_v_hpp.html">boost/qvm/deduce_v.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_m_hpp.html">boost/qvm/deduce_m.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_s_hpp.html">boost/qvm/deduce_s.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/></p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_quat_hpp.html">boost/qvm/deduce_quat.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_vec_hpp.html">boost/qvm/deduce_vec.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_mat_hpp.html">boost/qvm/deduce_mat.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_deduce_scalar_hpp.html">boost/qvm/deduce_scalar.hpp</a></span>&gt;<span class="RenoBR">&nbsp;</span><br/></p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
@@ -29,54 +29,54 @@
 <span class="RenoIncludeSPAN">        //*** Generic programming utilities ***
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;class Q&gt;
-        struct <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>
+        struct <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>
         {
             typedef Q type;
         };</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class A,class B&gt;
-        struct <span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span>
+        struct <span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span>
         {
             typedef /*unspecified*/ type;
         };</span></span>        
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;
             class V,
-            int Dim=<span class="RenoLink"><a href="v_traits_Vector_dim.html">v_traits&lt;Vector&gt;::dim</a></span>&gt;
-        struct <span class="RenoLink"><a href="deduce_v.html">deduce_v</a></span>
+            int Dim=<span class="RenoLink"><a href="vec_traits_Vector_dim.html">vec_traits&lt;Vector&gt;::dim</a></span>&gt;
+        struct <span class="RenoLink"><a href="deduce_vec.html">deduce_vec</a></span>
         {
             typedef /*unspecified*/ type;
         };</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class A,class B,int Dim&gt;
-        struct <span class="RenoLink"><a href="deduce_v2.html">deduce_v2</a></span>
+        struct <span class="RenoLink"><a href="deduce_vec2.html">deduce_vec2</a></span>
         {
             typedef /*unspecified*/ type;
         };</span></span>        
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;
             class M,
-            int Rows=<span class="RenoLink"><a href="m_traits_Matrix_rows.html">m_traits&lt;Matrix&gt;::rows</a></span>,
-            int Cols=<span class="RenoLink"><a href="m_traits_Matrix_cols.html">m_traits&lt;Matrix&gt;::cols</a></span>&gt;
-        struct <span class="RenoLink"><a href="deduce_m.html">deduce_m</a></span>
+            int Rows=<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">mat_traits&lt;Matrix&gt;::rows</a></span>,
+            int Cols=<span class="RenoLink"><a href="mat_traits_Matrix_cols.html">mat_traits&lt;Matrix&gt;::cols</a></span>&gt;
+        struct <span class="RenoLink"><a href="deduce_mat.html">deduce_mat</a></span>
         {
             typedef /*unspecified*/ type;
         };</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class A,class B,int Rows,int Cols&gt;
-        struct <span class="RenoLink"><a href="deduce_m2.html">deduce_m2</a></span>
+        struct <span class="RenoLink"><a href="deduce_mat2.html">deduce_mat2</a></span>
         {
             typedef /*unspecified*/ type;
         };</span></span>        
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;class A,class B&gt;
-        struct <span class="RenoLink"><a href="deduce_s.html">deduce_s</a></span>
+        struct <span class="RenoLink"><a href="deduce_scalar.html">deduce_scalar</a></span>
         {
             typedef typename impl&lt;A,B&gt;::type type;
         };</span></span>        
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;class Scalar&gt;
-        struct <span class="RenoLink"><a href="s_traits.html">s_traits</a></span>
+        struct <span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span>
         {
             <span class="RenoLink"><a href="BOOST_QVM_INLINE_CRITICAL.html">BOOST_QVM_INLINE_CRITICAL</a></span>
             static Scalar value( int v )

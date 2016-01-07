@@ -21,7 +21,7 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Quaternion Operations</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_q_hpp.html">boost/qvm/q.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_quat_operations_hpp.html">boost/qvm/quat_operations.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
@@ -29,209 +29,209 @@
 <span class="RenoIncludeSPAN">        //*** Quaternion operations ***
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="assign_q_q_.html">assign</a></span>( A &amp; a, B const &amp; b );</span>        
+        A &amp; <span class="RenoLink"><a href="assign_quat_quat_.html">assign</a></span>( A &amp; a, B const &amp; b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;R&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;R&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class R,class A&gt;
-        R <span class="RenoLink"><a href="make_q_.html">make</a></span>( A const &amp; a );
+        R <span class="RenoLink"><a href="convert_to_quat_.html">convert_to</a></span>( A const &amp; a );
         
         //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;R&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value &amp;&amp;
-        //  <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>==3 &amp;&amp; <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span>==3
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;R&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span>==3 &amp;&amp; <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_cols.html">cols</a></span>==3
         template &lt;class R,class A&gt;
-        R <span class="RenoLink"><a href="make_q_.html">make</a></span>( A const &amp; m );</span>        
+        R <span class="RenoLink"><a href="convert_to_quat_.html">convert_to</a></span>( A const &amp; m );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="operator_sub_eq_q_q_.html">operator-=</a></span>( A &amp; a, B const &amp; b );</span>        
+        A &amp; <span class="RenoLink"><a href="operator_sub_eq_quat_quat_.html">operator-=</a></span>( A &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
-        <span class="RenoLink"><a href="operator_minus_q_.html">operator-</a></span>( A const &amp; a );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
+        <span class="RenoLink"><a href="operator_minus_quat_.html">operator-</a></span>( A const &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value &amp;&amp;
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span>&lt;A,B&gt;::type
-        <span class="RenoLink"><a href="operator_minus_q_q_.html">operator-</a></span>( A const &amp; a, B const &amp; b );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span>&lt;A,B&gt;::type
+        <span class="RenoLink"><a href="operator_minus_quat_quat_.html">operator-</a></span>( A const &amp; a, B const &amp; b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="operator_add_q_q_.html">operator+=</a></span>( A &amp; a, B const &amp; b );</span>        
+        A &amp; <span class="RenoLink"><a href="operator_add_quat_quat_.html">operator+=</a></span>( A &amp; a, B const &amp; b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value &amp;&amp;
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span>&lt;A,B&gt;::type
-        <span class="RenoLink"><a href="operator_plus_q_q_.html">operator+</a></span>( A const &amp; a, B const &amp; b );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span>&lt;A,B&gt;::type
+        <span class="RenoLink"><a href="operator_plus_quat_quat_.html">operator+</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="operator_div_eq_q_s_.html">operator/=</a></span>( A &amp; a, B b );</span>        
+        A &amp; <span class="RenoLink"><a href="operator_div_eq_quat_scalar_.html">operator/=</a></span>( A &amp; a, B b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
-        <span class="RenoLink"><a href="operator_over_q_s_.html">operator/</a></span>( A const &amp; a, B b );</span>        
-        
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
-        template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="operator_mul_eq_q_q_.html">operator*=</a></span>( A &amp; a, B const &amp; b );</span>        
-        
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
-        template &lt;class A,class B&gt;
-        A &amp; <span class="RenoLink"><a href="operator_mul_eq_q_s_.html">operator*=</a></span>( A &amp; a, B b );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
+        <span class="RenoLink"><a href="operator_over_quat_scalar_.html">operator/</a></span>( A const &amp; a, B b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span>&lt;A,B&gt;::type
-        <span class="RenoLink"><a href="operator_times_q_q_.html">operator*</a></span>( A const &amp; a, B const &amp; b );</span>        
+        A &amp; <span class="RenoLink"><a href="operator_mul_eq_quat_quat_.html">operator*=</a></span>( A &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
-        <span class="RenoLink"><a href="operator_times_q_s_.html">operator*</a></span>( A const &amp; a, B b );</span>        
+        A &amp; <span class="RenoLink"><a href="operator_mul_eq_quat_scalar_.html">operator*=</a></span>( A &amp; a, B b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        bool <span class="RenoLink"><a href="operator_eq_q_q_.html">operator==</a></span>( A const &amp; a, B const &amp; b );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span>&lt;A,B&gt;::type
+        <span class="RenoLink"><a href="operator_times_quat_quat_.html">operator*</a></span>( A const &amp; a, B const &amp; b );</span>        
+        
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
+        template &lt;class A,class B&gt;
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
+        <span class="RenoLink"><a href="operator_times_quat_scalar_.html">operator*</a></span>( A const &amp; a, B b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        bool <span class="RenoLink"><a href="operator_not_eq_q_q_.html">operator!=</a></span>( A const &amp; a, B const &amp; b );</span>        
+        bool <span class="RenoLink"><a href="operator_eq_quat_quat_.html">operator==</a></span>( A const &amp; a, B const &amp; b );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
+        template &lt;class A,class B&gt;
+        bool <span class="RenoLink"><a href="operator_not_eq_quat_quat_.html">operator!=</a></span>( A const &amp; a, B const &amp; b );</span>        
+        
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B,class Cmp&gt;
-        bool <span class="RenoLink"><a href="cmp_q_q_.html">cmp</a></span>( A const &amp; a, B const &amp; b, Cmp pred );</span>        
+        bool <span class="RenoLink"><a href="cmp_quat_quat_.html">cmp</a></span>( A const &amp; a, B const &amp; b, Cmp pred );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span>
-        <span class="RenoLink"><a href="mag2_q_.html">mag2</a></span>( A const &amp; a );</span>        
+        typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span>
+        <span class="RenoLink"><a href="mag_sqr_quat_.html">mag_sqr</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span>
-        <span class="RenoLink"><a href="mag_q_.html">mag</a></span>( A const &amp; a );</span>        
+        typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span>
+        <span class="RenoLink"><a href="mag_quat_.html">mag</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
-        <span class="RenoLink"><a href="normalized_q_.html">normalized</a></span>( A const &amp; a );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
+        <span class="RenoLink"><a href="normalized_quat_.html">normalized</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="normalize_q_.html">normalize</a></span>( A &amp; a );</span>        
+        void <span class="RenoLink"><a href="normalize_quat_.html">normalize</a></span>( A &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value
         template &lt;class A,class B&gt;
-        typename <span class="RenoLink"><a href="deduce_s.html">deduce_s</a></span>&lt;A,B&gt;::type
-        <span class="RenoLink"><a href="dot_q_q_.html">dot</a></span>( A const &amp; a, B const &amp; b );</span>        
+        typename <span class="RenoLink"><a href="deduce_scalar.html">deduce_scalar</a></span>&lt;A,B&gt;::type
+        <span class="RenoLink"><a href="dot_quat_quat_.html">dot</a></span>( A const &amp; a, B const &amp; b );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="conjugate.html">conjugate</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span>&lt;A&gt;::type
-        <span class="RenoLink"><a href="inverse_q_.html">inverse</a></span>( A const &amp; a );</span>        
+        typename <span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span>&lt;A&gt;::type
+        <span class="RenoLink"><a href="inverse_quat_.html">inverse</a></span>( A const &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_s.html">is_s</a></span>&lt;C&gt;
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;C&gt;
         template &lt;class A,class B,class C&gt;
-        typename <span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span>&lt;A,B&gt; &gt;::type
+        typename <span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span>&lt;A,B&gt; &gt;::type
         <span class="RenoLink"><a href="slerp.html">slerp</a></span>( A const &amp; a, B const &amp; b, C c );</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class T&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="zero_q.html">zero_q</a></span>();</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="zero_quat.html">zero_quat</a></span>();</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_zero_q_.html">set_zero</a></span>( A &amp; a );</span>        
+        void <span class="RenoLink"><a href="set_zero_quat_.html">set_zero</a></span>( A &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class S&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="identity_q.html">identity_q</a></span>();</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="identity_quat.html">identity_quat</a></span>();</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_identity_q_.html">set_identity</a></span>( A &amp; a );</span>        
+        void <span class="RenoLink"><a href="set_identity_quat_.html">set_identity</a></span>( A &amp; a );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>==3
         template &lt;class A&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="rot_q.html">rot_q</a></span>( A const &amp; axis, typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span> angle );</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="rot_quat.html">rot_quat</a></span>( A const &amp; axis, typename <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span> angle );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp;
-        //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>==3
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_rot_q_v_s_.html">set_rot</a></span>( A &amp; a, B const &amp; axis, typename <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_V_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="set_rot_quat_vec_scalar_.html">set_rot</a></span>( A &amp; a, B const &amp; axis, typename <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span> angle );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value &amp;&amp;
-        //  <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;B&gt;::value &amp;&amp; <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>==3
         template &lt;class A,class B&gt;
-        void <span class="RenoLink"><a href="rotate_q_v_s_.html">rotate</a></span>( A &amp; a, B const &amp; axis, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="rotate_quat_vec_scalar_.html">rotate</a></span>( A &amp; a, B const &amp; axis, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class Angle&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="rotx_q_s_.html">rotx_q</a></span>( Angle const &amp; angle );</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="rotx_quat_scalar_.html">rotx_quat</a></span>( Angle const &amp; angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_rotx_q_s_.html">set_rotx</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="set_rotx_quat_scalar_.html">set_rotx</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="rotate_x_q_s_.html">rotate_x</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="rotate_x_quat_scalar_.html">rotate_x</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class Angle&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="roty_q_s_.html">roty_q</a></span>( Angle const &amp; angle );</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="roty_quat_scalar_.html">roty_quat</a></span>( Angle const &amp; angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_rotz_q_s_.html">set_rotz</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="set_rotz_quat_scalar_.html">set_rotz</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="rotate_y_q_s_.html">rotate_y</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="rotate_y_quat_scalar_.html">rotate_y</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
         <span class="RenoIncludeSPAN">template &lt;class Angle&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="rotz_q_s_.html">rotz_q</a></span>( Angle const &amp; angle );</span>        
+        -unspecified-return-type- <span class="RenoLink"><a href="rotz_quat_scalar_.html">rotz_quat</a></span>( Angle const &amp; angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="set_rotz_q_s_.html">set_rotz</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="set_rotz_quat_scalar_.html">set_rotz</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        void <span class="RenoLink"><a href="rotate_z_q_s_.html">rotate_z</a></span>( A &amp; a, typename <span class="RenoLink"><a href="q_traits.html">q_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="q_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
+        void <span class="RenoLink"><a href="rotate_z_quat_scalar_.html">rotate_z</a></span>( A &amp; a, typename <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> angle );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class Scalar,class A&gt;
-        -unspecified-return_type- <span class="RenoLink"><a href="scalar_cast_q_.html">scalar_cast</a></span>( A const &amp; a );</span>        
+        -unspecified-return_type- <span class="RenoLink"><a href="scalar_cast_quat_.html">scalar_cast</a></span>( A const &amp; a );</span>        
         
-        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_q.html">is_q</a></span>&lt;A&gt;::value
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         -unspecified-return-type- <span class="RenoLink"><a href="qref.html">qref</a></span>( A &amp; a );</span></span></span>
     }
 }</pre>
 </div><p>This is a list of all quaternion operations implemented by Boost QVM -- click on functions for individual documentation. General notes:</p>
-<div><ul><li> All functions use <span class="RenoLink"><a href="SFINAE_enable_if.html">SFINAE/enable_if</a></span>. They are available for any C++ type but only if it has been registered through the <i><span class="RenoLink"><a href="q_traits.html">q_traits</a></span></i> template.</li>
-<li> When objects are returned by value their type is deduced either by the <i><span class="RenoLink"><a href="deduce_q.html">deduce_q</a></span></i> template (for unary functions) or the <i><span class="RenoLink"><a href="deduce_q2.html">deduce_q2</a></span></i> template (for binary functions).</li>
+<div><ul><li> All functions use <span class="RenoLink"><a href="SFINAE_enable_if.html">SFINAE/enable_if</a></span>. They are available for any C++ type but only if it has been registered through the <i><span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span></i> template.</li>
+<li> When objects are returned by value their type is deduced either by the <i><span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span></i> template (for unary functions) or the <i><span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span></i> template (for binary functions).</li>
 <li> The type of scalar arguments is deduced independently from the type of the quaternion argument, so they are not required to match. Scalar arguments must convert implicitly to the quaternion scalar type.</li>
 </ul></div>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>

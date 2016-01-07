@@ -26,12 +26,12 @@
 <p>Boost QVM solves both of these issues by decoupling the standard algebraic operations from the types they operate on -- without compromising type safety.</p>
 <h3>Key design features of Boost QVM:</h3>
 <div><ul><li> Emphasis on 2, 3 and 4-dimensional operations (including <span class="RenoLink"><a href="http://en.wikipedia.org/wiki/Quaternion">quaternions</a></span> and zero-overhead <span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span>) as needed in graphics and simulation applications.</li>
-<li> Zero-overhead <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> that present read-only or mutable views to the original object. For example, <i><span class="RenoLink"><a href="transp.html">transp</a></span></i> presents a transposed view to its matrix argument without the overhead of a temporary.</li>
+<li> Zero-overhead <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span> that present read-only or mutable views to the original object. For example, <i><span class="RenoLink"><a href="transposed.html">transposed</a></span></i> presents a transposed view to its matrix argument without the overhead of a temporary.</li>
 <li> Allow the integration of many user-defined or 3rd-party matrix, vector and quaternion types into a coherent type-safe system. This enables the user to build algebraic expressions using objects of diverse types that would otherwise be incompatible.</li>
 <li> When users need to implement platform-specific or even project-specific optimizations in a given user subsystem, Boost QVM makes it simple to define custom new types that automatically aquire the full set of algebraic operations so they can interface seamlessly with the rest of the program. At the same time, the user can define a limited number of overloads as needed to implement specific optimizations.</li>
 </ul></div>
 <h3>Tutorial:</h3>
-<div><ul><li><span class="RenoLink"><a href="quaternion_vector_and_matrix_types.html">Quaternion, Vector and Matrix Types</a></span></li>
+<div><ul><li><span class="RenoLink"><a href="quaternions_vectors_matrices.html">Quaternions, Vectors, Matrices</a></span></li>
 <li><span class="RenoLink"><a href="c_arrays.html">C Arrays</a></span></li>
 <li><span class="RenoLink"><a href="Views.html">Views</a></span></li>
 <li><span class="RenoLink"><a href="Swizzling.html">Swizzling</a></span></li>

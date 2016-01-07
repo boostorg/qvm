@@ -21,19 +21,19 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>diag</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_map_mv_hpp.html">boost/qvm/map_mv.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_map_mat_vec_hpp.html">boost/qvm/map_mat_vec.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
         -unspecified-return-type- <span class="RenoLink">diag</span>( A &amp; a );</span>
     }
 }</pre>
 </div><p>The expression <i><span class="RenoLink">diag</span>(m)</i> returns a <span class="RenoLink"><a href="view_proxy.html">view proxy</a></span> that accesses the main diagonal of the matrix <i>m</i> as a vector.</p>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="boost_qvm_map_mv_hpp.html">boost/qvm/map_mv.hpp</a></span>
+See also: <span class="RenoPageList"><a href="boost_qvm_map_mat_vec_hpp.html">boost/qvm/map_mat_vec.hpp</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

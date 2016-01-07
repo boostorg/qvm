@@ -21,25 +21,25 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>transform_point</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_vm_hpp.html">boost/qvm/vm.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_vec_mat_operations_hpp.html">boost/qvm/vec_mat_operations.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
 <span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_v.html">is_v</a></span>&lt;B&gt;::value &amp;&amp;
-        //  <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_rows.html">rows</a></span>==4 &amp;&amp; <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_Matrix_cols.html">cols</a></span>==4 &amp;&amp;
-        //  <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="v_traits_Vector_dim.html">dim</a></span>==3
+        //  <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;B&gt;::value &amp;&amp;
+        //  <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span>==4 &amp;&amp; <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_cols.html">cols</a></span>==4 &amp;&amp;
+        //  <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>==3
         template &lt;class A,class B&gt;
-        <span class="RenoLink"><a href="deduce_v2.html">deduce_v2</a></span>&lt;A,B,3&gt; &gt;::type
+        <span class="RenoLink"><a href="deduce_vec2.html">deduce_vec2</a></span>&lt;A,B,3&gt; &gt;::type
         <span class="RenoLink">transform_point</span>( A const &amp; a, B const &amp; b );</span>
     }
 }</pre>
 </div><h4>Effects:</h4>
 <p>As if:</p>
-<pre>return a <span class="RenoLink"><a href="operator_times_m_v_.html">*</a></span> (b<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements_and_swizzling_reference.html">XYZ1</a></span>);</pre>
+<pre>return a <span class="RenoLink"><a href="operator_times_mat_vec_.html">*</a></span> (b<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink"><a href="accessing_vector_elements_and_swizzling_reference.html">XYZ1</a></span>);</pre>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="boost_qvm_vm_hpp.html">boost/qvm/vm.hpp</a></span>
+See also: <span class="RenoPageList"><a href="boost_qvm_vec_mat_operations_hpp.html">boost/qvm/vec_mat_operations.hpp</a></span>
 </div>
 <!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

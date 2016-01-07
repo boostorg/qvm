@@ -35,25 +35,25 @@
             operator R() const
             {
                 R r;
-                <span class="RenoLink"><a href="assign_v_v_.html">assign</a></span>(r,*this);
+                <span class="RenoLink"><a href="assign_vec_vec_.html">assign</a></span>(r,*this);
                 return r;
             }
         };
         
         template &lt;class Vector&gt;
-        struct <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>;
+        struct <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>;
         
         template &lt;class T,int Dim&gt;
-        struct <span class="RenoLink"><a href="v_traits.html">v_traits</a></span>&lt; <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &gt;
+        struct <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt; <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &gt;
         {
             typedef T scalar_type;
             static int const dim=Dim;
         
-            template &lt;int I&gt; static scalar_type <span class="RenoLink"><a href="v_traits_V_r.html">r</a></span>( <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; const &amp; x ) { return x.a[I]; }
-            template &lt;int I&gt; static scalar_type &amp; <span class="RenoLink"><a href="v_traits_V_w.html">w</a></span>( <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &amp; x ) { return x.a[I]; }
+            template &lt;int I&gt; static scalar_type <span class="RenoLink"><a href="vec_traits_V_read_element.html">read_element</a></span>( <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; const &amp; x ) { return x.a[I]; }
+            template &lt;int I&gt; static scalar_type &amp; <span class="RenoLink"><a href="vec_traits_V_write_element.html">write_element</a></span>( <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &amp; x ) { return x.a[I]; }
         
-            static scalar_type <span class="RenoLink"><a href="v_traits_V_ir.html">ir</a></span>( int i, <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; const &amp; x ) { return x.a[i]; }
-            static scalar_type &amp; <span class="RenoLink"><a href="v_traits_V_iw.html">iw</a></span>( int i, <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &amp; x ) { return x.a[i]; }
+            static scalar_type <span class="RenoLink"><a href="vec_traits_V_read_element_idx.html">read_element_idx</a></span>( int i, <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; const &amp; x ) { return x.a[i]; }
+            static scalar_type &amp; <span class="RenoLink"><a href="vec_traits_V_write_element_idx.html">write_element_idx</a></span>( int i, <span class="RenoLink"><a href="vec.html">vec</a></span>&lt;T,Dim&gt; &amp; x ) { return x.a[i]; }
         };</span></span>
     }
 }</pre>

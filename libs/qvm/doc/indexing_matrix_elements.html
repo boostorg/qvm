@@ -21,7 +21,7 @@
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>Indexing Matrix Elements</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_m_access_hpp.html">boost/qvm/m_access.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_mat_access_hpp.html">boost/qvm/mat_access.hpp</a></span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
@@ -29,16 +29,16 @@
 <span class="RenoIncludeSPAN">        //*** Indexing matrix elements ***
         
         <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+        //  <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span>
-        <span class="RenoLink"><a href="m_index_read.html">m_index_read</a></span>( A const &amp; a, int r, int c );</span>        
+        typename <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_M_scalar_type.html">scalar_type</a></span>
+        <span class="RenoLink"><a href="mat_index_read.html">mat_index_read</a></span>( A const &amp; a, int r, int c );</span>        
         
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_m.html">is_m</a></span>&lt;A&gt;::value
+        //  <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value
         template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="m_traits.html">m_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="m_traits_M_scalar_type.html">scalar_type</a></span> &amp;
-        <span class="RenoLink"><a href="m_index_write.html">m_index_write</a></span>( A &amp; a, int r, int c );</span></span></span>
+        typename <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_M_scalar_type.html">scalar_type</a></span> &amp;
+        <span class="RenoLink"><a href="mat_index_write.html">mat_index_write</a></span>( A &amp; a, int r, int c );</span></span></span>
     }
 }</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
