@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -33,7 +33,7 @@ boost
             BOOST_QVM_STATIC_ASSERT(R<mat_traits<M>::rows);
             BOOST_QVM_STATIC_ASSERT(C>=0);
             BOOST_QVM_STATIC_ASSERT(C<mat_traits<M>::cols);
-            return mat_traits<M>::template w<R,C>(a);
+            return mat_traits<M>::template write_element<R,C>(a);
             }
 
         template <class M,int R,int C>
@@ -45,7 +45,7 @@ boost
             BOOST_QVM_STATIC_ASSERT(R<mat_traits<M>::rows);
             BOOST_QVM_STATIC_ASSERT(C>=0);
             BOOST_QVM_STATIC_ASSERT(C<mat_traits<M>::cols);
-            return mat_traits<M>::template r<R,C>(a);
+            return mat_traits<M>::template read_element<R,C>(a);
             }
 
         template <class M,int R,int C>
@@ -57,7 +57,7 @@ boost
             BOOST_QVM_STATIC_ASSERT(R<mat_traits<M>::rows);
             BOOST_QVM_STATIC_ASSERT(C>=0);
             BOOST_QVM_STATIC_ASSERT(C<mat_traits<M>::cols);
-            return mat_traits<M>::template w<R,C>(a);
+            return mat_traits<M>::template write_element<R,C>(a);
             }
 
         template <class M,int R,int C>
@@ -69,7 +69,7 @@ boost
             BOOST_QVM_STATIC_ASSERT(R<mat_traits<M>::rows);
             BOOST_QVM_STATIC_ASSERT(C>=0);
             BOOST_QVM_STATIC_ASSERT(C<mat_traits<M>::cols);
-            return mat_traits<M>::template r<R,C>(a);
+            return mat_traits<M>::template read_element<R,C>(a);
             }
 
         template <int R,int C>

@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -28,14 +28,14 @@ test_qvm
         bool
         close_at_tolerance( float a, float b, float tolerance )
             {
-			return boost::math::fpc::close_at_tolerance<float>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
+            return boost::math::fpc::close_at_tolerance<float>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
             }
 
         inline
         bool
         close_at_tolerance( double a, double b, double tolerance )
             {
-			return boost::math::fpc::close_at_tolerance<double>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
+            return boost::math::fpc::close_at_tolerance<double>(tolerance,boost::math::fpc::FPC_STRONG)(a,b);
             }
 
         template <class A,class B>

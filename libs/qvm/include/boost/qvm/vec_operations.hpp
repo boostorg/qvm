@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -48,7 +48,7 @@ boost
                 f( A const & a )
                     {
                     using namespace qvm_to_string_detail;
-                    return to_string(vec_traits<A>::template r<I>(a))+','+to_string_vector_elements<I+1,DimMinusOne>::f(a);
+                    return to_string(vec_traits<A>::template read_element<I>(a))+','+to_string_vector_elements<I+1,DimMinusOne>::f(a);
                     }
                 };
 
@@ -62,7 +62,7 @@ boost
                 f( A const & a )
                     {
                     using namespace qvm_to_string_detail;
-                    return to_string(vec_traits<A>::template r<DimMinusOne>(a));
+                    return to_string(vec_traits<A>::template read_element<DimMinusOne>(a));
                     }
                 };
             }
@@ -99,7 +99,7 @@ boost
                 void
                 f( A & a, B const & b )
                     {
-                    vec_traits<A>::template w<I>(a)=vec_traits<B>::template r<I>(b);
+                    vec_traits<A>::template write_element<I>(a)=vec_traits<B>::template read_element<I>(b);
                     copy_vector_elements<I+1,N>::f(a,b);
                     }
                 };
@@ -137,7 +137,7 @@ boost
             {
             template <int D>
             struct
-            make_v_defined
+            convert_to_v_defined
                 {
                 static bool const value=false;
                 };
@@ -148,9 +148,9 @@ boost
         typename enable_if_c<
             is_vec<R>::value && is_vec<A>::value &&
             vec_traits<R>::dim==vec_traits<A>::dim &&
-            !qvm_detail::make_v_defined<vec_traits<R>::dim>::value,
+            !qvm_detail::convert_to_v_defined<vec_traits<R>::dim>::value,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r; assign(r,a);
             return r;
@@ -168,15 +168,15 @@ boost
             {
             typedef typename deduce_vec2<A,B,3>::type R;
             R r;
-            vec_traits<R>::template w<0>(r)=
-                vec_traits<A>::template r<1>(a)*vec_traits<B>::template r<2>(b)-
-                vec_traits<A>::template r<2>(a)*vec_traits<B>::template r<1>(b);
-            vec_traits<R>::template w<1>(r)=
-                vec_traits<A>::template r<2>(a)*vec_traits<B>::template r<0>(b)-
-                vec_traits<A>::template r<0>(a)*vec_traits<B>::template r<2>(b);
-            vec_traits<R>::template w<2>(r)=
-                vec_traits<A>::template r<0>(a)*vec_traits<B>::template r<1>(b)-
-                vec_traits<A>::template r<1>(a)*vec_traits<B>::template r<0>(b);
+            vec_traits<R>::template write_element<0>(r)=
+                vec_traits<A>::template read_element<1>(a)*vec_traits<B>::template read_element<2>(b)-
+                vec_traits<A>::template read_element<2>(a)*vec_traits<B>::template read_element<1>(b);
+            vec_traits<R>::template write_element<1>(r)=
+                vec_traits<A>::template read_element<2>(a)*vec_traits<B>::template read_element<0>(b)-
+                vec_traits<A>::template read_element<0>(a)*vec_traits<B>::template read_element<2>(b);
+            vec_traits<R>::template write_element<2>(r)=
+                vec_traits<A>::template read_element<0>(a)*vec_traits<B>::template read_element<1>(b)-
+                vec_traits<A>::template read_element<1>(a)*vec_traits<B>::template read_element<0>(b);
             return r;
             }
 
@@ -243,7 +243,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_vector const & x )
+            read_element( this_vector const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
@@ -254,7 +254,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_vector const & x )
+            read_element_idx( int i, this_vector const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
@@ -338,21 +338,21 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_vector const & x )
+            read_element( this_vector const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
-                return scalar_type(vec_traits<OriginalType>::template r<I>(reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(vec_traits<OriginalType>::template read_element<I>(reinterpret_cast<OriginalType const &>(x)));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_vector const & x )
+            read_element_idx( int i, this_vector const & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
-                return scalar_type(vec_traits<OriginalType>::ir(i,reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(vec_traits<OriginalType>::read_element_idx(i,reinterpret_cast<OriginalType const &>(x)));
                 }
             };
 
@@ -393,7 +393,7 @@ boost
         operator/=( A & a, B b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<A>::iw(i,a)/=b;
+                vec_traits<A>::write_element_idx(i,a)/=b;
             return a;
             }
 
@@ -421,7 +421,7 @@ boost
             typedef typename deduce_vec<A>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=vec_traits<A>::ir(i,a)/b;
+                vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)/b;
             return r;
             }
 
@@ -450,7 +450,7 @@ boost
             typedef typename deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type>::type T;
             T m(scalar_traits<T>::value(0));
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                m+=vec_traits<A>::ir(i,a)*vec_traits<B>::ir(i,b);
+                m+=vec_traits<A>::read_element_idx(i,a)*vec_traits<B>::read_element_idx(i,b);
             return m;
             }
 
@@ -477,7 +477,7 @@ boost
         operator==( A const & a, B const & b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                if( vec_traits<A>::ir(i,a)!=vec_traits<B>::ir(i,b) )
+                if( vec_traits<A>::read_element_idx(i,a)!=vec_traits<B>::read_element_idx(i,b) )
                     return false;
             return true;
             }
@@ -489,7 +489,7 @@ boost
             {
             template <int D>
             struct
-            mag2_v_defined
+            mag_sqr_v_defined
                 {
                 static bool const value=false;
                 };
@@ -499,7 +499,7 @@ boost
         BOOST_QVM_INLINE_OPERATIONS
         typename enable_if_c<
             is_vec<A>::value &&
-            !qvm_detail::mag2_v_defined<vec_traits<A>::dim>::value,
+            !qvm_detail::mag_sqr_v_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
         mag_sqr( A const & a )
             {
@@ -507,7 +507,7 @@ boost
             T m(scalar_traits<T>::value(0));
             for( int i=0; i!=vec_traits<A>::dim; ++i )
                 {
-                T x=vec_traits<A>::ir(i,a);
+                T x=vec_traits<A>::read_element_idx(i,a);
                 m+=x*x;
                 }
             return m;
@@ -538,7 +538,7 @@ boost
             T m(scalar_traits<T>::value(0));
             for( int i=0; i!=vec_traits<A>::dim; ++i )
                 {
-                T x=vec_traits<A>::ir(i,a);
+                T x=vec_traits<A>::read_element_idx(i,a);
                 m+=x*x;
                 }
             return sqrt<T>(m);
@@ -567,7 +567,7 @@ boost
         operator-=( A & a, B const & b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<A>::iw(i,a)-=vec_traits<B>::ir(i,b);
+                vec_traits<A>::write_element_idx(i,a)-=vec_traits<B>::read_element_idx(i,b);
             return a;
             }
 
@@ -595,7 +595,7 @@ boost
             typedef typename deduce_vec<A>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=-vec_traits<A>::ir(i,a);
+                vec_traits<R>::write_element_idx(i,r)=-vec_traits<A>::read_element_idx(i,a);
             return r;
             }
 
@@ -624,7 +624,7 @@ boost
             typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=vec_traits<A>::ir(i,a)-vec_traits<B>::ir(i,b);
+                vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)-vec_traits<B>::read_element_idx(i,b);
             return r;
             }
 
@@ -650,7 +650,7 @@ boost
         operator*=( A & a, B b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<A>::iw(i,a)*=b;
+                vec_traits<A>::write_element_idx(i,a)*=b;
             return a;
             }
 
@@ -678,7 +678,7 @@ boost
             typedef typename deduce_vec<A>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=vec_traits<A>::ir(i,a)*b;
+                vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)*b;
             return r;
             }
 
@@ -705,7 +705,7 @@ boost
         operator!=( A const & a, B const & b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                if( vec_traits<A>::ir(i,a)!=vec_traits<B>::ir(i,b) )
+                if( vec_traits<A>::read_element_idx(i,a)!=vec_traits<B>::read_element_idx(i,b) )
                     return true;
             return false;
             }
@@ -735,7 +735,7 @@ boost
             T m(scalar_traits<T>::value(0));
             for( int i=0; i!=vec_traits<A>::dim; ++i )
                 {
-                T x=vec_traits<A>::ir(i,a);
+                T x=vec_traits<A>::read_element_idx(i,a);
                 m+=x*x;
                 }
             if( m==scalar_traits<T>::value(0) )
@@ -744,7 +744,7 @@ boost
             typedef typename deduce_vec<A>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=vec_traits<A>::ir(i,a)*rm;
+                vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)*rm;
             return r;
             }
 
@@ -760,14 +760,14 @@ boost
             T m(scalar_traits<T>::value(0));
             for( int i=0; i!=vec_traits<A>::dim; ++i )
                 {
-                T x=vec_traits<A>::ir(i,a);
+                T x=vec_traits<A>::read_element_idx(i,a);
                 m+=x*x;
                 }
             if( m==scalar_traits<T>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
             T rm=scalar_traits<T>::value(1)/sqrt<T>(m);
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<A>::iw(i,a)*=rm;
+                vec_traits<A>::write_element_idx(i,a)*=rm;
             }
 
         ////////////////////////////////////////////////
@@ -793,7 +793,7 @@ boost
         operator+=( A & a, B const & b )
             {
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<A>::iw(i,a)+=vec_traits<B>::ir(i,b);
+                vec_traits<A>::write_element_idx(i,a)+=vec_traits<B>::read_element_idx(i,b);
             return a;
             }
 
@@ -822,7 +822,7 @@ boost
             typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
             R r;
             for( int i=0; i!=vec_traits<A>::dim; ++i )
-                vec_traits<R>::iw(i,r)=vec_traits<A>::ir(i,a)+vec_traits<B>::ir(i,b);
+                vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)+vec_traits<B>::read_element_idx(i,b);
             return r;
             }
 
@@ -873,42 +873,42 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_vector const & x )
+            read_element( this_vector const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
-                return vec_traits<V>::template r<I>(reinterpret_cast<V const &>(x));
+                return vec_traits<V>::template read_element<I>(reinterpret_cast<V const &>(x));
                 }
 
             template <int I>
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            w( this_vector & x )
+            write_element( this_vector & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
-                return vec_traits<V>::template w<I>(reinterpret_cast<V &>(x));
+                return vec_traits<V>::template write_element<I>(reinterpret_cast<V &>(x));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_vector const & x )
+            read_element_idx( int i, this_vector const & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
-                return vec_traits<V>::ir(i,reinterpret_cast<V const &>(x));
+                return vec_traits<V>::read_element_idx(i,reinterpret_cast<V const &>(x));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            iw( int i, this_vector & x )
+            write_element_idx( int i, this_vector & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
-                return vec_traits<V>::iw(i,reinterpret_cast<V &>(x));
+                return vec_traits<V>::write_element_idx(i,reinterpret_cast<V &>(x));
                 }
             };
 
@@ -946,7 +946,7 @@ boost
             {
             using ::boost::qvm::to_string;
             using ::boost::qvm::assign;
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             using ::boost::qvm::cross;
             using ::boost::qvm::cmp;
             using ::boost::qvm::set_zero;

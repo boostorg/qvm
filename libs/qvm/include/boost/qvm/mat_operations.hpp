@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -53,7 +53,7 @@ boost
                     using namespace qvm_to_string_detail;
                     return
                         ( (I%mat_traits<A>::cols)==0 ? '(' : ',' ) +
-                        to_string(mat_traits<A>::template r<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a)) +
+                        to_string(mat_traits<A>::template read_element<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a)) +
                         ( (I%mat_traits<A>::cols)==mat_traits<A>::cols-1 ? ")" : "" ) +
                         to_string_matrix_elements<I+1,SizeMinusOne>::f(a);
                     }
@@ -71,7 +71,7 @@ boost
                     using namespace qvm_to_string_detail;
                     return
                         ( (SizeMinusOne%mat_traits<A>::cols)==0 ? '(' : ',' ) +
-                        to_string(mat_traits<A>::template r<SizeMinusOne/mat_traits<A>::cols,SizeMinusOne%mat_traits<A>::cols>(a)) +
+                        to_string(mat_traits<A>::template read_element<SizeMinusOne/mat_traits<A>::cols,SizeMinusOne%mat_traits<A>::cols>(a)) +
                         ')';
                     }
                 };
@@ -110,8 +110,8 @@ boost
                 void
                 f( A & a, B const & b )
                     {
-                    mat_traits<A>::template w<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) =
-                        mat_traits<B>::template r<I/mat_traits<B>::cols,I%mat_traits<B>::cols>(b);
+                    mat_traits<A>::template write_element<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) =
+                        mat_traits<B>::template read_element<I/mat_traits<B>::cols,I%mat_traits<B>::cols>(b);
                     copy_matrix_elements<I+1,N>::f(a,b);
                     }
                 };
@@ -176,7 +176,7 @@ boost
             {
             template <int M,int N>
             struct
-            make_m_defined
+            convert_to_m_defined
                 {
                 static bool const value=false;
                 };
@@ -188,9 +188,9 @@ boost
             is_mat<R>::value && is_mat<A>::value &&
             mat_traits<R>::rows==mat_traits<A>::rows &&
             mat_traits<R>::cols==mat_traits<A>::cols &&
-            !qvm_detail::make_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
+            !qvm_detail::convert_to_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r; assign(r,a);
             return r;
@@ -260,7 +260,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
@@ -273,7 +273,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(row>=0);
@@ -372,7 +372,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
@@ -461,25 +461,25 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
                 BOOST_QVM_STATIC_ASSERT(Col<cols);
-                return scalar_type(mat_traits<OriginalType>::template r<Row,Col>(reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(mat_traits<OriginalType>::template read_element<Row,Col>(reinterpret_cast<OriginalType const &>(x)));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
                 BOOST_QVM_ASSERT(col<cols);
-                return scalar_type(mat_traits<OriginalType>::ir(col,row,reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(mat_traits<OriginalType>::read_element_idx(col,row,reinterpret_cast<OriginalType const &>(x)));
                 }
             };
 
@@ -521,7 +521,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<A>::iw(i,j,a)/=b;
+                    mat_traits<A>::write_element_idx(i,j,a)/=b;
             return a;
             }
 
@@ -550,7 +550,7 @@ boost
             R r;
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<R>::iw(i,j,r)=mat_traits<A>::ir(i,j,a)/b;
+                    mat_traits<R>::write_element_idx(i,j,r)=mat_traits<A>::read_element_idx(i,j,a)/b;
             return r;
             }
 
@@ -579,7 +579,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    if( mat_traits<A>::ir(i,j,a)!=mat_traits<B>::ir(i,j,b) )
+                    if( mat_traits<A>::read_element_idx(i,j,a)!=mat_traits<B>::read_element_idx(i,j,b) )
                         return false;
             return true;
             }
@@ -655,7 +655,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<A>::iw(i,j,a)-=mat_traits<B>::ir(i,j,b);
+                    mat_traits<A>::write_element_idx(i,j,a)-=mat_traits<B>::read_element_idx(i,j,b);
             return a;
             }
 
@@ -684,7 +684,7 @@ boost
             R r;
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<R>::iw(i,j,r)=-mat_traits<A>::ir(i,j,a);
+                    mat_traits<R>::write_element_idx(i,j,r)=-mat_traits<A>::read_element_idx(i,j,a);
             return r;
             }
 
@@ -715,7 +715,7 @@ boost
             R r;
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<R>::iw(i,j,r)=mat_traits<A>::ir(i,j,a)-mat_traits<B>::ir(i,j,b);
+                    mat_traits<R>::write_element_idx(i,j,r)=mat_traits<A>::read_element_idx(i,j,a)-mat_traits<B>::read_element_idx(i,j,b);
             return r;
             }
 
@@ -748,14 +748,14 @@ boost
             Ta a[mat_traits<A>::rows][mat_traits<A>::cols];
             for( int i=0; i<mat_traits<A>::rows; ++i )
                 for( int j=0; j<mat_traits<B>::cols; ++j )
-                    a[i][j]=mat_traits<A>::ir(i,j,r);
+                    a[i][j]=mat_traits<A>::read_element_idx(i,j,r);
             for( int i=0; i<mat_traits<A>::rows; ++i )
                 for( int j=0; j<mat_traits<B>::cols; ++j )
                     {
                     Ta x(scalar_traits<Ta>::value(0));
                     for( int k=0; k<mat_traits<A>::cols; ++k )
-                        x += a[i][k]*mat_traits<B>::ir(k,j,b);
-                    mat_traits<A>::iw(i,j,r) = x;
+                        x += a[i][k]*mat_traits<B>::read_element_idx(k,j,b);
+                    mat_traits<A>::write_element_idx(i,j,r) = x;
                     }
             return r;
             }
@@ -783,7 +783,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<A>::iw(i,j,a)*=b;
+                    mat_traits<A>::write_element_idx(i,j,a)*=b;
             return a;
             }
 
@@ -817,8 +817,8 @@ boost
                     typedef typename mat_traits<A>::scalar_type Ta;
                     Ta x(scalar_traits<Ta>::value(0));
                     for( int k=0; k<mat_traits<A>::cols; ++k )
-                        x += mat_traits<A>::ir(i,k,a)*mat_traits<B>::ir(k,j,b);
-                    mat_traits<R>::iw(i,j,r) = x;
+                        x += mat_traits<A>::read_element_idx(i,k,a)*mat_traits<B>::read_element_idx(k,j,b);
+                    mat_traits<R>::write_element_idx(i,j,r) = x;
                     }
             return r;
             }
@@ -848,7 +848,7 @@ boost
             R r;
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<R>::iw(i,j,r)=mat_traits<A>::ir(i,j,a)*b;
+                    mat_traits<R>::write_element_idx(i,j,r)=mat_traits<A>::read_element_idx(i,j,a)*b;
             return r;
             }
 
@@ -877,7 +877,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    if( mat_traits<A>::ir(i,j,a)!=mat_traits<B>::ir(i,j,b) )
+                    if( mat_traits<A>::read_element_idx(i,j,a)!=mat_traits<B>::read_element_idx(i,j,b) )
                         return true;
             return false;
             }
@@ -907,7 +907,7 @@ boost
             {
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<A>::iw(i,j,a)+=mat_traits<B>::ir(i,j,b);
+                    mat_traits<A>::write_element_idx(i,j,a)+=mat_traits<B>::read_element_idx(i,j,b);
             return a;
             }
 
@@ -938,7 +938,7 @@ boost
             R r;
             for( int i=0; i!=mat_traits<A>::rows; ++i )
                 for( int j=0; j!=mat_traits<A>::cols; ++j )
-                    mat_traits<R>::iw(i,j,r)=mat_traits<A>::ir(i,j,a)+mat_traits<B>::ir(i,j,b);
+                    mat_traits<R>::write_element_idx(i,j,r)=mat_traits<A>::read_element_idx(i,j,a)+mat_traits<B>::read_element_idx(i,j,b);
             return r;
             }
 
@@ -990,50 +990,50 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
                 BOOST_QVM_STATIC_ASSERT(Col<cols);
-                return mat_traits<M>::template r<Row,Col>(reinterpret_cast<M const &>(x));
+                return mat_traits<M>::template read_element<Row,Col>(reinterpret_cast<M const &>(x));
                 }
 
             template <int Row,int Col>
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            w( this_matrix & x )
+            write_element( this_matrix & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
                 BOOST_QVM_STATIC_ASSERT(Col<cols);
-                return mat_traits<M>::template w<Row,Col>(reinterpret_cast<M &>(x));
+                return mat_traits<M>::template write_element<Row,Col>(reinterpret_cast<M &>(x));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
                 BOOST_QVM_ASSERT(col<cols);
-                return mat_traits<M>::ir(row,col,reinterpret_cast<M const &>(x));
+                return mat_traits<M>::read_element_idx(row,col,reinterpret_cast<M const &>(x));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            iw( int row, int col, this_matrix & x )
+            write_element_idx( int row, int col, this_matrix & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
                 BOOST_QVM_ASSERT(col<cols);
-                return mat_traits<M>::iw(row,col,reinterpret_cast<M &>(x));
+                return mat_traits<M>::write_element_idx(row,col,reinterpret_cast<M &>(x));
                 }
             };
 
@@ -1103,7 +1103,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
@@ -1116,7 +1116,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(row>=0);
@@ -1176,9 +1176,9 @@ boost
                 BOOST_QVM_INLINE
                 rot_mat_( V const & axis, Angle angle )
                     {
-                    scalar_type const x=vec_traits<V>::template r<0>(axis);
-                    scalar_type const y=vec_traits<V>::template r<1>(axis);
-                    scalar_type const z=vec_traits<V>::template r<2>(axis);
+                    scalar_type const x=vec_traits<V>::template read_element<0>(axis);
+                    scalar_type const y=vec_traits<V>::template read_element<1>(axis);
+                    scalar_type const z=vec_traits<V>::template read_element<2>(axis);
                     scalar_type const m2=x*x+y*y+z*z;
                     if( m2==scalar_traits<scalar_type>::value(0) )
                         BOOST_THROW_EXCEPTION(zero_magnitude_error());
@@ -1257,7 +1257,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<D);
@@ -1269,7 +1269,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<D);
@@ -1431,7 +1431,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
@@ -1443,7 +1443,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(col>=0);
@@ -1629,7 +1629,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
@@ -1641,7 +1641,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(col>=0);
@@ -1827,7 +1827,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_matrix const & x )
+            read_element( this_matrix const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
@@ -1839,7 +1839,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int row, int col, this_matrix const & x )
+            read_element_idx( int row, int col, this_matrix const & x )
                 {
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(col>=0);
@@ -1920,7 +1920,7 @@ boost
             using ::boost::qvm::assign;
             using ::boost::qvm::determinant;
             using ::boost::qvm::cmp;
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             using ::boost::qvm::set_identity;
             using ::boost::qvm::set_zero;
             using ::boost::qvm::scalar_cast;

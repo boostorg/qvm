@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -36,13 +36,13 @@ boost
             static int const cols=3;
 
             template <int R,int C>
-            static inline scalar_type & w( n1::user_matrix1 & m ) { return m.a[R][C]; }
+            static inline scalar_type & write_element( n1::user_matrix1 & m ) { return m.a[R][C]; }
 
             template <int R,int C>
-            static inline scalar_type r( n1::user_matrix1 const & m ) { return m.a[R][C]; }
+            static inline scalar_type read_element( n1::user_matrix1 const & m ) { return m.a[R][C]; }
 
-            static inline scalar_type & iw( int r, int c, n1::user_matrix1 & m ) { return m.a[r][c]; }
-            static inline scalar_type ir( int r, int c, n1::user_matrix1 const & m ) { return m.a[r][c]; }
+            static inline scalar_type & write_element_idx( int r, int c, n1::user_matrix1 & m ) { return m.a[r][c]; }
+            static inline scalar_type read_element_idx( int r, int c, n1::user_matrix1 const & m ) { return m.a[r][c]; }
             };
 
         template <>
@@ -54,13 +54,13 @@ boost
             static int const cols=3;
 
             template <int R,int C>
-            static inline scalar_type & w( n1::user_matrix2 & m ) { return m.a[R][C]; }
+            static inline scalar_type & write_element( n1::user_matrix2 & m ) { return m.a[R][C]; }
 
             template <int R,int C>
-            static inline scalar_type r( n1::user_matrix2 const & m ) { return m.a[R][C]; }
+            static inline scalar_type read_element( n1::user_matrix2 const & m ) { return m.a[R][C]; }
 
-            static inline scalar_type & iw( int r, int c, n1::user_matrix2 & m ) { return m.a[r][c]; }
-            static inline scalar_type ir( int r, int c, n1::user_matrix2 const & m ) { return m.a[r][c]; }
+            static inline scalar_type & write_element_idx( int r, int c, n1::user_matrix2 & m ) { return m.a[r][c]; }
+            static inline scalar_type read_element_idx( int r, int c, n1::user_matrix2 const & m ) { return m.a[r][c]; }
             };
 
         template <>
@@ -72,13 +72,13 @@ boost
             static int const cols=3;
 
             template <int R,int C>
-            static inline scalar_type & w( n2::user_matrix1 & m ) { return m.a[R][C]; }
+            static inline scalar_type & write_element( n2::user_matrix1 & m ) { return m.a[R][C]; }
 
             template <int R,int C>
-            static inline scalar_type r( n2::user_matrix1 const & m ) { return m.a[R][C]; }
+            static inline scalar_type read_element( n2::user_matrix1 const & m ) { return m.a[R][C]; }
 
-            static inline scalar_type & iw( int r, int c, n2::user_matrix1 & m ) { return m.a[r][c]; }
-            static inline scalar_type ir( int r, int c, n2::user_matrix1 const & m ) { return m.a[r][c]; }
+            static inline scalar_type & write_element_idx( int r, int c, n2::user_matrix1 & m ) { return m.a[r][c]; }
+            static inline scalar_type read_element_idx( int r, int c, n2::user_matrix1 const & m ) { return m.a[r][c]; }
             };
 
         template <>
@@ -90,13 +90,13 @@ boost
             static int const cols=3;
 
             template <int R,int C>
-            static inline scalar_type & w( n2::user_matrix2 & m ) { return m.a[R][C]; }
+            static inline scalar_type & write_element( n2::user_matrix2 & m ) { return m.a[R][C]; }
 
             template <int R,int C>
-            static inline scalar_type r( n2::user_matrix2 const & m ) { return m.a[R][C]; }
+            static inline scalar_type read_element( n2::user_matrix2 const & m ) { return m.a[R][C]; }
 
-            static inline scalar_type & iw( int r, int c, n2::user_matrix2 & m ) { return m.a[r][c]; }
-            static inline scalar_type ir( int r, int c, n2::user_matrix2 const & m ) { return m.a[r][c]; }
+            static inline scalar_type & write_element_idx( int r, int c, n2::user_matrix2 & m ) { return m.a[r][c]; }
+            static inline scalar_type read_element_idx( int r, int c, n2::user_matrix2 const & m ) { return m.a[r][c]; }
             };
 
         template <>

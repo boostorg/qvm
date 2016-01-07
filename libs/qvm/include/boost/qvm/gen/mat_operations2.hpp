@@ -35,10 +35,10 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)+mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)+mat_traits<B>::template r<0,1>(b);
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)+mat_traits<B>::template r<1,0>(b);
-            mat_traits<R>::template w<1,1>(r)=mat_traits<A>::template r<1,1>(a)+mat_traits<B>::template r<1,1>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)+mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)+mat_traits<B>::template read_element<0,1>(b);
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)+mat_traits<B>::template read_element<1,0>(b);
+            mat_traits<R>::template write_element<1,1>(r)=mat_traits<A>::template read_element<1,1>(a)+mat_traits<B>::template read_element<1,1>(b);
             return r;
             }
 
@@ -74,8 +74,8 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==1);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)+mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)+mat_traits<B>::template r<1,0>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)+mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)+mat_traits<B>::template read_element<1,0>(b);
             return r;
             }
 
@@ -111,8 +111,8 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==1);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)+mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)+mat_traits<B>::template r<0,1>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)+mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)+mat_traits<B>::template read_element<0,1>(b);
             return r;
             }
 
@@ -148,10 +148,10 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)-mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)-mat_traits<B>::template r<0,1>(b);
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)-mat_traits<B>::template r<1,0>(b);
-            mat_traits<R>::template w<1,1>(r)=mat_traits<A>::template r<1,1>(a)-mat_traits<B>::template r<1,1>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)-mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)-mat_traits<B>::template read_element<0,1>(b);
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)-mat_traits<B>::template read_element<1,0>(b);
+            mat_traits<R>::template write_element<1,1>(r)=mat_traits<A>::template read_element<1,1>(a)-mat_traits<B>::template read_element<1,1>(b);
             return r;
             }
 
@@ -187,8 +187,8 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==1);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)-mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)-mat_traits<B>::template r<1,0>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)-mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)-mat_traits<B>::template read_element<1,0>(b);
             return r;
             }
 
@@ -224,8 +224,8 @@ boost
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==1);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)-mat_traits<B>::template r<0,0>(b);
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)-mat_traits<B>::template r<0,1>(b);
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)-mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)-mat_traits<B>::template read_element<0,1>(b);
             return r;
             }
 
@@ -257,10 +257,10 @@ boost
             A &>::type
         operator+=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)+=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)+=mat_traits<B>::template r<0,1>(b);
-            mat_traits<A>::template w<1,0>(a)+=mat_traits<B>::template r<1,0>(b);
-            mat_traits<A>::template w<1,1>(a)+=mat_traits<B>::template r<1,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)+=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)+=mat_traits<B>::template read_element<0,1>(b);
+            mat_traits<A>::template write_element<1,0>(a)+=mat_traits<B>::template read_element<1,0>(b);
+            mat_traits<A>::template write_element<1,1>(a)+=mat_traits<B>::template read_element<1,1>(b);
             return a;
             }
 
@@ -292,8 +292,8 @@ boost
             A &>::type
         operator+=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)+=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<1,0>(a)+=mat_traits<B>::template r<1,0>(b);
+            mat_traits<A>::template write_element<0,0>(a)+=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<1,0>(a)+=mat_traits<B>::template read_element<1,0>(b);
             return a;
             }
 
@@ -325,8 +325,8 @@ boost
             A &>::type
         operator+=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)+=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)+=mat_traits<B>::template r<0,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)+=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)+=mat_traits<B>::template read_element<0,1>(b);
             return a;
             }
 
@@ -358,10 +358,10 @@ boost
             A &>::type
         operator-=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)-=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)-=mat_traits<B>::template r<0,1>(b);
-            mat_traits<A>::template w<1,0>(a)-=mat_traits<B>::template r<1,0>(b);
-            mat_traits<A>::template w<1,1>(a)-=mat_traits<B>::template r<1,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)-=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)-=mat_traits<B>::template read_element<0,1>(b);
+            mat_traits<A>::template write_element<1,0>(a)-=mat_traits<B>::template read_element<1,0>(b);
+            mat_traits<A>::template write_element<1,1>(a)-=mat_traits<B>::template read_element<1,1>(b);
             return a;
             }
 
@@ -393,8 +393,8 @@ boost
             A &>::type
         operator-=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)-=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<1,0>(a)-=mat_traits<B>::template r<1,0>(b);
+            mat_traits<A>::template write_element<0,0>(a)-=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<1,0>(a)-=mat_traits<B>::template read_element<1,0>(b);
             return a;
             }
 
@@ -426,8 +426,8 @@ boost
             A &>::type
         operator-=( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)-=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)-=mat_traits<B>::template r<0,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)-=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)-=mat_traits<B>::template read_element<0,1>(b);
             return a;
             }
 
@@ -460,10 +460,10 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)*b;
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)*b;
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)*b;
-            mat_traits<R>::template w<1,1>(r)=mat_traits<A>::template r<1,1>(a)*b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)*b;
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)*b;
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)*b;
+            mat_traits<R>::template write_element<1,1>(r)=mat_traits<A>::template read_element<1,1>(a)*b;
             return r;
             }
 
@@ -496,8 +496,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)*b;
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)*b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)*b;
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)*b;
             return r;
             }
 
@@ -530,8 +530,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)*b;
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)*b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)*b;
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)*b;
             return r;
             }
 
@@ -562,10 +562,10 @@ boost
             A &>::type
         operator*=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)*=b;
-            mat_traits<A>::template w<0,1>(a)*=b;
-            mat_traits<A>::template w<1,0>(a)*=b;
-            mat_traits<A>::template w<1,1>(a)*=b;
+            mat_traits<A>::template write_element<0,0>(a)*=b;
+            mat_traits<A>::template write_element<0,1>(a)*=b;
+            mat_traits<A>::template write_element<1,0>(a)*=b;
+            mat_traits<A>::template write_element<1,1>(a)*=b;
             return a;
             }
 
@@ -596,8 +596,8 @@ boost
             A &>::type
         operator*=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)*=b;
-            mat_traits<A>::template w<1,0>(a)*=b;
+            mat_traits<A>::template write_element<0,0>(a)*=b;
+            mat_traits<A>::template write_element<1,0>(a)*=b;
             return a;
             }
 
@@ -628,8 +628,8 @@ boost
             A &>::type
         operator*=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)*=b;
-            mat_traits<A>::template w<0,1>(a)*=b;
+            mat_traits<A>::template write_element<0,0>(a)*=b;
+            mat_traits<A>::template write_element<0,1>(a)*=b;
             return a;
             }
 
@@ -662,10 +662,10 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)/b;
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)/b;
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)/b;
-            mat_traits<R>::template w<1,1>(r)=mat_traits<A>::template r<1,1>(a)/b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)/b;
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)/b;
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)/b;
+            mat_traits<R>::template write_element<1,1>(r)=mat_traits<A>::template read_element<1,1>(a)/b;
             return r;
             }
 
@@ -698,8 +698,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)/b;
-            mat_traits<R>::template w<1,0>(r)=mat_traits<A>::template r<1,0>(a)/b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)/b;
+            mat_traits<R>::template write_element<1,0>(r)=mat_traits<A>::template read_element<1,0>(a)/b;
             return r;
             }
 
@@ -732,8 +732,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=mat_traits<A>::template r<0,0>(a)/b;
-            mat_traits<R>::template w<0,1>(r)=mat_traits<A>::template r<0,1>(a)/b;
+            mat_traits<R>::template write_element<0,0>(r)=mat_traits<A>::template read_element<0,0>(a)/b;
+            mat_traits<R>::template write_element<0,1>(r)=mat_traits<A>::template read_element<0,1>(a)/b;
             return r;
             }
 
@@ -764,10 +764,10 @@ boost
             A &>::type
         operator/=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)/=b;
-            mat_traits<A>::template w<0,1>(a)/=b;
-            mat_traits<A>::template w<1,0>(a)/=b;
-            mat_traits<A>::template w<1,1>(a)/=b;
+            mat_traits<A>::template write_element<0,0>(a)/=b;
+            mat_traits<A>::template write_element<0,1>(a)/=b;
+            mat_traits<A>::template write_element<1,0>(a)/=b;
+            mat_traits<A>::template write_element<1,1>(a)/=b;
             return a;
             }
 
@@ -798,8 +798,8 @@ boost
             A &>::type
         operator/=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)/=b;
-            mat_traits<A>::template w<1,0>(a)/=b;
+            mat_traits<A>::template write_element<0,0>(a)/=b;
+            mat_traits<A>::template write_element<1,0>(a)/=b;
             return a;
             }
 
@@ -830,8 +830,8 @@ boost
             A &>::type
         operator/=( A & a, B b )
             {
-            mat_traits<A>::template w<0,0>(a)/=b;
-            mat_traits<A>::template w<0,1>(a)/=b;
+            mat_traits<A>::template write_element<0,0>(a)/=b;
+            mat_traits<A>::template write_element<0,1>(a)/=b;
             return a;
             }
 
@@ -863,10 +863,10 @@ boost
             A &>::type
         assign( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)=mat_traits<B>::template r<0,1>(b);
-            mat_traits<A>::template w<1,0>(a)=mat_traits<B>::template r<1,0>(b);
-            mat_traits<A>::template w<1,1>(a)=mat_traits<B>::template r<1,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)=mat_traits<B>::template read_element<0,1>(b);
+            mat_traits<A>::template write_element<1,0>(a)=mat_traits<B>::template read_element<1,0>(b);
+            mat_traits<A>::template write_element<1,1>(a)=mat_traits<B>::template read_element<1,1>(b);
             return a;
             }
 
@@ -898,8 +898,8 @@ boost
             A &>::type
         assign( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<1,0>(a)=mat_traits<B>::template r<1,0>(b);
+            mat_traits<A>::template write_element<0,0>(a)=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<1,0>(a)=mat_traits<B>::template read_element<1,0>(b);
             return a;
             }
 
@@ -931,8 +931,8 @@ boost
             A &>::type
         assign( A & a, B const & b )
             {
-            mat_traits<A>::template w<0,0>(a)=mat_traits<B>::template r<0,0>(b);
-            mat_traits<A>::template w<0,1>(a)=mat_traits<B>::template r<0,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)=mat_traits<B>::template read_element<0,0>(b);
+            mat_traits<A>::template write_element<0,1>(a)=mat_traits<B>::template read_element<0,1>(b);
             return a;
             }
 
@@ -962,31 +962,31 @@ boost
             mat_traits<R>::rows==2 && mat_traits<A>::rows==2 &&
             mat_traits<R>::cols==2 && mat_traits<A>::cols==2,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r;
-            mat_traits<R>::template w<0,0>(r) = mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<0,1>(r) = mat_traits<A>::template r<0,1>(a);
-            mat_traits<R>::template w<1,0>(r) = mat_traits<A>::template r<1,0>(a);
-            mat_traits<R>::template w<1,1>(r) = mat_traits<A>::template r<1,1>(a);
+            mat_traits<R>::template write_element<0,0>(r) = mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<0,1>(r) = mat_traits<A>::template read_element<0,1>(a);
+            mat_traits<R>::template write_element<1,0>(r) = mat_traits<A>::template read_element<1,0>(a);
+            mat_traits<R>::template write_element<1,1>(r) = mat_traits<A>::template read_element<1,1>(a);
             return r;
             }
 
         namespace
         sfinae
             {
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             }
 
         namespace
         qvm_detail
             {
             template <int R,int C>
-            struct make_m_defined;
+            struct convert_to_m_defined;
 
             template <>
             struct
-            make_m_defined<2,2>
+            convert_to_m_defined<2,2>
                 {
                 static bool const value=true;
                 };
@@ -998,29 +998,29 @@ boost
             mat_traits<R>::rows==2 && mat_traits<A>::rows==2 &&
             mat_traits<R>::cols==1 && mat_traits<A>::cols==1,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r;
-            mat_traits<R>::template w<0,0>(r) = mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<1,0>(r) = mat_traits<A>::template r<1,0>(a);
+            mat_traits<R>::template write_element<0,0>(r) = mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<1,0>(r) = mat_traits<A>::template read_element<1,0>(a);
             return r;
             }
 
         namespace
         sfinae
             {
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             }
 
         namespace
         qvm_detail
             {
             template <int R,int C>
-            struct make_m_defined;
+            struct convert_to_m_defined;
 
             template <>
             struct
-            make_m_defined<2,1>
+            convert_to_m_defined<2,1>
                 {
                 static bool const value=true;
                 };
@@ -1032,29 +1032,29 @@ boost
             mat_traits<R>::rows==1 && mat_traits<A>::rows==1 &&
             mat_traits<R>::cols==2 && mat_traits<A>::cols==2,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r;
-            mat_traits<R>::template w<0,0>(r) = mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<0,1>(r) = mat_traits<A>::template r<0,1>(a);
+            mat_traits<R>::template write_element<0,0>(r) = mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<0,1>(r) = mat_traits<A>::template read_element<0,1>(a);
             return r;
             }
 
         namespace
         sfinae
             {
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             }
 
         namespace
         qvm_detail
             {
             template <int R,int C>
-            struct make_m_defined;
+            struct convert_to_m_defined;
 
             template <>
             struct
-            make_m_defined<1,2>
+            convert_to_m_defined<1,2>
                 {
                 static bool const value=true;
                 };
@@ -1069,10 +1069,10 @@ boost
         operator==( A const & a, B const & b )
             {
             return
-                mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b) &&
-                mat_traits<A>::template r<0,1>(a)==mat_traits<B>::template r<0,1>(b) &&
-                mat_traits<A>::template r<1,0>(a)==mat_traits<B>::template r<1,0>(b) &&
-                mat_traits<A>::template r<1,1>(a)==mat_traits<B>::template r<1,1>(b);
+                mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b) &&
+                mat_traits<A>::template read_element<0,1>(a)==mat_traits<B>::template read_element<0,1>(b) &&
+                mat_traits<A>::template read_element<1,0>(a)==mat_traits<B>::template read_element<1,0>(b) &&
+                mat_traits<A>::template read_element<1,1>(a)==mat_traits<B>::template read_element<1,1>(b);
             }
 
         namespace
@@ -1104,8 +1104,8 @@ boost
         operator==( A const & a, B const & b )
             {
             return
-                mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b) &&
-                mat_traits<A>::template r<1,0>(a)==mat_traits<B>::template r<1,0>(b);
+                mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b) &&
+                mat_traits<A>::template read_element<1,0>(a)==mat_traits<B>::template read_element<1,0>(b);
             }
 
         namespace
@@ -1137,8 +1137,8 @@ boost
         operator==( A const & a, B const & b )
             {
             return
-                mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b) &&
-                mat_traits<A>::template r<0,1>(a)==mat_traits<B>::template r<0,1>(b);
+                mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b) &&
+                mat_traits<A>::template read_element<0,1>(a)==mat_traits<B>::template read_element<0,1>(b);
             }
 
         namespace
@@ -1170,10 +1170,10 @@ boost
         operator!=( A const & a, B const & b )
             {
             return
-                !(mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b)) ||
-                !(mat_traits<A>::template r<0,1>(a)==mat_traits<B>::template r<0,1>(b)) ||
-                !(mat_traits<A>::template r<1,0>(a)==mat_traits<B>::template r<1,0>(b)) ||
-                !(mat_traits<A>::template r<1,1>(a)==mat_traits<B>::template r<1,1>(b));
+                !(mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b)) ||
+                !(mat_traits<A>::template read_element<0,1>(a)==mat_traits<B>::template read_element<0,1>(b)) ||
+                !(mat_traits<A>::template read_element<1,0>(a)==mat_traits<B>::template read_element<1,0>(b)) ||
+                !(mat_traits<A>::template read_element<1,1>(a)==mat_traits<B>::template read_element<1,1>(b));
             }
 
         namespace
@@ -1205,8 +1205,8 @@ boost
         operator!=( A const & a, B const & b )
             {
             return
-                !(mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b)) ||
-                !(mat_traits<A>::template r<1,0>(a)==mat_traits<B>::template r<1,0>(b));
+                !(mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b)) ||
+                !(mat_traits<A>::template read_element<1,0>(a)==mat_traits<B>::template read_element<1,0>(b));
             }
 
         namespace
@@ -1238,8 +1238,8 @@ boost
         operator!=( A const & a, B const & b )
             {
             return
-                !(mat_traits<A>::template r<0,0>(a)==mat_traits<B>::template r<0,0>(b)) ||
-                !(mat_traits<A>::template r<0,1>(a)==mat_traits<B>::template r<0,1>(b));
+                !(mat_traits<A>::template read_element<0,0>(a)==mat_traits<B>::template read_element<0,0>(b)) ||
+                !(mat_traits<A>::template read_element<0,1>(a)==mat_traits<B>::template read_element<0,1>(b));
             }
 
         namespace
@@ -1271,10 +1271,10 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=-mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<0,1>(r)=-mat_traits<A>::template r<0,1>(a);
-            mat_traits<R>::template w<1,0>(r)=-mat_traits<A>::template r<1,0>(a);
-            mat_traits<R>::template w<1,1>(r)=-mat_traits<A>::template r<1,1>(a);
+            mat_traits<R>::template write_element<0,0>(r)=-mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<0,1>(r)=-mat_traits<A>::template read_element<0,1>(a);
+            mat_traits<R>::template write_element<1,0>(r)=-mat_traits<A>::template read_element<1,0>(a);
+            mat_traits<R>::template write_element<1,1>(r)=-mat_traits<A>::template read_element<1,1>(a);
             return r;
             }
 
@@ -1307,8 +1307,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=-mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<1,0>(r)=-mat_traits<A>::template r<1,0>(a);
+            mat_traits<R>::template write_element<0,0>(r)=-mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<1,0>(r)=-mat_traits<A>::template read_element<1,0>(a);
             return r;
             }
 
@@ -1341,8 +1341,8 @@ boost
             {
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)=-mat_traits<A>::template r<0,0>(a);
-            mat_traits<R>::template w<0,1>(r)=-mat_traits<A>::template r<0,1>(a);
+            mat_traits<R>::template write_element<0,0>(r)=-mat_traits<A>::template read_element<0,0>(a);
+            mat_traits<R>::template write_element<0,1>(r)=-mat_traits<A>::template read_element<0,1>(a);
             return r;
             }
 
@@ -1374,10 +1374,10 @@ boost
         determinant( A const & a )
             {
             typedef typename mat_traits<A>::scalar_type T;
-            T const a00=mat_traits<A>::template r<0,0>(a);
-            T const a01=mat_traits<A>::template r<0,1>(a);
-            T const a10=mat_traits<A>::template r<1,0>(a);
-            T const a11=mat_traits<A>::template r<1,1>(a);
+            T const a00=mat_traits<A>::template read_element<0,0>(a);
+            T const a01=mat_traits<A>::template read_element<0,1>(a);
+            T const a10=mat_traits<A>::template read_element<1,0>(a);
+            T const a11=mat_traits<A>::template read_element<1,1>(a);
             T det=(a00*a11-a01*a10);
             return det;
             }
@@ -1411,17 +1411,17 @@ boost
             {
             typedef typename mat_traits<A>::scalar_type T;
             BOOST_QVM_ASSERT(det!=scalar_traits<B>::value(0));
-            T const a00=mat_traits<A>::template r<0,0>(a);
-            T const a01=mat_traits<A>::template r<0,1>(a);
-            T const a10=mat_traits<A>::template r<1,0>(a);
-            T const a11=mat_traits<A>::template r<1,1>(a);
+            T const a00=mat_traits<A>::template read_element<0,0>(a);
+            T const a01=mat_traits<A>::template read_element<0,1>(a);
+            T const a10=mat_traits<A>::template read_element<1,0>(a);
+            T const a11=mat_traits<A>::template read_element<1,1>(a);
             T const f=scalar_traits<T>::value(1)/det;
             typedef typename deduce_mat<A>::type R;
             R r;
-            mat_traits<R>::template w<0,0>(r)= f*a11;
-            mat_traits<R>::template w<0,1>(r)=-f*a01;
-            mat_traits<R>::template w<1,0>(r)=-f*a10;
-            mat_traits<R>::template w<1,1>(r)= f*a00;
+            mat_traits<R>::template write_element<0,0>(r)= f*a11;
+            mat_traits<R>::template write_element<0,1>(r)=-f*a01;
+            mat_traits<R>::template write_element<1,0>(r)=-f*a10;
+            mat_traits<R>::template write_element<1,1>(r)= f*a00;
             return r;
             }
 
@@ -1469,22 +1469,22 @@ boost
             {
             typedef typename mat_traits<A>::scalar_type Ta;
             typedef typename mat_traits<B>::scalar_type Tb;
-            Ta const a00 = mat_traits<A>::template r<0,0>(a);
-            Ta const a01 = mat_traits<A>::template r<0,1>(a);
-            Ta const a10 = mat_traits<A>::template r<1,0>(a);
-            Ta const a11 = mat_traits<A>::template r<1,1>(a);
-            Tb const b00 = mat_traits<B>::template r<0,0>(b);
-            Tb const b01 = mat_traits<B>::template r<0,1>(b);
-            Tb const b10 = mat_traits<B>::template r<1,0>(b);
-            Tb const b11 = mat_traits<B>::template r<1,1>(b);
+            Ta const a00 = mat_traits<A>::template read_element<0,0>(a);
+            Ta const a01 = mat_traits<A>::template read_element<0,1>(a);
+            Ta const a10 = mat_traits<A>::template read_element<1,0>(a);
+            Ta const a11 = mat_traits<A>::template read_element<1,1>(a);
+            Tb const b00 = mat_traits<B>::template read_element<0,0>(b);
+            Tb const b01 = mat_traits<B>::template read_element<0,1>(b);
+            Tb const b10 = mat_traits<B>::template read_element<1,0>(b);
+            Tb const b11 = mat_traits<B>::template read_element<1,1>(b);
             typedef typename deduce_mat2<A,B,2,2>::type R;
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=a00*b00+a01*b10;
-            mat_traits<R>::template w<0,1>(r)=a00*b01+a01*b11;
-            mat_traits<R>::template w<1,0>(r)=a10*b00+a11*b10;
-            mat_traits<R>::template w<1,1>(r)=a10*b01+a11*b11;
+            mat_traits<R>::template write_element<0,0>(r)=a00*b00+a01*b10;
+            mat_traits<R>::template write_element<0,1>(r)=a00*b01+a01*b11;
+            mat_traits<R>::template write_element<1,0>(r)=a10*b00+a11*b10;
+            mat_traits<R>::template write_element<1,1>(r)=a10*b01+a11*b11;
             return r;
             }
 
@@ -1518,18 +1518,18 @@ boost
             {
             typedef typename mat_traits<A>::scalar_type Ta;
             typedef typename mat_traits<B>::scalar_type Tb;
-            Ta const a00 = mat_traits<A>::template r<0,0>(a);
-            Ta const a01 = mat_traits<A>::template r<0,1>(a);
-            Ta const a10 = mat_traits<A>::template r<1,0>(a);
-            Ta const a11 = mat_traits<A>::template r<1,1>(a);
-            Tb const b00 = mat_traits<B>::template r<0,0>(b);
-            Tb const b01 = mat_traits<B>::template r<0,1>(b);
-            Tb const b10 = mat_traits<B>::template r<1,0>(b);
-            Tb const b11 = mat_traits<B>::template r<1,1>(b);
-            mat_traits<A>::template w<0,0>(a)=a00*b00+a01*b10;
-            mat_traits<A>::template w<0,1>(a)=a00*b01+a01*b11;
-            mat_traits<A>::template w<1,0>(a)=a10*b00+a11*b10;
-            mat_traits<A>::template w<1,1>(a)=a10*b01+a11*b11;
+            Ta const a00 = mat_traits<A>::template read_element<0,0>(a);
+            Ta const a01 = mat_traits<A>::template read_element<0,1>(a);
+            Ta const a10 = mat_traits<A>::template read_element<1,0>(a);
+            Ta const a11 = mat_traits<A>::template read_element<1,1>(a);
+            Tb const b00 = mat_traits<B>::template read_element<0,0>(b);
+            Tb const b01 = mat_traits<B>::template read_element<0,1>(b);
+            Tb const b10 = mat_traits<B>::template read_element<1,0>(b);
+            Tb const b11 = mat_traits<B>::template read_element<1,1>(b);
+            mat_traits<A>::template write_element<0,0>(a)=a00*b00+a01*b10;
+            mat_traits<A>::template write_element<0,1>(a)=a00*b01+a01*b11;
+            mat_traits<A>::template write_element<1,0>(a)=a10*b00+a11*b10;
+            mat_traits<A>::template write_element<1,1>(a)=a10*b01+a11*b11;
             return a;
             }
 
@@ -1563,18 +1563,18 @@ boost
             {
             typedef typename mat_traits<A>::scalar_type Ta;
             typedef typename mat_traits<B>::scalar_type Tb;
-            Ta const a00 = mat_traits<A>::template r<0,0>(a);
-            Ta const a01 = mat_traits<A>::template r<0,1>(a);
-            Ta const a10 = mat_traits<A>::template r<1,0>(a);
-            Ta const a11 = mat_traits<A>::template r<1,1>(a);
-            Tb const b00 = mat_traits<B>::template r<0,0>(b);
-            Tb const b10 = mat_traits<B>::template r<1,0>(b);
+            Ta const a00 = mat_traits<A>::template read_element<0,0>(a);
+            Ta const a01 = mat_traits<A>::template read_element<0,1>(a);
+            Ta const a10 = mat_traits<A>::template read_element<1,0>(a);
+            Ta const a11 = mat_traits<A>::template read_element<1,1>(a);
+            Tb const b00 = mat_traits<B>::template read_element<0,0>(b);
+            Tb const b10 = mat_traits<B>::template read_element<1,0>(b);
             typedef typename deduce_mat2<A,B,2,1>::type R;
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==2);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==1);
             R r;
-            mat_traits<R>::template w<0,0>(r)=a00*b00+a01*b10;
-            mat_traits<R>::template w<1,0>(r)=a10*b00+a11*b10;
+            mat_traits<R>::template write_element<0,0>(r)=a00*b00+a01*b10;
+            mat_traits<R>::template write_element<1,0>(r)=a10*b00+a11*b10;
             return r;
             }
 
@@ -1608,18 +1608,18 @@ boost
             {
             typedef typename mat_traits<A>::scalar_type Ta;
             typedef typename mat_traits<B>::scalar_type Tb;
-            Ta const a00 = mat_traits<A>::template r<0,0>(a);
-            Ta const a01 = mat_traits<A>::template r<0,1>(a);
-            Tb const b00 = mat_traits<B>::template r<0,0>(b);
-            Tb const b01 = mat_traits<B>::template r<0,1>(b);
-            Tb const b10 = mat_traits<B>::template r<1,0>(b);
-            Tb const b11 = mat_traits<B>::template r<1,1>(b);
+            Ta const a00 = mat_traits<A>::template read_element<0,0>(a);
+            Ta const a01 = mat_traits<A>::template read_element<0,1>(a);
+            Tb const b00 = mat_traits<B>::template read_element<0,0>(b);
+            Tb const b01 = mat_traits<B>::template read_element<0,1>(b);
+            Tb const b10 = mat_traits<B>::template read_element<1,0>(b);
+            Tb const b11 = mat_traits<B>::template read_element<1,1>(b);
             typedef typename deduce_mat2<A,B,1,2>::type R;
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::rows==1);
             BOOST_QVM_STATIC_ASSERT(mat_traits<R>::cols==2);
             R r;
-            mat_traits<R>::template w<0,0>(r)=a00*b00+a01*b10;
-            mat_traits<R>::template w<0,1>(r)=a00*b01+a01*b11;
+            mat_traits<R>::template write_element<0,0>(r)=a00*b00+a01*b10;
+            mat_traits<R>::template write_element<0,1>(r)=a00*b01+a01*b11;
             return r;
             }
 

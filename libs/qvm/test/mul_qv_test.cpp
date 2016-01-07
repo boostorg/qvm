@@ -1,9 +1,9 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/qvm.hpp>
+#include <boost/qvm/operations.hpp>
 #include <boost/qvm/vec.hpp>
 #include "test_qvm_quaternion.hpp"
 #include "test_qvm_matrix.hpp"

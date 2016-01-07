@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -34,7 +34,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template w<I>(a);
+            return vec_traits<V>::template write_element<I>(a);
             }
 
         template <class V,int I>
@@ -46,7 +46,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template r<I>(a);
+            return vec_traits<V>::template read_element<I>(a);
             }
 
         template <class V,int I>
@@ -58,7 +58,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template w<I>(a);
+            return vec_traits<V>::template write_element<I>(a);
             }
 
         template <class V,int I>
@@ -70,7 +70,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template r<I>(a);
+            return vec_traits<V>::template read_element<I>(a);
             }
 
         template <int I>

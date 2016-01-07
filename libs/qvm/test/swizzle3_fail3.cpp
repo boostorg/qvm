@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -20,8 +20,8 @@ boost
             {
             typedef int scalar_type;
             static int const dim=D;
-            template <int I> static int r( my_vec<D> const & );
-            template <int I> static int & w( my_vec<D> & );
+            template <int I> static int read_element( my_vec<D> const & );
+            template <int I> static int & write_element( my_vec<D> & );
             };
         }
     }

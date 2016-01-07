@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -53,7 +53,7 @@ boost
             template <int I>
             static
             scalar_type &
-            w( this_vector_type & m )
+            write_element( this_vector_type & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -63,7 +63,7 @@ boost
             template <int I>
             static
             scalar_type
-            r( this_vector_type const & m )
+            read_element( this_vector_type const & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -73,7 +73,7 @@ boost
             static
             inline
             scalar_type &
-            iw( int i, this_vector_type & m )
+            write_element_idx( int i, this_vector_type & m )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
@@ -83,7 +83,7 @@ boost
             static
             inline
             scalar_type
-            ir( int i, this_vector_type const & m )
+            read_element_idx( int i, this_vector_type const & m )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);

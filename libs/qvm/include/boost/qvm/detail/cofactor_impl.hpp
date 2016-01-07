@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -44,7 +44,7 @@ boost
                                 {
                                 if( jj==j )
                                     continue;
-                                c[i1][j1] = mat_traits<A>::ir(ii,jj,a);
+                                c[i1][j1] = mat_traits<A>::read_element_idx(ii,jj,a);
                                 ++j1;
                                 }
                             ++i1;
@@ -52,7 +52,7 @@ boost
                         T det = determinant_impl(c);
                         if( (i+j)&1 )
                             det=-det;
-                        mat_traits<R>::iw(i,j,b) = det;
+                        mat_traits<R>::write_element_idx(i,j,b) = det;
                         }
                     }
                 return b;

@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -32,7 +32,7 @@ namespace
             test_qvm::matrix<M1,3,3> const my=roty_mat<3>(a);
             test_qvm::matrix<M1,3,3> const mz=rotz_mat<3>(a);
             test_qvm::matrix<M1,3,3> const m=mx*my*mz;
-            test_qvm::quaternion<Q1> const q2=make< test_qvm::quaternion<Q1> >(m);
+            test_qvm::quaternion<Q1> const q2=convert_to< test_qvm::quaternion<Q1> >(m);
             BOOST_QVM_TEST_CLOSE_QUAT(q1.a,q2.a,0.00001f);
             }
         }

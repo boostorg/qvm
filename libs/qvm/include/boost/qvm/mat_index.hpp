@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -38,11 +38,11 @@ boost
                 static
                 BOOST_QVM_INLINE_CRITICAL
                 typename mat_traits<A>::scalar_type
-                ir( A const & a, int r, int c )
+                read_element_idx( A const & a, int r, int c )
                     {
                     return (I/mat_traits<A>::cols)==r && (I%mat_traits<A>::cols)==c?
-                        mat_traits<A>::template r<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) :
-                        matrix_r<I+1,N>::ir(a,r,c);
+                        mat_traits<A>::template read_element<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) :
+                        matrix_r<I+1,N>::read_element_idx(a,r,c);
                     }
                 };
 
@@ -54,7 +54,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type
-                ir( A const &, int r, int c )
+                read_element_idx( A const &, int r, int c )
                     {
                     typedef char rows_[mat_traits<A>::rows];
                     typedef char cols_[mat_traits<A>::cols];
@@ -71,7 +71,7 @@ boost
             typename mat_traits<A>::scalar_type>::type
         mat_index_read( A const & a, int r, int c )
             {
-            return qvm_detail::matrix_r<0,mat_traits<A>::rows*mat_traits<A>::cols>::ir(a,r,c);
+            return qvm_detail::matrix_r<0,mat_traits<A>::rows*mat_traits<A>::cols>::read_element_idx(a,r,c);
             }
 
         ////////////////////////////////////////////////
@@ -94,11 +94,11 @@ boost
                 static
                 BOOST_QVM_INLINE_CRITICAL
                typename mat_traits<A>::scalar_type &
-                iw( A & a, int r, int c )
+                write_element_idx( A & a, int r, int c )
                     {
                     return (I/mat_traits<A>::cols)==r && (I%mat_traits<A>::cols)==c?
-                        mat_traits<A>::template w<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) :
-                        matrix_w<I+1,N>::iw(a,r,c);
+                        mat_traits<A>::template write_element<I/mat_traits<A>::cols,I%mat_traits<A>::cols>(a) :
+                        matrix_w<I+1,N>::write_element_idx(a,r,c);
                     }
                 };
 
@@ -110,7 +110,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type &
-                iw( A const &, int r, int c )
+                write_element_idx( A const &, int r, int c )
                     {
                     typedef char rows_[mat_traits<A>::rows];
                     typedef char cols_[mat_traits<A>::cols];
@@ -127,7 +127,7 @@ boost
             typename mat_traits<A>::scalar_type &>::type
         mat_index_write( A & a, int r, int c )
             {
-            return qvm_detail::matrix_w<0,mat_traits<A>::rows*mat_traits<A>::cols>::iw(a,r,c);
+            return qvm_detail::matrix_w<0,mat_traits<A>::rows*mat_traits<A>::cols>::write_element_idx(a,r,c);
             }
 
         ////////////////////////////////////////////////

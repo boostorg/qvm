@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -194,14 +194,14 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_vector const & x )
+            read_element( this_vector const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
                 int const v=qvm_detail::swizzle<SwizzleList,I>::value;
                 BOOST_QVM_STATIC_ASSERT(v<vec_traits<OriginalVector>::dim);
                 return v>=0?
-                    vec_traits<OriginalVector>::template r<qvm_detail::neg_zero<v>::value>(reinterpret_cast<OriginalVector const &>(x)) :
+                    vec_traits<OriginalVector>::template read_element<qvm_detail::neg_zero<v>::value>(reinterpret_cast<OriginalVector const &>(x)) :
                     qvm_detail::const_value<scalar_type,v>::value();
                 }
 
@@ -209,14 +209,14 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            w( this_vector & x )
+            write_element( this_vector & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
                 int const v=qvm_detail::swizzle<SwizzleList,I>::value;
                 BOOST_QVM_STATIC_ASSERT(v>=0);
                 BOOST_QVM_STATIC_ASSERT(v<vec_traits<OriginalVector>::dim);
-                return vec_traits<OriginalVector>::template w<v>(reinterpret_cast<OriginalVector &>(x));
+                return vec_traits<OriginalVector>::template write_element<v>(reinterpret_cast<OriginalVector &>(x));
                 }
             };
 
@@ -263,7 +263,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
-            return vec_traits<OriginalVector>::template r<A>(a);
+            return vec_traits<OriginalVector>::template read_element<A>(a);
             }
 
         template <class OriginalVector,int A>
@@ -275,7 +275,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
-            return vec_traits<OriginalVector>::template w<A>(a);
+            return vec_traits<OriginalVector>::template write_element<A>(a);
             }
 
         template <class OriginalVector,int A,class Next>
@@ -307,7 +307,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
-            return vec_traits<OriginalVector>::template r<A>(a);
+            return vec_traits<OriginalVector>::template read_element<A>(a);
             }
 
         template <class OriginalVector,int A>
@@ -319,7 +319,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(A>=0);
             BOOST_QVM_STATIC_ASSERT(A<vec_traits<OriginalVector>::dim);
-            return vec_traits<OriginalVector>::template w<A>(a);
+            return vec_traits<OriginalVector>::template write_element<A>(a);
             }
         }
     }

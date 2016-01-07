@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -68,22 +68,22 @@ boost
             BOOST_QVM_INLINE_CRITICAL
             static
             scalar_type
-            r( qvm_detail::quat_v_<Q> const & q )
+            read_element( qvm_detail::quat_v_<Q> const & q )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
-                return quat_traits<Q>::template r<I+1>( reinterpret_cast<Q const &>(q) );
+                return quat_traits<Q>::template read_element<I+1>( reinterpret_cast<Q const &>(q) );
                 }
 
             template <int I>
             BOOST_QVM_INLINE_CRITICAL
             static
             scalar_type &
-            w( qvm_detail::quat_v_<Q> & q )
+            write_element( qvm_detail::quat_v_<Q> & q )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
-                return quat_traits<Q>::template w<I+1>( reinterpret_cast<Q &>(q) );
+                return quat_traits<Q>::template write_element<I+1>( reinterpret_cast<Q &>(q) );
                 }
             };
 
@@ -134,7 +134,7 @@ boost
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
-            return quat_traits<Q>::template r<0>(a);
+            return quat_traits<Q>::template read_element<0>(a);
             }
 
         template <class Q>
@@ -144,7 +144,7 @@ boost
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
             {
-            return quat_traits<Q>::template w<0>(a);
+            return quat_traits<Q>::template write_element<0>(a);
             }
 
         template <class Q>
@@ -154,7 +154,7 @@ boost
             typename quat_traits<Q>::scalar_type>::type
         operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> )
             {
-            return quat_traits<Q>::template r<0>(a);
+            return quat_traits<Q>::template read_element<0>(a);
             }
 
         template <class Q>
@@ -164,7 +164,7 @@ boost
             typename quat_traits<Q>::scalar_type &>::type
         operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> )
             {
-            return quat_traits<Q>::template w<0>(a);
+            return quat_traits<Q>::template write_element<0>(a);
             }
 
         template <class Q,int I>
@@ -176,7 +176,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template r<I+1>(a);
+            return quat_traits<Q>::template read_element<I+1>(a);
             }
 
         template <class Q,int I>
@@ -188,7 +188,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template w<I+1>(a);
+            return quat_traits<Q>::template write_element<I+1>(a);
             }
 
         template <class Q,int I>
@@ -200,7 +200,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template r<I+1>(a);
+            return quat_traits<Q>::template read_element<I+1>(a);
             }
 
         template <class Q,int I>
@@ -212,7 +212,7 @@ boost
             {
             BOOST_QVM_STATIC_ASSERT(I>=0);
             BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template w<I+1>(a);
+            return quat_traits<Q>::template write_element<I+1>(a);
             }
 
         BOOST_QVM_INLINE_TRIVIAL quaternion_access_tag<qvm_detail::_v_> V() { return quaternion_access_tag<qvm_detail::_v_>(); }

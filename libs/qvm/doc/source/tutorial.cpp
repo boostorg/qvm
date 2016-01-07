@@ -1,13 +1,15 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/qvm.hpp>
+#include <boost/qvm/operations.hpp>
 #include <boost/qvm/map_mat_mat.hpp>
 #include <boost/qvm/map_mat_vec.hpp>
+#include <boost/qvm/map_vec_mat.hpp>
 #include <boost/qvm/vec_access.hpp>
 #include <boost/qvm/vec_traits_array.hpp>
+#include <boost/qvm/quat.hpp>
 #include <boost/qvm/vec.hpp>
 #include <boost/qvm/mat.hpp>
 #include <boost/qvm/swizzle.hpp>
@@ -31,11 +33,11 @@ boost
             static int const dim=3;
             typedef float scalar_type;
 
-            template <int I> static inline scalar_type & w( float3 & v ) { return v.a[I]; }
-            template <int I> static inline scalar_type r( float3 const & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type & write_element( float3 & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type read_element( float3 const & v ) { return v.a[I]; }
 
-            static inline scalar_type & iw( int i, float3 & v ) { return v.a[i]; }
-            static inline scalar_type ir( int i, float3 const & v ) { return v.a[i]; }
+            static inline scalar_type & write_element_idx( int i, float3 & v ) { return v.a[i]; }
+            static inline scalar_type read_element_idx( int i, float3 const & v ) { return v.a[i]; }
             };
 
         template <>
@@ -45,11 +47,11 @@ boost
             static int const dim=4;
             typedef float scalar_type;
 
-            template <int I> static inline scalar_type & w( float4 & v ) { return v.a[I]; }
-            template <int I> static inline scalar_type r( float4 const & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type & write_element( float4 & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type read_element( float4 const & v ) { return v.a[I]; }
 
-            static inline scalar_type & iw( int i, float4 & v ) { return v.a[i]; }
-            static inline scalar_type ir( int i, float4 const & v ) { return v.a[i]; }
+            static inline scalar_type & write_element_idx( int i, float4 & v ) { return v.a[i]; }
+            static inline scalar_type read_element_idx( int i, float4 const & v ) { return v.a[i]; }
             };
 
         template <>
@@ -61,13 +63,13 @@ boost
             static int const cols=3;
 
             template <int R,int C>
-            static inline scalar_type & w( float33 & m ) { return m.a[R][C]; }
+            static inline scalar_type & write_element( float33 & m ) { return m.a[R][C]; }
 
             template <int R,int C>
-            static inline scalar_type r( float33 const & m ) { return m.a[R][C]; }
+            static inline scalar_type read_element( float33 const & m ) { return m.a[R][C]; }
 
-            static inline scalar_type & iw( int r, int c, float33 & m ) { return m.a[r][c]; }
-            static inline scalar_type ir( int r, int c, float33 const & m ) { return m.a[r][c]; }
+            static inline scalar_type & write_element_idx( int r, int c, float33 & m ) { return m.a[r][c]; }
+            static inline scalar_type read_element_idx( int r, int c, float33 const & m ) { return m.a[r][c]; }
             };
 
         template <>
@@ -76,11 +78,11 @@ boost
             {
             typedef float scalar_type;
 
-            template <int I> static inline scalar_type & w( float4 & v ) { return v.a[I]; }
-            template <int I> static inline scalar_type r( float4 const & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type & write_element( float4 & v ) { return v.a[I]; }
+            template <int I> static inline scalar_type read_element( float4 const & v ) { return v.a[I]; }
 
-            static inline scalar_type & iw( int i, float4 & v ) { return v.a[i]; }
-            static inline scalar_type ir( int i, float4 const & v ) { return v.a[i]; }
+            static inline scalar_type & write_element_idx( int i, float4 & v ) { return v.a[i]; }
+            static inline scalar_type read_element_idx( int i, float4 const & v ) { return v.a[i]; }
             };
         }
     }
@@ -88,6 +90,15 @@ boost
 void
 f()
     {
+        {
+        quat<float> rx=rotx_quat(3.14159f);
+        }
+
+        {
+        vec<float,3> v={0,1,0};
+        mat<float,4,4> tr=translation_mat(v);
+        }
+
         {
         float3 v;
         (v,X) = 0;

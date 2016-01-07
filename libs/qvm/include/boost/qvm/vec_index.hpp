@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -25,7 +25,7 @@ boost
             {
             template <int D>
             struct
-            v_index_read_defined
+            vec_index_read_defined
                 {
                 static bool const value=false;
                 };
@@ -38,11 +38,11 @@ boost
                 static
                 BOOST_QVM_INLINE_CRITICAL
                 typename vec_traits<A>::scalar_type
-                ir( A const & a, int i )
+                read_element_idx( A const & a, int i )
                     {
                     return I==i?
-                        vec_traits<A>::template r<I>(a) :
-                        vector_r<I+1,N>::ir(a,i);
+                        vec_traits<A>::template read_element<I>(a) :
+                        vector_r<I+1,N>::read_element_idx(a,i);
                     }
                 };
 
@@ -54,7 +54,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename vec_traits<A>::scalar_type
-                ir( A const &, int i )
+                read_element_idx( A const &, int i )
                     {
                     typedef char dim_[vec_traits<A>::dim];
                     BOOST_THROW_EXCEPTION(vector_index_out_of_bounds_error() << vector_index(i) << vector_size(sizeof(dim_)));
@@ -66,11 +66,11 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
             is_vec<A>::value &&
-            !qvm_detail::v_index_read_defined<vec_traits<A>::dim>::value,
+            !qvm_detail::vec_index_read_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type>::type
-        v_index_read( A const & a, int i )
+        vec_index_read( A const & a, int i )
             {
-            return qvm_detail::vector_r<0,vec_traits<A>::dim>::ir(a,i);
+            return qvm_detail::vector_r<0,vec_traits<A>::dim>::read_element_idx(a,i);
             }
 
         ////////////////////////////////////////////////
@@ -80,7 +80,7 @@ boost
             {
             template <int D>
             struct
-            v_index_write_defined
+            vec_index_write_defined
                 {
                 static bool const value=false;
                 };
@@ -93,11 +93,11 @@ boost
                 static
                 BOOST_QVM_INLINE_CRITICAL
                 typename vec_traits<A>::scalar_type &
-                iw( A & a, int i )
+                write_element_idx( A & a, int i )
                     {
                     return I==i?
-                        vec_traits<A>::template w<I>(a) :
-                        vector_w<I+1,N>::iw(a,i);
+                        vec_traits<A>::template write_element<I>(a) :
+                        vector_w<I+1,N>::write_element_idx(a,i);
                     }
                 };
 
@@ -109,7 +109,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename vec_traits<A>::scalar_type &
-                iw( A const &, int i )
+                write_element_idx( A const &, int i )
                     {
                     typedef char dim_[vec_traits<A>::dim];
                     BOOST_THROW_EXCEPTION(vector_index_out_of_bounds_error() << vector_index(i) << vector_size(sizeof(dim_)));
@@ -121,11 +121,11 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename boost::enable_if_c<
             is_vec<A>::value &&
-            !qvm_detail::v_index_write_defined<vec_traits<A>::dim>::value,
+            !qvm_detail::vec_index_write_defined<vec_traits<A>::dim>::value,
             typename vec_traits<A>::scalar_type &>::type
-        v_index_write( A & a, int i )
+        vec_index_write( A & a, int i )
             {
-            return qvm_detail::vector_w<0,vec_traits<A>::dim>::iw(a,i);
+            return qvm_detail::vector_w<0,vec_traits<A>::dim>::write_element_idx(a,i);
             }
 
         ////////////////////////////////////////////////
@@ -133,8 +133,8 @@ boost
         namespace
         sfinae
             {
-            using ::boost::qvm::v_index_read;
-            using ::boost::qvm::v_index_write;
+            using ::boost::qvm::vec_index_read;
+            using ::boost::qvm::vec_index_write;
             }
 
         ////////////////////////////////////////////////

@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -29,10 +29,10 @@ boost
             typedef typename vec_traits<R>::scalar_type TR;
             typedef typename quat_traits<A>::scalar_type TA;
             typedef typename vec_traits<B>::scalar_type TB;
-            TA const aa = quat_traits<A>::template r<0>(a);
-            TA const ab = quat_traits<A>::template r<1>(a);
-            TA const ac = quat_traits<A>::template r<2>(a);
-            TA const ad = quat_traits<A>::template r<3>(a);
+            TA const aa = quat_traits<A>::template read_element<0>(a);
+            TA const ab = quat_traits<A>::template read_element<1>(a);
+            TA const ac = quat_traits<A>::template read_element<2>(a);
+            TA const ad = quat_traits<A>::template read_element<3>(a);
             TA const t2 = aa*ab;
             TA const t3 = aa*ac;
             TA const t4 = aa*ad;
@@ -42,13 +42,13 @@ boost
             TA const t8 = -ac*ac;
             TA const t9 = ac*ad;
             TA const t10     = -ad*ad;
-            TB const bx = vec_traits<B>::template r<0>(b);
-            TB const by = vec_traits<B>::template r<1>(b);
-            TB const bz = vec_traits<B>::template r<2>(b);
+            TB const bx = vec_traits<B>::template read_element<0>(b);
+            TB const by = vec_traits<B>::template read_element<1>(b);
+            TB const bz = vec_traits<B>::template read_element<2>(b);
             R r;
-            vec_traits<R>::template w<0>(r) = 2*((t8+t10)*bx + (t6-t4)*by + (t3+t7)*bz) + bx;
-            vec_traits<R>::template w<1>(r) = 2*((t4+t6)*bx + (t5+t10)*by + (t9-t2)*bz) + by;
-            vec_traits<R>::template w<2>(r) = 2*((t7-t3)*bx + (t2+t9)*by + (t5+t8)*bz) + bz;
+            vec_traits<R>::template write_element<0>(r) = 2*((t8+t10)*bx + (t6-t4)*by + (t3+t7)*bz) + bx;
+            vec_traits<R>::template write_element<1>(r) = 2*((t4+t6)*bx + (t5+t10)*by + (t9-t2)*bz) + by;
+            vec_traits<R>::template write_element<2>(r) = 2*((t7-t3)*bx + (t2+t9)*by + (t5+t8)*bz) + bz;
             return r;
             }
 

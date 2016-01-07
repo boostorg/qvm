@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -25,16 +25,16 @@ boost
         {
         ////////////////////////////////////////////////
 
-		namespace
-		msvc_parse_bug_workaround
-			{
-			template <class A,class B>
-			struct
-			quats
-				{
-				static bool const value=is_quat<A>::value && is_quat<B>::value;
-				};
-			}
+        namespace
+        msvc_parse_bug_workaround
+            {
+            template <class A,class B>
+            struct
+            quats
+                {
+                static bool const value=is_quat<A>::value && is_quat<B>::value;
+                };
+            }
 
         namespace
         qvm_to_string_detail
@@ -52,10 +52,10 @@ boost
             {
             using namespace qvm_to_string_detail;
             return '('+
-                to_string(quat_traits<A>::template r<0>(a))+','+
-                to_string(quat_traits<A>::template r<1>(a))+','+
-                to_string(quat_traits<A>::template r<2>(a))+','+
-                to_string(quat_traits<A>::template r<3>(a))+')';
+                to_string(quat_traits<A>::template read_element<0>(a))+','+
+                to_string(quat_traits<A>::template read_element<1>(a))+','+
+                to_string(quat_traits<A>::template read_element<2>(a))+','+
+                to_string(quat_traits<A>::template read_element<3>(a))+')';
             }
 
         ////////////////////////////////////////////////
@@ -67,10 +67,10 @@ boost
             A &>::type
         assign( A & a, B const & b )
             {
-            quat_traits<A>::template w<0>(a) = quat_traits<B>::template r<0>(b);
-            quat_traits<A>::template w<1>(a) = quat_traits<B>::template r<1>(b);
-            quat_traits<A>::template w<2>(a) = quat_traits<B>::template r<2>(b);
-            quat_traits<A>::template w<3>(a) = quat_traits<B>::template r<3>(b);
+            quat_traits<A>::template write_element<0>(a) = quat_traits<B>::template read_element<0>(b);
+            quat_traits<A>::template write_element<1>(a) = quat_traits<B>::template read_element<1>(b);
+            quat_traits<A>::template write_element<2>(a) = quat_traits<B>::template read_element<2>(b);
+            quat_traits<A>::template write_element<3>(a) = quat_traits<B>::template read_element<3>(b);
             return a;
             }
 
@@ -86,17 +86,17 @@ boost
                 typename quat_traits<B>::scalar_type>::type T;
             T q1[4] =
                 {
-                quat_traits<A>::template r<0>(a),
-                quat_traits<A>::template r<1>(a),
-                quat_traits<A>::template r<2>(a),
-                quat_traits<A>::template r<3>(a)
+                quat_traits<A>::template read_element<0>(a),
+                quat_traits<A>::template read_element<1>(a),
+                quat_traits<A>::template read_element<2>(a),
+                quat_traits<A>::template read_element<3>(a)
                 };
             T q2[4] =
                 {
-                quat_traits<B>::template r<0>(b),
-                quat_traits<B>::template r<1>(b),
-                quat_traits<B>::template r<2>(b),
-                quat_traits<B>::template r<3>(b)
+                quat_traits<B>::template read_element<0>(b),
+                quat_traits<B>::template read_element<1>(b),
+                quat_traits<B>::template read_element<2>(b),
+                quat_traits<B>::template read_element<3>(b)
                 };
             int i;
             for( i=0; i!=4; ++i )
@@ -117,13 +117,13 @@ boost
         typename enable_if_c<
             is_quat<R>::value && is_quat<A>::value,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             R r;
-            quat_traits<R>::template w<0>(r) = quat_traits<A>::template r<0>(a);
-            quat_traits<R>::template w<1>(r) = quat_traits<A>::template r<1>(a);
-            quat_traits<R>::template w<2>(r) = quat_traits<A>::template r<2>(a);
-            quat_traits<R>::template w<3>(r) = quat_traits<A>::template r<3>(a);
+            quat_traits<R>::template write_element<0>(r) = quat_traits<A>::template read_element<0>(a);
+            quat_traits<R>::template write_element<1>(r) = quat_traits<A>::template read_element<1>(a);
+            quat_traits<R>::template write_element<2>(r) = quat_traits<A>::template read_element<2>(a);
+            quat_traits<R>::template write_element<3>(r) = quat_traits<A>::template read_element<3>(a);
             return r;
             }
 
@@ -133,51 +133,51 @@ boost
             is_quat<R>::value && is_mat<A>::value &&
             mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
             R>::type
-        make( A const & a )
+        convert_to( A const & a )
             {
             typedef typename mat_traits<A>::scalar_type T;
             T const mat[3][3] =
                 {
-                    { mat_traits<A>::template r<0,0>(a), mat_traits<A>::template r<0,1>(a), mat_traits<A>::template r<0,2>(a) },
-                    { mat_traits<A>::template r<1,0>(a), mat_traits<A>::template r<1,1>(a), mat_traits<A>::template r<1,2>(a) },
-                    { mat_traits<A>::template r<2,0>(a), mat_traits<A>::template r<2,1>(a), mat_traits<A>::template r<2,2>(a) }
+                    { mat_traits<A>::template read_element<0,0>(a), mat_traits<A>::template read_element<0,1>(a), mat_traits<A>::template read_element<0,2>(a) },
+                    { mat_traits<A>::template read_element<1,0>(a), mat_traits<A>::template read_element<1,1>(a), mat_traits<A>::template read_element<1,2>(a) },
+                    { mat_traits<A>::template read_element<2,0>(a), mat_traits<A>::template read_element<2,1>(a), mat_traits<A>::template read_element<2,2>(a) }
                 };
             R r;
             if( mat[0][0]+mat[1][1]+mat[2][2] > scalar_traits<T>::value(0) )
                 {
                 T t = mat[0][0] + mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
                 T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
-                quat_traits<R>::template w<0>(r)=s*t;
-                quat_traits<R>::template w<1>(r)=(mat[2][1]-mat[1][2])*s;
-                quat_traits<R>::template w<2>(r)=(mat[0][2]-mat[2][0])*s;
-                quat_traits<R>::template w<3>(r)=(mat[1][0]-mat[0][1])*s;
+                quat_traits<R>::template write_element<0>(r)=s*t;
+                quat_traits<R>::template write_element<1>(r)=(mat[2][1]-mat[1][2])*s;
+                quat_traits<R>::template write_element<2>(r)=(mat[0][2]-mat[2][0])*s;
+                quat_traits<R>::template write_element<3>(r)=(mat[1][0]-mat[0][1])*s;
                 }
             else if( mat[0][0]>mat[1][1] && mat[0][0]>mat[2][2] )
                 {
                 T t = mat[0][0] - mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
                 T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
-                quat_traits<R>::template w<0>(r)=(mat[2][1]-mat[1][2])*s;
-                quat_traits<R>::template w<1>(r)=s*t;
-                quat_traits<R>::template w<2>(r)=(mat[1][0]+mat[0][1])*s;
-                quat_traits<R>::template w<3>(r)=(mat[0][2]+mat[2][0])*s;
+                quat_traits<R>::template write_element<0>(r)=(mat[2][1]-mat[1][2])*s;
+                quat_traits<R>::template write_element<1>(r)=s*t;
+                quat_traits<R>::template write_element<2>(r)=(mat[1][0]+mat[0][1])*s;
+                quat_traits<R>::template write_element<3>(r)=(mat[0][2]+mat[2][0])*s;
                 }
             else if( mat[1][1]>mat[2][2] )
                 {
                 T t = - mat[0][0] + mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
                 T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
-                quat_traits<R>::template w<0>(r)=(mat[0][2]-mat[2][0])*s;
-                quat_traits<R>::template w<1>(r)=(mat[1][0]+mat[0][1])*s;
-                quat_traits<R>::template w<2>(r)=s*t;
-                quat_traits<R>::template w<3>(r)=(mat[2][1]+mat[1][2])*s;
+                quat_traits<R>::template write_element<0>(r)=(mat[0][2]-mat[2][0])*s;
+                quat_traits<R>::template write_element<1>(r)=(mat[1][0]+mat[0][1])*s;
+                quat_traits<R>::template write_element<2>(r)=s*t;
+                quat_traits<R>::template write_element<3>(r)=(mat[2][1]+mat[1][2])*s;
                 }
             else
                 {
                 T t = - mat[0][0] - mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
                 T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
-                quat_traits<R>::template w<0>(r)=(mat[1][0]-mat[0][1])*s;
-                quat_traits<R>::template w<1>(r)=(mat[0][2]+mat[2][0])*s;
-                quat_traits<R>::template w<2>(r)=(mat[2][1]+mat[1][2])*s;
-                quat_traits<R>::template w<3>(r)=s*t;
+                quat_traits<R>::template write_element<0>(r)=(mat[1][0]-mat[0][1])*s;
+                quat_traits<R>::template write_element<1>(r)=(mat[0][2]+mat[2][0])*s;
+                quat_traits<R>::template write_element<2>(r)=(mat[2][1]+mat[1][2])*s;
+                quat_traits<R>::template write_element<3>(r)=s*t;
                 }
             return r;
             }
@@ -193,10 +193,10 @@ boost
             {
             typedef typename deduce_quat<A>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=quat_traits<A>::template r<0>(a);
-            quat_traits<R>::template w<1>(r)=-quat_traits<A>::template r<1>(a);
-            quat_traits<R>::template w<2>(r)=-quat_traits<A>::template r<2>(a);
-            quat_traits<R>::template w<3>(r)=-quat_traits<A>::template r<3>(a);
+            quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a);
+            quat_traits<R>::template write_element<1>(r)=-quat_traits<A>::template read_element<1>(a);
+            quat_traits<R>::template write_element<2>(r)=-quat_traits<A>::template read_element<2>(a);
+            quat_traits<R>::template write_element<3>(r)=-quat_traits<A>::template read_element<3>(a);
             return r;
             }
 
@@ -237,7 +237,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
@@ -248,7 +248,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_quaternion const & x )
+            read_element_idx( int i, this_quaternion const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
@@ -289,10 +289,10 @@ boost
             typedef typename quat_traits<A>::scalar_type T;
             T const zero=scalar_traits<T>::value(0);
             T const one=scalar_traits<T>::value(1);
-            quat_traits<A>::template w<0>(a) = one;
-            quat_traits<A>::template w<1>(a) = zero;
-            quat_traits<A>::template w<2>(a) = zero;
-            quat_traits<A>::template w<3>(a) = zero;
+            quat_traits<A>::template write_element<0>(a) = one;
+            quat_traits<A>::template write_element<1>(a) = zero;
+            quat_traits<A>::template write_element<2>(a) = zero;
+            quat_traits<A>::template write_element<3>(a) = zero;
             }
 
         ////////////////////////////////////////////////
@@ -344,21 +344,21 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
-                return scalar_type(quat_traits<OriginalType>::template r<I>(reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(quat_traits<OriginalType>::template read_element<I>(reinterpret_cast<OriginalType const &>(x)));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_quaternion const & x )
+            read_element_idx( int i, this_quaternion const & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<4);
-                return scalar_type(quat_traits<OriginalType>::ir(i,reinterpret_cast<OriginalType const &>(x)));
+                return scalar_type(quat_traits<OriginalType>::read_element_idx(i,reinterpret_cast<OriginalType const &>(x)));
                 }
             };
 
@@ -379,10 +379,10 @@ boost
             A &>::type
         operator/=( A & a, B b )
             {
-            quat_traits<A>::template w<0>(a)/=b;
-            quat_traits<A>::template w<1>(a)/=b;
-            quat_traits<A>::template w<2>(a)/=b;
-            quat_traits<A>::template w<3>(a)/=b;
+            quat_traits<A>::template write_element<0>(a)/=b;
+            quat_traits<A>::template write_element<1>(a)/=b;
+            quat_traits<A>::template write_element<2>(a)/=b;
+            quat_traits<A>::template write_element<3>(a)/=b;
             return a;
             }
 
@@ -395,10 +395,10 @@ boost
             {
             typedef typename deduce_quat<A>::type R;
             R r;
-            quat_traits<R>::template w<0>(r) = quat_traits<A>::template r<0>(a)/b;
-            quat_traits<R>::template w<1>(r) = quat_traits<A>::template r<1>(a)/b;
-            quat_traits<R>::template w<2>(r) = quat_traits<A>::template r<2>(a)/b;
-            quat_traits<R>::template w<3>(r) = quat_traits<A>::template r<3>(a)/b;
+            quat_traits<R>::template write_element<0>(r) = quat_traits<A>::template read_element<0>(a)/b;
+            quat_traits<R>::template write_element<1>(r) = quat_traits<A>::template read_element<1>(a)/b;
+            quat_traits<R>::template write_element<2>(r) = quat_traits<A>::template read_element<2>(a)/b;
+            quat_traits<R>::template write_element<3>(r) = quat_traits<A>::template read_element<3>(a)/b;
             return r;
             }
 
@@ -412,14 +412,14 @@ boost
             typedef typename quat_traits<A>::scalar_type Ta;
             typedef typename quat_traits<B>::scalar_type Tb;
             typedef typename deduce_scalar<Ta,Tb>::type Tr;
-            Ta const a0=quat_traits<A>::template r<0>(a);
-            Ta const a1=quat_traits<A>::template r<1>(a);
-            Ta const a2=quat_traits<A>::template r<2>(a);
-            Ta const a3=quat_traits<A>::template r<3>(a);
-            Tb const b0=quat_traits<B>::template r<0>(b);
-            Tb const b1=quat_traits<B>::template r<1>(b);
-            Tb const b2=quat_traits<B>::template r<2>(b);
-            Tb const b3=quat_traits<B>::template r<3>(b);
+            Ta const a0=quat_traits<A>::template read_element<0>(a);
+            Ta const a1=quat_traits<A>::template read_element<1>(a);
+            Ta const a2=quat_traits<A>::template read_element<2>(a);
+            Ta const a3=quat_traits<A>::template read_element<3>(a);
+            Tb const b0=quat_traits<B>::template read_element<0>(b);
+            Tb const b1=quat_traits<B>::template read_element<1>(b);
+            Tb const b2=quat_traits<B>::template read_element<2>(b);
+            Tb const b3=quat_traits<B>::template read_element<3>(b);
             Tr const dp=a0*b0+a1*b1+a2*b2+a3*b3;
             return dp;
             }
@@ -432,10 +432,10 @@ boost
         operator==( A const & a, B const & b )
             {
             return
-                quat_traits<A>::template r<0>(a)==quat_traits<B>::template r<0>(b) &&
-                quat_traits<A>::template r<1>(a)==quat_traits<B>::template r<1>(b) &&
-                quat_traits<A>::template r<2>(a)==quat_traits<B>::template r<2>(b) &&
-                quat_traits<A>::template r<3>(a)==quat_traits<B>::template r<3>(b);
+                quat_traits<A>::template read_element<0>(a)==quat_traits<B>::template read_element<0>(b) &&
+                quat_traits<A>::template read_element<1>(a)==quat_traits<B>::template read_element<1>(b) &&
+                quat_traits<A>::template read_element<2>(a)==quat_traits<B>::template read_element<2>(b) &&
+                quat_traits<A>::template read_element<3>(a)==quat_traits<B>::template read_element<3>(b);
             }
 
         template <class A>
@@ -447,19 +447,19 @@ boost
             {
             typedef typename deduce_quat<A>::type R;
             typedef typename quat_traits<A>::scalar_type TA;
-            TA aa = quat_traits<A>::template r<0>(a);
-            TA ab = quat_traits<A>::template r<1>(a);
-            TA ac = quat_traits<A>::template r<2>(a);
-            TA ad = quat_traits<A>::template r<3>(a);
-            TA mag_sqr = ab*ab + ac*ac + ad*ad + aa*aa;
-            if( mag_sqr==scalar_traits<TA>::value(0) )
+            TA aa = quat_traits<A>::template read_element<0>(a);
+            TA ab = quat_traits<A>::template read_element<1>(a);
+            TA ac = quat_traits<A>::template read_element<2>(a);
+            TA ad = quat_traits<A>::template read_element<3>(a);
+            TA m2 = ab*ab + ac*ac + ad*ad + aa*aa;
+            if( m2==scalar_traits<TA>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            TA rm=scalar_traits<TA>::value(1)/mag_sqr;
+            TA rm=scalar_traits<TA>::value(1)/m2;
             R r;
-            quat_traits<R>::template w<0>(r) = aa*rm;
-            quat_traits<R>::template w<1>(r) = -ab*rm;
-            quat_traits<R>::template w<2>(r) = -ac*rm;
-            quat_traits<R>::template w<3>(r) = -ad*rm;
+            quat_traits<R>::template write_element<0>(r) = aa*rm;
+            quat_traits<R>::template write_element<1>(r) = -ab*rm;
+            quat_traits<R>::template write_element<2>(r) = -ac*rm;
+            quat_traits<R>::template write_element<3>(r) = -ad*rm;
             return r;
             }
 
@@ -471,10 +471,10 @@ boost
         mag_sqr( A const & a )
             {
             typedef typename quat_traits<A>::scalar_type T;
-            T x=quat_traits<A>::template r<0>(a);
-            T y=quat_traits<A>::template r<1>(a);
-            T z=quat_traits<A>::template r<2>(a);
-            T w=quat_traits<A>::template r<3>(a);
+            T x=quat_traits<A>::template read_element<0>(a);
+            T y=quat_traits<A>::template read_element<1>(a);
+            T z=quat_traits<A>::template read_element<2>(a);
+            T w=quat_traits<A>::template read_element<3>(a);
             return x*x+y*y+z*z+w*w;
             }
 
@@ -486,10 +486,10 @@ boost
         mag( A const & a )
             {
             typedef typename quat_traits<A>::scalar_type T;
-            T x=quat_traits<A>::template r<0>(a);
-            T y=quat_traits<A>::template r<1>(a);
-            T z=quat_traits<A>::template r<2>(a);
-            T w=quat_traits<A>::template r<3>(a);
+            T x=quat_traits<A>::template read_element<0>(a);
+            T y=quat_traits<A>::template read_element<1>(a);
+            T z=quat_traits<A>::template read_element<2>(a);
+            T w=quat_traits<A>::template read_element<3>(a);
             return sqrt<T>(x*x+y*y+z*z+w*w);
             }
 
@@ -500,10 +500,10 @@ boost
             A &>::type
         operator-=( A & a, B const & b )
             {
-            quat_traits<A>::template w<0>(a)-=quat_traits<B>::template r<0>(b);
-            quat_traits<A>::template w<1>(a)-=quat_traits<B>::template r<1>(b);
-            quat_traits<A>::template w<2>(a)-=quat_traits<B>::template r<2>(b);
-            quat_traits<A>::template w<3>(a)-=quat_traits<B>::template r<3>(b);
+            quat_traits<A>::template write_element<0>(a)-=quat_traits<B>::template read_element<0>(b);
+            quat_traits<A>::template write_element<1>(a)-=quat_traits<B>::template read_element<1>(b);
+            quat_traits<A>::template write_element<2>(a)-=quat_traits<B>::template read_element<2>(b);
+            quat_traits<A>::template write_element<3>(a)-=quat_traits<B>::template read_element<3>(b);
             return a;
             }
 
@@ -516,10 +516,10 @@ boost
             {
             typedef typename deduce_quat2<A,B>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=quat_traits<A>::template r<0>(a)-quat_traits<B>::template r<0>(b);
-            quat_traits<R>::template w<1>(r)=quat_traits<A>::template r<1>(a)-quat_traits<B>::template r<1>(b);
-            quat_traits<R>::template w<2>(r)=quat_traits<A>::template r<2>(a)-quat_traits<B>::template r<2>(b);
-            quat_traits<R>::template w<3>(r)=quat_traits<A>::template r<3>(a)-quat_traits<B>::template r<3>(b);
+            quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)-quat_traits<B>::template read_element<0>(b);
+            quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)-quat_traits<B>::template read_element<1>(b);
+            quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)-quat_traits<B>::template read_element<2>(b);
+            quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)-quat_traits<B>::template read_element<3>(b);
             return r;
             }
 
@@ -532,10 +532,10 @@ boost
             {
             typedef typename deduce_quat<A>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=-quat_traits<A>::template r<0>(a);
-            quat_traits<R>::template w<1>(r)=-quat_traits<A>::template r<1>(a);
-            quat_traits<R>::template w<2>(r)=-quat_traits<A>::template r<2>(a);
-            quat_traits<R>::template w<3>(r)=-quat_traits<A>::template r<3>(a);
+            quat_traits<R>::template write_element<0>(r)=-quat_traits<A>::template read_element<0>(a);
+            quat_traits<R>::template write_element<1>(r)=-quat_traits<A>::template read_element<1>(a);
+            quat_traits<R>::template write_element<2>(r)=-quat_traits<A>::template read_element<2>(a);
+            quat_traits<R>::template write_element<3>(r)=-quat_traits<A>::template read_element<3>(a);
             return r;
             }
 
@@ -548,18 +548,18 @@ boost
             {
             typedef typename quat_traits<A>::scalar_type TA;
             typedef typename quat_traits<B>::scalar_type TB;
-            TA const aa=quat_traits<A>::template r<0>(a);
-            TA const ab=quat_traits<A>::template r<1>(a);
-            TA const ac=quat_traits<A>::template r<2>(a);
-            TA const ad=quat_traits<A>::template r<3>(a);
-            TB const ba=quat_traits<B>::template r<0>(b);
-            TB const bb=quat_traits<B>::template r<1>(b);
-            TB const bc=quat_traits<B>::template r<2>(b);
-            TB const bd=quat_traits<B>::template r<3>(b);
-            quat_traits<A>::template w<0>(a) = aa*ba - ab*bb - ac*bc - ad*bd;
-            quat_traits<A>::template w<1>(a) = aa*bb + ab*ba + ac*bd - ad*bc;
-            quat_traits<A>::template w<2>(a) = aa*bc + ac*ba + ad*bb - ab*bd;
-            quat_traits<A>::template w<3>(a) = aa*bd + ad*ba + ab*bc - ac*bb;
+            TA const aa=quat_traits<A>::template read_element<0>(a);
+            TA const ab=quat_traits<A>::template read_element<1>(a);
+            TA const ac=quat_traits<A>::template read_element<2>(a);
+            TA const ad=quat_traits<A>::template read_element<3>(a);
+            TB const ba=quat_traits<B>::template read_element<0>(b);
+            TB const bb=quat_traits<B>::template read_element<1>(b);
+            TB const bc=quat_traits<B>::template read_element<2>(b);
+            TB const bd=quat_traits<B>::template read_element<3>(b);
+            quat_traits<A>::template write_element<0>(a) = aa*ba - ab*bb - ac*bc - ad*bd;
+            quat_traits<A>::template write_element<1>(a) = aa*bb + ab*ba + ac*bd - ad*bc;
+            quat_traits<A>::template write_element<2>(a) = aa*bc + ac*ba + ad*bb - ab*bd;
+            quat_traits<A>::template write_element<3>(a) = aa*bd + ad*ba + ab*bc - ac*bb;
             return a;
             }
 
@@ -570,10 +570,10 @@ boost
             A &>::type
         operator*=( A & a, B b )
             {
-            quat_traits<A>::template w<0>(a)*=b;
-            quat_traits<A>::template w<1>(a)*=b;
-            quat_traits<A>::template w<2>(a)*=b;
-            quat_traits<A>::template w<3>(a)*=b;
+            quat_traits<A>::template write_element<0>(a)*=b;
+            quat_traits<A>::template write_element<1>(a)*=b;
+            quat_traits<A>::template write_element<2>(a)*=b;
+            quat_traits<A>::template write_element<3>(a)*=b;
             return a;
             }
 
@@ -587,19 +587,19 @@ boost
             typedef typename deduce_quat2<A,B>::type R;
             typedef typename quat_traits<A>::scalar_type TA;
             typedef typename quat_traits<B>::scalar_type TB;
-            TA const aa=quat_traits<A>::template r<0>(a);
-            TA const ab=quat_traits<A>::template r<1>(a);
-            TA const ac=quat_traits<A>::template r<2>(a);
-            TA const ad=quat_traits<A>::template r<3>(a);
-            TB const ba=quat_traits<B>::template r<0>(b);
-            TB const bb=quat_traits<B>::template r<1>(b);
-            TB const bc=quat_traits<B>::template r<2>(b);
-            TB const bd=quat_traits<B>::template r<3>(b);
+            TA const aa=quat_traits<A>::template read_element<0>(a);
+            TA const ab=quat_traits<A>::template read_element<1>(a);
+            TA const ac=quat_traits<A>::template read_element<2>(a);
+            TA const ad=quat_traits<A>::template read_element<3>(a);
+            TB const ba=quat_traits<B>::template read_element<0>(b);
+            TB const bb=quat_traits<B>::template read_element<1>(b);
+            TB const bc=quat_traits<B>::template read_element<2>(b);
+            TB const bd=quat_traits<B>::template read_element<3>(b);
             R r;
-            quat_traits<R>::template w<0>(r) = aa*ba - ab*bb - ac*bc - ad*bd;
-            quat_traits<R>::template w<1>(r) = aa*bb + ab*ba + ac*bd - ad*bc;
-            quat_traits<R>::template w<2>(r) = aa*bc + ac*ba + ad*bb - ab*bd;
-            quat_traits<R>::template w<3>(r) = aa*bd + ad*ba + ab*bc - ac*bb;
+            quat_traits<R>::template write_element<0>(r) = aa*ba - ab*bb - ac*bc - ad*bd;
+            quat_traits<R>::template write_element<1>(r) = aa*bb + ab*ba + ac*bd - ad*bc;
+            quat_traits<R>::template write_element<2>(r) = aa*bc + ac*ba + ad*bb - ab*bd;
+            quat_traits<R>::template write_element<3>(r) = aa*bd + ad*ba + ab*bc - ac*bb;
             return r;
             }
 
@@ -612,10 +612,10 @@ boost
             {
             typedef typename deduce_quat<A>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=quat_traits<A>::template r<0>(a)*b;
-            quat_traits<R>::template w<1>(r)=quat_traits<A>::template r<1>(a)*b;
-            quat_traits<R>::template w<2>(r)=quat_traits<A>::template r<2>(a)*b;
-            quat_traits<R>::template w<3>(r)=quat_traits<A>::template r<3>(a)*b;
+            quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)*b;
+            quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)*b;
+            quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)*b;
+            quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)*b;
             return r;
             }
 
@@ -627,10 +627,10 @@ boost
         operator!=( A const & a, B const & b )
             {
             return
-                quat_traits<A>::template r<0>(a)!=quat_traits<B>::template r<0>(b) ||
-                quat_traits<A>::template r<1>(a)!=quat_traits<B>::template r<1>(b) ||
-                quat_traits<A>::template r<2>(a)!=quat_traits<B>::template r<2>(b) ||
-                quat_traits<A>::template r<3>(a)!=quat_traits<B>::template r<3>(b);
+                quat_traits<A>::template read_element<0>(a)!=quat_traits<B>::template read_element<0>(b) ||
+                quat_traits<A>::template read_element<1>(a)!=quat_traits<B>::template read_element<1>(b) ||
+                quat_traits<A>::template read_element<2>(a)!=quat_traits<B>::template read_element<2>(b) ||
+                quat_traits<A>::template read_element<3>(a)!=quat_traits<B>::template read_element<3>(b);
             }
 
         template <class A>
@@ -641,20 +641,20 @@ boost
         normalized( A const & a )
             {
             typedef typename quat_traits<A>::scalar_type T;
-            T const a0=quat_traits<A>::template r<0>(a);
-            T const a1=quat_traits<A>::template r<1>(a);
-            T const a2=quat_traits<A>::template r<2>(a);
-            T const a3=quat_traits<A>::template r<3>(a);
-            T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
-            if( mag_sqr==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
+            T const a0=quat_traits<A>::template read_element<0>(a);
+            T const a1=quat_traits<A>::template read_element<1>(a);
+            T const a2=quat_traits<A>::template read_element<2>(a);
+            T const a3=quat_traits<A>::template read_element<3>(a);
+            T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
+            if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
             typedef typename deduce_quat<A>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=a0*rm;
-            quat_traits<R>::template w<1>(r)=a1*rm;
-            quat_traits<R>::template w<2>(r)=a2*rm;
-            quat_traits<R>::template w<3>(r)=a3*rm;
+            quat_traits<R>::template write_element<0>(r)=a0*rm;
+            quat_traits<R>::template write_element<1>(r)=a1*rm;
+            quat_traits<R>::template write_element<2>(r)=a2*rm;
+            quat_traits<R>::template write_element<3>(r)=a3*rm;
             return r;
             }
 
@@ -666,18 +666,18 @@ boost
         normalize( A & a )
             {
             typedef typename quat_traits<A>::scalar_type T;
-            T const a0=quat_traits<A>::template r<0>(a);
-            T const a1=quat_traits<A>::template r<1>(a);
-            T const a2=quat_traits<A>::template r<2>(a);
-            T const a3=quat_traits<A>::template r<3>(a);
-            T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
-            if( mag_sqr==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
+            T const a0=quat_traits<A>::template read_element<0>(a);
+            T const a1=quat_traits<A>::template read_element<1>(a);
+            T const a2=quat_traits<A>::template read_element<2>(a);
+            T const a3=quat_traits<A>::template read_element<3>(a);
+            T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
+            if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
                 BOOST_THROW_EXCEPTION(zero_magnitude_error());
-            T const rm=scalar_traits<T>::value(1)/sqrt<T>(mag_sqr);
-            quat_traits<A>::template w<0>(a)*=rm;
-            quat_traits<A>::template w<1>(a)*=rm;
-            quat_traits<A>::template w<2>(a)*=rm;
-            quat_traits<A>::template w<3>(a)*=rm;
+            T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+            quat_traits<A>::template write_element<0>(a)*=rm;
+            quat_traits<A>::template write_element<1>(a)*=rm;
+            quat_traits<A>::template write_element<2>(a)*=rm;
+            quat_traits<A>::template write_element<3>(a)*=rm;
             }
 
         template <class A,class B>
@@ -687,10 +687,10 @@ boost
             A &>::type
         operator+=( A & a, B const & b )
             {
-            quat_traits<A>::template w<0>(a)+=quat_traits<B>::template r<0>(b);
-            quat_traits<A>::template w<1>(a)+=quat_traits<B>::template r<1>(b);
-            quat_traits<A>::template w<2>(a)+=quat_traits<B>::template r<2>(b);
-            quat_traits<A>::template w<3>(a)+=quat_traits<B>::template r<3>(b);
+            quat_traits<A>::template write_element<0>(a)+=quat_traits<B>::template read_element<0>(b);
+            quat_traits<A>::template write_element<1>(a)+=quat_traits<B>::template read_element<1>(b);
+            quat_traits<A>::template write_element<2>(a)+=quat_traits<B>::template read_element<2>(b);
+            quat_traits<A>::template write_element<3>(a)+=quat_traits<B>::template read_element<3>(b);
             return a;
             }
 
@@ -703,10 +703,10 @@ boost
             {
             typedef typename deduce_quat2<A,B>::type R;
             R r;
-            quat_traits<R>::template w<0>(r)=quat_traits<A>::template r<0>(a)+quat_traits<B>::template r<0>(b);
-            quat_traits<R>::template w<1>(r)=quat_traits<A>::template r<1>(a)+quat_traits<B>::template r<1>(b);
-            quat_traits<R>::template w<2>(r)=quat_traits<A>::template r<2>(a)+quat_traits<B>::template r<2>(b);
-            quat_traits<R>::template w<3>(r)=quat_traits<A>::template r<3>(a)+quat_traits<B>::template r<3>(b);
+            quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)+quat_traits<B>::template read_element<0>(b);
+            quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)+quat_traits<B>::template read_element<1>(b);
+            quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)+quat_traits<B>::template read_element<2>(b);
+            quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)+quat_traits<B>::template read_element<3>(b);
             return r;
             }
 
@@ -783,22 +783,22 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
-                return quat_traits<Q>::template r<I>(reinterpret_cast<Q const &>(x));
+                return quat_traits<Q>::template read_element<I>(reinterpret_cast<Q const &>(x));
                 }
 
             template <int I>
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            w( this_quaternion & x )
+            write_element( this_quaternion & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
-                return quat_traits<Q>::template w<I>(reinterpret_cast<Q &>(x));
+                return quat_traits<Q>::template write_element<I>(reinterpret_cast<Q &>(x));
                 }
             };
 
@@ -866,7 +866,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
@@ -877,7 +877,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_quaternion const & x )
+            read_element_idx( int i, this_quaternion const & x )
                 {
                 BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
@@ -903,10 +903,10 @@ boost
             {
             typedef typename quat_traits<A>::scalar_type T;
             T const zero=scalar_traits<T>::value(0);
-            quat_traits<A>::template w<0>(a) = zero;
-            quat_traits<A>::template w<1>(a) = zero;
-            quat_traits<A>::template w<2>(a) = zero;
-            quat_traits<A>::template w<3>(a) = zero;
+            quat_traits<A>::template write_element<0>(a) = zero;
+            quat_traits<A>::template write_element<1>(a) = zero;
+            quat_traits<A>::template write_element<2>(a) = zero;
+            quat_traits<A>::template write_element<3>(a) = zero;
             }
 
         ////////////////////////////////////////////////
@@ -925,9 +925,9 @@ boost
                 BOOST_QVM_INLINE
                 rot_quat_( V const & axis, Angle angle )
                     {
-                    scalar_type const x=vec_traits<V>::template r<0>(axis);
-                    scalar_type const y=vec_traits<V>::template r<1>(axis);
-                    scalar_type const z=vec_traits<V>::template r<2>(axis);
+                    scalar_type const x=vec_traits<V>::template read_element<0>(axis);
+                    scalar_type const y=vec_traits<V>::template read_element<1>(axis);
+                    scalar_type const z=vec_traits<V>::template read_element<2>(axis);
                     scalar_type const m2=x*x+y*y+z*z;
                     if( m2==scalar_traits<scalar_type>::value(0) )
                         BOOST_THROW_EXCEPTION(zero_magnitude_error());
@@ -962,7 +962,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -1093,7 +1093,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -1227,7 +1227,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -1361,7 +1361,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_quaternion const & x )
+            read_element( this_quaternion const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -1419,16 +1419,16 @@ boost
         axis_angle( A const & a, B & b )
             {
             typedef typename quat_traits<A>::scalar_type T;
-            T a0=quat_traits<A>::template r<0>(a);
-            T a1=quat_traits<A>::template r<1>(a);
-            T a2=quat_traits<A>::template r<2>(a);
-            T a3=quat_traits<A>::template r<3>(a);
+            T a0=quat_traits<A>::template read_element<0>(a);
+            T a1=quat_traits<A>::template read_element<1>(a);
+            T a2=quat_traits<A>::template read_element<2>(a);
+            T a3=quat_traits<A>::template read_element<3>(a);
             if( a0>1 )
                 {
-                T const mag_sqr=a0*a0+a1*a1+a2*a2+a3*a3;
-                if( mag_sqr==scalar_traits<T>::value(0) )
+                T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
+                if( m2==scalar_traits<T>::value(0) )
                     BOOST_THROW_EXCEPTION(zero_magnitude_error());
-                T const s=sqrt<T>(mag_sqr);
+                T const s=sqrt<T>(m2);
                 a0/=s;
                 a1/=s;
                 a2/=s;
@@ -1436,15 +1436,15 @@ boost
                 }
             if( T s=sqrt<T>(1-a0*a0) )
                 {
-                vec_traits<B>::template w<0>(b) = a1/s;
-                vec_traits<B>::template w<1>(b) = a2/s;
-                vec_traits<B>::template w<2>(b) = a3/s;
+                vec_traits<B>::template write_element<0>(b) = a1/s;
+                vec_traits<B>::template write_element<1>(b) = a2/s;
+                vec_traits<B>::template write_element<2>(b) = a3/s;
                 }
             else
                 {
                 typedef typename vec_traits<B>::scalar_type T;
-                vec_traits<B>::template w<0>(b) = scalar_traits<T>::value(1);
-                vec_traits<B>::template w<1>(b) = vec_traits<B>::template w<2>(b) = scalar_traits<T>::value(0);
+                vec_traits<B>::template write_element<0>(b) = scalar_traits<T>::value(1);
+                vec_traits<B>::template write_element<1>(b) = vec_traits<B>::template write_element<2>(b) = scalar_traits<T>::value(0);
                 }
             return scalar_traits<T>::value(2) * qvm::acos(a0);
             }
@@ -1456,7 +1456,7 @@ boost
             {
             using ::boost::qvm::assign;
             using ::boost::qvm::cmp;
-            using ::boost::qvm::make;
+            using ::boost::qvm::convert_to;
             using ::boost::qvm::conjugate;
             using ::boost::qvm::set_identity;
             using ::boost::qvm::set_zero;

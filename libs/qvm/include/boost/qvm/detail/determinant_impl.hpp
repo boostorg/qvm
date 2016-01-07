@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -31,8 +31,8 @@ boost
             determinant_impl_( M const & a, det_size<2> )
                 {
                 return
-                    mat_traits<M>::template r<0,0>(a) * mat_traits<M>::template r<1,1>(a) -
-                    mat_traits<M>::template r<1,0>(a) * mat_traits<M>::template r<0,1>(a);
+                    mat_traits<M>::template read_element<0,0>(a) * mat_traits<M>::template read_element<1,1>(a) -
+                    mat_traits<M>::template read_element<1,0>(a) * mat_traits<M>::template read_element<0,1>(a);
                 }
 
             template <class M,int N>
@@ -52,14 +52,14 @@ boost
                             {
                             if( j==j1 )
                                 continue;
-                            m[i-1][j2] = mat_traits<M>::ir(i,j,a);
+                            m[i-1][j2] = mat_traits<M>::read_element_idx(i,j,a);
                             ++j2;
                             }
                         }
                     T d=determinant_impl_(m,det_size<N-1>());
                     if( j1&1 )
                         d=-d;
-                    det += mat_traits<M>::ir(0,j1,a) * d;
+                    det += mat_traits<M>::read_element_idx(0,j1,a) * d;
                     }
                 return det;
                 }

@@ -1,4 +1,4 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -45,7 +45,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            r( this_vector const & x )
+            read_element( this_vector const & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -56,7 +56,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            w( this_vector & x )
+            write_element( this_vector & x )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -66,7 +66,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            ir( int i, this_vector const & x )
+            read_element_idx( int i, this_vector const & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
@@ -76,7 +76,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type &
-            iw( int i, this_vector & x )
+            write_element_idx( int i, this_vector & x )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);

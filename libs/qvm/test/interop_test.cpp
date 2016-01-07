@@ -1,9 +1,9 @@
-//Copyright (c) 2008-2013 Emil Dotchevski and Reverge Studios, Inc.
+//Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc.
 
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/qvm.hpp>
+#include <boost/qvm/operations.hpp>
 #include <boost/qvm/quat.hpp>
 #include <boost/qvm/vec.hpp>
 #include <boost/qvm/mat.hpp>
@@ -47,7 +47,7 @@ boost
             template <int R,int C>
             static
             scalar_type &
-            w( my_stuff::mat & m )
+            write_element( my_stuff::mat & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(R>=0);
                 BOOST_QVM_STATIC_ASSERT(R<rows);
@@ -59,7 +59,7 @@ boost
             template <int R,int C>
             static
             scalar_type
-            r( my_stuff::mat const & m )
+            read_element( my_stuff::mat const & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(R>=0);
                 BOOST_QVM_STATIC_ASSERT(R<rows);
@@ -71,7 +71,7 @@ boost
             static
             inline
             scalar_type &
-            iw( int r, int c, my_stuff::mat & m )
+            write_element_idx( int r, int c, my_stuff::mat & m )
                 {
                 BOOST_QVM_ASSERT(r>=0);
                 BOOST_QVM_ASSERT(r<rows);
@@ -83,7 +83,7 @@ boost
             static
             inline
             scalar_type
-            ir( int r, int c, my_stuff::mat const & m )
+            read_element_idx( int r, int c, my_stuff::mat const & m )
                 {
                 BOOST_QVM_ASSERT(r>=0);
                 BOOST_QVM_ASSERT(r<rows);
@@ -103,7 +103,7 @@ boost
             template <int I>
             static
             scalar_type &
-            w( my_stuff::vec & m )
+            write_element( my_stuff::vec & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -113,7 +113,7 @@ boost
             template <int I>
             static
             scalar_type
-            r( my_stuff::vec const & m )
+            read_element( my_stuff::vec const & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -123,7 +123,7 @@ boost
             static
             inline
             scalar_type &
-            iw( int i, my_stuff::vec & m )
+            write_element_idx( int i, my_stuff::vec & m )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
@@ -133,7 +133,7 @@ boost
             static
             inline
             scalar_type
-            ir( int i, my_stuff::vec const & m )
+            read_element_idx( int i, my_stuff::vec const & m )
                 {
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<dim);
@@ -150,7 +150,7 @@ boost
             template <int I>
             static
             scalar_type &
-            w( my_stuff::quat & m )
+            write_element( my_stuff::quat & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -160,7 +160,7 @@ boost
             template <int I>
             static
             scalar_type
-            r( my_stuff::quat const & m )
+            read_element( my_stuff::quat const & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
@@ -345,9 +345,9 @@ main()
     mb1=ma1/2;
     vb1=va1/2;
     qb1=qb1/2;
-    mb2=make<mat2>(ma1/2);
-    vb2=make<vec2>(va1/2);
-    qb2=make<quat2>(qa1/2);
+    mb2=convert_to<mat2>(ma1/2);
+    vb2=convert_to<vec2>(va1/2);
+    qb2=convert_to<quat2>(qa1/2);
     mb1=scalar_cast<float>(ma2/2);
     vb1=scalar_cast<float>(va2/2);
     qb1=scalar_cast<float>(qa2/2);
@@ -355,9 +355,9 @@ main()
     mb1=ma1*2;
     vb1=va1*2;
     qb1=qa1*2;
-    mb2=make<mat2>(ma1*2);
-    vb2=make<vec2>(va1*2);
-    qb2=make<quat2>(qa1*2);
+    mb2=convert_to<mat2>(ma1*2);
+    vb2=convert_to<vec2>(va1*2);
+    qb2=convert_to<quat2>(qa1*2);
     mb1=scalar_cast<float>(ma2*2);
     vb1=scalar_cast<float>(va2*2);
     qb1=scalar_cast<float>(qa2*2);
@@ -375,8 +375,8 @@ main()
     va1=scalar_cast<float>(qa1*va2);
     va1=scalar_cast<float>(qa2*va2);
 
-    va2=make<vec2>(ma1*va1);
-    va2=make<vec2>(qa1*va1);
+    va2=convert_to<vec2>(ma1*va1);
+    va2=convert_to<vec2>(qa1*va1);
     va2=ma2*va1;
     va2=ma1*va2;
     va2=ma2*va2;
@@ -389,7 +389,7 @@ main()
     va1=scalar_cast<float>(va2*ma1);
     va1=scalar_cast<float>(va2*ma2);
 
-    va2=make<vec2>(va1*ma1);
+    va2=convert_to<vec2>(va1*ma1);
     va2=va1*ma2;
     va2=va2*ma1;
     va2=va2*ma2;
