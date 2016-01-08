@@ -17,7 +17,7 @@
 #include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/quat_traits.hpp>
 #include <boost/qvm/scalar_traits.hpp>
-#include <boost/throw_exception.hpp>
+#include <boost/qvm/throw_exception.hpp>
 
 namespace
 boost
@@ -1580,7 +1580,7 @@ boost
             typedef typename mat_traits<A>::scalar_type T;
             T det=determinant(a);
             if( det==scalar_traits<T>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_determinant_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_determinant_error());
             return inverse(a,det);
             }
 

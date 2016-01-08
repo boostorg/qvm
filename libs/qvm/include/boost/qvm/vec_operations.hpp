@@ -739,7 +739,7 @@ boost
                 m+=x*x;
                 }
             if( m==scalar_traits<T>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T rm=scalar_traits<T>::value(1)/sqrt<T>(m);
             typedef typename deduce_vec<A>::type R;
             R r;
@@ -764,7 +764,7 @@ boost
                 m+=x*x;
                 }
             if( m==scalar_traits<T>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T rm=scalar_traits<T>::value(1)/sqrt<T>(m);
             for( int i=0; i!=vec_traits<A>::dim; ++i )
                 vec_traits<A>::write_element_idx(i,a)*=rm;

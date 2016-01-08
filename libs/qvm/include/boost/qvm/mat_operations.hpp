@@ -626,7 +626,7 @@ boost
             typedef typename mat_traits<A>::scalar_type T;
             T det=determinant(a);
             if( det==scalar_traits<T>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_determinant_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_determinant_error());
             return inverse(a,det);
             }
 
@@ -1181,7 +1181,7 @@ boost
                     scalar_type const z=vec_traits<V>::template read_element<2>(axis);
                     scalar_type const m2=x*x+y*y+z*z;
                     if( m2==scalar_traits<scalar_type>::value(0) )
-                        BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                        BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
                     scalar_type const s = sin<Angle>(angle);
                     scalar_type const c = cos<Angle>(angle);
                     scalar_type const x2 = x*x;

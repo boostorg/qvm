@@ -4,7 +4,6 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/mat_index.hpp>
-#include <boost/exception/get_error_info.hpp>
 #include "test_qvm_matrix.hpp"
 
 int
@@ -31,57 +30,5 @@ main()
     BOOST_TEST(&mat_index_write(m,1,0)==&m.a[1][0]);
     BOOST_TEST(&mat_index_write(m,1,1)==&m.a[1][1]);
     BOOST_TEST(&mat_index_write(m,1,2)==&m.a[1][2]);
-    try
-        {
-        (void) mat_index_read(m,-1,0);
-        BOOST_TEST(false);
-        }
-    catch(
-    matrix_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<matrix_row>(e) && *boost::get_error_info<matrix_row>(e)==-1);
-        BOOST_TEST(boost::get_error_info<matrix_col>(e) && *boost::get_error_info<matrix_col>(e)==0);
-        BOOST_TEST(boost::get_error_info<matrix_num_rows>(e) && *boost::get_error_info<matrix_num_rows>(e)==2);
-        BOOST_TEST(boost::get_error_info<matrix_num_cols>(e) && *boost::get_error_info<matrix_num_cols>(e)==3);
-        }
-    try
-        {
-        (void) mat_index_read(m,0,-1);
-        BOOST_TEST(false);
-        }
-    catch(
-    matrix_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<matrix_row>(e) && *boost::get_error_info<matrix_row>(e)==0);
-        BOOST_TEST(boost::get_error_info<matrix_col>(e) && *boost::get_error_info<matrix_col>(e)==-1);
-        BOOST_TEST(boost::get_error_info<matrix_num_rows>(e) && *boost::get_error_info<matrix_num_rows>(e)==2);
-        BOOST_TEST(boost::get_error_info<matrix_num_cols>(e) && *boost::get_error_info<matrix_num_cols>(e)==3);
-        }
-    try
-        {
-        (void) mat_index_write(m,-1,0);
-        BOOST_TEST(false);
-        }
-    catch(
-    matrix_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<matrix_row>(e) && *boost::get_error_info<matrix_row>(e)==-1);
-        BOOST_TEST(boost::get_error_info<matrix_col>(e) && *boost::get_error_info<matrix_col>(e)==0);
-        BOOST_TEST(boost::get_error_info<matrix_num_rows>(e) && *boost::get_error_info<matrix_num_rows>(e)==2);
-        BOOST_TEST(boost::get_error_info<matrix_num_cols>(e) && *boost::get_error_info<matrix_num_cols>(e)==3);
-        }
-    try
-        {
-        (void) mat_index_write(m,0,-1);
-        BOOST_TEST(false);
-        }
-    catch(
-    matrix_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<matrix_row>(e) && *boost::get_error_info<matrix_row>(e)==0);
-        BOOST_TEST(boost::get_error_info<matrix_col>(e) && *boost::get_error_info<matrix_col>(e)==-1);
-        BOOST_TEST(boost::get_error_info<matrix_num_rows>(e) && *boost::get_error_info<matrix_num_rows>(e)==2);
-        BOOST_TEST(boost::get_error_info<matrix_num_cols>(e) && *boost::get_error_info<matrix_num_cols>(e)==3);
-        }
     return boost::report_errors();
     }

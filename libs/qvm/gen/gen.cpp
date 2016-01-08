@@ -27,7 +27,7 @@
 #define TAB5 TAB TAB TAB TAB TAB
 #define INCLUDE_STATIC_ASSERT "boost/qvm/static_assert.hpp"
 #define INCLUDE_MATH "boost/qvm/math.hpp"
-#define INCLUDE_THROW_EXCEPTION "boost/throw_exception.hpp"
+#define INCLUDE_THROW_EXCEPTION "boost/qvm/throw_exception.hpp"
 #define INCLUDE_ERROR "boost/qvm/error.hpp"
 #define INCLUDE_INLINE "boost/qvm/inline.hpp"
 #define INCLUDE_M_TRAITS "boost/qvm/mat_traits.hpp"
@@ -1394,7 +1394,7 @@ namespace
             TAB3"typedef typename mat_traits<A>::scalar_type T;"NL
             TAB3"T det=determinant(a);"NL
             TAB3"if( det==scalar_traits<T>::value(0) )"NL
-            TAB4"BOOST_THROW_EXCEPTION(zero_determinant_error());"NL
+            TAB4"BOOST_QVM_THROW_EXCEPTION(zero_determinant_error());"NL
             TAB3"return inverse(a,det);"NL
             TAB3"}"NL
             ;
@@ -1483,7 +1483,7 @@ namespace
         g<<
             ";"NL
             TAB3"if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )"NL
-            TAB4"BOOST_THROW_EXCEPTION(zero_magnitude_error());"NL
+            TAB4"BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());"NL
             TAB3"T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);"NL
             TAB3"typedef typename deduce_vec<A>::type R;"NL
             TAB3"R r;"NL
@@ -1521,7 +1521,7 @@ namespace
         g<<
             ";"NL
             TAB3"if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )"NL
-            TAB4"BOOST_THROW_EXCEPTION(zero_magnitude_error());"NL
+            TAB4"BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());"NL
             TAB3"T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);"NL
             ;
         for( int i=0; i!=d; ++i )

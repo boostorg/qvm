@@ -14,7 +14,7 @@
 #include <boost/qvm/math.hpp>
 #include <boost/qvm/assert.hpp>
 #include <boost/qvm/error.hpp>
-#include <boost/throw_exception.hpp>
+#include <boost/qvm/throw_exception.hpp>
 #include <string>
 
 namespace
@@ -453,7 +453,7 @@ boost
             TA ad = quat_traits<A>::template read_element<3>(a);
             TA m2 = ab*ab + ac*ac + ad*ad + aa*aa;
             if( m2==scalar_traits<TA>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             TA rm=scalar_traits<TA>::value(1)/m2;
             R r;
             quat_traits<R>::template write_element<0>(r) = aa*rm;
@@ -647,7 +647,7 @@ boost
             T const a3=quat_traits<A>::template read_element<3>(a);
             T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
             if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
             typedef typename deduce_quat<A>::type R;
             R r;
@@ -672,7 +672,7 @@ boost
             T const a3=quat_traits<A>::template read_element<3>(a);
             T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
             if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
             quat_traits<A>::template write_element<0>(a)*=rm;
             quat_traits<A>::template write_element<1>(a)*=rm;
@@ -930,7 +930,7 @@ boost
                     scalar_type const z=vec_traits<V>::template read_element<2>(axis);
                     scalar_type const m2=x*x+y*y+z*z;
                     if( m2==scalar_traits<scalar_type>::value(0) )
-                        BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                        BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
                     scalar_type const rm=scalar_traits<scalar_type>::value(1)/sqrt<scalar_type>(m2);
                     angle/=2;
                     scalar_type const s=sin<Angle>(angle);
@@ -1427,7 +1427,7 @@ boost
                 {
                 T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
                 if( m2==scalar_traits<T>::value(0) )
-                    BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                    BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
                 T const s=sqrt<T>(m2);
                 a0/=s;
                 a1/=s;

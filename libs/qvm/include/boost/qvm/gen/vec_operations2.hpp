@@ -15,8 +15,8 @@
 #include <boost/qvm/inline.hpp>
 #include <boost/qvm/math.hpp>
 #include <boost/qvm/static_assert.hpp>
+#include <boost/qvm/throw_exception.hpp>
 #include <boost/qvm/vec_traits.hpp>
-#include <boost/throw_exception.hpp>
 
 namespace
 boost
@@ -535,7 +535,7 @@ boost
             T const a1=vec_traits<A>::template read_element<1>(a);
             T const m2=a0*a0+a1*a1;
             if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
             typedef typename deduce_vec<A>::type R;
             R r;
@@ -562,7 +562,7 @@ boost
             T const a1=vec_traits<A>::template read_element<1>(a);
             T const m2=a0*a0+a1*a1;
             if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
-                BOOST_THROW_EXCEPTION(zero_magnitude_error());
+                BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
             T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
             vec_traits<A>::template write_element<0>(a)*=rm;
             vec_traits<A>::template write_element<1>(a)*=rm;

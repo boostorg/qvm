@@ -8,6 +8,7 @@
 
 #include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/inline.hpp>
+#include <boost/qvm/assert.hpp>
 #include <boost/qvm/enable_if.hpp>
 #include <boost/qvm/error.hpp>
 #include <boost/exception/info.hpp>
@@ -54,11 +55,12 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type
-                read_element_idx( A const &, int r, int c )
+                read_element_idx( A const & a, int r, int c )
                     {
                     typedef char rows_[mat_traits<A>::rows];
                     typedef char cols_[mat_traits<A>::cols];
-                    BOOST_THROW_EXCEPTION(matrix_index_out_of_bounds_error() << matrix_row(r) << matrix_col(c) << matrix_num_rows(sizeof(rows_)) << matrix_num_cols(sizeof(cols_)));
+                    BOOST_QVM_ASSERT(0);
+                    return mat_traits<A>::template read_element<0,0>(a);
                     }
                 };
             }
@@ -110,11 +112,12 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type &
-                write_element_idx( A const &, int r, int c )
+                write_element_idx( A & a, int r, int c )
                     {
                     typedef char rows_[mat_traits<A>::rows];
                     typedef char cols_[mat_traits<A>::cols];
-                    BOOST_THROW_EXCEPTION(matrix_index_out_of_bounds_error() << matrix_row(r) << matrix_col(c) << matrix_num_rows(sizeof(rows_)) << matrix_num_cols(sizeof(cols_)));
+                    BOOST_QVM_ASSERT(0);
+                    return mat_traits<A>::template write_element<0,0>(a);
                     }
                 };
             }

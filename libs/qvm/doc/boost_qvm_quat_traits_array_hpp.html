@@ -16,13 +16,13 @@
 </div>
 <h1><a href="index.html">Boost QVM</a></h1>
 </div>
-<!-- Copyright (c) 2008-2015 Emil Dotchevski and Reverge Studios, Inc. -->
+<!-- Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>boost/qvm/quat_traits_array.hpp</h3>
 </div>
 <p>This header introduces specializations of the <i><span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span></i>, <i><span class="RenoLink"><a href="deduce_quat.html">deduce_quat</a></span></i> and <i><span class="RenoLink"><a href="deduce_quat2.html">deduce_quat2</a></span></i> templates that make it possible to pass C arrays of size 4 to any Boost QVM function that takes a quaternion.</p>
-<p>For example, to compute the dot product of two float C arrays of size 4 interpreted as quaternions, you could use:</p>
+<p>For example, after <i>#include &lt;<span class="RenoLink">boost/qvm/quat_traits_array.hpp</span>&gt;</i>, to compute the dot product of two float C arrays of size 4 interpreted as quaternions, you could use:</p>
 <pre>float a[4], b[4];
 float dp = <span class="RenoLink"><a href="dot_quat_quat_.html">dot</a></span>(a,b);</pre>
 <p>To use Boost QVM operator overloads, at least one of the arguments must not be of a built-in type; for example you can't multiply a C array quaternion by a scalar by using <i><span class="RenoLink"><a href="operator_mul_eq_quat_scalar_.html">operator*=</a></span></i> directly. Use <i><span class="RenoLink"><a href="qref.html">qref</a></span></i> to work around this issue:</p>
@@ -38,7 +38,7 @@ See also: <span class="RenoPageList"><a href="ptr_qref.html">ptr_qref</a></span>
 <p>
 <a class="logo" href="http://jigsaw.w3.org/css-validator/check/referer"><img class="logo_pic" src="valid-css.png" alt="Valid CSS" height="31" width="88"/></a>
 <a class="logo" href="http://validator.w3.org/check?uri=referer"><img class="logo_pic" src="valid-xhtml.png" alt="Valid XHTML 1.0" height="31" width="88"/></a>
-<small>Copyright (c) 2008-2015 by Emil Dotchevski and Reverge Studios, Inc.<br/>
+<small>Copyright (c) 2008-2016 by Emil Dotchevski and Reverge Studios, Inc.<br/>
 Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</small>
 </p>
 </div>

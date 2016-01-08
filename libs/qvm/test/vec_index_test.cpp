@@ -4,7 +4,6 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/vec_index.hpp>
-#include <boost/exception/get_error_info.hpp>
 #include "test_qvm_vector.hpp"
 
 int
@@ -25,27 +24,5 @@ main()
     BOOST_TEST(&vec_index_write(v,1)==&v.a[1]);
     BOOST_TEST(&vec_index_write(v,2)==&v.a[2]);
     BOOST_TEST(&vec_index_write(v,3)==&v.a[3]);
-    try
-        {
-        (void) vec_index_read(v,-1);
-        BOOST_TEST(false);
-        }
-    catch(
-    vector_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<vector_index>(e) && *boost::get_error_info<vector_index>(e)==-1);
-        BOOST_TEST(boost::get_error_info<vector_size>(e) && *boost::get_error_info<vector_size>(e)==4);
-        }
-    try
-        {
-        (void) vec_index_write(v,-1);
-        BOOST_TEST(false);
-        }
-    catch(
-    vector_index_out_of_bounds_error & e )
-        {
-        BOOST_TEST(boost::get_error_info<vector_index>(e) && *boost::get_error_info<vector_index>(e)==-1);
-        BOOST_TEST(boost::get_error_info<vector_size>(e) && *boost::get_error_info<vector_size>(e)==4);
-        }
     return boost::report_errors();
     }

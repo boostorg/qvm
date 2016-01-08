@@ -34,16 +34,6 @@ boost
 
         struct zero_determinant_error: virtual error { };
         struct zero_magnitude_error: virtual error { };
-
-        struct vector_index_out_of_bounds_error: virtual error { };
-        typedef boost::error_info<struct vector_index_,int> vector_index;
-        typedef boost::error_info<struct vector_size_,int> vector_size;
-
-        struct matrix_index_out_of_bounds_error: virtual error { };
-        typedef boost::error_info<struct matrix_row_,int> matrix_row;
-        typedef boost::error_info<struct matrix_col_,int> matrix_col;
-        typedef boost::error_info<struct matrix_num_rows_,int> matrix_num_rows;
-        typedef boost::error_info<struct matrix_num_cols_,int> matrix_num_cols;
         }
     }
 
