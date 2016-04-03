@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\test\deduce_matrix_test.cpp">
+        <Filter>lib\qvm\libs\qvm\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3DD42F3C-4B92-3D94-086F-2369054B16E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{0D4675C1-31EE-533E-09BA-032D3B8D71F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{071059F3-3926-28A6-34CE-3A8B3C250A98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{42681AAE-172B-447C-7C1C-5EAF020E405D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\test">
+      <UniqueIdentifier>{2F1B3D0E-3F21-45D4-18E9-004B25B56A7C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

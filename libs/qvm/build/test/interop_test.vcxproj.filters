@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\test\interop_test.cpp">
+        <Filter>lib\qvm\libs\qvm\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3DCA3146-7A39-2396-0F8F-756560D13934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{4BC73DCD-33A9-52BA-064A-4146377C26C8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{4CCA0208-23B2-14F8-2F08-05200C313864}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{17471915-1D75-0369-0701-6FCC5EE348AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\test">
+      <UniqueIdentifier>{0BDA0FA9-6F5A-5559-00D2-5FF7700C00B3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

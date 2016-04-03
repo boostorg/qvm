@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\test\swizzle_const_fail.cpp">
+        <Filter>lib\qvm\libs\qvm\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3DAC3767-0630-559C-24F0-6B587365201D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{074B15F2-38DC-512D-7BF8-7B912B4B453D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{1DF87A45-6355-59EE-1DB4-64DF7C5341C9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{15E5144C-3054-4030-27B1-232275626194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\test">
+      <UniqueIdentifier>{22160779-0008-03E9-388C-7EFC4F114357}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

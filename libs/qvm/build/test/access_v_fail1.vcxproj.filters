@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\test\access_v_fail1.cpp">
+        <Filter>lib\qvm\libs\qvm\test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{40927237-66AF-2F01-5F10-05403B447C72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{386E4A56-35B6-783C-2AED-4B810980533F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{01FC4C42-3AAB-55B2-280C-041C7E410DC2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{2AA06253-7F05-517C-44A3-3EF45A6117ED}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\test">
+      <UniqueIdentifier>{62FF1D15-69A0-6D88-576B-625E2B5D07C8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

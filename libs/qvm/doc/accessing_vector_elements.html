@@ -26,27 +26,28 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">template &lt;int I&gt;
-        -unspecified-return-type- <span class="RenoLink">A</span>();
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
         
-        -unspecified-return-type- A0();
-        -unspecified-return-type- A1();
+        template &lt;int I,class V&gt; -unspecified-return-type- <span class="RenoLink">A</span>( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A0( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A1( V &amp; v );
         ...
-        -unspecified-return-type- A9();
+        template &lt;class V&gt; -unspecified-return-type- A9( V &amp; v );
         
-        -unspecified-return-type- X();
-        -unspecified-return-type- Y();
-        -unspecified-return-type- Z();
-        -unspecified-return-type- W();</span></span>
+        template &lt;class V&gt; -unspecified-return-type- X( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Y( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Z( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- W( V &amp; v );</span></span>
     }
 }</pre>
-</div></div><p>An expression of the form of <i>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;I&gt;)</i> can be used to access the <i>I</i>-th element a vector object <i>v</i>. For example, the expression:</p>
-<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;1&gt;) *= 42;</pre>
-<p>can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector <i>v</i> by 2.</p>
+</div></div><p>An expression of the form of <i><span class="RenoLink">A</span>&lt;I&gt;(v)</i> can be used to access the <i>I</i>-th element a vector object <i>v</i>. For example, the expression:</p>
+<pre><span class="RenoLink">A</span>&lt;1&gt;(v) *= 42;</pre>
+<p>can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector <i>v</i> by 42.</p>
 <p>For convenience, there are also non-template overloads for <i>I</i> from 0 to 9; an alternative way to write the above expression is:</p>
-<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span>A1) *= 42;</pre>
+<pre>A1(v) *= 42;</pre>
 <p><i>X</i>, <i>Y</i>, <i>Z</i> and <i>W</i> act the same as <i>A0</i>/<i>A1</i>/<i>A2</i>/<i>A3</i>; yet another alternative way to write the above expression is:</p>
-<pre>(v<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span>Y) *= 42;</pre>
+<pre>Y(v) *= 42;</pre>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
 See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_vec_access_hpp.html">boost/qvm/vec_access.hpp</a>&nbsp;| <a href="known_quirks_and_issues.html">Known Quirks and Issues</a>&nbsp;| <a href="Synopsis.html">Synopsis</a></span>
 </div>

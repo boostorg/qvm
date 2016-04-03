@@ -6,52 +6,21 @@
 #include <boost/qvm/mat_access.hpp>
 #include "test_qvm_matrix.hpp"
 
-template <class T,class U> struct same_type;
-template <class T> struct same_type<T,T> { };
-
-template <class T,class U>
-void
-check_type( U x )
-    {
-    same_type<T,U>();
-    }
+using namespace boost::qvm;
 
 template <int R,int C>
 void
-check_idx( boost::qvm::matrix_access_tag<R,C> (*f)() )
+check_idx( test_qvm::matrix<M1,10,10> & m, float & (*f)( test_qvm::matrix<M1,10,10> & ) )
     {
+    BOOST_TEST((&A<R,C>(m)==&m.a[R][C]));
+    BOOST_TEST((&f(m)==&m.a[R][C]));
     }
 
 int
 main()
     {       
-    using namespace boost::qvm;
-
-    test_qvm::matrix<M1,2,2> m;
-    m.a[0][0]=42.0f;
-    m.a[0][1]=43.0f;
-    m.a[1][0]=44.0f;
-    m.a[1][1]=45.0f;
-    BOOST_TEST_EQ((m,A00),m.a[0][0]);
-    BOOST_TEST_EQ((m,A01),m.a[0][1]);
-    BOOST_TEST_EQ((m,A10),m.a[1][0]);
-    BOOST_TEST_EQ((m,A11),m.a[1][1]);
-    test_qvm::matrix<M1,2,2> m1=m;
-    (m,A00) *= 2;
-    BOOST_TEST_EQ(m.a[0][0],m1.a[0][0]*2);
-    (m,A01) *= 2;
-    BOOST_TEST_EQ(m.a[0][1],m1.a[0][1]*2);
-    (m,A10) *= 2;
-    BOOST_TEST_EQ(m.a[1][0],m1.a[1][0]*2);
-    (m,A11) *= 2;
-    BOOST_TEST_EQ(m.a[1][1],m1.a[1][1]*2);
-
-    check_type<float>((m,A00));
-    check_type<float>((const_cast<test_qvm::matrix<M1,2,2> const &>(m),A00));
-    check_type<float>((m,A00()));
-    check_type<float>((const_cast<test_qvm::matrix<M1,2,2> const &>(m),A00()));
-
-#define CHECK_A(i,j) check_idx<i,j>(A##i##j); check_idx<i,j>(A<i,j>)
+    test_qvm::matrix<M1,10,10> m;
+#define CHECK_A(i,j) check_idx<i,j>(m,A##i##j);
     CHECK_A(0,0);
     CHECK_A(0,1);
     CHECK_A(0,2);
@@ -153,6 +122,5 @@ main()
     CHECK_A(9,8);
     CHECK_A(9,9);
 #undef CHECK_A
-
     return boost::report_errors();
     }

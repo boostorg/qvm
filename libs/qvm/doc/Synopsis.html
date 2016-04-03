@@ -207,92 +207,106 @@
 
 <span class="RenoIncludeSPAN">        //*** Accessing quaternion elements ***
         
-        <span class="RenoIncludeSPAN">-unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">V</a></span>();
-        -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">S</a></span>();</span></span>
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;Q&gt;::value
+        
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">S</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">V</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">X</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">Y</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">Z</a></span>( Q &amp; q );</span></span>
 
 
 
 <span class="RenoIncludeSPAN">        //*** Accessing vector elements ***
         
-        <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">template &lt;int I&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="accessing_vector_elements.html">A</a></span>();
+        <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
         
-        -unspecified-return-type- A0();
-        -unspecified-return-type- A1();
+        template &lt;int I,class V&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_vector_elements.html">A</a></span>( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A0( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A1( V &amp; v );
         ...
-        -unspecified-return-type- A9();
+        template &lt;class V&gt; -unspecified-return-type- A9( V &amp; v );
         
-        -unspecified-return-type- X();
-        -unspecified-return-type- Y();
-        -unspecified-return-type- Z();
-        -unspecified-return-type- W();</span></span></span>
+        template &lt;class V&gt; -unspecified-return-type- X( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Y( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Z( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- W( V &amp; v );</span></span></span>
 
 
 
 <span class="RenoIncludeSPAN">        //*** Accessing vector elements by swizzling ***
         
-        <span class="RenoIncludeSPAN"><span class="RenoIncludeSPAN">struct _x_;
-        struct _y_;
-        struct _z_;
-        struct _w_;
-        struct _0_;
-        struct _1_;
+        <span class="RenoIncludeSPAN">//2D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
+        template &lt;class V&gt; -unspecified-2D-vector-type- XX( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- XY( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- XZ( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- XW( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- X0( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- X1( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- YX( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- YY( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- YZ( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- YW( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- Y0( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- Y1( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- ZX( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- ZY( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- ZZ( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- ZW( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- Z0( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- Z1( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- WX( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- WY( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- WZ( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- WW( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- W0( V &amp; v );
+        template &lt;class V&gt; -unspecified-2D-vector-type- W1( V &amp; v );
+        ...
+        -unspecified-2D-vector-type- _00();
+        -unspecified-2D-vector-type- _01();
+        -unspecified-2D-vector-type- _10();
+        -unspecified-2D-vector-type- _11();
         
-        template &lt;int I1,int I2,...int IN&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="sw.html">sw</a></span>();
+        //3D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
+        template &lt;class V&gt; -unspecified-3D-vector-type- XXX( V &amp; v );
+        ...
+        template &lt;class V&gt; -unspecified-3D-vector-type- XXW( V &amp; v );
+        template &lt;class V&gt; -unspecified-3D-vector-type- XX0( V &amp; v );
+        template &lt;class V&gt; -unspecified-3D-vector-type- XX1( V &amp; v );
+        template &lt;class V&gt; -unspecified-3D-vector-type- XYX( V &amp; v );
+        ...
+        template &lt;class V&gt; -unspecified-3D-vector-type- XY1( V &amp; v );
+        ...
+        template &lt;class V&gt; -unspecified-3D-vector-type- WW1( V &amp; v );
+        ...
+        -unspecified-3D-vector-type- _000();
+        -unspecified-3D-vector-type- _001();
+        -unspecified-3D-vector-type- _010();
+        ...
+        -unspecified-3D-vector-type- _111();
         
-        template &lt;class A1,class A2,...class AN&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="sw.html">sw</a></span>();</span>        
-        
-        //2D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
-        -unspecified-return-type- XX();
-        -unspecified-return-type- XY();
-        -unspecified-return-type- XZ();
-        -unspecified-return-type- XW();
-        -unspecified-return-type- X0();
-        -unspecified-return-type- X1();
-        -unspecified-return-type- YX();
-        -unspecified-return-type- YY();
-        -unspecified-return-type- YZ();
-        -unspecified-return-type- YW();
-        -unspecified-return-type- Y0();
-        -unspecified-return-type- Y1();
-        -unspecified-return-type- ZX();
-        -unspecified-return-type- ZY();
-        -unspecified-return-type- ZZ();
-        -unspecified-return-type- ZW();
-        -unspecified-return-type- Z0();
-        -unspecified-return-type- Z1();
-        -unspecified-return-type- WX();
-        -unspecified-return-type- WY();
-        -unspecified-return-type- WZ();
-        -unspecified-return-type- WW();
-        -unspecified-return-type- W0();
-        -unspecified-return-type- W1();
-        
-        //3D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
-        -unspecified-return-type- XXX();
+        //4D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXXX( V &amp; v );
         ...
-        -unspecified-return-type- XXW();
-        -unspecified-return-type- XX0();
-        -unspecified-return-type- XX1();
-        -unspecified-return-type- XYX();
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXXW( V &amp; v );
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXX0( V &amp; v );
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXX1( V &amp; v );
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXYX( V &amp; v );
         ...
-        -unspecified-return-type- XY1();
+        template &lt;class V&gt; -unspecified-4D-vector-type- XXY1( V &amp; v );
         ...
-        -unspecified-return-type- WW1();
-        
-        //4D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>:
-        -unspecified-return-type- XXXX();
+        template &lt;class V&gt; -unspecified-4D-vector-type- WWW1( V &amp; v );
         ...
-        -unspecified-return-type- XXXW();
-        -unspecified-return-type- XXX0();
-        -unspecified-return-type- XXX1();
-        -unspecified-return-type- XXYX();
+        -unspecified-4D-vector-type- _0000();
+        -unspecified-4D-vector-type- _0001();
+        -unspecified-4D-vector-type- _0010();
         ...
-        -unspecified-return-type- XXY1();
-        ...
-        -unspecified-return-type- WWW1();</span></span>
+        -unspecified-4D-vector-type- _1111();</span>         </span>
 
 
 
@@ -314,17 +328,18 @@
 
 <span class="RenoIncludeSPAN">        //*** Accessing matrix elements ***
         
-        <span class="RenoIncludeSPAN">template &lt;int R,int C&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="accessing_matrix_elements.html">A</a></span>();
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;Q&gt;::value
         
-        -unspecified-return-type- A00();
-        -unspecified-return-type- A01();
+        template &lt;int R,int C,class M&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_matrix_elements.html">A</a></span>( M &amp; m );
+        
+        template &lt;class M&gt; -unspecified-return-type- A00( M &amp; m );
+        template &lt;class M&gt; -unspecified-return-type- A01( M &amp; m );
         ...
-        -unspecified-return-type- A09();
-        -unspecified-return-type- A10();
+        template &lt;class M&gt; -unspecified-return-type- A09( M &amp; m );
+        template &lt;class M&gt; -unspecified-return-type- A10( M &amp; m );
         ...
-        ...
-        -unspecified-return-type- A99();</span></span>
+        template &lt;class M&gt; -unspecified-return-type- A99( M &amp; m );</span>         </span>
 
 
 

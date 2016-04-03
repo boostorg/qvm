@@ -31,6 +31,6 @@ main()
     {
     using namespace boost::qvm;
     my_mat<1,1> m;
-    (m,A11);
+    A11(m);
     return 1;
     }

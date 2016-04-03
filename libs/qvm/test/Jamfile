@@ -12,24 +12,17 @@ headers-compile-test ( headers * : requirements * : target-tag ? )
     local test-names = ;
     for local header in $(headers)
         {
-        local native-path = [ path.native $(header) ] ;
         local target = hdr$(target-tag)-$(header:D=) ;
-        compile header-test.cpp : $(requirements) <define>REVERGE_HEADER=\\\"$(native-path)\\\" <dependency>$(header) : $(target) ;
+        compile header-test.cpp : $(requirements) <define>REVERGE_HEADER=\"\<boost/qvm/$(header:B).hpp\>\" <dependency>$(header) : $(target) ;
         test-names += $(target) ;
         }
     alias hdrtest$(target-tag) : $(test-names) ;
     }
 
-headers-compile-test [ glob ../../../boost/qvm/*.hpp ]
+headers-compile-test [ glob ../include/boost/qvm/*.hpp ]
     : # requirements
     : # target-tag
         qvm
-    ;
-
-headers-compile-test [ glob ../../../boost/qvm/custom/*.hpp ]
-    : # requirements
-    : # target-tag
-        custom
     ;
 
 run mat_traits_array_test.cpp ;
@@ -39,8 +32,6 @@ run quat_traits_array_test.cpp ;
 run access_m_test.cpp ;
 compile-fail access_m_fail1.cpp ;
 compile-fail access_m_fail2.cpp ;
-compile-fail access_m_fail3.cpp ;
-compile-fail access_m_fail4.cpp ;
 
 run access_q_test.cpp ;
 compile-fail access_q_fail.cpp ;
@@ -48,8 +39,6 @@ compile-fail access_q_fail.cpp ;
 run access_v_test.cpp ;
 compile-fail access_v_fail1.cpp ;
 compile-fail access_v_fail2.cpp ;
-compile-fail access_v_fail3.cpp ;
-compile-fail access_v_fail4.cpp ;
 
 run assign_test.cpp ;
 
@@ -151,6 +140,7 @@ run transpose_test.cpp ;
 run translation_test.cpp ;
 run translation_mat_test.cpp ;
 
+compile-fail swizzle_const_fail.cpp ;
 compile-fail swizzle2_fail2.cpp ;
 compile-fail swizzle2_fail3.cpp ;
 compile-fail swizzle2_fail4.cpp ;

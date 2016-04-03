@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\doc\source\tutorial.cpp">
+        <Filter>lib\qvm\libs\qvm\doc\source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3DA6636E-7A9F-199E-545B-4CAB5B1436FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{064C45FA-3A04-50D5-4F02-7A4C7DEB3DC9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{4C746A52-5508-2225-4485-6BEE07060AFC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{23CF3DE7-09DB-3F79-599F-03E05DF13C73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\doc">
+      <UniqueIdentifier>{35403E8B-7583-0E42-287D-141A2B4B7CD1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\doc\source">
+      <UniqueIdentifier>{13617CF6-0C5A-3DF5-7D41-28B4794721FD}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

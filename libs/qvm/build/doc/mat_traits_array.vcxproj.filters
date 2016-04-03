@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\doc\source\mat_traits_array.cpp">
+        <Filter>lib\qvm\libs\qvm\doc\source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="lib">
+      <UniqueIdentifier>{3D993B7C-637F-21A0-3331-0F502A7264B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm">
+      <UniqueIdentifier>{044D260A-3C54-5025-7517-77C3232A2EE0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs">
+      <UniqueIdentifier>{296C4A6D-386D-3292-1227-7A0A1C6A1D61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm">
+      <UniqueIdentifier>{3FA3111C-3CE9-3E0A-3D7B-455C2F0D7230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\doc">
+      <UniqueIdentifier>{5B942CAE-607B-22F4-085E-3E5563BE6FC5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib\qvm\libs\qvm\doc\source">
+      <UniqueIdentifier>{20567463-5BEB-7B79-56D0-21744B800F9D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

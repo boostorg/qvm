@@ -30,6 +30,6 @@ main()
     {
     using namespace boost::qvm;
     my_quat const q=my_quat();
-    q,V,A<3>();
+    A<3>(V(q));
     return 1;
     }

@@ -28,8 +28,14 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">-unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">V</a></span>();
-        -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">S</a></span>();</span></span>
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;Q&gt;::value
+        
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">S</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">V</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">X</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">Y</a></span>( Q &amp; q );
+        template &lt;class Q&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_quaternion_elements.html">Z</a></span>( Q &amp; q );</span></span>
     }
 }</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>

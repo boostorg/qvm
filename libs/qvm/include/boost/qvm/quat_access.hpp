@@ -8,6 +8,7 @@
 
 #include <boost/qvm/inline.hpp>
 #include <boost/qvm/quat_traits.hpp>
+#include <boost/qvm/deduce_vec.hpp>
 #include <boost/qvm/static_assert.hpp>
 #include <boost/qvm/enable_if.hpp>
 
@@ -19,21 +20,9 @@ boost
         {
         ////////////////////////////////////////////////
 
-        template <class Tag>
-        struct
-        quaternion_access_tag
-            {
-            };
-
-        template <int I>
-        struct vector_access_tag;
-
         namespace
         qvm_detail
             {
-            struct _s_;
-            struct _v_;
-            
             template <class Q>
             struct
             quat_v_
@@ -61,14 +50,15 @@ boost
         struct
         vec_traits< qvm_detail::quat_v_<Q> >
             {
-            static int const dim=3;
+            typedef qvm_detail::quat_v_<Q> this_vector;
             typedef typename quat_traits<Q>::scalar_type scalar_type;
+            static int const dim=3;
 
             template <int I>
             BOOST_QVM_INLINE_CRITICAL
             static
             scalar_type
-            read_element( qvm_detail::quat_v_<Q> const & q )
+            read_element( this_vector const & q )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -79,7 +69,7 @@ boost
             BOOST_QVM_INLINE_CRITICAL
             static
             scalar_type &
-            write_element( qvm_detail::quat_v_<Q> & q )
+            write_element( this_vector & q )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);
@@ -87,12 +77,26 @@ boost
                 }
             };
 
+        template <class Q,int D>
+        struct
+        deduce_vec<qvm_detail::quat_v_<Q>,D>
+            {
+            typedef vec<typename quat_traits<Q>::scalar_type,D> type;
+            };
+
+        template <class Q,int D>
+        struct
+        deduce_vec2<qvm_detail::quat_v_<Q>,qvm_detail::quat_v_<Q>,D>
+            {
+            typedef vec<typename quat_traits<Q>::scalar_type,D> type;
+            };
+
         template <class Q>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_quat<Q>::value,
             qvm_detail::quat_v_<Q> const &>::type
-        operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
+        V( Q const & a )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> const &>(a);
             }
@@ -102,129 +106,20 @@ boost
         typename enable_if_c<
             is_quat<Q>::value,
             qvm_detail::quat_v_<Q> &>::type
-        operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> (*)() )
+        V( Q & a )
             {
             return reinterpret_cast<qvm_detail::quat_v_<Q> &>(a);
             }
 
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            qvm_detail::quat_v_<Q> const &>::type
-        operator,( Q const & a, quaternion_access_tag<qvm_detail::_v_> )
-            {
-            return reinterpret_cast<qvm_detail::quat_v_<Q> const &>(a);
-            }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type S( Q const & a ) { return quat_traits<Q>::template read_element<0>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type X( Q const & a ) { return quat_traits<Q>::template read_element<1>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Y( Q const & a ) { return quat_traits<Q>::template read_element<2>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Z( Q const & a ) { return quat_traits<Q>::template read_element<3>(a); }
 
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            qvm_detail::quat_v_<Q> &>::type
-        operator,( Q & a, quaternion_access_tag<qvm_detail::_v_> )
-            {
-            return reinterpret_cast<qvm_detail::quat_v_<Q> &>(a);
-            }
-
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type>::type
-        operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
-            {
-            return quat_traits<Q>::template read_element<0>(a);
-            }
-
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type &>::type
-        operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> (*)() )
-            {
-            return quat_traits<Q>::template write_element<0>(a);
-            }
-
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type>::type
-        operator,( Q const & a, quaternion_access_tag<qvm_detail::_s_> )
-            {
-            return quat_traits<Q>::template read_element<0>(a);
-            }
-
-        template <class Q>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type &>::type
-        operator,( Q & a, quaternion_access_tag<qvm_detail::_s_> )
-            {
-            return quat_traits<Q>::template write_element<0>(a);
-            }
-
-        template <class Q,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type>::type
-        operator,( Q const & a, vector_access_tag<I> (*)() )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template read_element<I+1>(a);
-            }
-
-        template <class Q,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type &>::type
-        operator,( Q & a, vector_access_tag<I> (*)() )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template write_element<I+1>(a);
-            }
-
-        template <class Q,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type>::type
-        operator,( Q const & a, vector_access_tag<I> )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template read_element<I+1>(a);
-            }
-
-        template <class Q,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_quat<Q>::value,
-            typename quat_traits<Q>::scalar_type &>::type
-        operator,( Q & a, vector_access_tag<I> )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<3);
-            return quat_traits<Q>::template write_element<I+1>(a);
-            }
-
-        BOOST_QVM_INLINE_TRIVIAL quaternion_access_tag<qvm_detail::_v_> V() { return quaternion_access_tag<qvm_detail::_v_>(); }
-        BOOST_QVM_INLINE_TRIVIAL quaternion_access_tag<qvm_detail::_s_> S() { return quaternion_access_tag<qvm_detail::_s_>(); }
-
-        ////////////////////////////////////////////////
-
-        namespace
-        sfinae
-            {
-            using ::boost::qvm::operator,;
-            }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type S( Q & a ) { return quat_traits<Q>::template write_element<0>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type X( Q & a ) { return quat_traits<Q>::template write_element<1>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Y( Q & a ) { return quat_traits<Q>::template write_element<2>(a); }
+        template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Z( Q & a ) { return quat_traits<Q>::template write_element<3>(a); }
 
         ////////////////////////////////////////////////
         }

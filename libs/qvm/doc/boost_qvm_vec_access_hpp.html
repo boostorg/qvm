@@ -28,18 +28,19 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">template &lt;int I&gt;
-        -unspecified-return-type- <span class="RenoLink"><a href="accessing_vector_elements.html">A</a></span>();
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;V&gt;::value
         
-        -unspecified-return-type- A0();
-        -unspecified-return-type- A1();
+        template &lt;int I,class V&gt; -unspecified-return-type- <span class="RenoLink"><a href="accessing_vector_elements.html">A</a></span>( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A0( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- A1( V &amp; v );
         ...
-        -unspecified-return-type- A9();
+        template &lt;class V&gt; -unspecified-return-type- A9( V &amp; v );
         
-        -unspecified-return-type- X();
-        -unspecified-return-type- Y();
-        -unspecified-return-type- Z();
-        -unspecified-return-type- W();</span></span>
+        template &lt;class V&gt; -unspecified-return-type- X( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Y( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- Z( V &amp; v );
+        template &lt;class V&gt; -unspecified-return-type- W( V &amp; v );</span></span>
     }
 }</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>

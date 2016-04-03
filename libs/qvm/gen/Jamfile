@@ -5,4 +5,4 @@
 
 import testing ;
 
-run gen.cpp : -od ../../../boost/qvm/gen ;
+run gen.cpp : -od ../include/boost/qvm/gen ;

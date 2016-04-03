@@ -18,389 +18,3797 @@ boost
     qvm
         {
         BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        WW1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        ZW1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        YW1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        XW1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        WZ1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        ZZ1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        YZ1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        XZ1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        WY1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        ZY1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        YY1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        XY1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        WX1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        ZX1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        YX1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >
-        XX1() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_1_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        WW0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        ZW0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        YW0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        XW0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        WZ0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        ZZ0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        YZ0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        XZ0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        WY0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        ZY0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        YY0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        XY0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        WX0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        ZX0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        YX0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >
-        XX0() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_0_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        WWW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        ZWW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        YWW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        XWW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        WZW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        ZZW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        YZW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        XZW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        WYW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        ZYW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        YYW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        XYW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        WXW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        ZXW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        YXW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >
-        XXW() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        WWZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        ZWZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        YWZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        XWZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        WZZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        ZZZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        YZZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        XZZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        WYZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        ZYZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        YYZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        XYZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        WXZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        ZXZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        YXZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >
-        XXZ() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        WWY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        ZWY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        YWY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        XWY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        WZY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        ZZY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        YZY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        XZY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        WYY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        ZYY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        YYY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        XYY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        WXY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        ZXY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        YXY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >
-        XXY() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        WWX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        ZWX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        YWX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        XWX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        WZX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        ZZX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        YZX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        XZX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        WYX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        ZYX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        YYX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        XYX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        WXX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_w_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        ZXX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_z_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        YXX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_y_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
-        BOOST_QVM_INLINE_TRIVIAL
-        qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >
-        XXX() { return qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value,qvm_detail::swizzle_idx<qvm_detail::swizzle_tag<_x_>::value > > >(); }
-
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &
+        _111()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const *>(qvm_detail::get_null());
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &
+        _011()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const *>(qvm_detail::get_null());
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        W11( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        W11( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        Z11( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        Z11( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        Y11( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        Y11( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        X11( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        X11( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &
+        _101()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const *>(qvm_detail::get_null());
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &
+        _001()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const *>(qvm_detail::get_null());
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        W01( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        W01( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        Z01( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        Z01( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        Y01( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        Y01( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        X01( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        X01( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _1W1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _1W1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _0W1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _0W1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        WW1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        WW1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        ZW1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        ZW1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        YW1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        YW1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        XW1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        XW1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _1Z1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _1Z1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _0Z1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _0Z1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        WZ1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        WZ1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        ZZ1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        ZZ1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        YZ1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        YZ1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        XZ1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        XZ1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _1Y1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _1Y1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _0Y1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _0Y1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        WY1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        WY1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        ZY1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        ZY1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        YY1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        YY1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        XY1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        XY1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _1X1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _1X1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        _0X1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        _0X1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        WX1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        WX1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        ZX1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        ZX1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        YX1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        YX1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>::type
+        XX1( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>::type
+        XX1( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > &>(a);
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &
+        _110()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const *>(qvm_detail::get_null());
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &
+        _010()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const *>(qvm_detail::get_null());
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        W10( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        W10( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        Z10( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        Z10( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        Y10( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        Y10( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        X10( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        X10( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &
+        _100()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const *>(qvm_detail::get_null());
+            }
+        BOOST_QVM_INLINE_TRIVIAL
+        qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &
+        _000()
+            {
+            return *reinterpret_cast<qvm_detail::sw01_<qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const *>(qvm_detail::get_null());
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        W00( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        W00( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        Z00( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        Z00( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        Y00( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        Y00( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        X00( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        X00( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _1W0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _1W0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _0W0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _0W0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        WW0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        WW0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        ZW0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        ZW0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        YW0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        YW0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        XW0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        XW0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _1Z0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _1Z0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _0Z0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _0Z0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        WZ0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        WZ0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        ZZ0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        ZZ0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        YZ0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        YZ0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        XZ0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        XZ0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _1Y0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _1Y0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _0Y0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _0Y0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        WY0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        WY0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        ZY0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        ZY0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        YY0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        YY0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        XY0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        XY0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _1X0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _1X0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        _0X0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        _0X0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        WX0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        WX0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        ZX0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        ZX0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        YX0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        YX0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>::type
+        XX0( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>::type
+        XX0( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _11W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _11W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _01W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _01W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        W1W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        W1W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        Z1W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        Z1W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        Y1W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        Y1W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        X1W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        X1W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _10W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _10W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _00W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _00W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        W0W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        W0W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        Z0W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        Z0W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        Y0W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        Y0W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        X0W( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        X0W( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _1WW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _1WW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _0WW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _0WW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        WWW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        WWW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        ZWW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        ZWW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        YWW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        YWW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        XWW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>::type
+        XWW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _1ZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _1ZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _0ZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _0ZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        WZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        WZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        ZZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        ZZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        YZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        YZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        XZW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>::type
+        XZW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _1YW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _1YW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _0YW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _0YW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        WYW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        WYW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        ZYW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        ZYW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        YYW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        YYW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        XYW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>::type
+        XYW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _1XW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _1XW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        _0XW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        _0XW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        WXW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        WXW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        ZXW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        ZXW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        YXW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        YXW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>::type
+        XXW( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>::type
+        XXW( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _11Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _11Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _01Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _01Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        W1Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        W1Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        Z1Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        Z1Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        Y1Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        Y1Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        X1Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        X1Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _10Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _10Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _00Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _00Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        W0Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        W0Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        Z0Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        Z0Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        Y0Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        Y0Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        X0Z( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        X0Z( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _1WZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _1WZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _0WZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _0WZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        WWZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        WWZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        ZWZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        ZWZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        YWZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        YWZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        XWZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>::type
+        XWZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _1ZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _1ZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _0ZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _0ZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        WZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        WZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        ZZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        ZZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        YZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        YZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        XZZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>::type
+        XZZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _1YZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _1YZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _0YZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _0YZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        WYZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        WYZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        ZYZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        ZYZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        YYZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        YYZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        XYZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>::type
+        XYZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _1XZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _1XZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        _0XZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        _0XZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        WXZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        WXZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        ZXZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        ZXZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        YXZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        YXZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>::type
+        XXZ( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>::type
+        XXZ( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _11Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _11Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _01Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _01Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        W1Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        W1Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        Z1Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        Z1Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        Y1Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        Y1Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        X1Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        X1Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _10Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _10Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _00Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _00Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        W0Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        W0Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        Z0Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        Z0Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        Y0Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        Y0Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        X0Y( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        X0Y( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _1WY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _1WY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _0WY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _0WY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        WWY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        WWY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        ZWY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        ZWY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        YWY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        YWY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        XWY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>::type
+        XWY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _1ZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _1ZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _0ZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _0ZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        WZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        WZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        ZZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        ZZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        YZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        YZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        XZY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>::type
+        XZY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _1YY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _1YY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _0YY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _0YY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        WYY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        WYY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        ZYY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        ZYY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        YYY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        YYY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        XYY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>::type
+        XYY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _1XY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _1XY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        _0XY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        _0XY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        WXY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        WXY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        ZXY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        ZXY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        YXY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        YXY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>::type
+        XXY( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>::type
+        XXY( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _11X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _11X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _01X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _01X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        W1X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        W1X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        Z1X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        Z1X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        Y1X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        Y1X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        X1X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        X1X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _10X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _10X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _00X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _00X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        W0X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        W0X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        Z0X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        Z0X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        Y0X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        Y0X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        X0X( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        X0X( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _1WX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _1WX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _0WX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _0WX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        WWX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        WWX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        ZWX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        ZWX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        YWX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        YWX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        XWX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>::type
+        XWX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _1ZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _1ZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _0ZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _0ZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        WZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        WZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        ZZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        ZZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        YZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        YZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        XZX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>::type
+        XZX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _1YX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _1YX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _0YX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _0YX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        WYX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        WYX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        ZYX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        ZYX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        YYX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        YYX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        XYX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>::type
+        XYX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _1XX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _1XX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        _0XX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        _0XX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        WXX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        WXX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        ZXX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        ZXX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        YXX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        YXX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>::type
+        XXX( V const & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > const &>(a);
+            }
+        template <class V>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_vec<V>::value,
+            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>::type
+        XXX( V & a )
+            {
+            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > &>(a);
+            }
         }
     }
 

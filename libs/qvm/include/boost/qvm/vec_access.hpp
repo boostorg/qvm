@@ -19,91 +19,61 @@ boost
         {
         ////////////////////////////////////////////////
 
-        template <int I>
-        struct
-        vector_access_tag
-            {
-            };
-
-        template <class V,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value,
-            typename vec_traits<V>::scalar_type &>::type
-        operator,( V & a, vector_access_tag<I> (*)() )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template write_element<I>(a);
-            }
-
-        template <class V,int I>
+        template <int I,class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value,
             typename vec_traits<V>::scalar_type>::type
-        operator,( V const & a, vector_access_tag<I> (*)() )
+        A( V const & a )
             {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
+            BOOST_STATIC_ASSERT(I>=0);
+            BOOST_STATIC_ASSERT(I<vec_traits<V>::dim);
             return vec_traits<V>::template read_element<I>(a);
             }
 
-        template <class V,int I>
+        template <int I,class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value,
             typename vec_traits<V>::scalar_type &>::type
-        operator,( V & a, vector_access_tag<I> )
+        A( V & a )
             {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
+            BOOST_STATIC_ASSERT(I>=0);
+            BOOST_STATIC_ASSERT(I<vec_traits<V>::dim);
             return vec_traits<V>::template write_element<I>(a);
             }
 
-        template <class V,int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value,
-            typename vec_traits<V>::scalar_type>::type
-        operator,( V const & a, vector_access_tag<I> )
-            {
-            BOOST_QVM_STATIC_ASSERT(I>=0);
-            BOOST_QVM_STATIC_ASSERT(I<vec_traits<V>::dim);
-            return vec_traits<V>::template read_element<I>(a);
-            }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type X( V const & a ) { BOOST_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Y( V const & a ) { BOOST_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Z( V const & a ) { BOOST_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type W( V const & a ) { BOOST_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
 
-        template <int I>
-        BOOST_QVM_INLINE_TRIVIAL
-        vector_access_tag<I>
-        A()
-            {
-            return vector_access_tag<I>();
-            }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type X( V & a ) { BOOST_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Y( V & a ) { BOOST_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Z( V & a ) { BOOST_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type W( V & a ) { BOOST_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
 
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<0> X() { return vector_access_tag<0>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<1> Y() { return vector_access_tag<1>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<2> Z() { return vector_access_tag<2>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<3> W() { return vector_access_tag<3>(); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A0( V const & a ) { BOOST_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A1( V const & a ) { BOOST_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A2( V const & a ) { BOOST_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A3( V const & a ) { BOOST_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A4( V const & a ) { BOOST_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template read_element<4>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A5( V const & a ) { BOOST_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template read_element<5>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A6( V const & a ) { BOOST_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template read_element<6>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A7( V const & a ) { BOOST_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template read_element<7>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A8( V const & a ) { BOOST_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template read_element<8>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A9( V const & a ) { BOOST_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template read_element<9>(a); }
 
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<0> A0() { return vector_access_tag<0>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<1> A1() { return vector_access_tag<1>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<2> A2() { return vector_access_tag<2>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<3> A3() { return vector_access_tag<3>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<4> A4() { return vector_access_tag<4>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<5> A5() { return vector_access_tag<5>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<6> A6() { return vector_access_tag<6>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<7> A7() { return vector_access_tag<7>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<8> A8() { return vector_access_tag<8>(); }
-        BOOST_QVM_INLINE_TRIVIAL vector_access_tag<9> A9() { return vector_access_tag<9>(); }
-
-        ////////////////////////////////////////////////
-
-        namespace
-        sfinae
-            {
-            using ::boost::qvm::operator,;
-            }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A0( V & a ) {  BOOST_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A1( V & a ) {  BOOST_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A2( V & a ) {  BOOST_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A3( V & a ) {  BOOST_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A4( V & a ) {  BOOST_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template write_element<4>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A5( V & a ) {  BOOST_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template write_element<5>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A6( V & a ) {  BOOST_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template write_element<6>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A7( V & a ) {  BOOST_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template write_element<7>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A8( V & a ) {  BOOST_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template write_element<8>(a); }
+        template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A9( V & a ) {  BOOST_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template write_element<9>(a); }
 
         ////////////////////////////////////////////////
         }

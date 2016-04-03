@@ -26,24 +26,25 @@
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">template &lt;int R,int C&gt;
-        -unspecified-return-type- <span class="RenoLink">A</span>();
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_quat.html">is_quat</a></span>&lt;Q&gt;::value
         
-        -unspecified-return-type- A00();
-        -unspecified-return-type- A01();
+        template &lt;int R,int C,class M&gt; -unspecified-return-type- <span class="RenoLink">A</span>( M &amp; m );
+        
+        template &lt;class M&gt; -unspecified-return-type- A00( M &amp; m );
+        template &lt;class M&gt; -unspecified-return-type- A01( M &amp; m );
         ...
-        -unspecified-return-type- A09();
-        -unspecified-return-type- A10();
+        template &lt;class M&gt; -unspecified-return-type- A09( M &amp; m );
+        template &lt;class M&gt; -unspecified-return-type- A10( M &amp; m );
         ...
-        ...
-        -unspecified-return-type- A99();</span></span>
+        template &lt;class M&gt; -unspecified-return-type- A99( M &amp; m );</span></span>
     }
 }</pre>
-</div></div><p>An expression of the form <i>(m<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;R,C&gt;)</i> can be used to access the element at row <i>R</i> and column <i>C</i> of a matrix object <i>m</i>. For example, the expression:</p>
-<pre>(m<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span><span class="RenoLink">A</span>&lt;4,2&gt;) *= 42;</pre>
-<p>can be used to multiply the element at row 4 and column 2 of a matrix <i>m</i> by 2.</p>
+</div></div><p>An expression of the form <i><span class="RenoLink">A</span>&lt;R,C&gt;(m)</i> can be used to access the element at row <i>R</i> and column <i>C</i> of a matrix object <i>m</i>. For example, the expression:</p>
+<pre><span class="RenoLink">A</span>&lt;4,2&gt;(m) *= 42;</pre>
+<p>can be used to multiply the element at row 4 and column 2 of a matrix <i>m</i> by 42.</p>
 <p>For convenience, there are also non-template overloads for <i>R</i> from 0 to 9 and <i>C</i> from 0 to 9; an alternative way to write the above expression is:</p>
-<pre>(m<span class="RenoLink"><a href="operator_comma_rationale.html">,</a></span>A42) *= 42;</pre>
+<pre>A42(m) *= 42;</pre>
 </div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
 See also: <span class="RenoPageList"><a href="index.html">Boost QVM</a>&nbsp;| <a href="boost_qvm_mat_access_hpp.html">boost/qvm/mat_access.hpp</a>&nbsp;| <a href="known_quirks_and_issues.html">Known Quirks and Issues</a>&nbsp;| <a href="Synopsis.html">Synopsis</a></span>
 </div>

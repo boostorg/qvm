@@ -19,37 +19,21 @@ main()
     q.a[3]=45.0f;
     test_qvm::quaternion<Q1> const & qq=q;
 
-    BOOST_TEST_EQ((qq,V,X),q.a[1]);
-    BOOST_TEST_EQ((qq,V,Y),q.a[2]);
-    BOOST_TEST_EQ((qq,V,Z),q.a[3]);
-    BOOST_TEST(&(q,V,X)==&q.a[1]);
-    BOOST_TEST(&(q,V,Y)==&q.a[2]);
-    BOOST_TEST(&(q,V,Z)==&q.a[3]);
+    BOOST_TEST_EQ(X(V(qq)),q.a[1]);
+    BOOST_TEST_EQ(Y(V(qq)),q.a[2]);
+    BOOST_TEST_EQ(Z(V(qq)),q.a[3]);
+    BOOST_TEST(&X(V(q))==&q.a[1]);
+    BOOST_TEST(&Y(V(q))==&q.a[2]);
+    BOOST_TEST(&Z(V(q))==&q.a[3]);
 
-    BOOST_TEST_EQ((qq,V(),X),q.a[1]);
-    BOOST_TEST_EQ((qq,V(),Y),q.a[2]);
-    BOOST_TEST_EQ((qq,V(),Z),q.a[3]);
-    BOOST_TEST(&(q,V(),X)==&q.a[1]);
-    BOOST_TEST(&(q,V(),Y)==&q.a[2]);
-    BOOST_TEST(&(q,V(),Z)==&q.a[3]);
-
-    BOOST_TEST_EQ((qq,S),q.a[0]);
-    BOOST_TEST_EQ((qq,X),q.a[1]);
-    BOOST_TEST_EQ((qq,Y),q.a[2]);
-    BOOST_TEST_EQ((qq,Z),q.a[3]);
-    BOOST_TEST(&(q,S)==&q.a[0]);
-    BOOST_TEST(&(q,X)==&q.a[1]);
-    BOOST_TEST(&(q,Y)==&q.a[2]);
-    BOOST_TEST(&(q,Z)==&q.a[3]);
-
-    BOOST_TEST_EQ((qq,S()),q.a[0]);
-    BOOST_TEST_EQ((qq,X()),q.a[1]);
-    BOOST_TEST_EQ((qq,Y()),q.a[2]);
-    BOOST_TEST_EQ((qq,Z()),q.a[3]);
-    BOOST_TEST(&(q,S())==&q.a[0]);
-    BOOST_TEST(&(q,X())==&q.a[1]);
-    BOOST_TEST(&(q,Y())==&q.a[2]);
-    BOOST_TEST(&(q,Z())==&q.a[3]);
+    BOOST_TEST_EQ(S(qq),q.a[0]);
+    BOOST_TEST_EQ(X(qq),q.a[1]);
+    BOOST_TEST_EQ(Y(qq),q.a[2]);
+    BOOST_TEST_EQ(Z(qq),q.a[3]);
+    BOOST_TEST(&S(q)==&q.a[0]);
+    BOOST_TEST(&X(q)==&q.a[1]);
+    BOOST_TEST(&Y(q)==&q.a[2]);
+    BOOST_TEST(&Z(q)==&q.a[3]);
 
     return boost::report_errors();
     }
