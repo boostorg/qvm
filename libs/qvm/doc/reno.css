@@ -33,7 +33,7 @@ h1
 	padding-top: 5pt;
 	padding-bottom: 5pt;
 	margin-top: 0;
-	margin-bottom: 10pt;
+	margin-bottom: 0;
 }
 
 h2
@@ -183,10 +183,9 @@ blockquote
 	margin: 0;
 }
 
-#reverge_logo
+#boost_logo
 {
 	float:right;
-	margin-top:10pt;
 }
 
 #footer
