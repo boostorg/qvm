@@ -11,9 +11,6 @@
 <div class="body-1">
 <div class="body-2">
 <div>
-<div id="boost_logo">
-<a href="http://www.boost.org"><img style="border:0" src="../../../boost.png" alt="Boost" width="277" height="86"/></a>
-</div>
 <h1>QVM: Quaternions, Vectors, Matrices</h1>
 </div>
 <!-- Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc. -->
@@ -22,7 +19,7 @@
 <div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>View Proxies</h3>
 </div>
 <p>Boost QVM defines various function templates which take a reference to a quaternion/vector/matrix object and return it by reference as a different unspecified static type with quaternion/vector/matrix semantics for which the <i><span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>/<span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>/<span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span></i> template is specialized.</p>
-<p>For example, given a vector <i>v</i>, the expression <i><span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v)</i> returns a <span class="RenoLink">view proxy</span> that makes <i>v</i>"look and feel" like a matrix-column. More complex views are created by simple composition, for example <i><span class="RenoLink"><a href="transposed.html">transposed</a></span>(<span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v))</i> is equivalent to <i><span class="RenoLink"><a href="row_mat.html">row_mat</a></span>(v)</i>.</p>
+<p>For example, given a vector <i>v</i>, the expression <i><span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v)</i> returns a <span class="RenoLink">view proxy</span> that makes <i>v</i> "look and feel" like a matrix-column. More complex views are created by simple composition, for example <i><span class="RenoLink"><a href="transposed.html">transposed</a></span>(<span class="RenoLink"><a href="col_mat.html">col_mat</a></span>(v))</i> is equivalent to <i><span class="RenoLink"><a href="row_mat.html">row_mat</a></span>(v)</i>.</p>
 <p>Below is a list of all <span class="RenoLink">view proxies</span> supported by Boost QVM:</p>
 <div class="RenoPageList"><a href="accessing_matrix_elements.html">Accessing Matrix Elements</a><br/>
 <a href="accessing_quaternion_elements.html">Accessing Quaternion Elements</a><br/>
