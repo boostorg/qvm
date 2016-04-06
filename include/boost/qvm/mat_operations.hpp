@@ -589,52 +589,6 @@ boost
         namespace
         qvm_detail
             {
-            template <int D>
-            struct
-            inverse_m_defined
-                {
-                static bool const value=false;
-                };
-            }
-
-        template <class A,class B>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename lazy_enable_if_c<
-            is_mat<A>::value && is_scalar<B>::value &&
-            mat_traits<A>::rows==mat_traits<A>::cols &&
-            !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
-            deduce_mat<A> >::type
-        inverse( A const & a, B det )
-            {
-            typedef typename mat_traits<A>::scalar_type T;
-            BOOST_QVM_ASSERT(det!=scalar_traits<T>::value(0));
-            T f=scalar_traits<T>::value(1)/det;
-            typedef typename deduce_mat<A>::type cofactor_return_type;
-            cofactor_return_type c=qvm_detail::cofactor_impl(a);
-            return reinterpret_cast<qvm_detail::transposed_<cofactor_return_type> const &>(c) * f;
-            }
-
-        template <class A>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename lazy_enable_if_c<
-            is_mat<A>::value &&
-            mat_traits<A>::rows==mat_traits<A>::cols &&
-            !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
-            deduce_mat<A> >::type
-        inverse( A const & a )
-            {
-            typedef typename mat_traits<A>::scalar_type T;
-            T det=determinant(a);
-            if( det==scalar_traits<T>::value(0) )
-                BOOST_QVM_THROW_EXCEPTION(zero_determinant_error());
-            return inverse(a,det);
-            }
-
-        ////////////////////////////////////////////////
-
-        namespace
-        qvm_detail
-            {
             template <int M,int N>
             struct
             minus_eq_mm_defined
@@ -1914,6 +1868,52 @@ boost
         ////////////////////////////////////////////////
 
         namespace
+        qvm_detail
+            {
+            template <int D>
+            struct
+            inverse_m_defined
+                {
+                static bool const value=false;
+                };
+            }
+
+        template <class A,class B>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename lazy_enable_if_c<
+            is_mat<A>::value && is_scalar<B>::value &&
+            mat_traits<A>::rows==mat_traits<A>::cols &&
+            !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
+            deduce_mat<A> >::type
+        inverse( A const & a, B det )
+            {
+            typedef typename mat_traits<A>::scalar_type T;
+            BOOST_QVM_ASSERT(det!=scalar_traits<T>::value(0));
+            T f=scalar_traits<T>::value(1)/det;
+            typedef typename deduce_mat<A>::type cofactor_return_type;
+            cofactor_return_type c=qvm_detail::cofactor_impl(a);
+            return reinterpret_cast<qvm_detail::transposed_<cofactor_return_type> const &>(c) * f;
+            }
+
+        template <class A>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename lazy_enable_if_c<
+            is_mat<A>::value &&
+            mat_traits<A>::rows==mat_traits<A>::cols &&
+            !qvm_detail::inverse_m_defined<mat_traits<A>::rows>::value,
+            deduce_mat<A> >::type
+        inverse( A const & a )
+            {
+            typedef typename mat_traits<A>::scalar_type T;
+            T det=determinant(a);
+            if( det==scalar_traits<T>::value(0) )
+                BOOST_QVM_THROW_EXCEPTION(zero_determinant_error());
+            return inverse(a,det);
+            }
+
+        ////////////////////////////////////////////////
+
+        namespace
         sfinae
             {
             using ::boost::qvm::to_string;
@@ -1934,7 +1934,6 @@ boost
             using ::boost::qvm::operator!=;
             using ::boost::qvm::operator+=;
             using ::boost::qvm::operator+;
-            using ::boost::qvm::inverse;
             using ::boost::qvm::mref;
             using ::boost::qvm::rot_mat;
             using ::boost::qvm::set_rot;
@@ -1945,6 +1944,7 @@ boost
             using ::boost::qvm::rotate_y;
             using ::boost::qvm::set_rotz;
             using ::boost::qvm::rotate_z;
+            using ::boost::qvm::inverse;
             }
 
         ////////////////////////////////////////////////

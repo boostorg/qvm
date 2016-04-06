@@ -3,7 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/vec_traits.hpp>
+#include <boost/qvm/vec.hpp>
+#include <boost/qvm/vec_operations2.hpp>
 #include <boost/qvm/swizzle2.hpp>
 
 template <int D> struct my_vec { };
@@ -30,6 +31,6 @@ int
 main()
     {
     using namespace boost::qvm;
-    XW(my_vec<3>());
+    (void) (XW(my_vec<3>())*2);
     return 1;
     }
