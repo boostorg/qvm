@@ -1578,11 +1578,10 @@ namespace
         std::vector<int> count(initial_count);
         for( char const * const ref_id[2] = { " const &", " &" };; )
             {
-            int check_all_const;
-            for( check_all_const=0; check_all_const!=d; ++check_all_const )
-                if( ids[count[check_all_const]-1].idx>=0 )
-                    break;
-            if( check_all_const==d )
+            int max_dim=-100;
+            for( int i=0; i!=d; ++i )
+                max_dim=std::max(max_dim,ids[count[i]-1].idx);
+            if( max_dim<0 )
                 {
                 g<<
                     TAB2 "BOOST_QVM_INLINE_TRIVIAL" NL
@@ -1619,7 +1618,7 @@ namespace
                         TAB2 "template <class V>" NL
                         TAB2 "BOOST_QVM_INLINE_TRIVIAL" NL
                         TAB2 "typename enable_if_c<" NL
-                        TAB3 "is_vec<V>::value," NL
+                        TAB3 "is_vec<V>::value && vec_traits<V>::dim>="<<max_dim+1<<"," NL
                         TAB3 "qvm_detail::sw_<V,";
                     for( int k=0; k!=d; ++k )
                         g<<(k?",":"")<<"qvm_detail::swizzle_idx<"<<ids[count[k]-1].idx;
@@ -1662,6 +1661,7 @@ namespace
         assert(d>1);
         out.require_include(INCLUDE_INLINE);
         out.require_include(INCLUDE_SWIZZLE_TRAITS);
+        out.require_include(INCLUDE_ENABLE_IF);
         std::ostream & g=out.stream();
         swizzle_pair const swizzle_ids[6] =
             {

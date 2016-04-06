@@ -141,17 +141,17 @@ run translation_test.cpp ;
 run translation_mat_test.cpp ;
 
 compile-fail swizzle_const_fail.cpp ;
-compile-fail swizzle2_fail2.cpp ;
-compile-fail swizzle2_fail3.cpp ;
-compile-fail swizzle2_fail4.cpp ;
+run swizzle2_test2.cpp ;
+run swizzle2_test3.cpp ;
+run swizzle2_test4.cpp ;
 run swizzle2_test.cpp ;
-compile-fail swizzle3_fail2.cpp ;
-compile-fail swizzle3_fail3.cpp ;
-compile-fail swizzle3_fail4.cpp ;
+run swizzle3_test2.cpp ;
+run swizzle3_test3.cpp ;
+run swizzle3_test4.cpp ;
 run swizzle3_test.cpp ;
-compile-fail swizzle4_fail2.cpp ;
-compile-fail swizzle4_fail3.cpp ;
-compile-fail swizzle4_fail4.cpp ;
+run swizzle4_test2.cpp ;
+run swizzle4_test3.cpp ;
+run swizzle4_test4.cpp ;
 run swizzle4_test.cpp ;
 
 compile deduce_scalar_test.cpp ;

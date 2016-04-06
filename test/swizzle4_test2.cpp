@@ -3,11 +3,12 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/vec.hpp>
-#include <boost/qvm/vec_operations4.hpp>
+#include <boost/qvm/vec_traits.hpp>
 #include <boost/qvm/swizzle4.hpp>
+#include <boost/detail/lightweight_test.hpp>
 
 template <int D> struct my_vec { };
+int called=0;
 
 namespace
 boost
@@ -15,6 +16,16 @@ boost
     namespace
     qvm
         {
+        void
+        XXXX(...)
+            {
+            BOOST_TEST(0);
+            }
+        void
+        XXXY(...)
+            {
+            ++called;
+            }
         template <int D>
         struct
         vec_traits< my_vec<D> >
@@ -31,6 +42,8 @@ int
 main()
     {
     using namespace boost::qvm;
-    (void) (XXXZ(my_vec<2>())*2);
-    return 1;
+    XXXX(my_vec<1>());
+    XXXY(my_vec<1>());
+    BOOST_TEST(called==1);
+    return boost::report_errors();
     }

@@ -57,8 +57,6 @@ boost
                 typename mat_traits<A>::scalar_type
                 read_element_idx( A const & a, int r, int c )
                     {
-                    typedef char rows_[mat_traits<A>::rows];
-                    typedef char cols_[mat_traits<A>::cols];
                     BOOST_QVM_ASSERT(0);
                     return mat_traits<A>::template read_element<0,0>(a);
                     }
@@ -114,8 +112,6 @@ boost
                 typename mat_traits<A>::scalar_type &
                 write_element_idx( A & a, int r, int c )
                     {
-                    typedef char rows_[mat_traits<A>::rows];
-                    typedef char cols_[mat_traits<A>::cols];
                     BOOST_QVM_ASSERT(0);
                     return mat_traits<A>::template write_element<0,0>(a);
                     }

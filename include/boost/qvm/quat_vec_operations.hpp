@@ -26,7 +26,6 @@ boost
         operator*( A const & a, B const & b )
             {
             typedef typename deduce_vec2<A,B,3>::type R;
-            typedef typename vec_traits<R>::scalar_type TR;
             typedef typename quat_traits<A>::scalar_type TA;
             typedef typename vec_traits<B>::scalar_type TB;
             TA const aa = quat_traits<A>::template read_element<0>(a);
