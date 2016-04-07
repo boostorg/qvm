@@ -394,29 +394,29 @@ main()
     va2=va2*ma1;
     va2=va2*ma2;
 
-    ma1==mb1;
-    ma1==ma2;
-    ma2==ma1;
+    (void) (ma1==mb1);
+    (void) (ma1==ma2);
+    (void) (ma2==ma1);
 
-    ma1!=mb1;
-    ma1!=ma2;
-    ma2!=ma1;
+    (void) (ma1!=mb1);
+    (void) (ma1!=ma2);
+    (void) (ma2!=ma1);
 
-    va1==vb1;
-    va1==va2;
-    va2==va1;
+    (void) (va1==vb1);
+    (void) (va1==va2);
+    (void) (va2==va1);
 
-    va1!=vb1;
-    va1!=va2;
-    va2!=va1;
+    (void) (va1!=vb1);
+    (void) (va1!=va2);
+    (void) (va2!=va1);
 
-    qa1==qb1;
-    qa1==qa2;
-    qa2==qa1;
+    (void) (qa1==qb1);
+    (void) (qa1==qa2);
+    (void) (qa2==qa1);
 
-    qa1!=qb1;
-    qa1!=qa2;
-    qa2!=qa1;
+    (void) (qa1!=qb1);
+    (void) (qa1!=qa2);
+    (void) (qa2!=qa1);
 
     return 0;
     }
