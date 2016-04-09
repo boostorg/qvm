@@ -136,7 +136,7 @@ boost
                 static
                 BOOST_QVM_INLINE_CRITICAL
                 void
-                f( A & a, B const & b )
+                f( A &, B const & )
                     {
                     }
                 };
@@ -359,7 +359,7 @@ boost
                 get( projection_<T> const & )
                     {
                     return scalar_traits<T>::value(0);
-                    };
+                    }
                 };
 
             template <> struct projection_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._00; }; };
@@ -1189,7 +1189,7 @@ boost
                 get( T const (&)[3][3] )
                     {
                     return scalar_traits<T>::value(Row==Col);
-                    };
+                    }
                 };
 
             template <> struct rot_m_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][0]; }; };
@@ -1320,7 +1320,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(Row==Col);
-                    };
+                    }
                 };
 
             template <>
@@ -1334,7 +1334,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1348,7 +1348,7 @@ boost
                 get( T const & angle )
                     {
                     return -sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1362,7 +1362,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1376,7 +1376,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
             }
 
@@ -1518,7 +1518,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(Row==Col);
-                    };
+                    }
                 };
 
             template <>
@@ -1532,7 +1532,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1546,7 +1546,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1560,7 +1560,7 @@ boost
                 get( T const & angle )
                     {
                     return -sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1574,7 +1574,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
             }
 
@@ -1716,7 +1716,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(Row==Col);
-                    };
+                    }
                 };
 
             template <>
@@ -1730,7 +1730,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1744,7 +1744,7 @@ boost
                 get( T const & angle )
                     {
                     return -sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1758,7 +1758,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle);
-                    };
+                    }
                 };
 
             template <>
@@ -1772,7 +1772,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle);
-                    };
+                    }
                 };
             }
 

@@ -295,7 +295,7 @@ test_qvm
         r[0][2]=s;
         r[2][0]=-s;
         r[2][2]=c;
-        };
+        }
 
     template <class T,int D,class U>
     void
@@ -308,7 +308,7 @@ test_qvm
         r[0][1]=-s;
         r[1][0]=s;
         r[1][1]=c;
-        };
+        }
 
     template <class T,int D>
     void

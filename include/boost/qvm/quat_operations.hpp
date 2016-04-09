@@ -1058,7 +1058,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(0);
-                    };
+                    }
                 };
 
             template <>
@@ -1072,7 +1072,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle/2);
-                    };
+                    }
                 };
 
             template <>
@@ -1086,7 +1086,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle/2);
-                    };
+                    }
                 };
             }
 
@@ -1192,7 +1192,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(0);
-                    };
+                    }
                 };
 
             template <>
@@ -1206,7 +1206,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle/2);
-                    };
+                    }
                 };
 
             template <>
@@ -1220,7 +1220,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle/2);
-                    };
+                    }
                 };
             }
 
@@ -1326,7 +1326,7 @@ boost
                 get( T const & )
                     {
                     return scalar_traits<T>::value(0);
-                    };
+                    }
                 };
 
             template <>
@@ -1340,7 +1340,7 @@ boost
                 get( T const & angle )
                     {
                     return sin<T>(angle/2);
-                    };
+                    }
                 };
 
             template <>
@@ -1354,7 +1354,7 @@ boost
                 get( T const & angle )
                     {
                     return cos<T>(angle/2);
-                    };
+                    }
                 };
             }
 

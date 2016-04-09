@@ -55,7 +55,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename vec_traits<A>::scalar_type
-                read_element_idx( A const & a, int i )
+                read_element_idx( A const & a, int )
                     {
                     BOOST_QVM_ASSERT(0);
                     return vec_traits<A>::template read_element<0>(a);
@@ -110,7 +110,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename vec_traits<A>::scalar_type &
-                write_element_idx( A & a, int i )
+                write_element_idx( A & a, int )
                     {
                     BOOST_QVM_ASSERT(0);
                     return vec_traits<A>::template write_element<0>(a);

@@ -189,7 +189,7 @@ test_qvm
 
         template <class A,class B,class T>
         void
-        test_close_impl( char const * expra, char const * exprb, char const * exprt, char const * file, int line, char const * function, A a, B b, T t )
+        test_close_impl( char const * expra, char const * /*exprb*/, char const * /*exprt*/, char const * file, int line, char const * function, A a, B b, T t )
             {
             if( !close_at_tolerance(a,b,t) )
                 {

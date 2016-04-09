@@ -236,7 +236,7 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            read_element( this_vector const & x )
+            read_element( this_vector const & )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<dim);

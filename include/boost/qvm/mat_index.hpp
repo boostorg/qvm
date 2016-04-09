@@ -55,7 +55,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type
-                read_element_idx( A const & a, int r, int c )
+                read_element_idx( A const & a, int, int )
                     {
                     BOOST_QVM_ASSERT(0);
                     return mat_traits<A>::template read_element<0,0>(a);
@@ -110,7 +110,7 @@ boost
                 static
                 BOOST_QVM_INLINE_TRIVIAL
                 typename mat_traits<A>::scalar_type &
-                write_element_idx( A & a, int r, int c )
+                write_element_idx( A & a, int, int )
                     {
                     BOOST_QVM_ASSERT(0);
                     return mat_traits<A>::template write_element<0,0>(a);

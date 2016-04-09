@@ -70,7 +70,7 @@ boost
                 {
                 typedef V type;
                 };
-            };
+            }
 
         template <class A,class B,int D>
         struct

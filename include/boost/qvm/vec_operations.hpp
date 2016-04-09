@@ -123,7 +123,7 @@ boost
                 template <class A,class B>
                 static
                 void
-                f( A & a, B const & b )
+                f( A &, B const & )
                     {
                     }
                 };

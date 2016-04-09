@@ -48,7 +48,7 @@ boost
                 {
                 typedef Q type;
                 };
-            };
+            }
 
         template <class A,class B>
         struct

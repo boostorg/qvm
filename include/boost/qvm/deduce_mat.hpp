@@ -75,7 +75,7 @@ boost
                 {
                 typedef M type;
                 };
-            };
+            }
 
         template <class A,class B,int R,int C>
         struct
