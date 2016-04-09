@@ -20,7 +20,13 @@ boost
         namespace
         qvm_detail
             {
-            inline void const * get_null() { return 0; }
+            BOOST_QVM_INLINE_CRITICAL
+            void const *
+            get_null()
+                {
+                static int const obj=0;
+                return &obj;
+                }
 
             template <int A,class Next=void> struct swizzle_idx { static int const value=A; typedef Next next; };
 

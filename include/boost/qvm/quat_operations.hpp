@@ -23,6 +23,18 @@ boost
     namespace
     qvm
         {
+        namespace
+        qvm_detail
+            {
+            BOOST_QVM_INLINE_CRITICAL
+            void const *
+            get_valid_ptr_quat_operations()
+                {
+                static int const obj=0;
+                return &obj;
+                }
+            }
+
         ////////////////////////////////////////////////
 
         namespace
@@ -239,7 +251,6 @@ boost
             scalar_type
             read_element( this_quaternion const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
                 return scalar_traits<T>::value(I==0);
@@ -250,7 +261,6 @@ boost
             scalar_type
             read_element_idx( int i, this_quaternion const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<4);
                 return scalar_traits<T>::value(i==0);
@@ -276,7 +286,7 @@ boost
         qvm_detail::identity_quat_<T> const &
         identity_quat()
             {
-            return *(qvm_detail::identity_quat_<T> const *)0;
+            return *(qvm_detail::identity_quat_<T> const *)qvm_detail::get_valid_ptr_quat_operations();
             }
 
         template <class A>
@@ -868,7 +878,6 @@ boost
             scalar_type
             read_element( this_quaternion const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
                 return scalar_traits<scalar_type>::value(0);
@@ -879,7 +888,6 @@ boost
             scalar_type
             read_element_idx( int i, this_quaternion const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<4);
                 return scalar_traits<scalar_type>::value(0);
@@ -891,7 +899,7 @@ boost
         qvm_detail::zero_q_<T> const &
         zero_quat()
             {
-            return *(qvm_detail::zero_q_<T> const *)0;
+            return *(qvm_detail::zero_q_<T> const *)qvm_detail::get_valid_ptr_quat_operations();
             }
 
         template <class A>

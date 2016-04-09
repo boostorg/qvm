@@ -19,6 +19,18 @@ boost
     namespace
     qvm
         {
+        namespace
+        qvm_detail
+            {
+            BOOST_QVM_INLINE_CRITICAL
+            void const *
+            get_valid_ptr_vec_operations()
+                {
+                static int const obj=0;
+                return &obj;
+                }
+            }
+
         ////////////////////////////////////////////////
 
         namespace
@@ -245,7 +257,6 @@ boost
             scalar_type
             read_element( this_vector const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<Dim);
                 return scalar_traits<scalar_type>::value(0);
@@ -256,7 +267,6 @@ boost
             scalar_type
             read_element_idx( int i, this_vector const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(i>=0);
                 BOOST_QVM_ASSERT(i<Dim);
                 return scalar_traits<scalar_type>::value(0);
@@ -275,7 +285,7 @@ boost
         qvm_detail::zero_vec_<T,Dim> const &
         zero_vec()
             {
-            return *(qvm_detail::zero_vec_<T,Dim> const *)0;
+            return *(qvm_detail::zero_vec_<T,Dim> const *)qvm_detail::get_valid_ptr_vec_operations();
             }
 
         template <class A>

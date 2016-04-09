@@ -22,6 +22,18 @@ boost
     namespace
     qvm
         {
+        namespace
+        qvm_detail
+            {
+            BOOST_QVM_INLINE_CRITICAL
+            void const *
+            get_valid_ptr_mat_operations()
+                {
+                static int const obj=0;
+                return &obj;
+                }
+            }
+
         ////////////////////////////////////////////////
 
         namespace
@@ -262,7 +274,6 @@ boost
             scalar_type
             read_element( this_matrix const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<Dim);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
@@ -275,7 +286,6 @@ boost
             scalar_type
             read_element_idx( int row, int col, this_matrix const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<Dim);
                 BOOST_QVM_ASSERT(col>=0);
@@ -289,7 +299,7 @@ boost
         qvm_detail::identity_mat_<T,Dim> const &
         identity_mat()
             {
-            return *(qvm_detail::identity_mat_<T,Dim> const *)0;
+            return *(qvm_detail::identity_mat_<T,Dim> const *)qvm_detail::get_valid_ptr_mat_operations();
             }
 
         template <class A>
@@ -1059,7 +1069,6 @@ boost
             scalar_type
             read_element( this_matrix const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_STATIC_ASSERT(Row>=0);
                 BOOST_QVM_STATIC_ASSERT(Row<Rows);
                 BOOST_QVM_STATIC_ASSERT(Col>=0);
@@ -1072,7 +1081,6 @@ boost
             scalar_type
             read_element_idx( int row, int col, this_matrix const & x )
                 {
-                BOOST_QVM_ASSERT(&x==0);
                 BOOST_QVM_ASSERT(row>=0);
                 BOOST_QVM_ASSERT(row<rows);
                 BOOST_QVM_ASSERT(col>=0);
@@ -1093,7 +1101,7 @@ boost
         qvm_detail::zero_mat_<T,Rows,Cols> const &
         zero_mat()
             {
-            return *(qvm_detail::zero_mat_<T,Rows,Cols> const *)0;
+            return *(qvm_detail::zero_mat_<T,Rows,Cols> const *)qvm_detail::get_valid_ptr_mat_operations();
             }
 
         template <class T,int Dim>
@@ -1101,7 +1109,7 @@ boost
         qvm_detail::zero_mat_<T,Dim,Dim> const &
         zero_mat()
             {
-            return *(qvm_detail::zero_mat_<T,Dim,Dim> const *)0;
+            return *(qvm_detail::zero_mat_<T,Dim,Dim> const *)qvm_detail::get_valid_ptr_mat_operations();
             }
 
         template <class A>
