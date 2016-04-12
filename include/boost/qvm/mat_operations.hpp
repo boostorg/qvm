@@ -362,11 +362,11 @@ boost
                     }
                 };
 
-            template <> struct projection_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._00; }; };
-            template <> struct projection_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._11; }; };
-            template <> struct projection_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._22; }; };
-            template <> struct projection_get<2,3> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._23; }; };
-            template <> struct projection_get<3,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._32; }; };
+            template <> struct projection_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._00; } };
+            template <> struct projection_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._11; } };
+            template <> struct projection_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._22; } };
+            template <> struct projection_get<2,3> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._23; } };
+            template <> struct projection_get<3,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._32; } };
             }
 
         template <class T>
@@ -1192,15 +1192,15 @@ boost
                     }
                 };
 
-            template <> struct rot_m_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][0]; }; };
-            template <> struct rot_m_get<0,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][1]; }; };
-            template <> struct rot_m_get<0,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][2]; }; };
-            template <> struct rot_m_get<1,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][0]; }; };
-            template <> struct rot_m_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][1]; }; };
-            template <> struct rot_m_get<1,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][2]; }; };
-            template <> struct rot_m_get<2,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][0]; }; };
-            template <> struct rot_m_get<2,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][1]; }; };
-            template <> struct rot_m_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][2]; }; };
+            template <> struct rot_m_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][0]; } };
+            template <> struct rot_m_get<0,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][1]; } };
+            template <> struct rot_m_get<0,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][2]; } };
+            template <> struct rot_m_get<1,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][0]; } };
+            template <> struct rot_m_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][1]; } };
+            template <> struct rot_m_get<1,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][2]; } };
+            template <> struct rot_m_get<2,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][0]; } };
+            template <> struct rot_m_get<2,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][1]; } };
+            template <> struct rot_m_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][2]; } };
             }
 
         template <class M>
