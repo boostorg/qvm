@@ -321,12 +321,12 @@ main()
     typedef boost::qvm::vec<double,3> vec2;
     typedef boost::qvm::quat<double> quat2;
 
-    mat ma1,mb1;
-    vec va1, vb1;
-    quat qa1, qb1;
-    mat2 ma2, mb2;
-    vec2 va2, vb2;
-    quat2 qa2, qb2;
+	mat ma1={0},mb1={0};
+	vec va1={0}, vb1={0};
+    quat qa1={0}, qb1={0};
+    mat2 ma2={0}, mb2={0};
+    vec2 va2={0}, vb2={0};
+    quat2 qa2={0}, qb2={0};
 
     ma1/=2;
     va1/=2;
