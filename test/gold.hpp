@@ -10,6 +10,7 @@
 #include <math.h>
 #include <assert.h>
 #include <memory.h>
+#include <stdlib.h>
 
 namespace
 test_qvm
