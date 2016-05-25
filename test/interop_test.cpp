@@ -328,6 +328,19 @@ main()
 	vec2 va2, vb2; set_zero(va2); set_zero(vb2);
 	quat2 qa2, qb2; set_zero(qa2); set_zero(qb2);
 
+    set_zero(ma1);
+    set_zero(mb1);
+    set_zero(va1);
+    set_zero(vb1);
+    set_zero(qa1);
+    set_zero(qb1);
+    set_zero(ma2);
+    set_zero(mb2);
+    set_zero(va2);
+    set_zero(vb2);
+    set_zero(qa2);
+    set_zero(qb2);
+
     ma1/=2;
     va1/=2;
     qa1/=2;
