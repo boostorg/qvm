@@ -5,6 +5,11 @@
 
 import testing ;
 
+project
+    : source-location
+		../../doc/source
+    ;
+
 compile tutorial.cpp ;
 compile interoperability.cpp ;
 compile mat_traits_array.cpp ;

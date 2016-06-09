@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClInclude Include="..\..\test\swizzle4_fail4.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3DF77D14-4B2C-478D-43A3-4C230B08191E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{52C16D94-2B93-5522-4102-4A26751F5AF5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{076671A9-07D0-1B79-1F51-53BD41503801}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{35E175DC-2AC5-086D-297F-4A9B03004C96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{05B40E2C-38F7-0CEC-713E-4C286A766E5D}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

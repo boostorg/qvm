@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\swizzle3_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3E0B78FF-6DDD-7B88-3563-282C53FA5482}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0EB84C11-75D7-6E84-102E-7F0C120B68B4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{55BF5D7C-281B-562B-47E3-4DF47D407152}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{7BF22180-32B8-42D5-2ADE-3E9321395C68}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{0C23790D-1E30-0A93-13B5-286149563BFA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{4C3668F7-5884-6DE1-216D-0CCF55C841EF}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{6A7A75D9-7BDA-22EE-2E1D-48404FF55AE9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

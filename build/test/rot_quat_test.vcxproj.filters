@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\rot_quat_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3EE34C11-6B78-375B-189D-1C88766861D2}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{110B2583-1226-4207-3533-66B536CD4798}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{76A42C6F-01F9-6186-1391-77CE56AA674C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{7DF52FC1-0AB4-73CA-29ED-55C0403C6CDC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{40F71C24-13CC-2236-2404-2FE74F04054B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{53CF4FAC-338D-186E-336C-53FF724F5937}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{452F62F4-12B3-423E-2978-3BA771330136}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

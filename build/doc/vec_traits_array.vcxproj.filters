@@ -2,27 +2,18 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\doc\source\vec_traits_array.cpp">
-        <Filter>lib\qvm\libs\qvm\doc\source</Filter>
+        <Filter>qvm\doc\source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3D951180-1DB7-43A1-0AE6-7FF91E4A7028}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0D8C355C-61E7-26C3-1562-7BE1338204B1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{43CE3E0E-3CE8-4FF9-1E9C-37214C7A6B26}</UniqueIdentifier>
+    <Filter Include="qvm\doc">
+      <UniqueIdentifier>{3CA0174F-3101-1319-19F4-0DEA28A70409}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{40AA0274-3146-56AD-6590-3D9161C401FB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{069865E9-69AC-7DAE-1672-75BB23541F9F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\doc">
-      <UniqueIdentifier>{25294837-1B39-2820-0056-08E451DB4C82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\doc\source">
-      <UniqueIdentifier>{2394323F-4FCF-4ADB-0D33-5FA5400F6B05}</UniqueIdentifier>
+    <Filter Include="qvm\doc\source">
+      <UniqueIdentifier>{00C868C8-353F-24E8-6F72-39353DF82EFE}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

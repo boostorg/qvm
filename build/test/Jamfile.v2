@@ -6,6 +6,11 @@
 import testing ;
 import path ;
 
+project
+    : source-location
+		../../test
+    ;
+
 rule
 headers-compile-test ( headers * : requirements * : target-tag ? )
     {

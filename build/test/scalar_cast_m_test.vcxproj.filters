@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\scalar_cast_m_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3F907D53-5DE9-2D37-700D-497C7AC803C8}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{129C51C9-1953-6BB3-1108-45610E3D4921}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{510E3398-635A-6AA4-7B01-596949236CD2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{2E1F165A-05B8-7A21-654B-5ACA64C61919}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{103D0DA8-4F55-7531-38DF-2C403C4E1D43}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{17F71C54-0A3B-063C-5D07-646F264F2618}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{427D5900-4BA2-5768-3682-49A517D70B9F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

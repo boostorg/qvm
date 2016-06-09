@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\gen\gen.cpp">
-        <Filter>lib\qvm\libs\qvm\gen</Filter>
+        <Filter>qvm\gen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3DB06163-4BF8-339C-4D3B-7AAF7F8E14AE}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0DD77B09-26E3-18B3-3415-5CAC4B247DB2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{47CA7DEE-3849-5159-5273-3C3301FB08F7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{06BA423E-6A7C-35D3-4A4C-215836FA5D2F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{4EF03F7F-0391-008C-4EBA-72C3011B3425}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\gen">
-      <UniqueIdentifier>{58816BF0-454A-7EBD-4094-346D60F4669A}</UniqueIdentifier>
+    <Filter Include="qvm\gen">
+      <UniqueIdentifier>{08166EF1-23B7-170E-5EFE-5C7F727A19C1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

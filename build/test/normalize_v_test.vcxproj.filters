@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\normalize_v_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{401960BC-50C0-191A-0C49-4DB7796B2387}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{13D93A6C-0A2C-0970-5549-153E299173F7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{65FD42ED-4B16-71DE-2B2A-740B020A095A}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{5DF2653D-3212-0DA5-3626-46A2042417EE}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{6C0A23FD-7744-043C-2058-3CAD28A62902}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{058717DF-6713-2CF3-2E4C-2902158D6F17}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{32D53F75-1398-6818-7B11-472770973522}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\deduce_scalar_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3DEA5522-340B-4F8F-2279-0EC85A6646DB}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0E6A5C67-6B13-1E95-4931-0EEB6E417B23}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{50C34DA4-2DE2-5472-6716-479D1A5E4C0D}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{645E51C4-6B35-2BE7-6CF3-61D956B54A66}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{51B54911-5DD3-06FE-0D5B-0C16541C0253}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{2C087C50-23EF-219D-511F-766322EA6151}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{5E84363A-09B8-1ECC-1298-39082F720177}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

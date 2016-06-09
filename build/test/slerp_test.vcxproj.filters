@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\slerp_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3EF647FC-0E29-6B57-0A5C-78903F5B1D36}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{11354754-1D51-07FE-40FC-2E1D54DB32F1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{79A11C57-7E82-628E-1A72-7B9C5ECB7DA8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{72815F98-359C-1B26-357A-409620251143}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{17391F55-0738-245C-0E3A-0DAE155A74B0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{1A512A76-531A-7964-639B-14A65DA12CCA}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{0BAA2AC0-0B30-447B-0DB6-03E5582571A9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

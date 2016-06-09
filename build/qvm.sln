@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Express 14 for Windows Desktop
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "all tests", "test\all tests.vcxproj", "{58495107-524D-262A-14F9-75054C6228FA}"
 EndProject
@@ -255,12 +255,12 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scalar_traits_test", "test\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{18042314-9FA1-4A9A-9F77-FE933CF94D50}"
 	ProjectSection(SolutionItems) = preProject
-		..\test\Jamfile = ..\test\Jamfile
+		test\Jamfile.v2 = test\Jamfile.v2
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gen", "gen", "{8A2F8A70-0694-40C4-B46F-FEFC0A59D8AF}"
 	ProjectSection(SolutionItems) = preProject
-		..\gen\Jamfile = ..\gen\Jamfile
+		gen\Jamfile.v2 = gen\Jamfile.v2
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gen", "gen\gen.vcxproj", "{6BC86B3D-16DE-2AEA-2B2B-31AA13143012}"
@@ -269,7 +269,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "swizzle_const_fail", "test\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C8EF795B-16A1-4410-B1B3-5CF3F6832317}"
 	ProjectSection(SolutionItems) = preProject
-		..\doc\source\Jamfile = ..\doc\source\Jamfile
+		doc\Jamfile.v2 = doc\Jamfile.v2
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tutorial", "doc\tutorial.vcxproj", "{38B340E0-373D-22A8-4354-0D386DC50BA2}"

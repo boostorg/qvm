@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\vec_index_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3FFF10D9-227F-291F-49F5-530118277F01}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{139E46AD-2219-6D7D-000B-01254EB941CA}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{6200030D-4FB6-707E-7753-6EF84C886B89}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{17E32573-78DC-2E80-516A-62DA2EEE3CB9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{23B24A66-5D60-015F-6810-3FA44ADE147C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{522E7426-3D02-5656-6E0E-7D78067554FF}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{29DD6FBF-1DFE-6500-666D-3BBD5834720C}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

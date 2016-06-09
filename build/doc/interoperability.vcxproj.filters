@@ -2,27 +2,18 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\doc\source\interoperability.cpp">
-        <Filter>lib\qvm\libs\qvm\doc\source</Filter>
+        <Filter>qvm\doc\source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3D9F0F75-6F0F-5D9F-03C6-2DFD42C34DDA}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0DA92F3B-55F1-74BD-0001-05EE20EE1DC8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{054C7602-3B2C-507D-220C-7908508A3655}</UniqueIdentifier>
+    <Filter Include="qvm\doc">
+      <UniqueIdentifier>{011C3F2A-2BCE-14A6-2446-539F34D86594}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{7AF05A60-46BA-6A5B-6B56-72FC11B8542E}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{31B96781-6362-3EC1-0B8D-649E467F1751}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\doc">
-      <UniqueIdentifier>{486A759D-6AFF-189B-186D-29370784364B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\doc\source">
-      <UniqueIdentifier>{19DC78AD-7422-5CB7-6A08-2514626358CD}</UniqueIdentifier>
+    <Filter Include="qvm\doc\source">
+      <UniqueIdentifier>{2F9A708B-759B-5FF2-00C6-59754DD52599}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\deduce_vector_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3DCD5B43-4001-0195-37DA-04BC6CFA2DC4}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{0E1F16BA-2617-2CA4-2A7D-2E20569E0222}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{0C4725C9-3315-52E6-5CC5-01E80E2D6A82}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{358C4A01-2AD8-70DD-5B9F-419946D853CB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{50524448-70B2-43C5-2E0A-3F6D6A9C1B3C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{42457420-349C-502D-08DA-156801EF23F6}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{130D5E98-1701-1AD7-4D8E-6A72659E6BBF}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

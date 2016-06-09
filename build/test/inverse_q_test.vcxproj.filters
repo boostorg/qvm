@@ -2,24 +2,15 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="..\..\test\inverse_q_test.cpp">
-        <Filter>lib\qvm\libs\qvm\test</Filter>
+        <Filter>qvm\test</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="lib">
-      <UniqueIdentifier>{3F525F97-300E-3344-7284-260D13C75D0B}</UniqueIdentifier>
+    <Filter Include="qvm">
+      <UniqueIdentifier>{1209706B-5524-65D2-7BEC-13226B214BB0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib\qvm">
-      <UniqueIdentifier>{07967BE5-6E55-675F-0FE3-0D5D5A106603}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs">
-      <UniqueIdentifier>{67B93EDB-7DD8-2828-160D-5DD00A64107C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm">
-      <UniqueIdentifier>{546C58E3-21D7-2E63-5335-434C5D947C84}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib\qvm\libs\qvm\test">
-      <UniqueIdentifier>{0E06277D-6654-6888-4474-6D085276081E}</UniqueIdentifier>
+    <Filter Include="qvm\test">
+      <UniqueIdentifier>{6C0F11B7-65A2-4FAA-02E9-6D1C5AE023E9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
