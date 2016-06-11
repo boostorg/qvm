@@ -8,7 +8,7 @@ import path ;
 
 project
     : source-location
-		../../test
+        ../../test
     ;
 
 rule

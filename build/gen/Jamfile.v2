@@ -7,7 +7,7 @@ import testing ;
 
 project
     : source-location
-		../../gen
+        ../../gen
     ;
 
 run gen.cpp : -od ../../include/boost/qvm/gen ;
