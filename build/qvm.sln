@@ -255,22 +255,16 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "scalar_traits_test", "test\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{18042314-9FA1-4A9A-9F77-FE933CF94D50}"
 	ProjectSection(SolutionItems) = preProject
-		test\Jamfile.v2 = test\Jamfile.v2
+		..\test\Jamfile.v2 = ..\test\Jamfile.v2
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gen", "gen", "{8A2F8A70-0694-40C4-B46F-FEFC0A59D8AF}"
-	ProjectSection(SolutionItems) = preProject
-		gen\Jamfile.v2 = gen\Jamfile.v2
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gen", "gen\gen.vcxproj", "{6BC86B3D-16DE-2AEA-2B2B-31AA13143012}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "swizzle_const_fail", "test\swizzle_const_fail.vcxproj", "{13A81B5C-3126-7689-29CB-7EB809060F4C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{C8EF795B-16A1-4410-B1B3-5CF3F6832317}"
-	ProjectSection(SolutionItems) = preProject
-		doc\Jamfile.v2 = doc\Jamfile.v2
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tutorial", "doc\tutorial.vcxproj", "{38B340E0-373D-22A8-4354-0D386DC50BA2}"
 EndProject
@@ -279,6 +273,23 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mat_traits_array", "doc\mat_traits_array.vcxproj", "{3C8020B1-7240-0DDB-2A23-682D14DC3C1A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "vec_traits_array", "doc\vec_traits_array.vcxproj", "{3CB44078-4EC3-6DD0-2ECC-5D9957630526}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{C1F6B1DF-3D6E-4AA2-81D2-A9CDB3C6E0CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{1D4E71E5-F63F-4611-9F38-5177D49CEA91}"
+	ProjectSection(SolutionItems) = preProject
+		doc\Jamfile.v2 = doc\Jamfile.v2
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gen", "gen", "{461FE07F-A59B-421D-AAD6-48B41368EDE2}"
+	ProjectSection(SolutionItems) = preProject
+		gen\Jamfile.v2 = gen\Jamfile.v2
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3492B32A-CA32-4B64-B0D3-FF6AF6B83DEE}"
+	ProjectSection(SolutionItems) = preProject
+		test\Jamfile.v2 = test\Jamfile.v2
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1209,5 +1220,8 @@ Global
 		{3C557EE0-6716-47E4-1E5A-20C676CE50C1} = {C8EF795B-16A1-4410-B1B3-5CF3F6832317}
 		{3C8020B1-7240-0DDB-2A23-682D14DC3C1A} = {C8EF795B-16A1-4410-B1B3-5CF3F6832317}
 		{3CB44078-4EC3-6DD0-2ECC-5D9957630526} = {C8EF795B-16A1-4410-B1B3-5CF3F6832317}
+		{1D4E71E5-F63F-4611-9F38-5177D49CEA91} = {C1F6B1DF-3D6E-4AA2-81D2-A9CDB3C6E0CF}
+		{461FE07F-A59B-421D-AAD6-48B41368EDE2} = {C1F6B1DF-3D6E-4AA2-81D2-A9CDB3C6E0CF}
+		{3492B32A-CA32-4B64-B0D3-FF6AF6B83DEE} = {C1F6B1DF-3D6E-4AA2-81D2-A9CDB3C6E0CF}
 	EndGlobalSection
 EndGlobal
