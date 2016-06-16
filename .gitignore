@@ -4,4 +4,7 @@
 *.user
 *.log
 *.sdf
+*.db
+vcxproj.bat
+vcxproj.exe
 *.opensdf
