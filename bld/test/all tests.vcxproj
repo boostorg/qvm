@@ -76,8 +76,8 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>
     </NMakeCleanCommandLine>
   </PropertyGroup>
@@ -103,8 +103,8 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>
     </NMakeCleanCommandLine>
   </PropertyGroup>
@@ -130,8 +130,8 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 -a</NMakeReBuildCommandLine>
     <NMakeCleanCommandLine>
     </NMakeCleanCommandLine>
   </PropertyGroup>

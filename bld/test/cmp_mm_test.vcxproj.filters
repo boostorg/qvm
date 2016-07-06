@@ -7,10 +7,10 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="qvm">
-      <UniqueIdentifier>{4DC37980-75AB-3F37-33DD-7FB905AE4263}</UniqueIdentifier>
+      <UniqueIdentifier>{5BED2017-595E-6DA7-3C1E-0BB3153A5443}</UniqueIdentifier>
     </Filter>
     <Filter Include="qvm\test">
-      <UniqueIdentifier>{3EF715D5-3D58-4CA9-2E9B-34CB4B1646D0}</UniqueIdentifier>
+      <UniqueIdentifier>{7700572C-65AB-5497-024E-6CA36A613565}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

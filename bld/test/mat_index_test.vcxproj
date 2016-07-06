@@ -74,9 +74,9 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
     <!-- reverge_begin defines(release) -->
@@ -97,9 +97,9 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release-assert|Win32'">
     <!-- reverge_begin defines(release-assert) -->
@@ -120,9 +120,9 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>

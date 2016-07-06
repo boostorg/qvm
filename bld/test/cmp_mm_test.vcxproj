@@ -60,7 +60,7 @@
     <NMakePreprocessorDefinitions>BOOST_ALL_NO_LIB=1;</NMakePreprocessorDefinitions>
     <!-- reverge_end defines(debug) -->
     <!-- reverge_begin includes(debug) -->
-    <NMakeIncludeSearchPath>;$(ProjectDir)..\..\..\..</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>;$(ProjectDir)..\..\..</NMakeIncludeSearchPath>
     <!-- reverge_end includes(debug) -->
     <!-- reverge_begin options(debug) -->
     <AdditionalOptions>-TP -c /EHs /GR /MDd /Ob0 /Od /W3 /Z7 /Zc:forScope /Zc:wchar_t /favor:blend /wd4675 </AdditionalOptions>
@@ -74,16 +74,16 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release|Win32'">
     <!-- reverge_begin defines(release) -->
     <NMakePreprocessorDefinitions>BOOST_ALL_NO_LIB=1;NDEBUG;</NMakePreprocessorDefinitions>
     <!-- reverge_end defines(release) -->
     <!-- reverge_begin includes(release) -->
-    <NMakeIncludeSearchPath>;$(ProjectDir)..\..\..\..</NMakeIncludeSearchPath>
+    <NMakeIncludeSearchPath>;$(ProjectDir)..\..\..</NMakeIncludeSearchPath>
     <!-- reverge_end includes(release) -->
     <!-- reverge_begin options(release) -->
     <AdditionalOptions>-TP -c /EHs /GR /MD /O2 /Ob2 /W3 /Zc:forScope /Zc:wchar_t /favor:blend /wd4675 </AdditionalOptions>
@@ -97,9 +97,9 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release-assert|Win32'">
     <!-- reverge_begin defines(release-assert) -->
@@ -120,9 +120,9 @@
     <LibraryWPath />
     <SourcePath />
     <ExcludePath />
-    <NMakeBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
-    <NMakeReBuildCommandLine>$(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
-    <NMakeCleanCommandLine>$(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
+    <NMakeBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName)</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)..\..\..\b2 address-model=64 variant=$(configuration) toolset=msvc-14.0 $(ProjectName) -a</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>cd $(SolutionDir)..\test &amp;&amp; $(SolutionDir)vcxproj.bat msvc-14.0 $(ProjectPath)</NMakeCleanCommandLine>
   </PropertyGroup>
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
