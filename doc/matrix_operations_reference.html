@@ -107,6 +107,11 @@
         typename <span class="RenoLink"><a href="deduce_mat.html">deduce_mat</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="operator_times_mat_scalar_.html">operator*</a></span>( A const &amp; a, B b );</span>        
         
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;B&gt;::value
+        template &lt;class A,class B&gt;
+        typename <span class="RenoLink"><a href="deduce_mat.html">deduce_mat</a></span>&lt;B&gt;::type
+        <span class="RenoLink"><a href="operator_times_scalar_mat_.html">operator*</a></span>( A a, B const &amp; b );</span>        
+        
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_mat.html">is_mat</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span>==<span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="mat_traits_Matrix_rows.html">rows</a></span> &amp;&amp;

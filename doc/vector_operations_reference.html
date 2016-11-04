@@ -86,6 +86,11 @@
         typename <span class="RenoLink"><a href="deduce_vec.html">deduce_vec</a></span>&lt;A&gt;::type
         <span class="RenoLink"><a href="operator_times_vec_scalar_.html">operator*</a></span>( A const &amp; a, B b );</span>        
         
+        <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>: <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;B&gt;::value
+        template &lt;class A&gt;
+        typename <span class="RenoLink"><a href="deduce_vec.html">deduce_vec</a></span>&lt;B&gt;::type
+        <span class="RenoLink"><a href="operator_times_vec_scalar_.html">operator*</a></span>( A a, B const &amp; b );</span>        
+        
         <span class="RenoIncludeSPAN">//Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
         //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;A&gt;::value &amp;&amp; <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;B&gt;::value &amp;&amp;
         //  <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>==<span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;B&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span>

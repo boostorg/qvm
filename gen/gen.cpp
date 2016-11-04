@@ -512,6 +512,25 @@ namespace
         }
 
     void
+    header_mr_sa_mb( output_file & out, int r, int c, std::string const & name )
+        {
+        assert(r>0);
+        assert(c>0);
+        assert(!name.empty());
+        out.require_include(INCLUDE_INLINE);
+        out.require_include(INCLUDE_DEDUCE_M);
+        out.require_include(INCLUDE_ENABLE_IF);
+        out.stream()<<
+            TAB2 "template <class A,class B>" NL
+            TAB2 "BOOST_QVM_INLINE_OPERATIONS" NL
+            TAB2 "typename lazy_enable_if_c<" NL
+            TAB3 "is_scalar<A>::value && mat_traits<B>::rows=="<<r<<" && mat_traits<B>::cols=="<<c<<"," NL
+            TAB3 "deduce_mat<B> >::type" NL
+            TAB2<<name<<"( A a, B const & b )" NL
+            ;
+        }
+
+    void
     header_vr_va_sb( output_file & out, int d, std::string const & name )
         {
         assert(d>0);
@@ -526,6 +545,24 @@ namespace
             TAB3 "vec_traits<A>::dim=="<<d<<" && is_scalar<B>::value," NL
             TAB3 "deduce_vec<A> >::type" NL
             TAB2<<name<<"( A const & a, B b )" NL
+            ;
+        }
+
+    void
+    header_vr_sa_vb( output_file & out, int d, std::string const & name )
+        {
+        assert(d>0);
+        assert(!name.empty());
+        out.require_include(INCLUDE_INLINE);
+        out.require_include(INCLUDE_DEDUCE_V);
+        out.require_include(INCLUDE_ENABLE_IF);
+        out.stream()<<
+            TAB2 "template <class A,class B>" NL
+            TAB2 "BOOST_QVM_INLINE_OPERATIONS" NL
+            TAB2 "typename lazy_enable_if_c<" NL
+            TAB3 "is_scalar<A>::value && vec_traits<B>::dim=="<<d<<"," NL
+            TAB3 "deduce_vec<B> >::type" NL
+            TAB2<<name<<"( A a, B const & b )" NL
             ;
         }
 
@@ -1063,6 +1100,29 @@ namespace
         }
 
     void
+    mr_op_sa_mb( output_file & out, int r, int c, std::string const & fn, std::string const & op, char const * suffix )
+        {
+        assert(!op.empty());
+        header_mr_sa_mb(out,r,c,fn);
+        out.require_include(INCLUDE_DEDUCE_M);
+        out.require_include(INCLUDE_DEDUCE_V);
+        std::ostream & g=out.stream();
+        g<<
+            TAB3 "{" NL
+            TAB3 "typedef typename deduce_mat<B>::type R;" NL
+            TAB3 "R r;" NL
+            ;
+        for( int i=0; i!=r; ++i )
+            for( int j=0; j!=c; ++j )
+                g<<TAB3 "mat_traits<R>::template write_element<"<<i<<","<<j<<">(r)=a"<<op<<"mat_traits<B>::template read_element<"<<i<<","<<j<<">(b);" NL;
+        g<<
+            TAB3 "return r;" NL
+            TAB3 "}" NL
+            ;
+        defined(g,r,c,fn,suffix);
+        }
+
+    void
     vr_op_va_sb( output_file & out, int d, std::string const & fn, std::string const & op, char const * suffix )
         {
         assert(!op.empty());
@@ -1076,6 +1136,27 @@ namespace
             ;
         for( int i=0; i!=d; ++i )
             g<<TAB3 "vec_traits<R>::template write_element<"<<i<<">(r)=vec_traits<A>::template read_element<"<<i<<">(a)"<<op<<"b;" NL;
+        g<<
+            TAB3 "return r;" NL
+            TAB3 "}" NL
+            ;
+        defined(g,d,fn,suffix);
+        }
+
+    void
+    vr_op_sa_vb( output_file & out, int d, std::string const & fn, std::string const & op, char const * suffix )
+        {
+        assert(!op.empty());
+        header_vr_sa_vb(out,d,fn);
+        out.require_include(INCLUDE_DEDUCE_V);
+        std::ostream & g=out.stream();
+        g<<
+            TAB3 "{" NL
+            TAB3 "typedef typename deduce_vec<B>::type R;" NL
+            TAB3 "R r;" NL
+            ;
+        for( int i=0; i!=d; ++i )
+            g<<TAB3 "vec_traits<R>::template write_element<"<<i<<">(r)=a"<<op<<"vec_traits<B>::template read_element<"<<i<<">(b);" NL;
         g<<
             TAB3 "return r;" NL
             TAB3 "}" NL
@@ -1734,13 +1815,18 @@ namespace
             ma_op_ma_mb_same_size(f,d,1,"operator-=","-=","mm");
             ma_op_ma_mb_same_size(f,1,d,"operator-=","-=","mm");
             mr_op_ma_sb(f,d,d,"operator*","*","ms");
+            mr_op_sa_mb(f,d,d,"operator*","*","sm");
             mr_op_ma_sb(f,d,1,"operator*","*","ms");
+            mr_op_sa_mb(f,d,1,"operator*","*","sm");
             mr_op_ma_sb(f,1,d,"operator*","*","ms");
+            mr_op_sa_mb(f,1,d,"operator*","*","sm");
             ma_op_ma_sb(f,d,d,"operator*=","*=","ms");
             ma_op_ma_sb(f,d,1,"operator*=","*=","ms");
             ma_op_ma_sb(f,1,d,"operator*=","*=","ms");
             mr_op_ma_sb(f,d,d,"operator/","/","ms");
+            mr_op_sa_mb(f,d,d,"operator/","/","sm");
             mr_op_ma_sb(f,d,1,"operator/","/","ms");
+            mr_op_sa_mb(f,d,1,"operator/","/","sm");
             mr_op_ma_sb(f,1,d,"operator/","/","ms");
             ma_op_ma_sb(f,d,d,"operator/=","/=","ms");
             ma_op_ma_sb(f,d,1,"operator/=","/=","ms");
@@ -1777,6 +1863,7 @@ namespace
             va_op_va_vb_same_size(f,d,"operator+=","+=","vv");
             va_op_va_vb_same_size(f,d,"operator-=","-=","vv");
             vr_op_va_sb(f,d,"operator*","*","vs");
+            vr_op_sa_vb(f,d,"operator*","*","sv");
             va_op_va_sb(f,d,"operator*=","*=","vs");
             vr_op_va_sb(f,d,"operator/","/","vs");
             va_op_va_sb(f,d,"operator/=","/=","vs");
