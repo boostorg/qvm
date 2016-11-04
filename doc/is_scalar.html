@@ -41,8 +41,7 @@ boost
         template &lt;&gt; struct <span class="RenoLink">is_scalar</span>&lt;unsigned long&gt; { static bool const value=true; };
         template &lt;&gt; struct <span class="RenoLink">is_scalar</span>&lt;float&gt; { static bool const value=true; };
         template &lt;&gt; struct <span class="RenoLink">is_scalar</span>&lt;double&gt; { static bool const value=true; };
-        template &lt;&gt; struct <span class="RenoLink">is_scalar</span>&lt;long double&gt; { static bool const value=true; };
-</span>
+        template &lt;&gt; struct <span class="RenoLink">is_scalar</span>&lt;long double&gt; { static bool const value=true; };</span>
     }
 }</pre>
 </div><p>This type template defines a compile-time boolean constant value which can be used to determine whether a type <i>T</i> is a valid scalar type. It must be specialized together with the <i><span class="RenoLink"><a href="scalar_traits.html">scalar_traits</a></span></i> template in order to introduce a user scalar type to Boost QVM. Such types must satisfy the <span class="RenoLink"><a href="scalar_requirements.html">scalar requirements</a></span>.</p>
