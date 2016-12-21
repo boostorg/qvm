@@ -66,17 +66,17 @@ boost
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            read_element( MatType const & x )
+            read_element( mat_type const & x )
                 {
-                return mat_traits<MatType>::template write_element<Row,Col>(const_cast<MatType &>(x));
+                return mat_traits<mat_type>::template write_element<Row,Col>(const_cast<mat_type &>(x));
                 }
 
             static
             BOOST_QVM_INLINE_CRITICAL
             scalar_type
-            read_element_idx( int r, int c, MatType const & x )
+            read_element_idx( int r, int c, mat_type const & x )
                 {
-                return mat_traits<MatType>::write_element_idx(r,c,const_cast<MatType &>(x));
+                return mat_traits<mat_type>::write_element_idx(r,c,const_cast<mat_type &>(x));
                 }
 
             protected:
@@ -84,9 +84,9 @@ boost
             static
             BOOST_QVM_INLINE_TRIVIAL
             scalar_type &
-            write_element_idx( int r, int c, MatType & m )
+            write_element_idx( int r, int c, mat_type & m )
                 {
-                return qvm_detail::matrix_w<0,mat_traits<MatType>::rows*mat_traits<MatType>::cols>::write_element_idx(r,c,m);
+                return qvm_detail::matrix_w<0,mat_traits<mat_type>::rows*mat_traits<mat_type>::cols>::write_element_idx(r,c,m);
                 }
             };
         }
