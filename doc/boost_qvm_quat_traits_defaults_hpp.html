@@ -3,7 +3,7 @@
 <html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
 <head>
 	<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
-	<title>vec_index_read</title>
+	<title>boost/qvm/quat_traits_defaults.hpp</title>
 	<link href='reno.css' type='text/css' rel='stylesheet'/>
 </head>
 <body>
@@ -16,28 +16,30 @@
 <!-- Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
 <!-- file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt) -->
-<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>vec_index_read</h3>
+<div class="RenoIncludeDIV"><div class="RenoAutoDIV"><h3>boost/qvm/quat_traits_defaults.hpp</h3>
 </div>
-<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink"><a href="boost_qvm_vec_index_hpp.html">boost/qvm/vec_index.hpp</a></span>&gt;</p>
+<div class="RenoIncludeDIV"><p><span class="RenoEscape">&#35;<!--<wiki>`&#35;</wiki>--></span>include &lt;<span class="RenoLink">boost/qvm/quat_traits_defaults.hpp</span>&gt;</p>
 <pre>namespace boost
 {
     namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
     {
-<span class="RenoIncludeSPAN">        //Only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
-        //  <span class="RenoLink"><a href="is_vec.html">is_vec</a></span>&lt;A&gt;::value
-        template &lt;class A&gt;
-        typename <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span>
-        <span class="RenoLink">vec_index_read</span>( A const &amp; a, int i );</span>
+<span class="RenoIncludeSPAN">        <span class="RenoIncludeSPAN">template &lt;class QuatType,class ScalarType&gt;
+        struct <span class="RenoLink"><a href="quat_traits_defaults.html">quat_traits_defaults</a></span>
+        {
+            typedef QuatType quat_type;
+            typedef ScalarType <span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span>;
+        
+            template &lt;int I&gt;
+            static <span class="RenoLink"><a href="BOOST_QVM_INLINE_CRITICAL.html">BOOST_QVM_INLINE_CRITICAL</a></span>
+            <span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> <span class="RenoLink"><a href="quat_traits_Q_read_element.html">read_element</a></span>( quat_type const &amp; x )
+            {
+                return <span class="RenoLink"><a href="quat_traits.html">quat_traits</a></span>&lt;quat_type&gt;::template <span class="RenoLink"><a href="quat_traits_Q_write_element.html">write_element</a></span>&lt;I&gt;(const_cast&lt;quat_type &amp;&gt;(x));
+            }
+        };</span></span>
     }
 }</pre>
-</div><h4>Returns:</h4>
-<p>The <i>i</i>-th element of <i>a</i>.</p>
-<h4>Preconditions:</h4>
-<p><i>i &gt;= 0 &amp;&amp; i &lt; <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_Vector_dim.html">dim</a></span></i>.</p>
-<h4>Note:</h4>
-<p>This function uses template metaprogramming and can be used even if the optional access function <i><span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;A&gt;::<span class="RenoLink"><a href="vec_traits_V_read_element_idx.html">read_element_idx</a></span></i> is not available.</p>
-</div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="boost_qvm_vec_index_hpp.html">boost/qvm/vec_index.hpp</a></span>
+</div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
+See also: <span class="RenoPageList"><a href="quat_traits_defaults.html">quat_traits_defaults</a></span>
 </div>
 <!-- Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->

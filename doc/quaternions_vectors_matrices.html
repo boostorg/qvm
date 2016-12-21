@@ -56,6 +56,20 @@ namespace boost
         };
     }
 }</pre>
+<p>Equivalently, using the <i><span class="RenoLink"><a href="vec_traits_defaults.html">vec_traits_defaults</a></span></i> template the above can be shortened to:</p>
+<pre>namespace boost
+{
+    namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
+    {
+        template &lt;&gt;
+        struct <span class="RenoLink"><a href="vec_traits.html">vec_traits</a></span>&lt;float3&gt;: <span class="RenoLink"><a href="vec_traits_defaults.html">vec_traits_defaults</a></span>&lt;float3,float,3&gt;
+        {
+            template &lt;int I&gt; static inline <span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="vec_traits_V_write_element.html">write_element</a></span>( float3 &amp; v ) { return v.a[I]; }
+
+            static inline <span class="RenoLink"><a href="vec_traits_V_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="vec_traits_V_write_element_idx.html">write_element_idx</a></span>( int i, float3 &amp; v ) { return v.a[i]; } //optional
+        };
+    }
+}</pre>
 </div><p>After a similar specialization of the <i><span class="RenoLink"><a href="mat_traits.html">mat_traits</a></span></i> template for a user-defined 3x3 matrix type <i>float33</i>, the full range of vector and matrix operations defined by Boost QVM headers becomes available automatically:</p>
 <pre>float3 v;
 <span class="RenoLink"><a href="accessing_vector_elements.html">X</a></span>(v) = 0;

@@ -76,8 +76,21 @@ namespace boost
         };
     }
 }</pre>
+<p>Equivalently, using the <i><span class="RenoLink"><a href="quat_traits_defaults.html">quat_traits_defaults</a></span></i> template the above can be shortened to:</p>
+<pre>namespace boost
+{
+    namespace <span class="RenoLink"><a href="qvm.html">qvm</a></span>
+    {
+        template &lt;&gt;
+        struct
+        <span class="RenoLink">quat_traits</span>&lt;fquat&gt;: <span class="RenoLink"><a href="quat_traits_defaults.html">quat_traits_defaults</a></span>&lt;fquat,float&gt;
+        {
+            template &lt;int I&gt; static inline <span class="RenoLink"><a href="quat_traits_Q_scalar_type.html">scalar_type</a></span> &amp; <span class="RenoLink"><a href="quat_traits_Q_write_element.html">write_element</a></span>( fquat &amp; q ) { return q.a[I]; }
+        };
+    }
+}</pre>
 </div></div><div class="RenoAutoDIV"><div class="RenoHR"><hr/></div>
-See also: <span class="RenoPageList"><a href="boost_qvm_quat_traits_hpp.html">boost/qvm/quat_traits.hpp</a>&nbsp;| <a href="boost_qvm_quat_traits_array_hpp.html">boost/qvm/quat_traits_array.hpp</a>&nbsp;| <a href="is_quat.html">is_quat</a>&nbsp;| <a href="mag_quat_.html">mag(quat)</a>&nbsp;| <a href="mag_sqr_quat_.html">mag_sqr(quat)</a>&nbsp;| <a href="normalize_quat_.html">normalize(quat)</a>&nbsp;| <a href="quat.html">quat</a>&nbsp;| <a href="quat_traits_Q_read_element.html">quat_traits&lt;Q&gt;::read_element</a>&nbsp;| <a href="quat_traits_Q_scalar_type.html">quat_traits&lt;Q&gt;::scalar_type</a>&nbsp;| <a href="quat_traits_Q_write_element.html">quat_traits&lt;Q&gt;::write_element</a>&nbsp;| <a href="rotate_quat_vec_scalar_.html">rotate(quat,vec,scalar)</a>&nbsp;| <a href="rotate_x_quat_scalar_.html">rotate_x(quat,scalar)</a>&nbsp;| <a href="rotate_y_quat_scalar_.html">rotate_y(quat,scalar)</a>&nbsp;| <a href="rotate_z_quat_scalar_.html">rotate_z(quat,scalar)</a>&nbsp;| <a href="scalar.html">scalar</a>&nbsp;| <a href="set_identity_quat_.html">set_identity(quat)</a>&nbsp;| <a href="set_rotx_quat_scalar_.html">set_rotx(quat,scalar)</a>&nbsp;| <a href="set_roty_quat_scalar_.html">set_roty(quat,scalar)</a>&nbsp;| <a href="set_rotz_quat_scalar_.html">set_rotz(quat,scalar)</a>&nbsp;| <a href="set_zero_quat_.html">set_zero(quat)</a>&nbsp;| <a href="view_proxy.html">View Proxy</a></span>
+See also: <span class="RenoPageList"><a href="boost_qvm_quat_traits_hpp.html">boost/qvm/quat_traits.hpp</a>&nbsp;| <a href="boost_qvm_quat_traits_array_hpp.html">boost/qvm/quat_traits_array.hpp</a>&nbsp;| <a href="is_quat.html">is_quat</a>&nbsp;| <a href="mag_quat_.html">mag(quat)</a>&nbsp;| <a href="mag_sqr_quat_.html">mag_sqr(quat)</a>&nbsp;| <a href="normalize_quat_.html">normalize(quat)</a>&nbsp;| <a href="quat.html">quat</a>&nbsp;| <a href="quat_traits_Q_read_element.html">quat_traits&lt;Q&gt;::read_element</a>&nbsp;| <a href="quat_traits_Q_scalar_type.html">quat_traits&lt;Q&gt;::scalar_type</a>&nbsp;| <a href="quat_traits_Q_write_element.html">quat_traits&lt;Q&gt;::write_element</a>&nbsp;| <a href="quat_traits_defaults.html">quat_traits_defaults</a>&nbsp;| <a href="rotate_quat_vec_scalar_.html">rotate(quat,vec,scalar)</a>&nbsp;| <a href="rotate_x_quat_scalar_.html">rotate_x(quat,scalar)</a>&nbsp;| <a href="rotate_y_quat_scalar_.html">rotate_y(quat,scalar)</a>&nbsp;| <a href="rotate_z_quat_scalar_.html">rotate_z(quat,scalar)</a>&nbsp;| <a href="scalar.html">scalar</a>&nbsp;| <a href="set_identity_quat_.html">set_identity(quat)</a>&nbsp;| <a href="set_rotx_quat_scalar_.html">set_rotx(quat,scalar)</a>&nbsp;| <a href="set_roty_quat_scalar_.html">set_roty(quat,scalar)</a>&nbsp;| <a href="set_rotz_quat_scalar_.html">set_rotz(quat,scalar)</a>&nbsp;| <a href="set_zero_quat_.html">set_zero(quat)</a>&nbsp;| <a href="view_proxy.html">View Proxy</a></span>
 </div>
 <!-- Copyright (c) 2008-2016 Emil Dotchevski and Reverge Studios, Inc. -->
 <!-- Distributed under the Boost Software License, Version 1.0. (See accompanying -->
