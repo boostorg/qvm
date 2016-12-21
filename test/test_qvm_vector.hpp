@@ -6,6 +6,7 @@
 #ifndef UUID_02C176D6B3AB11DE979F9A0D56D89593
 #define UUID_02C176D6B3AB11DE979F9A0D56D89593
 
+#include <boost/qvm/vec_traits_defaults.hpp>
 #include <boost/qvm/deduce_vec.hpp>
 #include <boost/qvm/assert.hpp>
 #include "test_qvm.hpp"
@@ -44,51 +45,22 @@ boost
         {
         template <class Tag,int Dim,class T>
         struct
-        vec_traits< test_qvm::vector<Tag,Dim,T> >
+        vec_traits< test_qvm::vector<Tag,Dim,T> >:
+            vec_traits_defaults<test_qvm::vector<Tag,Dim,T>,T,Dim>
             {
-            static int const dim=Dim;
-            typedef T scalar_type;
-            typedef test_qvm::vector<Tag,Dim,T> this_vector_type;
+            typedef vec_traits_defaults<test_qvm::vector<Tag,Dim,T>,T,Dim>base;
 
             template <int I>
             static
-            scalar_type &
-            write_element( this_vector_type & m )
+            typename base::scalar_type &
+            write_element( typename base::vec_type & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
-                BOOST_QVM_STATIC_ASSERT(I<dim);
+                BOOST_QVM_STATIC_ASSERT(I<Dim);
                 return m.a[I];
                 }
 
-            template <int I>
-            static
-            scalar_type
-            read_element( this_vector_type const & m )
-                {
-                BOOST_QVM_STATIC_ASSERT(I>=0);
-                BOOST_QVM_STATIC_ASSERT(I<dim);
-                return m.a[I];
-                }
-
-            static
-            inline
-            scalar_type &
-            write_element_idx( int i, this_vector_type & m )
-                {
-                BOOST_QVM_ASSERT(i>=0);
-                BOOST_QVM_ASSERT(i<dim);
-                return m.a[i];
-                }
-
-            static
-            inline
-            scalar_type
-            read_element_idx( int i, this_vector_type const & m )
-                {
-                BOOST_QVM_ASSERT(i>=0);
-                BOOST_QVM_ASSERT(i<dim);
-                return m.a[i];
-                }
+            using base::write_element_idx;
             };
 
         template <class Tag,class T,int D1,int D2,int Dim>

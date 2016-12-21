@@ -6,6 +6,7 @@
 #ifndef UUID_9C471450B3A611DEAF56C1F155D89593
 #define UUID_9C471450B3A611DEAF56C1F155D89593
 
+#include <boost/qvm/mat_traits_defaults.hpp>
 #include <boost/qvm/deduce_mat.hpp>
 #include <boost/qvm/assert.hpp>
 #include "test_qvm.hpp"
@@ -45,60 +46,24 @@ boost
         {
         template <class Tag,int Rows,int Cols,class T>
         struct
-        mat_traits< test_qvm::matrix<Tag,Rows,Cols,T> >
+        mat_traits< test_qvm::matrix<Tag,Rows,Cols,T> >:
+            mat_traits_defaults<test_qvm::matrix<Tag,Rows,Cols,T>,T,Rows,Cols>
             {
-            static int const rows=Rows;
-            static int const cols=Cols;
-            typedef T scalar_type;
-            typedef test_qvm::matrix<Tag,Rows,Cols,T> this_matrix_type;
+            typedef mat_traits_defaults<test_qvm::matrix<Tag,Rows,Cols,T>,T,Rows,Cols> base;
 
             template <int R,int C>
             static
-            scalar_type &
-            write_element( this_matrix_type & m )
+            typename base::scalar_type &
+            write_element( typename base::mat_type & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(R>=0);
-                BOOST_QVM_STATIC_ASSERT(R<rows);
+                BOOST_QVM_STATIC_ASSERT(R<Rows);
                 BOOST_QVM_STATIC_ASSERT(C>=0);
-                BOOST_QVM_STATIC_ASSERT(C<cols);
+                BOOST_QVM_STATIC_ASSERT(C<Cols);
                 return m.a[R][C];
                 }
 
-            template <int R,int C>
-            static
-            scalar_type
-            read_element( this_matrix_type const & m )
-                {
-                BOOST_QVM_STATIC_ASSERT(R>=0);
-                BOOST_QVM_STATIC_ASSERT(R<rows);
-                BOOST_QVM_STATIC_ASSERT(C>=0);
-                BOOST_QVM_STATIC_ASSERT(C<cols);
-                return m.a[R][C];
-                }
-
-            static
-            inline
-            scalar_type &
-            write_element_idx( int r, int c, this_matrix_type & m )
-                {
-                BOOST_QVM_ASSERT(r>=0);
-                BOOST_QVM_ASSERT(r<rows);
-                BOOST_QVM_ASSERT(c>=0);
-                BOOST_QVM_ASSERT(c<cols);
-                return m.a[r][c];
-                }
-
-            static
-            inline
-            scalar_type
-            read_element_idx( int r, int c, this_matrix_type const & m )
-                {
-                BOOST_QVM_ASSERT(r>=0);
-                BOOST_QVM_ASSERT(r<rows);
-                BOOST_QVM_ASSERT(c>=0);
-                BOOST_QVM_ASSERT(c<cols);
-                return m.a[r][c];
-                }
+            using base::write_element_idx;
             };
 
         template <class Tag,class T,int R1,int C1,int R2,int C2,int Rows,int Cols>

@@ -6,6 +6,7 @@
 #ifndef UUID_EF9152E42E4711DFB699737156D89593
 #define UUID_EF9152E42E4711DFB699737156D89593
 
+#include <boost/qvm/quat_traits_defaults.hpp>
 #include <boost/qvm/deduce_quat.hpp>
 #include <boost/qvm/assert.hpp>
 #include "test_qvm.hpp"
@@ -44,49 +45,19 @@ boost
         {
         template <class Tag,class T>
         struct
-        quat_traits< test_qvm::quaternion<Tag,T> >
+        quat_traits< test_qvm::quaternion<Tag,T> >:
+            quat_traits_defaults<test_qvm::quaternion<Tag,T>,T>
             {
-            typedef T scalar_type;
-            typedef test_qvm::quaternion<Tag,T> this_quaternion_type;
+            typedef quat_traits_defaults<test_qvm::quaternion<Tag,T>,T> base;
 
             template <int I>
             static
-            scalar_type &
-            write_element( this_quaternion_type & m )
+            typename base::scalar_type &
+            write_element( typename base::quat_type & m )
                 {
                 BOOST_QVM_STATIC_ASSERT(I>=0);
                 BOOST_QVM_STATIC_ASSERT(I<4);
                 return m.a[I];
-                }
-
-            template <int I>
-            static
-            scalar_type
-            read_element( this_quaternion_type const & m )
-                {
-                BOOST_QVM_STATIC_ASSERT(I>=0);
-                BOOST_QVM_STATIC_ASSERT(I<4);
-                return m.a[I];
-                }
-
-            static
-            inline
-            scalar_type &
-            write_element_idx( int i, this_quaternion_type & m )
-                {
-                BOOST_QVM_ASSERT(i>=0);
-                BOOST_QVM_ASSERT(i<4);
-                return m.a[i];
-                }
-
-            static
-            inline
-            scalar_type
-            read_element_idx( int i, this_quaternion_type const & m )
-                {
-                BOOST_QVM_ASSERT(i>=0);
-                BOOST_QVM_ASSERT(i<4);
-                return m.a[i];
                 }
             };
 
