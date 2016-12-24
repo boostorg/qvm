@@ -1695,17 +1695,6 @@ namespace
             else
                 for( int rfid=0; rfid<2; ++rfid )
                     {
-                    if( rfid )
-                        {
-                        for( int k1=0; k1!=d; ++k1 )
-                            for( int k2=k1+1; k2!=d; ++k2 )
-                                {
-                                swizzle_pair const & a=ids[count[k1]-1];
-                                swizzle_pair const & b=ids[count[k2]-1];
-                                if( a.idx==b.idx && a.idx>=0 )
-                                    goto continue_;
-                                }
-                        }
                     for( int scalar=0; scalar!=2; ++scalar )
                         {
                         if( scalar && max_dim>0 )
@@ -1755,7 +1744,6 @@ namespace
                             TAB3 "}" NL;
                         }
                     }
-            continue_:
             int j;
             for( j=0; j!=d; ++j )
                 if( --count[j] )
