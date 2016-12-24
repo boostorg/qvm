@@ -4,6 +4,7 @@
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
 #include <boost/qvm/vec_operations.hpp>
+#include <boost/qvm/vec_access.hpp>
 #include <boost/qvm/vec.hpp>
 #include <boost/qvm/swizzle.hpp>
 #include "test_qvm_vector.hpp"
@@ -19,6 +20,18 @@ main()
     v1.a[3]=45.0f;
     XX(v1) + XX(v1);
     -XX(v1);
+    XX(42.0f) + XX(42.0f);
+    -XX(42.0f);
+        {
+        test_qvm::vector<V2,2> v0=X0(42.0f);
+        BOOST_TEST(v0.a[0]==42);
+        BOOST_TEST(v0.a[1]==0);
+        test_qvm::vector<V2,2> v2=_1X(42.0f);
+        BOOST_TEST(v2.a[0]==1);
+        BOOST_TEST(v2.a[1]==42);
+        float s=42.0f;
+        BOOST_TEST(&X(X1(s))==&s);
+        }
         {
         test_qvm::vector<V2,2> r;
         r.a[0]=v1.a[0];

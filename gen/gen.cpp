@@ -1655,7 +1655,7 @@ namespace
     void
     swizzle_impl( std::ostream & g, int d, swizzle_pair const (&ids)[N], std::vector<int> const & initial_count )
         {
-        assert(d>=1);
+        assert(d>=2);
         std::vector<int> count(initial_count);
         for( char const * const ref_id[2] = { " const &", " &" };; )
             {
@@ -1695,36 +1695,67 @@ namespace
             else
                 for( int rfid=0; rfid<2; ++rfid )
                     {
-                    g<<
-                        TAB2 "template <class V>" NL
-                        TAB2 "BOOST_QVM_INLINE_TRIVIAL" NL
-                        TAB2 "typename enable_if_c<" NL
-                        TAB3 "is_vec<V>::value && vec_traits<V>::dim>="<<max_dim+1<<"," NL
-                        TAB3 "qvm_detail::sw_<V,";
-                    for( int k=0; k!=d; ++k )
-                        g<<(k?",":"")<<"qvm_detail::swizzle_idx<"<<ids[count[k]-1].idx;
-                    for( int k=0; k!=d; ++k )
-                        g<<" >";
-                    g<<" >"<<ref_id[rfid]<<">::type" NL TAB2;
-                    for( int k=0; k!=d; ++k )
+                    if( rfid )
                         {
-                        char f=ids[count[k]-1].ch;
-                        if( !k && f>='0' && f<='9' )
-                            g<<'_';
-                        g<<f;
+                        for( int k1=0; k1!=d; ++k1 )
+                            for( int k2=k1+1; k2!=d; ++k2 )
+                                {
+                                swizzle_pair const & a=ids[count[k1]-1];
+                                swizzle_pair const & b=ids[count[k2]-1];
+                                if( a.idx==b.idx && a.idx>=0 )
+                                    goto continue_;
+                                }
                         }
-                    g<<
-                        "( V"<<ref_id[rfid]<<" a )" NL
-                        TAB3 "{" NL
-                        TAB3 "return reinterpret_cast<qvm_detail::sw_<V,";
-                    for( int k=0; k!=d; ++k )
-                        g<<(k?",":"")<<"qvm_detail::swizzle_idx<"<<ids[count[k]-1].idx;
-                    for( int k=0; k!=d; ++k )
-                        g<<" >";
-                    g<<
-                        " >"<<ref_id[rfid]<<">(a);" NL
-                        TAB3 "}" NL;
+                    for( int scalar=0; scalar!=2; ++scalar )
+                        {
+                        if( scalar && max_dim>0 )
+                            break;
+                        if( scalar )
+                            g<<
+                                TAB2 "template <class S>" NL
+                                TAB2 "BOOST_QVM_INLINE_TRIVIAL" NL
+                                TAB2 "typename enable_if_c<" NL
+                                TAB3 "is_scalar<S>::value," NL
+                                TAB3 "qvm_detail::sws_<S,";
+                        else
+                            g<<
+                                TAB2 "template <class V>" NL
+                                TAB2 "BOOST_QVM_INLINE_TRIVIAL" NL
+                                TAB2 "typename enable_if_c<" NL
+                                TAB3 "is_vec<V>::value && vec_traits<V>::dim>="<<max_dim+1<<"," NL
+                                TAB3 "qvm_detail::sw_<V,";
+                        for( int k=0; k!=d; ++k )
+                            g<<(k?",":"")<<"qvm_detail::swizzle_idx<"<<ids[count[k]-1].idx;
+                        for( int k=0; k!=d; ++k )
+                            g<<" >";
+                        g<<" >"<<ref_id[rfid]<<">::type" NL TAB2;
+                        for( int k=0; k!=d; ++k )
+                            {
+                            char f=ids[count[k]-1].ch;
+                            if( !k && f>='0' && f<='9' )
+                                g<<'_';
+                            g<<f;
+                            }
+                        if( scalar )
+                            g<<
+                                "( S"<<ref_id[rfid]<<" a )" NL
+                                TAB3 "{" NL
+                                TAB3 "return reinterpret_cast<qvm_detail::sws_<S,";
+                        else
+                            g<<
+                                "( V"<<ref_id[rfid]<<" a )" NL
+                                TAB3 "{" NL
+                                TAB3 "return reinterpret_cast<qvm_detail::sw_<V,";
+                        for( int k=0; k!=d; ++k )
+                            g<<(k?",":"")<<"qvm_detail::swizzle_idx<"<<ids[count[k]-1].idx;
+                        for( int k=0; k!=d; ++k )
+                            g<<" >";
+                        g<<
+                            " >"<<ref_id[rfid]<<">(a);" NL
+                            TAB3 "}" NL;
+                        }
                     }
+            continue_:
             int j;
             for( j=0; j!=d; ++j )
                 if( --count[j] )

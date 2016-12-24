@@ -93,6 +93,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X111( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -101,6 +110,15 @@ boost
         X111( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        X111( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &
@@ -177,6 +195,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X011( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -185,6 +212,15 @@ boost
         X011( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        X011( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -230,15 +266,6 @@ boost
         WW11( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WW11( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -361,15 +388,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZ11( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YZ11( V const & a )
             {
@@ -487,15 +505,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YY11( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XY11( V const & a )
             {
@@ -519,6 +528,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _1X11( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -527,6 +545,15 @@ boost
         _1X11( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _1X11( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -537,6 +564,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _0X11( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -545,6 +581,15 @@ boost
         _0X11( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _0X11( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -609,14 +654,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XX11( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        XX11( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &
@@ -693,6 +738,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X101( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -701,6 +755,15 @@ boost
         X101( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        X101( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &
@@ -777,6 +840,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X001( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -785,6 +857,15 @@ boost
         X001( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        X001( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -830,15 +911,6 @@ boost
         WW01( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WW01( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -961,15 +1033,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZ01( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YZ01( V const & a )
             {
@@ -1087,15 +1150,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YY01( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XY01( V const & a )
             {
@@ -1119,6 +1173,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _1X01( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -1127,6 +1190,15 @@ boost
         _1X01( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _1X01( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1137,6 +1209,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _0X01( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -1145,6 +1226,15 @@ boost
         _0X01( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _0X01( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1209,14 +1299,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XX01( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        XX01( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1262,15 +1352,6 @@ boost
         W1W1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        W1W1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1375,15 +1456,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        W0W1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         Z0W1( V const & a )
             {
@@ -1447,28 +1519,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _1WW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         _0WW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _0WW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1483,28 +1537,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WWW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZWW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZWW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1519,28 +1555,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YWW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XWW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XWW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1591,28 +1609,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WZW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZZW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1699,15 +1699,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WYW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZYW1( V const & a )
             {
@@ -1730,15 +1721,6 @@ boost
         YYW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YYW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1807,15 +1789,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WXW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZXW1( V const & a )
             {
@@ -1856,15 +1829,6 @@ boost
         XXW1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XXW1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -1928,15 +1892,6 @@ boost
         Z1Z1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        Z1Z1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2041,15 +1996,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        Z0Z1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         Y0Z1( V const & a )
             {
@@ -2131,28 +2077,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WWZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZWZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZWZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2203,28 +2131,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _1ZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         _0ZZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _0ZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2234,15 +2144,6 @@ boost
         WZZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2257,15 +2158,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YZZ1( V const & a )
             {
@@ -2275,28 +2167,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XZZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XZZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2365,28 +2239,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZYZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YYZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YYZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2473,15 +2329,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZXZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YXZ1( V const & a )
             {
@@ -2504,15 +2351,6 @@ boost
         XXZ1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XXZ1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2594,15 +2432,6 @@ boost
         Y1Y1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        Y1Y1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2707,15 +2536,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        Y0Y1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         X0Y1( V const & a )
             {
@@ -2779,15 +2599,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WWY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZWY1( V const & a )
             {
@@ -2810,15 +2621,6 @@ boost
         YWY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YWY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2905,28 +2707,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YZY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YZY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2959,28 +2743,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _1YY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         _0YY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _0YY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -2994,29 +2760,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WYY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZYY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZYY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3031,28 +2779,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YYY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XYY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XYY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3139,28 +2869,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YXY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XXY1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XXY1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3171,6 +2883,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _11X1( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3179,6 +2900,15 @@ boost
         _11X1( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _11X1( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3189,6 +2919,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _01X1( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3197,6 +2936,15 @@ boost
         _01X1( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _01X1( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3261,14 +3009,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        X1X1( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X1X1( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3279,6 +3027,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _10X1( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3287,6 +3044,15 @@ boost
         _10X1( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _10X1( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3297,6 +3063,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _00X1( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3305,6 +3080,15 @@ boost
         _00X1( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
+        _00X1( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3369,14 +3153,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        X0X1( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        X0X1( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3427,15 +3211,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WWX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZWX1( V const & a )
             {
@@ -3476,15 +3251,6 @@ boost
         XWX1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XWX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3553,15 +3319,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZZX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         YZX1( V const & a )
             {
@@ -3584,15 +3341,6 @@ boost
         XZX1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XZX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3679,28 +3427,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YYX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XYX1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XYX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3711,14 +3441,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _1XX1( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _1XX1( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3729,14 +3459,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        _0XX1( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        _0XX1( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3750,29 +3480,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        WXX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         ZXX1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        ZXX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -3786,29 +3498,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        YXX1( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
         XXX1( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>::type
-        XXX1( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>::type
+        XXX1( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2 > > > > > const &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &
@@ -3885,6 +3588,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X110( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3893,6 +3605,15 @@ boost
         X110( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        X110( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &
@@ -3969,6 +3690,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X010( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -3977,6 +3707,15 @@ boost
         X010( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        X010( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4022,15 +3761,6 @@ boost
         WW10( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WW10( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4153,15 +3883,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZ10( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YZ10( V const & a )
             {
@@ -4279,15 +4000,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YY10( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XY10( V const & a )
             {
@@ -4311,6 +4023,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _1X10( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4319,6 +4040,15 @@ boost
         _1X10( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _1X10( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4329,6 +4059,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _0X10( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4337,6 +4076,15 @@ boost
         _0X10( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _0X10( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4401,14 +4149,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XX10( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        XX10( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &
@@ -4485,6 +4233,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X100( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4493,6 +4250,15 @@ boost
         X100( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        X100( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         BOOST_QVM_INLINE_TRIVIAL
         qvm_detail::sw01_<qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &
@@ -4569,6 +4335,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X000( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4577,6 +4352,15 @@ boost
         X000( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        X000( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4622,15 +4406,6 @@ boost
         WW00( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WW00( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4753,15 +4528,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZ00( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YZ00( V const & a )
             {
@@ -4879,15 +4645,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YY00( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XY00( V const & a )
             {
@@ -4911,6 +4668,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _1X00( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4919,6 +4685,15 @@ boost
         _1X00( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _1X00( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -4929,6 +4704,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _0X00( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -4937,6 +4721,15 @@ boost
         _0X00( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _0X00( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5001,14 +4794,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XX00( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        XX00( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5054,15 +4847,6 @@ boost
         W1W0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        W1W0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5167,15 +4951,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        W0W0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         Z0W0( V const & a )
             {
@@ -5239,28 +5014,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _1WW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         _0WW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _0WW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5275,28 +5032,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WWW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZWW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZWW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5311,28 +5050,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YWW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XWW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XWW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5383,28 +5104,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WZW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZZW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5491,15 +5194,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WYW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZYW0( V const & a )
             {
@@ -5522,15 +5216,6 @@ boost
         YYW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YYW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5599,15 +5284,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WXW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZXW0( V const & a )
             {
@@ -5648,15 +5324,6 @@ boost
         XXW0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XXW0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5720,15 +5387,6 @@ boost
         Z1Z0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        Z1Z0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5833,15 +5491,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        Z0Z0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         Y0Z0( V const & a )
             {
@@ -5923,28 +5572,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WWZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZWZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZWZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -5995,28 +5626,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _1ZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         _0ZZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _0ZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6026,15 +5639,6 @@ boost
         WZZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6049,15 +5653,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YZZ0( V const & a )
             {
@@ -6067,28 +5662,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XZZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XZZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6157,28 +5734,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZYZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YYZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YYZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6265,15 +5824,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZXZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YXZ0( V const & a )
             {
@@ -6296,15 +5846,6 @@ boost
         XXZ0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XXZ0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6386,15 +5927,6 @@ boost
         Y1Y0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        Y1Y0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6499,15 +6031,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        Y0Y0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         X0Y0( V const & a )
             {
@@ -6571,15 +6094,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WWY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZWY0( V const & a )
             {
@@ -6602,15 +6116,6 @@ boost
         YWY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YWY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6697,28 +6202,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YZY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YZY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6751,28 +6238,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _1YY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         _0YY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _0YY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6786,29 +6255,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WYY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZYY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZYY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6823,28 +6274,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YYY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XYY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XYY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6931,28 +6364,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YXY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XXY0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XXY0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6963,6 +6378,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _11X0( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -6971,6 +6395,15 @@ boost
         _11X0( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _11X0( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -6981,6 +6414,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _01X0( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -6989,6 +6431,15 @@ boost
         _01X0( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _01X0( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7053,14 +6504,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        X1X0( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X1X0( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7071,6 +6522,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _10X0( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -7079,6 +6539,15 @@ boost
         _10X0( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _10X0( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7089,6 +6558,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _00X0( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -7097,6 +6575,15 @@ boost
         _00X0( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
+        _00X0( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7161,14 +6648,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        X0X0( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        X0X0( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7219,15 +6706,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WWX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZWX0( V const & a )
             {
@@ -7268,15 +6746,6 @@ boost
         XWX0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XWX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7345,15 +6814,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZZX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         YZX0( V const & a )
             {
@@ -7376,15 +6836,6 @@ boost
         XZX0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XZX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7471,28 +6922,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YYX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XYX0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XYX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7503,14 +6936,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _1XX0( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _1XX0( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7521,14 +6954,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        _0XX0( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        _0XX0( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7542,29 +6975,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        WXX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         ZXX0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        ZXX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7578,29 +6993,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        YXX0( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
         XXX0( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>::type
-        XXX0( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>::type
+        XXX0( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7646,15 +7052,6 @@ boost
         W11W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W11W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7759,15 +7156,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W01W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z01W( V const & a )
             {
@@ -7831,28 +7219,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1W1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0W1W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0W1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7867,28 +7237,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WW1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZW1W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZW1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7903,28 +7255,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YW1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XW1W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XW1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -7975,28 +7309,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZ1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZZ1W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZ1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8083,15 +7399,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WY1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZY1W( V const & a )
             {
@@ -8114,15 +7421,6 @@ boost
         YY1W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YY1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8191,15 +7489,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WX1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZX1W( V const & a )
             {
@@ -8245,15 +7534,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XX1W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _110W( V const & a )
             {
@@ -8294,15 +7574,6 @@ boost
         W10W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W10W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8407,15 +7678,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W00W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z00W( V const & a )
             {
@@ -8479,28 +7741,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1W0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0W0W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0W0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8515,28 +7759,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WW0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZW0W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZW0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8551,28 +7777,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YW0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XW0W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XW0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8623,28 +7831,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZ0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZZ0W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZ0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8731,15 +7921,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WY0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZY0W( V const & a )
             {
@@ -8762,15 +7943,6 @@ boost
         YY0W( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YY0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8839,15 +8011,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WX0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZX0W( V const & a )
             {
@@ -8893,28 +8056,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XX0W( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _11WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _11WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8929,28 +8074,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _01WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         W1WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W1WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -8965,28 +8092,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Z1WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Y1WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Y1WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9001,28 +8110,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        X1WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _10WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _10WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9037,28 +8128,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _00WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         W0WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W0WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9073,28 +8146,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Z0WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Y0WW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Y0WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9109,28 +8164,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        X0WW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _1WWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1WWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9145,28 +8182,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0WWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         WWWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WWWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9181,28 +8200,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZWWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YWWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YWWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9217,28 +8218,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XWWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _1ZWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1ZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9253,28 +8236,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0ZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         WZWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9289,28 +8254,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YZWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9325,28 +8272,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XZWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _1YWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1YWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9361,28 +8290,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0YWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         WYWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WYWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9397,28 +8308,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZYWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YYWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YYWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9433,28 +8326,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XYWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _1XWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1XWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9469,28 +8344,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0XWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         WXWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WXWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9505,15 +8362,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZXWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YXWW( V const & a )
             {
@@ -9523,28 +8371,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YXWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XXWW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XXWW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9595,28 +8425,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W1ZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z1ZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Z1ZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9703,28 +8515,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W0ZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z0ZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Z0ZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9775,28 +8569,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1WZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0WZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0WZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9811,28 +8587,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WWZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZWZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZWZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9847,28 +8605,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YWZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XWZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XWZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9883,28 +8623,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1ZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0ZZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0ZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9919,28 +8641,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZZZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -9955,28 +8659,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XZZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XZZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10027,15 +8713,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WYZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZYZW( V const & a )
             {
@@ -10045,28 +8722,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZYZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YYZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YYZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10135,28 +8794,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WXZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZXZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZXZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10184,15 +8825,6 @@ boost
         XXZW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XXZW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10243,15 +8875,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W1YW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z1YW( V const & a )
             {
@@ -10274,15 +8897,6 @@ boost
         Y1YW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Y1YW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10351,15 +8965,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W0YW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z0YW( V const & a )
             {
@@ -10382,15 +8987,6 @@ boost
         Y0YW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        Y0YW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10423,28 +9019,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1WYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0WYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0WYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10459,28 +9037,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WWYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZWYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZWYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10495,28 +9055,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YWYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XWYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XWYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10567,15 +9109,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZZYW( V const & a )
             {
@@ -10585,28 +9118,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YZYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YZYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10639,28 +9154,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1YYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0YYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0YYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10675,28 +9172,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WYYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZYYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZYYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10711,28 +9190,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YYYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XYYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XYYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10783,15 +9244,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WXYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZXYW( V const & a )
             {
@@ -10819,28 +9271,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YXYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XXYW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XXYW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10891,15 +9325,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W1XW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z1XW( V const & a )
             {
@@ -10940,15 +9365,6 @@ boost
         X1XW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        X1XW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -10999,15 +9415,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        W0XW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         Z0XW( V const & a )
             {
@@ -11053,28 +9460,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        X0XW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _1WXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1WXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11089,28 +9478,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0WXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         WWXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WWXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11125,15 +9496,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZWXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         YWXW( V const & a )
             {
@@ -11143,28 +9505,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YWXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XWXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XWXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11215,28 +9559,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WZXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZZXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZZXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11264,15 +9590,6 @@ boost
         XZXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XZXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11323,15 +9640,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WYXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZYXW( V const & a )
             {
@@ -11359,28 +9667,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YYXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XYXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XYXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11395,28 +9685,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _1XXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         _0XXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        _0XXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11431,28 +9703,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        WXXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         ZXXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        ZXXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11467,28 +9721,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        YXXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>::type
         XXXW( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>::type
-        XXXW( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11552,15 +9788,6 @@ boost
         Z11Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z11Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11665,15 +9892,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z01Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y01Z( V const & a )
             {
@@ -11755,28 +9973,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WW1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZW1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZW1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11827,28 +10027,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1Z1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0Z1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0Z1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11858,15 +10040,6 @@ boost
         WZ1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZ1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11881,15 +10054,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZ1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YZ1Z( V const & a )
             {
@@ -11899,28 +10063,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZ1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XZ1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZ1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -11989,28 +10135,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZY1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YY1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YY1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12097,15 +10225,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZX1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YX1Z( V const & a )
             {
@@ -12128,15 +10247,6 @@ boost
         XX1Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XX1Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12200,15 +10310,6 @@ boost
         Z10Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z10Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12313,15 +10414,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z00Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y00Z( V const & a )
             {
@@ -12403,28 +10495,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WW0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZW0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZW0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12475,28 +10549,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1Z0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0Z0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0Z0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12506,15 +10562,6 @@ boost
         WZ0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZ0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12529,15 +10576,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZ0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YZ0Z( V const & a )
             {
@@ -12547,28 +10585,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZ0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XZ0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZ0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12637,28 +10657,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZY0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YY0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YY0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12745,15 +10747,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZX0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YX0Z( V const & a )
             {
@@ -12776,15 +10769,6 @@ boost
         XX0Z( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XX0Z( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12835,28 +10819,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        W1WZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Z1WZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z1WZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -12943,28 +10909,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        W0WZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Z0WZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z0WZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13015,28 +10963,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1WWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0WWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0WWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13051,28 +10981,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WWWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZWWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZWWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13087,28 +10999,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YWWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XWWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XWWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13123,28 +11017,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1ZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0ZWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0ZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13159,28 +11035,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZZWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13195,28 +11053,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XZWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13267,15 +11107,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WYWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZYWZ( V const & a )
             {
@@ -13285,28 +11116,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZYWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YYWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YYWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13375,28 +11188,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WXWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZXWZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZXWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13428,29 +11223,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XXWZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _11ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _11ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13464,29 +11241,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _01ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         W1ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        W1ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13501,28 +11260,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z1ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y1ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Y1ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13537,28 +11278,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        X1ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _10ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _10ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13572,29 +11295,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _00ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         W0ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        W0ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13609,15 +11314,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z0ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y0ZZ( V const & a )
             {
@@ -13627,28 +11323,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Y0ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         X0ZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        X0ZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13663,28 +11341,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1WZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0WZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0WZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13699,28 +11359,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WWZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZWZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZWZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13735,28 +11377,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YWZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XWZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XWZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13771,28 +11395,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1ZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0ZZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0ZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13802,15 +11408,6 @@ boost
         WZZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13825,28 +11422,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YZZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13861,28 +11440,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _1YZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1YZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13896,29 +11457,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0YZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         WYZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WYZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13933,28 +11476,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZYZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YYZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YYZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -13969,28 +11494,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XYZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _1XZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1XZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14004,29 +11511,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0XZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         WXZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WXZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14041,15 +11530,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZXZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YXZZ( V const & a )
             {
@@ -14059,28 +11539,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YXZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XXZZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XXZZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14149,28 +11611,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z1YZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y1YZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Y1YZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14257,28 +11701,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z0YZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y0YZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Y0YZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14347,15 +11773,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WWYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZWYZ( V const & a )
             {
@@ -14365,28 +11782,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZWYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YWYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YWYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14419,28 +11818,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1ZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _0ZYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0ZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14450,15 +11831,6 @@ boost
         WZYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14473,28 +11845,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YZYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14509,28 +11863,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _1YYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1YYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14544,29 +11880,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0YYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         WYYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WYYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14581,15 +11899,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZYYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YYYZ( V const & a )
             {
@@ -14599,28 +11908,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YYYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XYYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XYYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14689,15 +11980,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZXYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YXYZ( V const & a )
             {
@@ -14707,28 +11989,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YXYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XXYZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XXYZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14797,15 +12061,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z1XZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y1XZ( V const & a )
             {
@@ -14828,15 +12083,6 @@ boost
         X1XZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        X1XZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14905,15 +12151,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        Z0XZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         Y0XZ( V const & a )
             {
@@ -14936,15 +12173,6 @@ boost
         X0XZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        X0XZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -14995,28 +12223,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WWXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         ZWXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZWXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15048,29 +12258,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XWXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _1ZXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1ZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15084,29 +12276,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0ZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         WZXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15121,15 +12295,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YZXZ( V const & a )
             {
@@ -15139,28 +12304,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XZXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XZXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15229,28 +12376,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZYXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YYXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YYXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15265,28 +12394,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XYXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         _1XXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _1XXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15300,29 +12411,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        _0XXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         WXXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        WXXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15337,15 +12430,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        ZXXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         YXXZ( V const & a )
             {
@@ -15355,28 +12439,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        YXXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>::type
         XXXZ( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>::type
-        XXXZ( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15458,15 +12524,6 @@ boost
         Y11Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y11Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15571,15 +12628,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y01Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X01Y( V const & a )
             {
@@ -15643,15 +12691,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WW1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZW1Y( V const & a )
             {
@@ -15674,15 +12713,6 @@ boost
         YW1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YW1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15769,28 +12799,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZ1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZ1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZ1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15823,28 +12835,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1Y1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0Y1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0Y1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15858,29 +12852,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WY1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZY1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZY1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -15895,28 +12871,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YY1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XY1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XY1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16003,28 +12961,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YX1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XX1Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XX1Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16106,15 +13046,6 @@ boost
         Y10Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y10Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16219,15 +13150,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y00Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X00Y( V const & a )
             {
@@ -16291,15 +13213,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WW0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZW0Y( V const & a )
             {
@@ -16322,15 +13235,6 @@ boost
         YW0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YW0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16417,28 +13321,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZ0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZ0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZ0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16471,28 +13357,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1Y0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0Y0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0Y0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16506,29 +13374,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WY0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZY0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZY0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16543,28 +13393,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YY0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XY0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XY0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16651,28 +13483,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YX0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XX0Y( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XX0Y( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16723,15 +13537,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        W1WY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Z1WY( V const & a )
             {
@@ -16754,15 +13559,6 @@ boost
         Y1WY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y1WY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16831,15 +13627,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        W0WY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Z0WY( V const & a )
             {
@@ -16862,15 +13649,6 @@ boost
         Y0WY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y0WY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16903,28 +13681,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1WWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0WWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0WWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16939,28 +13699,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WWWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZWWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZWWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -16975,28 +13717,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YWWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XWWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XWWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17047,15 +13771,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WZWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZZWY( V const & a )
             {
@@ -17065,28 +13780,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17119,28 +13816,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1YWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0YWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0YWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17155,28 +13834,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WYWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZYWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZYWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17191,28 +13852,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YYWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XYWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XYWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17263,15 +13906,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WXWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZXWY( V const & a )
             {
@@ -17299,28 +13933,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YXWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XXWY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XXWY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17389,28 +14005,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Z1ZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Y1ZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y1ZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17497,28 +14095,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Z0ZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Y0ZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y0ZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17587,15 +14167,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WWZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZWZY( V const & a )
             {
@@ -17605,28 +14176,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZWZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YWZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YWZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17659,28 +14212,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1ZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0ZZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0ZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17690,15 +14225,6 @@ boost
         WZZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17713,28 +14239,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17749,28 +14257,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XZZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _1YZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1YZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17784,29 +14274,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0YZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         WYZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WYZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17821,15 +14293,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZYZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YYZY( V const & a )
             {
@@ -17839,28 +14302,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YYZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XYZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XYZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17929,15 +14374,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZXZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YXZY( V const & a )
             {
@@ -17947,28 +14383,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YXZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XXZY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XXZY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -17983,28 +14401,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _11YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _01YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _01YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18018,29 +14418,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        W1YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Z1YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Z1YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18055,28 +14437,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y1YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X1YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        X1YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18091,28 +14455,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _10YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _00YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _00YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18126,29 +14472,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        W0YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         Z0YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Z0YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18163,28 +14491,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y0YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X0YY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        X0YY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18199,28 +14509,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1WYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0WYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0WYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18235,28 +14527,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WWYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZWYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZWYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18271,28 +14545,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YWYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XWYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XWYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18307,28 +14563,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1ZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0ZYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0ZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18338,15 +14576,6 @@ boost
         WZYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18361,15 +14590,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZYY( V const & a )
             {
@@ -18379,28 +14599,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XZYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XZYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18415,28 +14617,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1YYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0YYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0YYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18450,29 +14634,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WYYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZYYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZYYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18487,28 +14653,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YYYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XYYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XYYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18523,28 +14671,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1XYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0XYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0XYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18558,29 +14688,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WXYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZXYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZXYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18595,28 +14707,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YXYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XXYY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XXYY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18703,28 +14797,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y1XY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X1XY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        X1XY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18811,28 +14887,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        Y0XY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         X0XY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        X0XY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -18883,15 +14941,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WWXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZWXY( V const & a )
             {
@@ -18919,28 +14968,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YWXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XWXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XWXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19009,15 +15040,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZZXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         YZXY( V const & a )
             {
@@ -19027,28 +15049,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YZXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XZXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XZXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19063,28 +15067,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1YXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0YXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0YXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19098,29 +15084,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WYXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZYXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZYXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19135,28 +15103,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YYXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XYXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XYXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19171,28 +15121,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _1XXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         _0XXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        _0XXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19206,29 +15138,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        WXXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         ZXXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        ZXXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19243,28 +15157,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        YXXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>::type
         XXXY( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>::type
-        XXXY( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19275,6 +15171,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _111X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19283,6 +15188,15 @@ boost
         _111X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _111X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19293,6 +15207,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _011X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19301,6 +15224,15 @@ boost
         _011X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _011X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19365,14 +15297,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X11X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X11X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19383,6 +15315,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _101X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19391,6 +15332,15 @@ boost
         _101X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _101X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19401,6 +15351,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _001X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19409,6 +15368,15 @@ boost
         _001X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _001X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19473,14 +15441,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X01X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X01X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19531,15 +15499,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WW1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZW1X( V const & a )
             {
@@ -19580,15 +15539,6 @@ boost
         XW1X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XW1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19657,15 +15607,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZ1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YZ1X( V const & a )
             {
@@ -19688,15 +15629,6 @@ boost
         XZ1X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZ1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19783,28 +15715,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YY1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XY1X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XY1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19815,14 +15729,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1X1X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _1X1X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19833,14 +15747,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0X1X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _0X1X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19854,29 +15768,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WX1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZX1X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZX1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19890,29 +15786,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YX1X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XX1X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XX1X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        XX1X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19923,6 +15810,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _110X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19931,6 +15827,15 @@ boost
         _110X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _110X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -19941,6 +15846,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _010X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -19949,6 +15863,15 @@ boost
         _010X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _010X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20013,14 +15936,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X10X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X10X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20031,6 +15954,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _100X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -20039,6 +15971,15 @@ boost
         _100X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _100X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20049,6 +15990,15 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _000X( S const & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
+            }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
@@ -20057,6 +16007,15 @@ boost
         _000X( V & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            }
+        template <class S>
+        BOOST_QVM_INLINE_TRIVIAL
+        typename enable_if_c<
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
+        _000X( S & a )
+            {
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20121,14 +16080,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X00X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X00X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20179,15 +16138,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WW0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZW0X( V const & a )
             {
@@ -20228,15 +16178,6 @@ boost
         XW0X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XW0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20305,15 +16246,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZ0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YZ0X( V const & a )
             {
@@ -20336,15 +16268,6 @@ boost
         XZ0X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZ0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20431,28 +16354,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YY0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XY0X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XY0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20463,14 +16368,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1X0X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _1X0X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20481,14 +16386,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0X0X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _0X0X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20502,29 +16407,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WX0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZX0X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZX0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20538,29 +16425,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YX0X( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XX0X( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XX0X( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        XX0X( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20611,15 +16489,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        W1WX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Z1WX( V const & a )
             {
@@ -20660,15 +16529,6 @@ boost
         X1WX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X1WX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20719,15 +16579,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        W0WX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Z0WX( V const & a )
             {
@@ -20773,28 +16624,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X0WX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _1WWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1WWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20809,28 +16642,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0WWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         WWWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WWWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20845,15 +16660,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZWWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YWWX( V const & a )
             {
@@ -20863,28 +16669,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YWWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XWWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XWWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20935,28 +16723,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WZWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZZWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -20984,15 +16754,6 @@ boost
         XZWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21043,15 +16804,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WYWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZYWX( V const & a )
             {
@@ -21079,28 +16831,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YYWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XYWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XYWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21115,28 +16849,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1XWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0XWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0XWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21151,28 +16867,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WXWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZXWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZXWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21187,28 +16885,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YXWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XXWX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XXWX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21277,15 +16957,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Z1ZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Y1ZX( V const & a )
             {
@@ -21308,15 +16979,6 @@ boost
         X1ZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X1ZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21385,15 +17047,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Z0ZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Y0ZX( V const & a )
             {
@@ -21416,15 +17069,6 @@ boost
         X0ZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X0ZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21475,28 +17119,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WWZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZWZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZWZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21528,29 +17154,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XWZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _1ZZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1ZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21564,29 +17172,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0ZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         WZZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21601,15 +17191,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YZZX( V const & a )
             {
@@ -21619,28 +17200,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XZZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21709,28 +17272,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZYZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YYZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YYZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21745,28 +17290,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XYZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _1XZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1XZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21780,29 +17307,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0XZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         WXZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WXZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21817,15 +17326,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZXZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YXZX( V const & a )
             {
@@ -21835,28 +17335,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YXZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XXZX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XXZX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -21943,28 +17425,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Y1YX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         X1YX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X1YX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22051,28 +17515,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Y0YX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         X0YX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X0YX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22123,15 +17569,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WWYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZWYX( V const & a )
             {
@@ -22159,28 +17596,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YWYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XWYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XWYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22249,15 +17668,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YZYX( V const & a )
             {
@@ -22267,28 +17677,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YZYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XZYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22303,28 +17695,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1YYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0YYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0YYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22338,29 +17712,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WYYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZYYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZYYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22375,28 +17731,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YYYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XYYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XYYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22411,28 +17749,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1XYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0XYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0XYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22446,29 +17766,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WXYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZXYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZXYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22483,28 +17785,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YXYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XXYX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XXYX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22515,14 +17799,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _11XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _11XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22533,14 +17817,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _01XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _01XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22554,29 +17838,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        W1XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Z1XX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Z1XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22590,29 +17856,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Y1XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         X1XX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X1XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X1XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22623,14 +17880,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _10XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _10XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22641,14 +17898,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _00XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _00XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22662,29 +17919,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        W0XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         Z0XX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Z0XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22698,29 +17937,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        Y0XX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         X0XX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        X0XX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        X0XX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22735,28 +17965,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1WXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0WXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0WXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22771,28 +17983,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WWXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZWXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZWXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22807,28 +18001,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YWXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XWXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XWXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22843,28 +18019,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1ZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0ZXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0ZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22874,15 +18032,6 @@ boost
         WZXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22897,15 +18046,6 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         YZXX( V const & a )
             {
@@ -22915,28 +18055,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XZXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XZXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22951,28 +18073,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1YXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         _0YXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0YXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -22986,29 +18090,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WYXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZYXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZYXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -23023,28 +18109,10 @@ boost
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YYXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XYXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XYXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -23055,14 +18123,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _1XXX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _1XXX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -23073,14 +18141,14 @@ boost
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        _0XXX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        _0XXX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<-1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -23094,29 +18162,11 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=4,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        WXXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<3,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=3,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         ZXXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=3,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        ZXXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<2,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
             }
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
@@ -23130,29 +18180,20 @@ boost
         template <class V>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=2,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        YXXX( V & a )
-            {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<1,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
-            }
-        template <class V>
-        BOOST_QVM_INLINE_TRIVIAL
-        typename enable_if_c<
             is_vec<V>::value && vec_traits<V>::dim>=1,
             qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
         XXXX( V const & a )
             {
             return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
-        template <class V>
+        template <class S>
         BOOST_QVM_INLINE_TRIVIAL
         typename enable_if_c<
-            is_vec<V>::value && vec_traits<V>::dim>=1,
-            qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>::type
-        XXXX( V & a )
+            is_scalar<S>::value,
+            qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>::type
+        XXXX( S const & a )
             {
-            return reinterpret_cast<qvm_detail::sw_<V,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > &>(a);
+            return reinterpret_cast<qvm_detail::sws_<S,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0,qvm_detail::swizzle_idx<0 > > > > > const &>(a);
             }
         }
     }
