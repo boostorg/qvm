@@ -335,6 +335,12 @@
         template &lt;class V&gt; -unspecified-2D-vector-type- W0( V &amp; v );
         template &lt;class V&gt; -unspecified-2D-vector-type- W1( V &amp; v );
         ...
+        //2D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;S&gt;::value
+        template &lt;class S&gt; -unspecified-2D-vector-type- X0( S &amp; s );
+        template &lt;class S&gt; -unspecified-2D-vector-type- X1( S &amp; s );
+        template &lt;class S&gt; -unspecified-2D-vector-type- XX( S &amp; s );
+        ...
         -unspecified-2D-vector-type- _00();
         -unspecified-2D-vector-type- _01();
         -unspecified-2D-vector-type- _10();
@@ -352,6 +358,14 @@
         template &lt;class V&gt; -unspecified-3D-vector-type- XY1( V &amp; v );
         ...
         template &lt;class V&gt; -unspecified-3D-vector-type- WW1( V &amp; v );
+        ...
+        //3D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;S&gt;::value
+        template &lt;class S&gt; -unspecified-3D-vector-type- X00( S &amp; s );
+        template &lt;class S&gt; -unspecified-3D-vector-type- X01( S &amp; s );
+        ...
+        template &lt;class S&gt; -unspecified-3D-vector-type- XXX( S &amp; s );
+        template &lt;class S&gt; -unspecified-3D-vector-type- XX0( S &amp; s );
         ...
         -unspecified-3D-vector-type- _000();
         -unspecified-3D-vector-type- _001();
@@ -371,6 +385,14 @@
         template &lt;class V&gt; -unspecified-4D-vector-type- XXY1( V &amp; v );
         ...
         template &lt;class V&gt; -unspecified-4D-vector-type- WWW1( V &amp; v );
+        ...
+        //4D <span class="RenoLink"><a href="view_proxy.html">view proxies</a></span>, only <span class="RenoLink"><a href="SFINAE_enable_if.html">enabled if</a></span>:
+        //  <span class="RenoLink"><a href="is_scalar.html">is_scalar</a></span>&lt;S&gt;::value
+        template &lt;class S&gt; -unspecified-4D-vector-type- X000( S &amp; s );
+        template &lt;class S&gt; -unspecified-4D-vector-type- X001( S &amp; s );
+        ...
+        template &lt;class S&gt; -unspecified-4D-vector-type- XXXX( S &amp; s );
+        template &lt;class S&gt; -unspecified-4D-vector-type- XX00( S &amp; s );
         ...
         -unspecified-4D-vector-type- _0000();
         -unspecified-4D-vector-type- _0001();
