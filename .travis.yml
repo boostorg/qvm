@@ -53,7 +53,7 @@ matrix:
       env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++11
 
     - os: linux
-      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++14
+      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++11
 
     - os: linux
       env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++1z
@@ -68,7 +68,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++11
 
     - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++14
+      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++11
 
     - os: linux
       env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++1z
@@ -77,7 +77,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
 
     - os: osx
-      env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++14
+      env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
 
 install:
   - cd ..
