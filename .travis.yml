@@ -15,6 +15,7 @@ os:
 
 branches:
   only:
+    - master
     - develop
 
 env:
@@ -53,9 +54,6 @@ matrix:
       env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++11
 
     - os: linux
-      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++11
-
-    - os: linux
       env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++1z
 
     - os: linux
@@ -66,15 +64,6 @@ matrix:
 
     - os: linux
       env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++1z
-
-    - os: osx
-      env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
 
     - os: osx
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
@@ -87,6 +76,8 @@ install:
   - git submodule update --init tools/inspect
   - git submodule update --init libs/config
   - git submodule update --init tools/boostdep
+  - cp -r $TRAVIS_BUILD_DIR/* libs/qvm
+  - python tools/boostdep/depinst/depinst.py qvm
   - ./bootstrap.sh
   - ./b2 headers
 
