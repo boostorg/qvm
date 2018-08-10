@@ -5,9 +5,4 @@
 
 import testing ;
 
-project
-    : source-location
-        ../../gen
-    ;
-
-run gen.cpp : -od ../../include/boost/qvm/gen ;
+run gen.cpp : -od ../include/boost/qvm/gen ;
