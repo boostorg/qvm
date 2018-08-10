@@ -4,8 +4,8 @@
     "authors": [
         "Emil Dotchevski"
     ],
-    "description": "Boost QVM is a generic library for working with quaternions, vectors and matrices of static size with the emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.",
-    "documentation": "doc/index.html",
+    "description": "Generic {CPP} library for working with Quaternions Vectors and Matrices.",
+    "documentation": "index.html",
     "category": [
 		"Generic",
 		"Math",
