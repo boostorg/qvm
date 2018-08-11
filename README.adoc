@@ -1,11 +1,14 @@
 :last-update-label!:
 :source-highlighter: coderay
 :icons: font
-= Boost QVM
-Generic {CPP} library for working with Quaternions Vectors and Matrices
 :toclevels: 3
 :toc: left
-:toc-title:
+:toc-title: Boost QVM
+:sectnumlevels: 2
+
+= Boost QVM
+Generic {CPP} library for working with Quaternions Vectors and Matrices
+:keywords: c++, boost, matrix, vector, quaternion
 
 [abstract]
 == Abstract
@@ -392,7 +395,6 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 | Matrix-vector <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_vec.hpp>
 | <<mat,`mat`>> class template | #include <boost/qvm/mat.hpp>
 |====
-
 
 == Reference
 
@@ -5080,10 +5082,11 @@ This exception indicates that an operation requires a matrix with non-zero deter
 
 '''
 
-=== Macros and configuration
+=== Macros and configuration: BOOST_QVM_
 
 [[BOOST_QVM_INLINE]]
-==== `BOOST_QVM_INLINE`
+==== `INLINE`
+===== `BOOST_QVM_INLINE`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5104,7 +5107,8 @@ This macro is not used directly by Boost QVM, except as the default value of oth
 '''
 
 [[BOOST_QVM_FORCE_INLINE]]
-==== `BOOST_QVM_FORCE_INLINE`
+==== `FORCE_INLINE`
+===== `BOOST_QVM_FORCE_INLINE`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5125,7 +5129,8 @@ This macro is not used directly by Boost QVM, except as the default value of oth
 '''
 
 [[BOOST_QVM_INLINE_TRIVIAL]]
-==== `BOOST_QVM_INLINE_TRIVIAL`
+==== `INLINE_TRIVIAL`
+===== `BOOST_QVM_INLINE_TRIVIAL`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5146,7 +5151,8 @@ Boost QVM uses `BOOST_QVM_INLINE_TRIVIAL` in definitions of functions that are n
 '''
 
 [[BOOST_QVM_INLINE_CRITICAL]]
-==== `BOOST_QVM_INLINE_CRITICAL`
+==== `INLINE_CRITICAL`
+===== `BOOST_QVM_INLINE_CRITICAL`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5167,7 +5173,8 @@ Boost QVM uses `BOOST_QVM_INLINE_CRITICAL` in definitions of functions that are 
 '''
 
 [[BOOST_QVM_INLINE_OPERATIONS]]
-==== `BOOST_QVM_INLINE_OPERATIONS`
+==== `INLINE_OPERATIONS`
+===== `BOOST_QVM_INLINE_OPERATIONS`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5188,7 +5195,8 @@ Boost QVM uses `BOOST_QVM_INLINE_OPERATIONS` in definitions of functions that im
 '''
 
 [[BOOST_QVM_INLINE_RECURSION]]
-==== `BOOST_QVM_INLINE_RECURSION`
+==== `INLINE_RECURSION`
+===== `BOOST_QVM_INLINE_RECURSION`
 
 ====
 .#include <boost/qvm/inline.hpp>
@@ -5209,7 +5217,8 @@ Boost QVM uses `BOOST_QVM_INLINE_RECURSION` in definitions of recursive function
 '''
 
 [[BOOST_QVM_ASSERT]]
-==== `BOOST_QVM_ASSERT`
+==== `ASSERT`
+===== `BOOST_QVM_ASSERT`
 
 ====
 .#include <boost/qvm/assert.hpp>
@@ -5231,7 +5240,8 @@ This is the macro Boost QVM uses to assert on precondition violations and logic 
 '''
 
 [[BOOST_QVM_STATIC_ASSERT]]
-==== `BOOST_QVM_STATIC_ASSERT`
+==== `STATIC_ASSERT`
+===== `BOOST_QVM_STATIC_ASSERT`
 
 ====
 .#include <boost/qvm/static_assert.hpp>
@@ -5253,7 +5263,8 @@ All static assertions in Boost QVM use the `BOOST_QVM_STATIC_ASSERT` macro.
 '''
 
 [[BOOST_QVM_THROW_EXCEPTION]]
-==== `BOOST_QVM_THROW_EXCEPTION`
+==== `THROW_EXCEPTION`
+===== `BOOST_QVM_THROW_EXCEPTION`
 
 ====
 .#include <boost/qvm/throw_exception.hpp>
