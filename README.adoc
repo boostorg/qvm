@@ -351,49 +351,49 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 .Quaternion header files
 [cols="1,2l"]
 |====
-| Quaternion traits | #include <boost/qvm/quat_traits.hpp>
+| Quaternion traits |#include <boost/qvm/quat_traits.hpp>
 #include <boost/qvm/quat_traits_array.hpp>
 #include <boost/qvm/deduce_quat.hpp>
-| Quaternion element access | #include <boost/qvm/quat_access.hpp>
-| Quaternion operations | #include <boost/qvm/quat_operations.hpp>
-| <<quat,`quat`>> class template | #include <boost/qvm/quat.hpp>
+| Quaternion element access |#include <boost/qvm/quat_access.hpp>
+| Quaternion operations |#include <boost/qvm/quat_operations.hpp>
+| <<quat,`quat`>> class template |#include <boost/qvm/quat.hpp>
 |====
 
 .Vector header files
 [cols="1,2l"]
 |====
-| Vector traits | #include <boost/qvm/vec_traits.hpp>
+| Vector traits |#include <boost/qvm/vec_traits.hpp>
 #include <boost/qvm/vec_traits_array.hpp>
 #include <boost/qvm/deduce_vec.hpp>
-| Vector element access | #include <boost/qvm/vec_access.hpp>
-| Vector <<swizzling,swizzling>> | #include <boost/qvm/swizzle.hpp>
+| Vector element access |#include <boost/qvm/vec_access.hpp>
+| Vector <<swizzling,swizzling>> |#include <boost/qvm/swizzle.hpp>
 #include <boost/qvm/swizzle2.hpp>
 #include <boost/qvm/swizzle3.hpp>
 #include <boost/qvm/swizzle4.hpp> 
-| Vector operations | #include <boost/qvm/vec_operations.hpp>
+| Vector operations |#include <boost/qvm/vec_operations.hpp>
 #include <boost/qvm/vec_operations2.hpp>
 #include <boost/qvm/vec_operations3.hpp>
 #include <boost/qvm/vec_operations4.hpp> 
-| Quaternion-vector operations | #include <boost/qvm/quat_vec_operations.hpp>
-| Vector-matrix operations | #include <boost/qvm/vec_mat_operations.hpp>
-| Vector-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_vec_mat.hpp>
-| <<vec,`vec`>> class template | #include <boost/qvm/vec.hpp>
+| Quaternion-vector operations |#include <boost/qvm/quat_vec_operations.hpp>
+| Vector-matrix operations |#include <boost/qvm/vec_mat_operations.hpp>
+| Vector-matrix <<view_proxy,view proxies>> |#include <boost/qvm/map_vec_mat.hpp>
+| <<vec,`vec`>> class template |#include <boost/qvm/vec.hpp>
 |====
 
 .Matrix header files
 [cols="1,2l"]
 |====
-| Matrix traits | #include <boost/qvm/mat_traits.hpp>
+| Matrix traits |#include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/mat_traits_array.hpp>
 #include <boost/qvm/deduce_mat.hpp>
-| Matrix element access | #include <boost/qvm/mat_access.hpp>
-| Matrix operations | #include <boost/qvm/mat_operations.hpp>
+| Matrix element access |#include <boost/qvm/mat_access.hpp>
+| Matrix operations |#include <boost/qvm/mat_operations.hpp>
 #include <boost/qvm/mat_operations2.hpp>
 #include <boost/qvm/mat_operations3.hpp>
 #include <boost/qvm/mat_operations4.hpp> 
-| Matrix-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_mat.hpp>
-| Matrix-vector <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_vec.hpp>
-| <<mat,`mat`>> class template | #include <boost/qvm/mat.hpp>
+| Matrix-matrix <<view_proxy,view proxies>> |#include <boost/qvm/map_mat_mat.hpp>
+| Matrix-vector <<view_proxy,view proxies>> |#include <boost/qvm/map_mat_vec.hpp>
+| <<mat,`mat`>> class template |#include <boost/qvm/mat.hpp>
 |====
 
 == Reference
