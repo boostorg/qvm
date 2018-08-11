@@ -22,7 +22,7 @@ The library also provides <<view_proxy,view proxies>> that can be used to map on
 
 QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
 
-The source code is available in https://boostorg.github.io/qvm/[BOOST QVM GitHub repository].
+The source code is available in https://github.com/boostorg/qvm[BOOST QVM GitHub repository].
 
 (C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
 
