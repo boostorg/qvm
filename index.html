@@ -5,6 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
+<meta name="keywords" content="c++, boost, matrix, vector, quaternion">
 <meta name="author" content="Generic C++ library for working with Quaternions Vectors and Matrices">
 <title>Boost QVM</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
@@ -518,7 +519,7 @@ table.CodeRay td.code>pre{padding:0}
 <span id="author" class="author">Generic C++ library for working with Quaternions Vectors and Matrices</span><br>
 </div>
 <div id="toc" class="toc2">
-<div id="toctitle"></div>
+<div id="toctitle">Boost QVM</div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
 <li><a href="#_distribution">Distribution</a></li>
@@ -745,17 +746,17 @@ table.CodeRay td.code>pre{padding:0}
 <li><a href="#zero_determinant_error"><code>zero_determinant_error</code></a></li>
 </ul>
 </li>
-<li><a href="#_macros_and_configuration">Macros and configuration</a>
+<li><a href="#_macros_and_configuration_boost_qvm">Macros and configuration: BOOST_QVM_</a>
 <ul class="sectlevel3">
-<li><a href="#BOOST_QVM_INLINE"><code>BOOST_QVM_INLINE</code></a></li>
-<li><a href="#BOOST_QVM_FORCE_INLINE"><code>BOOST_QVM_FORCE_INLINE</code></a></li>
-<li><a href="#BOOST_QVM_INLINE_TRIVIAL"><code>BOOST_QVM_INLINE_TRIVIAL</code></a></li>
-<li><a href="#BOOST_QVM_INLINE_CRITICAL"><code>BOOST_QVM_INLINE_CRITICAL</code></a></li>
-<li><a href="#BOOST_QVM_INLINE_OPERATIONS"><code>BOOST_QVM_INLINE_OPERATIONS</code></a></li>
-<li><a href="#BOOST_QVM_INLINE_RECURSION"><code>BOOST_QVM_INLINE_RECURSION</code></a></li>
-<li><a href="#BOOST_QVM_ASSERT"><code>BOOST_QVM_ASSERT</code></a></li>
-<li><a href="#BOOST_QVM_STATIC_ASSERT"><code>BOOST_QVM_STATIC_ASSERT</code></a></li>
-<li><a href="#BOOST_QVM_THROW_EXCEPTION"><code>BOOST_QVM_THROW_EXCEPTION</code></a></li>
+<li><a href="#BOOST_QVM_INLINE"><code>INLINE</code></a></li>
+<li><a href="#BOOST_QVM_FORCE_INLINE"><code>FORCE_INLINE</code></a></li>
+<li><a href="#BOOST_QVM_INLINE_TRIVIAL"><code>INLINE_TRIVIAL</code></a></li>
+<li><a href="#BOOST_QVM_INLINE_CRITICAL"><code>INLINE_CRITICAL</code></a></li>
+<li><a href="#BOOST_QVM_INLINE_OPERATIONS"><code>INLINE_OPERATIONS</code></a></li>
+<li><a href="#BOOST_QVM_INLINE_RECURSION"><code>INLINE_RECURSION</code></a></li>
+<li><a href="#BOOST_QVM_ASSERT"><code>ASSERT</code></a></li>
+<li><a href="#BOOST_QVM_STATIC_ASSERT"><code>STATIC_ASSERT</code></a></li>
+<li><a href="#BOOST_QVM_THROW_EXCEPTION"><code>THROW_EXCEPTION</code></a></li>
 </ul>
 </li>
 </ul>
@@ -7638,9 +7639,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 </div>
 <div class="sect2">
-<h3 id="_macros_and_configuration">Macros and configuration</h3>
+<h3 id="_macros_and_configuration_boost_qvm">Macros and configuration: BOOST_QVM_</h3>
 <div class="sect3">
-<h4 id="BOOST_QVM_INLINE"><code>BOOST_QVM_INLINE</code></h4>
+<h4 id="BOOST_QVM_INLINE"><code>INLINE</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_inline_code"><code>BOOST_QVM_INLINE</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7662,8 +7665,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_FORCE_INLINE"><code>BOOST_QVM_FORCE_INLINE</code></h4>
+<h4 id="BOOST_QVM_FORCE_INLINE"><code>FORCE_INLINE</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_force_inline_code"><code>BOOST_QVM_FORCE_INLINE</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7685,8 +7691,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_INLINE_TRIVIAL"><code>BOOST_QVM_INLINE_TRIVIAL</code></h4>
+<h4 id="BOOST_QVM_INLINE_TRIVIAL"><code>INLINE_TRIVIAL</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_inline_trivial_code"><code>BOOST_QVM_INLINE_TRIVIAL</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7708,8 +7717,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_INLINE_CRITICAL"><code>BOOST_QVM_INLINE_CRITICAL</code></h4>
+<h4 id="BOOST_QVM_INLINE_CRITICAL"><code>INLINE_CRITICAL</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_inline_critical_code"><code>BOOST_QVM_INLINE_CRITICAL</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7731,8 +7743,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_INLINE_OPERATIONS"><code>BOOST_QVM_INLINE_OPERATIONS</code></h4>
+<h4 id="BOOST_QVM_INLINE_OPERATIONS"><code>INLINE_OPERATIONS</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_inline_operations_code"><code>BOOST_QVM_INLINE_OPERATIONS</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7754,8 +7769,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_INLINE_RECURSION"><code>BOOST_QVM_INLINE_RECURSION</code></h4>
+<h4 id="BOOST_QVM_INLINE_RECURSION"><code>INLINE_RECURSION</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_inline_recursion_code"><code>BOOST_QVM_INLINE_RECURSION</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7777,8 +7795,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_ASSERT"><code>BOOST_QVM_ASSERT</code></h4>
+<h4 id="BOOST_QVM_ASSERT"><code>ASSERT</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_assert_code"><code>BOOST_QVM_ASSERT</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7801,8 +7822,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_STATIC_ASSERT"><code>BOOST_QVM_STATIC_ASSERT</code></h4>
+<h4 id="BOOST_QVM_STATIC_ASSERT"><code>STATIC_ASSERT</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_static_assert_code"><code>BOOST_QVM_STATIC_ASSERT</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7825,8 +7849,11 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 <hr>
 </div>
+</div>
 <div class="sect3">
-<h4 id="BOOST_QVM_THROW_EXCEPTION"><code>BOOST_QVM_THROW_EXCEPTION</code></h4>
+<h4 id="BOOST_QVM_THROW_EXCEPTION"><code>THROW_EXCEPTION</code></h4>
+<div class="sect4">
+<h5 id="__code_boost_qvm_throw_exception_code"><code>BOOST_QVM_THROW_EXCEPTION</code></h5>
 <div class="exampleblock">
 <div class="content">
 <div class="listingblock">
@@ -7895,6 +7922,7 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 </li>
 </ul>
+</div>
 </div>
 </div>
 </div>
