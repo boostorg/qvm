@@ -11,11 +11,14 @@ Generic {CPP} library for working with Quaternions Vectors and Matrices
 
 [abstract]
 == Abstract
-Boost QVM is a generic library for working with Quaternions, Vectors and Matrices of static size with the emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
+Boost QVM is a generic library for working with Quaternions, Vectors and Matrices of static size. Features:
 
-All operations are implemented in terms of free function templates using https://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error[SFINAE], compatible with any user-defined quaternion, vector or matrix type. Binary operations are able to work with disparate value types.
-
-The library also provides <<view_proxy,view proxies>> that can be used to map one lvalue type to another with zero overhead, and without the creating temporary objects.
+====
+* Emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
+* Free function templates operate on any compatible user-defined quaternion, vector or matrix type.
+* Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.
+* Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.
+====
 
 == Distribution
 
