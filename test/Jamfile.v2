@@ -64,6 +64,7 @@ run plus_eq_vv_test.cpp ;
 run plus_vv_test.cpp ;
 run scalar_cast_v_test.cpp ;
 run vec_index_test.cpp ;
+run vec_register_test.cpp ;
 
 run cmp_mm_test.cpp ;
 run determinant_test.cpp ;
