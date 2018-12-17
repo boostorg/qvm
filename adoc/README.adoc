@@ -9,9 +9,6 @@ Generic {CPP} library for working with Quaternions Vectors and Matrices
 :toc: left
 :toc-title: Boost QVM
 :sectnumlevels: 2
-
-= Boost QVM
-Generic {CPP} library for working with Quaternions Vectors and Matrices
 :keywords: c++, boost, matrix, vector, quaternion
 
 [abstract]
