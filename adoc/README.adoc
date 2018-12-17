@@ -1,25 +1,35 @@
 :last-update-label!:
-:source-highlighter: coderay
 :icons: font
-= Boost QVM
+:prewrap!:
+:source-highlighter: coderay
+:stylesheet: zajo.css
+= QVM
 Generic {CPP} library for working with Quaternions Vectors and Matrices
 :toclevels: 3
 :toc: left
-:toc-title:
+:toc-title: Boost QVM
+:sectnumlevels: 2
+
+= Boost QVM
+Generic {CPP} library for working with Quaternions Vectors and Matrices
+:keywords: c++, boost, matrix, vector, quaternion
 
 [abstract]
 == Abstract
-Boost QVM is a generic library for working with Quaternions, Vectors and Matrices of static size with the emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
+Boost QVM is a generic library for working with Quaternions, Vectors and Matrices of static size. Features:
 
-All operations are implemented in terms of free function templates using https://en.wikipedia.org/wiki/Substitution_failure_is_not_an_error[SFINAE], compatible with any user-defined quaternion, vector or matrix type. Binary operations are able to work with disparate value types.
-
-The library also provides <<view_proxy,view proxies>> that can be used to map one lvalue type to another with zero overhead, and without the creating temporary objects.
+====
+* Emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
+* Free function templates operate on any compatible user-defined quaternion, vector or matrix type.
+* Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.
+* Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.
+====
 
 == Distribution
 
 QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
 
-The source code is available in https://boostorg.github.io/qvm/[BOOST QVM GitHub repository].
+The source code is available in https://github.com/boostorg/qvm[BOOST QVM GitHub repository].
 
 (C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
 
@@ -114,7 +124,7 @@ namespace boost { namespace qvm {
 
 After a similar specialization of the <<mat_traits,`mat_traits`>> template for a user-defined 3x3 matrix type `float33`, the full range of vector and matrix operations defined by Boost QVM headers becomes available automatically:
 
-[source,c++] 
+[source,c++]
 ----
 float3 v;
 X(v) = 0;
@@ -133,7 +143,7 @@ User-defined quaternion types are similarly introduced to Boost QVM by specializ
 
 In <<boost/qvm/quat_traits_array.hpp,`boost/qvm/quat_traits_array.hpp`>>, <<boost/qvm/vec_traits_array.hpp,`boost/qvm/vec_traits_array.hpp`>> and <<boost/qvm/mat_traits_array.hpp,`boost/qvm/mat_traits_array.hpp`>> Boost QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow Boost QVM functions to operate directly on plain old C arrays:
 
-[source,c++] 
+[source,c++]
 ----
 float v[3] = {0,0,7};
 float3 vrot = rotx_mat<3>(3.14159f) * v;
@@ -141,7 +151,7 @@ float3 vrot = rotx_mat<3>(3.14159f) * v;
 
 Naturally, operator overloads cannot kick in if all elements of an expression are of built-in types. The following is still illegal:
 
-[source,c++] 
+[source,c++]
 ----
 float v[3] = {0,0,7};
 v *= 42;
@@ -149,7 +159,7 @@ v *= 42;
 
 The <<vref,`vref`>> and <<mref,`mref`>> function templates can be used to work around this issue:
 
-[source,c++] 
+[source,c++]
 ----
 float v[3] = {0,0,7};
 vref(v) *= 42;
@@ -162,7 +172,7 @@ vref(v) *= 42;
 
 Boost QVM defines various function templates that provide static mapping between (possibly user-defined) quaternion, vector and matrix types. The example below multiplies column 1 (Boost QVM indexes are always zero-based) of the matrix `m` by a scalar:
 
-[source,c++] 
+[source,c++]
 ----
 void multiply_column1( float33 & m, float scalar ) {
     col<1>(m) *= scalar;
@@ -173,7 +183,7 @@ The expression <<col,`col<1>(m)`>> is an lvalue of an unspecified 3D vector type
 
 Here is another example, multiplying a transposed view of a matrix by a vector of some user-defined type `float3`:
 
-[source,c++] 
+[source,c++]
 ----
 float3 v = {0,0,7};
 float3 vrot = transposed(rotx_mat<3>(3.14159f)) * v;
@@ -187,7 +197,7 @@ In general, the various view proxy functions return references of unspecified, n
 
 Boost QVM allows accessing vector elements by swizzling, exposing vector views of different dimensions, and/or views with reordered elements. The example below rotates `v` around the X axis, and stores the resulting vector back in `v` but with the X and Y elements swapped:
 
-[source,c++] 
+[source,c++]
 ----
 float3 v = {0,0,7};
 YXZ(v) = rotx_mat<3>(3.14159f) * v;
@@ -195,7 +205,7 @@ YXZ(v) = rotx_mat<3>(3.14159f) * v;
 
 A special case of swizzling provides next-dimension-view of a vector object, adding either 0 or 1 as its last component. Assuming `float3` is a 3D vector type, and `float4` is a 4D vector type, the following statements are valid:
 
-[source,c++] 
+[source,c++]
 ----
 float3 v = {0,0,7};
 float4 point = XYZ1(v); //{0,0,7,1}
@@ -204,7 +214,7 @@ float4 vector = XYZ0(v); //{0,0,7,0}
 
 It is also valid for swizzling to address vector elements more than once:
 
-[source,c++] 
+[source,c++]
 ----
 float3 v = {0,0,7};
 float4 v1 = ZZZZ(v); //{7,7,7,7}
@@ -230,7 +240,7 @@ In absence of concepts support, SFINAE can be used to disable function template 
 
 For example, Boost QVM defines `operator*` overload which works with any user-defined matrix and vector types. The naive approach would be to declare this overload as follows:
 
-[source,c++] 
+[source,c++]
 ----
 template <class Matrix,class Vector>
 Vector operator*( Matrix const & m, Vector const & v );
@@ -240,7 +250,7 @@ Even if the function definition might contain code that would compile only for `
 
 Using `enable_if`, Boost QVM declares such overloads in a way that preserves their generic signature but only participate in overload resolutions if the passed parameters make sense depending on the semantics of the operation being defined:
 
-[source,c++] 
+[source,c++]
 ----
 template <class A,class B>
 typename enable_if_c<
@@ -257,7 +267,7 @@ For brevity, function declarations throughout this documentation specify the con
 
 An important design goal of Boost QVM is that it works seamlessly with 3rd-party quaternion, vector and matrix types and libraries. Even when such libraries overload the same {CPP} operators as Boost QVM, it is safe to bring the entire `boost::qvm` namespace in scope by specifying:
 
-[source,c++] 
+[source,c++]
 ----
 using namespace boost::qvm;
 ----
@@ -276,21 +286,21 @@ Bringing the `boost::qvm` namespace in scope lets you mix vector and matrix type
 
 The answer is that by default, Boost QVM returns some kind of compatible matrix type, so it is always safe to write:
 
-[source,c++] 
+[source,c++]
 ----
 auto & m = m1 * m2;
 ----
 
 However, the type deduced by default converts implicitly to any compatible matrix type, so the following is also valid, at the cost of a temporary:
 
-[source,c++] 
+[source,c++]
 ----
 user_matrix1 m = m1 * m2;
 ----
 
 While the temporary object can be optimized away by many compilers, it can be avoided altogether by specializing the <<deduce_mat2,`deduce_mat2`>> template. For example, to specify that multiplying a `user_matrix1` by a `user_matrix2` should always produce a `user_matrix1` object, you could write:
 
-[source,c++] 
+[source,c++]
 ----
 namespace boost { namespace qvm {
 
@@ -318,7 +328,7 @@ It is best to keep such specializations out of `lib1` and `lib2`. Of course, it 
 
 Perhaps surprisingly, unary operations that return an object by value have a similar, though simpler issue. That's because the argument they're called with may not be copyable, as in:
 
-[source,c++] 
+[source,c++]
 ----
 float m[3][3];
 auto & inv = inverse(m);
@@ -330,7 +340,7 @@ Above, the object returned by <<mat_inverse,`inverse`>> and captured by `inv` ca
 
 Any time you need to create a matrix of a particular {CPP} type from any other compatible matrix type, you can use the <<convert_to,`convert_to`>> function:
 
-[source,c++] 
+[source,c++]
 ----
 user_matrix2 m=convert_to<user_matrix2>(m1 * m2);
 ----
@@ -348,29 +358,29 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 .Quaternion header files
 [cols="1,2l"]
 |====
-| Quaternion traits | #include <boost/qvm/quat_traits.hpp>
+| Quaternion traits |#include <boost/qvm/quat_traits.hpp>
 #include <boost/qvm/quat_traits_array.hpp>
 #include <boost/qvm/deduce_quat.hpp>
-| Quaternion element access | #include <boost/qvm/quat_access.hpp>
-| Quaternion operations | #include <boost/qvm/quat_operations.hpp>
-| <<quat,`quat`>> class template | #include <boost/qvm/quat.hpp>
+| Quaternion element access |#include <boost/qvm/quat_access.hpp>
+| Quaternion operations |#include <boost/qvm/quat_operations.hpp>
+| <<quat,`quat`>> class template |#include <boost/qvm/quat.hpp>
 |====
 
 .Vector header files
 [cols="1,2l"]
 |====
-| Vector traits | #include <boost/qvm/vec_traits.hpp>
+| Vector traits |#include <boost/qvm/vec_traits.hpp>
 #include <boost/qvm/vec_traits_array.hpp>
 #include <boost/qvm/deduce_vec.hpp>
-| Vector element access | #include <boost/qvm/vec_access.hpp>
-| Vector <<swizzling,swizzling>> | #include <boost/qvm/swizzle.hpp>
+| Vector element access |#include <boost/qvm/vec_access.hpp>
+| Vector <<swizzling,swizzling>> |#include <boost/qvm/swizzle.hpp>
 #include <boost/qvm/swizzle2.hpp>
 #include <boost/qvm/swizzle3.hpp>
-#include <boost/qvm/swizzle4.hpp> 
+#include <boost/qvm/swizzle4.hpp>
 | Vector operations | #include <boost/qvm/vec_operations.hpp>
 #include <boost/qvm/vec_operations2.hpp>
 #include <boost/qvm/vec_operations3.hpp>
-#include <boost/qvm/vec_operations4.hpp> 
+#include <boost/qvm/vec_operations4.hpp>
 | Quaternion-vector operations | #include <boost/qvm/quat_vec_operations.hpp>
 | Vector-matrix operations | #include <boost/qvm/vec_mat_operations.hpp>
 | Vector-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_vec_mat.hpp>
@@ -380,19 +390,18 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 .Matrix header files
 [cols="1,2l"]
 |====
-| Matrix traits | #include <boost/qvm/mat_traits.hpp>
+| Matrix traits |#include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/mat_traits_array.hpp>
 #include <boost/qvm/deduce_mat.hpp>
-| Matrix element access | #include <boost/qvm/mat_access.hpp>
-| Matrix operations | #include <boost/qvm/mat_operations.hpp>
+| Matrix element access |#include <boost/qvm/mat_access.hpp>
+| Matrix operations |#include <boost/qvm/mat_operations.hpp>
 #include <boost/qvm/mat_operations2.hpp>
 #include <boost/qvm/mat_operations3.hpp>
-#include <boost/qvm/mat_operations4.hpp> 
+#include <boost/qvm/mat_operations4.hpp>
 | Matrix-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_mat.hpp>
 | Matrix-vector <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_vec.hpp>
 | <<mat,`mat`>> class template | #include <boost/qvm/mat.hpp>
 |====
-
 
 == Reference
 
@@ -408,7 +417,6 @@ Boost QVM is designed to work with user-defined quaternion, vector and matrix ty
 
 A valid scalar type `S` must have accessible destructor, default constructor, copy constructor and assignment operator, and must support the following operations:
 
-====
 [source,c++]
 ----
 S operator*( S, S );
@@ -424,7 +432,6 @@ S & operator-=( S &, S );
 bool operator==( S, S );
 bool operator!=( S, S );
 ----
-====
 
 In addition, the expression `S(0)` should construct a scalar of value zero, and `S(1)` should construct a scalar of value one, or else the <<scalar_traits,`scalar_traits`>> template must be specialized appropriately.
 
@@ -433,7 +440,6 @@ In addition, the expression `S(0)` should construct a scalar of value zero, and 
 [[is_scalar]]
 ==== `is_scalar`
 
-====
 .#include <boost/qvm/scalar_traits.hpp>
 [source,c++]
 ----
@@ -459,7 +465,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a valid scalar type. It must be specialized together with the <<scalar_traits,`scalar_traits`>> template in order to introduce a user-defined scalar type to Boost QVM. Such types must satisfy the <<scalar_requirements,scalar requirements>>.
 
@@ -468,7 +473,6 @@ This template defines a compile-time boolean constant value which can be used to
 [[scalar_traits]]
 ==== `scalar_traits`
 
-====
 .#include <boost/qvm/scalar_traits.hpp>
 [source,c++]
 ----
@@ -486,7 +490,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This template may be specialized for user-defined scalar types to define the appropriate conversion from `int`; this is primarily used whenever Boost QVM needs to deduce a zero or one value.
 
@@ -495,7 +498,6 @@ This template may be specialized for user-defined scalar types to define the app
 [[deduce_scalar]]
 ==== `deduce_scalar`
 
-====
 .#include <boost/qvm/deduce_scalar.hpp>
 [source,c++]
 ----
@@ -509,7 +511,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: :: `A` and `B` satisfy the <<scalar_requirements,scalar requirements>>.
 
@@ -528,7 +529,6 @@ NOTE: This template is used by generic binary operations that return a scalar, t
 [[scalar]]
 ==== `scalar`
 
-====
 .#include <boost/qvm/scalar_traits.hpp>
 [source,c++]
 ----
@@ -541,7 +541,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression <<quat_traits,`quat_traits<T>::scalar_type`>> evaluates to the scalar type of the quaternion type `T` (if <<is_quat,`is_quat<T>::value`>> is `true`).
 
@@ -556,7 +555,6 @@ The expression `scalar<T>::type` is similar, except that it automatically detect
 [[is_quat]]
 ==== `is_quat`
 
-====
 .#include <boost/qvm/quat_traits.hpp>
 [source,c++]
 ----
@@ -571,7 +569,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This type template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a quaternion type. For quaternion types, the <<quat_traits,`quat_traits`>> template can be used to access their elements generically, or to obtain their `scalar type`.
 
@@ -580,7 +577,6 @@ This type template defines a compile-time boolean constant value which can be us
 [[quat_traits]]
 ==== `quat_traits`
 
-====
 .#include <boost/qvm/quat_traits.hpp>
 [source,c++]
 ----
@@ -592,27 +588,26 @@ namespace boost { namespace qvm {
         /*main template members unspecified*/
 
     };
-    
+
     /*
     User-defined (possibly partial) specializations:
-    
+
     template <>
     struct quat_traits<Q> {
 
-        typedef <<user-defined>> scalar_type;        
-    
-        template <int I>
-        static inline scalar_type read_element( Quaternion const & q );        
+        typedef <<user-defined>> scalar_type;
 
         template <int I>
-        static inline scalar_type & write_element( Quaternion & q );        
+        static inline scalar_type read_element( Quaternion const & q );
+
+        template <int I>
+        static inline scalar_type & write_element( Quaternion & q );
 
     };
     */
 
 } }
 ----
-====
 
 The `quat_traits` template must be specialized for (user-defined) quaternion types in order to enable quaternion operations defined in Boost QVM headers for objects of those types.
 
@@ -686,7 +681,6 @@ namespace boost { namespace qvm {
 [[quat_traits_defaults]]
 ==== `quat_traits_defaults`
 
-====
 .#include <boost/qvm/quat_traits_defaults.hpp>
 [source,c++]
 ----
@@ -698,7 +692,7 @@ namespace boost { namespace qvm {
         typedef QuatType quat_type;
 
         typedef ScalarType scalar_type;
-    
+
         template <int I>
         static BOOST_QVM_INLINE_CRITICAL
         scalar_type read_element( quat_type const & x ) {
@@ -710,7 +704,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The `quat_traits_defaults` template is designed to be used as a public base for user-defined specializations of the <<quat_traits,`quat_traits`>> template, to easily define the required members. If it is used, the only member that must be defined by the user in a `quat_traits` specialization is `write_element`; the `quat_traits_defaults` base will define `read_element`, as well as `scalar_type` automatically.
 
@@ -719,7 +712,6 @@ The `quat_traits_defaults` template is designed to be used as a public base for 
 [[deduce_quat]]
 ==== `deduce_quat`
 
-====
 .#include <boost/qvm/deduce_quat.hpp>
 [source,c++]
 ----
@@ -732,7 +724,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -751,7 +742,6 @@ A typical use of the `deduce_quat` template is for specifying the preferred quat
 [[deduce_quat2]]
 ==== `deduce_quat2`
 
-====
 .#include <boost/qvm/deduce_quat.hpp>
 [source,c++]
 ----
@@ -764,7 +754,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -784,7 +773,6 @@ A typical use of the `deduce_quat2` template is for specifying the preferred qua
 [[is_vec]]
 ==== `is_vec`
 
-====
 .#include <boost/qvm/vec_traits.hpp>
 [source,c++]
 ----
@@ -799,7 +787,6 @@ namespace boost { namespace qvm {
 
  } }
 ----
-====
 
 This type template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a vector type. For vector types, the <<vec_traits,`vec_traits`>> template can be used to access their elements generically, or to obtain their dimension and `scalar type`.
 
@@ -808,7 +795,6 @@ This type template defines a compile-time boolean constant value which can be us
 [[vec_traits]]
 ==== `vec_traits`
 
-====
 .#include <boost/qvm/vec_traits.hpp>
 [source,c++]
 ----
@@ -820,32 +806,31 @@ namespace boost { namespace qvm {
         /*main template members unspecified*/
 
     };
-    
+
     /*
     User-defined (possibly partial) specializations:
-    
+
     template <>
     struct vec_traits<V> {
 
-        static int const dim = <<user-defined>>;        
+        static int const dim = <<user-defined>>;
 
-        typedef <<user-defined>> scalar_type;        
-    
+        typedef <<user-defined>> scalar_type;
+
         template <int I>
         static inline scalar_type read_element( Vector const & v );
 
         template <int I>
         static inline scalar_type & write_element( Vector & v );
-    
-        static inline scalar_type read_element_idx( int i, Vector const & v );        
-        static inline scalar_type & write_element_idx( int i, Vector & v );        
+
+        static inline scalar_type read_element_idx( int i, Vector const & v );
+        static inline scalar_type & write_element_idx( int i, Vector & v );
 
     };
     */
 
 } }
 ----
-====
 
 The `vec_traits` template must be specialized for (user-defined) vector types in order to enable vector and matrix operations defined in Boost QVM headers for objects of those types.
 
@@ -942,7 +927,6 @@ namespace boost { namespace qvm {
 [[vec_traits_defaults]]
 ==== `vec_traits_defaults`
 
-====
 .#include <boost/qvm/vec_traits_defaults.hpp>
 [source,c++]
 ----
@@ -954,20 +938,20 @@ namespace boost { namespace qvm {
         typedef VecType vec_type;
         typedef ScalarType scalar_type;
         static int const dim=Dim;
-    
+
         template <int I>
         static BOOST_QVM_INLINE_CRITICAL
         scalar_type write_element( vec_type const & x ) {
             return vec_traits<vec_type>::template write_element<I>(const_cast<vec_type &>(x));
         }
-    
+
         static BOOST_QVM_INLINE_CRITICAL
         scalar_type read_element_idx( int i, vec_type const & x ) {
             return vec_traits<vec_type>::write_element_idx(i,const_cast<vec_type &>(x));
         }
-    
+
         protected:
-    
+
         static BOOST_QVM_INLINE_TRIVIAL
         scalar_type & write_element_idx( int i, vec_type & m ) {
             /* unspecified */
@@ -976,7 +960,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The `vec_traits_defaults` template is designed to be used as a public base for user-defined specializations of the <<vec_traits,`vec_traits`>> template, to easily define the required members. If it is used, the only member that must be defined by the user in a `vec_traits` specialization is `write_element`; the `vec_traits_defaults` base will define `read_element`, as well as `scalar_type` and `dim` automatically.
 
@@ -987,7 +970,6 @@ Optionally, the user may also define `write_element_idx`, in which case the `vec
 [[deduce_vec]]
 ==== `deduce_vec`
 
-====
 .#include <boost/qvm/deduce_vec.hpp>
 [source,c++]
 ----
@@ -1002,7 +984,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -1022,7 +1003,6 @@ A typical use of the `deduce_vec` template is for specifying the preferred vecto
 [[deduce_vec2]]
 ==== `deduce_vec2`
 
-====
 .#include <boost/qvm/deduce_vec.hpp>
 [source,c++]
 ----
@@ -1035,7 +1015,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -1056,7 +1035,6 @@ A typical use of the `deduce_vec2` template is for specifying the preferred vect
 [[is_mat]]
 ==== `is_mat`
 
-====
 .#include <boost/qvm/mat_traits.hpp>
 [source,c++]
 ----
@@ -1071,7 +1049,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This type template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a matrix type. For matrix types, the <<mat_traits,`mat_traits`>> template can be used to access their elements generically, or to obtain their dimensions and scalar type.
 
@@ -1080,7 +1057,6 @@ This type template defines a compile-time boolean constant value which can be us
 [[mat_traits]]
 ==== `mat_traits`
 
-====
 .#include <boost/qvm/mat_traits.hpp>
 [source,c++]
 ----
@@ -1095,20 +1071,20 @@ namespace boost { namespace qvm {
 
     /*
     User-defined (possibly partial) specializations:
-    
+
     template <>
     struct mat_traits<M> {
 
-        static int const rows = <<user-defined>>;        
-        static int const cols = <<user-defined>>;        
-        typedef <<user-defined>> scalar_type;        
-    
+        static int const rows = <<user-defined>>;
+        static int const cols = <<user-defined>>;
+        typedef <<user-defined>> scalar_type;
+
         template <int R,int C>
         static inline scalar_type read_element( Matrix const & m );
 
         template <int R,int C>
         static inline scalar_type & write_element( Matrix & m );
-    
+
         static inline scalar_typeread_element_idx( int r, int c, Matrix const & m );
         static inline scalar_type & write_element_idx( int r, int c, Matrix & m );
 
@@ -1117,7 +1093,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The `mat_traits` template must be specialized for (user-defined) matrix types in order to enable vector and matrix operations defined in Boost QVM headers for objects of those types.
 
@@ -1176,7 +1151,7 @@ namespace boost { namespace qvm {
         static inline scalar_type read_element_idx( int r, int c, float33 const & m ) {
             return m.a[r][c];
         }
- 
+
     };
 
 } }
@@ -1207,7 +1182,6 @@ namespace boost { namespace qvm {
 [[mat_traits_defaults]]
 ==== `mat_traits_defaults`
 
-====
 .#include <boost/qvm/mat_traits_defaults.hpp>
 [source,c++]
 ----
@@ -1220,20 +1194,20 @@ namespace boost { namespace qvm {
         typedef ScalarType scalar_type;
         static int const rows=Rows;
         static int const cols=Cols;
-    
+
         template <int Row,int Col>
         static BOOST_QVM_INLINE_CRITICAL
         scalar_type write_element( mat_type const & x ) {
             return mat_traits<mat_type>::template write_element<Row,Col>(const_cast<mat_type &>(x));
         }
-    
+
         static BOOST_QVM_INLINE_CRITICAL
         scalar_type read_element_idx( int r, int c, mat_type const & x ) {
             return mat_traits<mat_type>::write_element_idx(r,c,const_cast<mat_type &>(x));
         }
-    
+
         protected:
-    
+
         static BOOST_QVM_INLINE_TRIVIAL
         scalar_type & write_element_idx( int r, int c, mat_type & m ) {
             /* unspecified */
@@ -1242,7 +1216,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The `mat_traits_defaults` template is designed to be used as a public base for user-defined specializations of the <<mat_traits,`mat_traits`>> template, to easily define the required members. If it is used, the only member that must be defined by the user in a `mat_traits` specialization is `write_element`; the `mat_traits_defaults` base will define `read_element`, as well as `scalar_type`, `rows` and `cols` automatically.
 
@@ -1253,7 +1226,6 @@ Optionally, the user may also define `write_element_idx`, in which case the `mat
 [[deduce_mat]]
 ==== `deduce_mat`
 
-====
 .#include <boost/qvm/deduce_mat.hpp>
 [source,c++]
 ----
@@ -1271,7 +1243,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -1292,7 +1263,6 @@ A typical use of the deduce_mat template is for specifying the preferred matrix 
 [[deduce_mat2]]
 ==== `deduce_mat2`
 
-====
 .#include <boost/qvm/deduce_mat.hpp>
 [source,c++]
 ----
@@ -1307,7 +1277,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: ::
 
@@ -1333,7 +1302,6 @@ Boost QVM defines several class templates (together with appropriate specializat
 [[quat]]
 ==== `quat`
 
-====
 .#include <boost/qvm/quat.hpp>
 [source,c++]
 ----
@@ -1343,7 +1311,7 @@ namespace boost { namespace qvm {
         struct quat {
 
             T a[4];
-        
+
             template <class R>
             operator R() const {
                 R r;
@@ -1352,15 +1320,15 @@ namespace boost { namespace qvm {
             }
 
         };
-        
+
         template <class Quaternion>
         struct quat_traits;
-        
+
         template <class T>
         struct quat_traits< quat<T> > {
 
             typedef T scalar_type;
-        
+
             template <int I>
             static scalar_type read_element( quat<T> const & x ) {
                 return x.a[I];
@@ -1375,7 +1343,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This is a simple quaternion type. It converts to any other quaternion type.
 
@@ -1386,7 +1353,6 @@ The partial specialization of the <<quat_traits,`quat_traits`>> template makes t
 [[vec]]
 ==== `vec`
 
-====
 .#include <boost/qvm/vec.hpp>
 [source,c++]
 ----
@@ -1396,7 +1362,7 @@ namespace boost { namespace qvm {
         struct vec {
 
             T a[Dim];
-        
+
             template <class R>
             operator R() const {
                 R r;
@@ -1405,16 +1371,16 @@ namespace boost { namespace qvm {
             }
 
         };
-        
+
         template <class Vector>
         struct vec_traits;
-        
+
         template <class T,int Dim>
         struct vec_traits< vec<T,Dim> > {
 
             typedef T scalar_type;
             static int const dim=Dim;
-        
+
             template <int I>
             static scalar_type read_element( vec<T,Dim> const & x ) {
                 return x.a[I];
@@ -1423,7 +1389,7 @@ namespace boost { namespace qvm {
             static scalar_type & write_element( vec<T,Dim> & x ) {
                 return x.a[I];
             }
-        
+
             static scalar_type read_element_idx( int i, vec<T,Dim> const & x ) {
                 return x.a[i];
             }
@@ -1435,7 +1401,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This is a simple vector type. It converts to any other vector type of compatible size.
 
@@ -1446,7 +1411,6 @@ The partial specialization of the <<vec_traits,`vec_traits`>> template makes the
 [[mat]]
 ==== `mat`
 
-====
 .#include <boost/qvm/mat.hpp>
 [source,c++]
 ----
@@ -1456,7 +1420,7 @@ namespace boost { namespace qvm {
     struct mat {
 
         T a[Rows][Cols];
-    
+
         template <class R>
         operator R() const {
             R r;
@@ -1465,17 +1429,17 @@ namespace boost { namespace qvm {
         }
 
     };
-    
+
     template <class Matrix>
     struct mat_traits;
-    
+
     template <class T,int Rows,int Cols>
     struct mat_traits< mat<T,Rows,Cols> > {
 
         typedef T scalar_type;
         static int const rows=Rows;
         static int const cols=Cols;
-    
+
         template <int Row,int Col>
         static scalar_type read_element( mat<T,Rows,Cols> const & x ) {
             return x.a[Row][Col];
@@ -1485,7 +1449,7 @@ namespace boost { namespace qvm {
         static scalar_type & write_element( mat<T,Rows,Cols> & x ) {
             return x.a[Row][Col];
         }
-    
+
         static scalar_type read_element_idx( int row, int col, mat<T,Rows,Cols> const & x ) {
             return x.a[row][col];
         }
@@ -1498,7 +1462,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This is a simple matrix type. It converts to any other matrix type of compatible size.
 
@@ -1511,7 +1474,6 @@ The partial specialization of the <<mat_traits,`mat_traits`>> template makes the
 [[quat_access]]
 ==== Quaternions
 
-====
 .#include <boost/qvm/quat_access.hpp>
 [source,c++]
 ----
@@ -1519,7 +1481,7 @@ namespace boost { namespace qvm {
 
     //Only enabled if:
     //  is_quat<Q>::value
-    
+
     template <class Q> -unspecified-return-type- S( Q & q );
     template <class Q> -unspecified-return-type- V( Q & q );
     template <class Q> -unspecified-return-type- X( Q & q );
@@ -1528,7 +1490,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 An expression of the form `S(q)` can be used to access the scalar component of the quaternion `q`. For example,
 
@@ -1555,7 +1516,6 @@ TIP: The return types are lvalues.
 [[vec_access]]
 ==== Vectors
 
-====
 .#include <boost/qvm/vec_access.hpp>
 [source,c++]
 ----
@@ -1563,13 +1523,13 @@ namespace boost { namespace qvm {
 
     //Only enabled if:
     //  is_vec<V>::value
-    
+
     template <int I,class V> -unspecified-return-type- A( V & v );
     template <class V> -unspecified-return-type- A0( V & v );
     template <class V> -unspecified-return-type- A1( V & v );
     ...
     template <class V> -unspecified-return-type- A9( V & v );
-    
+
     template <class V> -unspecified-return-type- X( V & v );
     template <class V> -unspecified-return-type- Y( V & v );
     template <class V> -unspecified-return-type- Z( V & v );
@@ -1577,7 +1537,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 An expression of the form of `A<I>(v)` can be used to access the `I`-th element a vector object `v`. For example, the expression:
 
@@ -1607,14 +1566,13 @@ TIP: The return types are lvalues.
 [[swizzling]]
 ==== Vector element swizzling
 
-====
 .#include <boost/qvm/swizzle.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
 
     //*** Accessing vector elements by swizzling ***
-    
+
     //2D view proxies, only enabled if:
     //  is_vec<V>::value
     template <class V> -unspecified-2D-vector-type- XX( V & v );
@@ -1652,7 +1610,7 @@ namespace boost { namespace qvm {
     -unspecified-2D-vector-type- _01();
     -unspecified-2D-vector-type- _10();
     -unspecified-2D-vector-type- _11();
-    
+
     //3D view proxies, only enabled if:
     //  is_vec<V>::value
     template <class V> -unspecified-3D-vector-type- XXX( V & v );
@@ -1679,7 +1637,7 @@ namespace boost { namespace qvm {
     -unspecified-3D-vector-type- _010();
     ...
     -unspecified-3D-vector-type- _111();
-    
+
     //4D view proxies, only enabled if:
     //  is_vec<V>::value
     template <class V> -unspecified-4D-vector-type- XXXX( V & v );
@@ -1705,11 +1663,10 @@ namespace boost { namespace qvm {
     -unspecified-4D-vector-type- _0001();
     -unspecified-4D-vector-type- _0010();
     ...
-    -unspecified-4D-vector-type- _1111();         
+    -unspecified-4D-vector-type- _1111();
 
 } }
 ----
-====
 
 Swizzling allows zero-overhead direct access to a (possibly rearranged) subset of the elements of 2D, 3D and 4D vectors. For example, if `v` is a 4D vector, the expression `YX(v) is a 2D view proxy whose `X` element refers to the `Y` element of `v`, and whose `Y` element refers to the `X` element of `v`. Like other view proxies `YX` is an lvalue, that is, if `v2` is a 2D vector, one could write:
 
@@ -1729,7 +1686,6 @@ Finally, scalars can be "swizzled" to access them as vectors: the expression `_0
 [[mat_access]]
 ==== Matrices
 
-====
 .#include <boost/qvm/mat_access.hpp>
 [source,c++]
 ----
@@ -1737,9 +1693,9 @@ namespace boost { namespace qvm {
 
     //Only enabled if:
     //  is_quat<Q>::value
-    
+
     template <int R,int C,class M> -unspecified-return-type- A( M & m );
-    
+
     template <class M> -unspecified-return-type- A00( M & m );
     template <class M> -unspecified-return-type- A01( M & m );
     ...
@@ -1750,8 +1706,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-
-====
 
 An expression of the form `A<R,C>(m)` can be used to access the element at row `R` and column `C` of a matrix object `m`. For example, the expression:
 
@@ -1778,7 +1732,6 @@ TIP: The return types are lvalues.
 [[quat_assign]]
 ==== `assign`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1791,18 +1744,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Copies all elements of the quaternion `b` to the quaternion `a`.
 
 Returns: :: `a`.
 
-''' 
+'''
 
 [[quat_convert_to]]
 ==== `convert_to`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1812,7 +1763,7 @@ namespace boost { namespace qvm {
     //  is_quat<R>::value && is_quat<A>::value
     template <class R,class A>
     R convert_to( A const & a );
-    
+
     //Only enabled if:
     //  is_quat<R>::value && is_mat<A>::value &&
     //  mat_traits<A>::rows==3 && mat_traits<A>::cols==3
@@ -1821,7 +1772,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: :: `R` must be copyable.
 
@@ -1831,12 +1781,11 @@ Effects: ::
 
 - The second overload assumes that `m` is an orthonormal rotation matrix and converts it to a quaternion that performs the same rotation.
 
-''' 
+'''
 
 [[quat_minus_eq]]
 ==== `operator-=`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1849,18 +1798,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Subtracts the elements of `b` from the corresponding elements of `a`.
 
 Returns: :: `a`.
 
-''' 
+'''
 
 [[quat_minus_unary]]
 ==== `operator-` (unary)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1874,18 +1821,16 @@ namespace boost { namespace qvm {
 } }
 
 ----
-====
 
 Returns: :: A quaternion of the negated elements of `a`.
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[quat_minus]]
 ==== `operator-` (binary)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1900,18 +1845,16 @@ namespace boost { namespace qvm {
 } }
 
 ----
-====
 
 Returns: :: A quaternion with elements equal to the elements of `b` subtracted from the corresponding elements of `a`.
 
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
-''' 
+'''
 
 [[quat_plus_eq]]
 ==== `operator+=`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1924,18 +1867,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Adds the elements of `b` to the corresponding elements of `a`.
 
 Returns: :: `a`.
 
-''' 
+'''
 
 [[quat_plus]]
 ==== `operator+`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1949,18 +1890,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A quaternion with elements equal to the elements of `a` added to the corresponding elements of `b`.
 
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
-''' 
+'''
 
 [[quat_div_eq_scalar]]
 ==== `operator/=` (scalar)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1972,18 +1911,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation divides a quaternion by a scalar.
 
 Returns: :: `a`.
 
-''' 
+'''
 
 [[quat_div_scalar]]
 ==== `operator/` (scalar)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -1996,18 +1933,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A quaternion that is the result of dividing the quaternion `a` by the scalar `b`.
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[quat_mul_eq_scalar]]
 ==== `operator*=` (scalar)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2019,18 +1954,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation multiplies the quaternion `a` by the scalar `b`.
 
 Returns: :: `a`.
 
-''' 
+'''
 
 [[quat_mul_eq]]
 ==== `operator*=`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2043,7 +1976,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2054,12 +1986,11 @@ a = tmp * b;
 return a;
 ----
 
-''' 
+'''
 
 [[quat_mul_scalar]]
 ==== `operator*` (scalar)
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2072,18 +2003,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A quaternion that is the result of multiplying the quaternion `a` by the scalar `b`.
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[quat_mul]]
 ==== `operator*`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2097,18 +2026,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The result of multiplying the quaternions `a` and `b`.
 
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
-''' 
+'''
 
 [[quat_eq]]
 ==== `operator==`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2121,16 +2048,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `true` if each element of `a` compares equal to its corresponding element of `b`, `false` otherwise.
 
-''' 
+'''
 
 [[quat_neq]]
 ==== `operator!=`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2143,16 +2068,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `!(a == b)`.
 
-''' 
+'''
 
 [[quat_cmp]]
 ==== `cmp`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2165,16 +2088,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: Similar to <<quat_eq,`operator==`>>, except that it uses the binary predicate `pred` to compare the individual quaternion elements.
 
-''' 
+'''
 
 [[quat_mag_sqr]]
 ==== `mag_sqr`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2187,16 +2108,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The squared magnitude of the quaternion `a`.
 
-''' 
+'''
 
 [[quat_mag]]
 ==== `mag`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2209,16 +2128,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The magnitude of the quaternion `a`.
 
-''' 
+'''
 
 [[quat_normalized]]
 ==== `normalized`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2231,7 +2148,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2245,12 +2161,11 @@ return tmp;
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[quat_normalize]]
 ==== `normalize`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2262,7 +2177,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Normalizes `a`.
 
@@ -2270,12 +2184,11 @@ Postcondition: :: `mag(a)==scalar_traits<typename quat_traits<A>::scalar_type>::
 
 Throws: :: If the magnitude of `a` is zero, throws <<zero_magnitude_error,`zero_magnitude_error`>>.
 
-''' 
+'''
 
 [[quat_dot]]
 ==== `dot`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2289,18 +2202,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The dot product of the quaternions `a` and `b`.
 
 NOTE: The <<deduce_scalar,`deduce_scalar`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
-''' 
+'''
 
 [[conjugate]]
 ==== `conjugate`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2313,18 +2224,16 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: Computes the conjugate of `a`.
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[quat_inverse]]
 ==== `inverse`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2337,7 +2246,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: Computes the multiplicative inverse of `a`, or the conjugate-to-norm ratio.
 
@@ -2347,12 +2255,11 @@ TIP: If `a` is known to be unit length, `conjugate` is equivalent to <<quat_inve
 
 NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce the desired return type from the type `A`.
 
-''' 
+'''
 
 [[slerp]]
 ==== `slerp`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2366,7 +2273,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Preconditions: :: `t>=0 && t\<=1`.
 
@@ -2374,12 +2280,11 @@ Returns: :: A quaternion that is the result of Spherical Linear Interpolation of
 
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
-''' 
+'''
 
 [[zero_quat]]
 ==== `zero_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2390,16 +2295,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A read-only quaternion of unspecified type with <<scalar_traits,`scalar_type`>> `T`, with all elements equal to <<scalar_traits,`scalar_traits<T>::value(0)`>>.
 
-''' 
+'''
 
 [[quat_set_zero]]
 ==== `set_zero`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2411,7 +2314,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2421,12 +2323,11 @@ assign(a,
     zero_quat<typename quat_traits<A>::scalar_type>());
 ----
 
-''' 
+'''
 
 [[identity_quat]]
 ==== `identity_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2437,15 +2338,13 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: An identity quaternion with scalar type `S`.
 
-''' 
+'''
 
 [[quat_set_identity]]
 ==== `set_identity`
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2457,7 +2356,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2468,12 +2366,11 @@ assign(
     identity_quat<typename quat_traits<A>::scalar_type>());
 ----
 
-''' 
+'''
 
 [[rot_quat]]
 ==== `rot_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2486,7 +2383,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A quaternion of unspecified type which performs a rotation around the `axis` at `angle` radians.
 
@@ -2494,12 +2390,11 @@ Throws: :: In case the axis vector has zero magnitude, throws <<zero_magnitude_e
 
 NOTE: The `rot_quat` function is not a <<view_proxy,view proxy>>; it returns a temp object.
 
-''' 
+'''
 
 [[quat_set_rot]]
 ==== `set_rot`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2513,7 +2408,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2524,12 +2418,11 @@ assign(
     rot_quat(axis,angle));
 ----
 
-''' 
+'''
 
 [[quat_rotate]]
 ==== `rotate`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2543,16 +2436,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a *= <<rot_quat,rot_quat>>(axis,angle)`.
 
-''' 
+'''
 
 [[rotx_quat]]
 ==== `rotx_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2563,16 +2454,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> quaternion of unspecified type and scalar type `Angle`, which performs a rotation around the X axis at `angle` radians.
 
-''' 
+'''
 
 [[quat_set_rotx]]
 ==== `set_rotx`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2584,7 +2473,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2595,12 +2483,11 @@ assign(
     rotx_quat(angle));
 ----
 
-''' 
+'''
 
 [[quat_rotate_x]]
 ==== `rotate_x`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2612,16 +2499,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a *= <<rotx_quat,rotx_quat>>(angle)`.
 
-''' 
+'''
 
 [[roty_quat]]
 ==== `roty_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2632,16 +2517,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> quaternion of unspecified type and scalar type `Angle`, which performs a rotation around the Y axis at `angle` radians.
 
-''' 
+'''
 
 [[quat_set_roty]]
 ==== `set_roty`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2653,7 +2536,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2664,12 +2546,11 @@ assign(
     roty_quat(angle));
 ----
 
-''' 
+'''
 
 [[quat_rotate_y]]
 ==== `rotate_y`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2681,16 +2562,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a *= <<roty_quat,roty_quat>>(angle)`.
 
-''' 
+'''
 
 [[rotz_quat]]
 ==== `rotz_quat`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2701,16 +2580,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> quaternion of unspecified type and scalar type `Angle`, which performs a rotation around the Z axis at `angle` radians.
 
-''' 
+'''
 
 [[quat_set_rotz]]
 ==== `set_rotz`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2722,7 +2599,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -2733,12 +2609,11 @@ assign(
     rotz_quat(angle));
 ----
 
-''' 
+'''
 
 [[quat_rotate_z]]
 ==== `rotate_z`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2750,16 +2625,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a *= <<rotz_quat,rotz_quat>>(angle)`.
 
-''' 
+'''
 
 [[quat_scalar_cast]]
 ==== `scalar_cast`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2771,16 +2644,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a quaternion of the same dimensions as `a`, but with <<quat_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
 
-''' 
+'''
 
 [[qref]]
 ==== `qref`
 
-====
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
 ----
@@ -2792,7 +2663,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: An identity view proxy of `a`; that is, it simply accesses the elements of `a`.
 
@@ -2805,7 +2675,6 @@ TIP: `qref` allows calling Boost QVM operations when `a` is of built-in type, fo
 [[vec_assign]]
 ==== `assign`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2819,7 +2688,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Copies all elements of the vector `b` to the vector `a`.
 
@@ -2830,7 +2698,6 @@ Returns: :: `a`.
 [[vec_convert_to]]
 ==== `convert_to`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2844,7 +2711,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: :: `R` must be copyable.
 
@@ -2855,7 +2721,6 @@ Effects: :: As if: `R r; assign(r,a); return r;`
 [[vec_minus_eq]]
 ==== `operator-=`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2869,7 +2734,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Subtracts the elements of `b` from the corresponding elements of `a`.
 
@@ -2882,7 +2746,6 @@ Returns: :: `a`.
 
 operator-(vec)
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2895,7 +2758,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A vector of the negated elements of `a`.
 
@@ -2906,8 +2768,6 @@ NOTE: The <<deduce_vec,`deduce_vec`>> template can be specialized to deduce the 
 [[vec_minus]]
 ==== `operator-` (binary)
 
-
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2922,7 +2782,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A vector of the same size as `a` and `b`, with elements the elements of `b` subtracted from the corresponding elements of `a`.
 
@@ -2933,7 +2792,6 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[vec_plus_eq]]
 ==== `operator+=`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2947,7 +2805,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Adds the elements of `b` to the corresponding elements of `a`.
 
@@ -2958,7 +2815,6 @@ Returns: :: `a`.
 [[vec_plus]]
 ==== `operator+`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2973,7 +2829,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A vector of the same size as `a` and `b`, with elements the elements of `b` added to the corresponding elements of `a`.
 
@@ -2984,7 +2839,6 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[vec_div_eq_scalar]]
 ==== `operator/=` (scalar)
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -2996,7 +2850,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation divides a vector by a scalar.
 
@@ -3007,7 +2860,6 @@ Returns: :: `a`.
 [[vec_div_scalar]]
 ==== `operator/`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3020,7 +2872,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A vector that is the result of dividing the vector `a` by the scalar `b`.
 
@@ -3031,7 +2882,6 @@ NOTE: The <<deduce_vec,`deduce_vec`>> template can be specialized to deduce the 
 [[vec_mul_eq_scalar]]
 ==== `operator*=`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3043,7 +2893,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation multiplies the vector `a` by the scalar `b`.
 
@@ -3054,7 +2903,6 @@ Returns: :: `a`.
 [[vec_mul_scalar]]
 ==== `operator*`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3067,7 +2915,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A vector that is the result of multiplying the vector `a` by the scalar `b`.
 
@@ -3078,7 +2925,6 @@ NOTE: The <<deduce_vec,`deduce_vec`>> template can be specialized to deduce the 
 [[vec_eq]]
 ==== `operator==`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3092,7 +2938,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `true` if each element of `a` compares equal to its corresponding element of `b`, `false` otherwise.
 
@@ -3101,7 +2946,6 @@ Returns: :: `true` if each element of `a` compares equal to its corresponding el
 [[vec_neq]]
 ==== `operator!=`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3115,7 +2959,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `!(a == b)`.
 
@@ -3124,7 +2967,6 @@ Returns: :: `!(a == b)`.
 [[vec_cmp]]
 ==== `cmp`
 
-====
 ----
 .#include <boost/qvm/mat_operations.hpp>
 
@@ -3141,7 +2983,6 @@ namespace boost
 
 } }
 ----
-====
 
 Returns: :: Similar to <<vec_eq,`operator==`>>, except that the individual elements of `a` and `b` are passed to the binary predicate `pred` for comparison.
 
@@ -3150,7 +2991,6 @@ Returns: :: Similar to <<vec_eq,`operator==`>>, except that the individual eleme
 [[vec_mag_sqr]]
 ==== `mag_sqr`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3164,7 +3004,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The squared magnitude of the vector `a`.
 
@@ -3173,7 +3012,6 @@ Returns: :: The squared magnitude of the vector `a`.
 [[vec_mag]]
 ==== `mag`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3187,7 +3025,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The magnitude of the vector `a`.
 
@@ -3196,7 +3033,6 @@ Returns: :: The magnitude of the vector `a`.
 [[vec_normalized]]
 ==== `normalized`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3210,7 +3046,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -3229,7 +3064,6 @@ NOTE: The <<deduce_vec,`deduce_vec`>> template can be specialized to deduce the 
 [[vec_normalize]]
 ==== `normalize`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3242,7 +3076,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Normalizes `a`.
 
@@ -3257,7 +3090,6 @@ Throws: :: If the magnitude of `a` is zero, throws <<zero_magnitude_error,`zero_
 [[vec_dot]]
 ==== `dot`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3272,7 +3104,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The dot product of the vectors `a` and `b`.
 
@@ -3283,7 +3114,6 @@ NOTE: The <<deduce_scalar,`deduce_scalar`>> template can be specialized to deduc
 [[vec_cross]]
 ==== `cross`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3298,7 +3128,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The cross product of the vectors `a` and `b`.
 
@@ -3309,7 +3138,6 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[zero_vec]]
 ==== `zero_vec`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3320,7 +3148,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A read-only vector of unspecified type with <<vec_traits,`scalar_type`>> `T` and size `S`, with all elements equal to <<scalar_traits,`scalar_traits<T>::value(0)`>>.
 
@@ -3329,7 +3156,6 @@ Returns: :: A read-only vector of unspecified type with <<vec_traits,`scalar_typ
 [[vec_set_zero]]
 ==== `set_zero`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3342,7 +3168,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -3359,7 +3184,6 @@ assign(a,
 [[vec_scalar_cast]]
 ==== `scalar_cast`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3371,7 +3195,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a vector of the same dimensions as `a`, but with <<vec_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
 
@@ -3380,7 +3203,6 @@ Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a vecto
 [[vref]]
 ==== `vref`
 
-====
 .#include <boost/qvm/vec_operations.hpp>
 [source,c++]
 ----
@@ -3392,7 +3214,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: An identity <<view_proxy,view proxy>> of `a`; that is, it simply accesses the elements of `a`.
 
@@ -3405,7 +3226,6 @@ TIP: `vref` allows calling Boost QVM operations when `a` is of built-in type, fo
 [[mat_assign]]
 ==== `assign`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3420,7 +3240,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Copies all elements of the matrix `b` to the matrix `a`.
 
@@ -3429,9 +3248,8 @@ Returns: :: `a`.
 '''
 
 [[mat_convert_to]]
-==== `convert_to`        
+==== `convert_to`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3446,7 +3264,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Requirements: :: `R` must be copyable.
 
@@ -3459,7 +3276,6 @@ As if: `R r; <<mat_assign,assign>>(r,a); return r;`
 [[mat_minus_eq_scalar]]
 ==== `operator-=`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3474,7 +3290,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Subtracts the elements of `b` from the corresponding elements of `a`.
 
@@ -3485,7 +3300,6 @@ Returns: :: `a`.
 [[mat_minus_unary]]
 ==== `operator-` (unary)
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3498,7 +3312,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A matrix of the negated elements of `a`.
 
@@ -3509,7 +3322,6 @@ NOTE: The <<deduce_mat,`deduce_mat`>> template can be specialized to deduce the 
 [[mat_minus]]
 ==== `operator-`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3525,7 +3337,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A matrix of the same size as `a` and `b`, with elements the elements of `b` subtracted from the corresponding elements of `a`.
 
@@ -3536,7 +3347,6 @@ NOTE: The <<deduce_mat2,`deduce_mat2`>> template can be specialized to deduce th
 [[mat_plus_eq_scalar]]
 ==== `operator+=`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3551,7 +3361,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Adds the elements of `b` to the corresponding elements of `a`.
 
@@ -3562,7 +3371,6 @@ Returns: :: `a`.
 [[mat_plus]]
 ==== `operator+`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3578,7 +3386,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A matrix of the same size as `a` and `b`, with elements the elements of `b` added to the corresponding elements of `a`.
 
@@ -3589,7 +3396,6 @@ NOTE: The <<deduce_mat2,`deduce_mat2`>> template can be specialized to deduce th
 [[mat_div_eq_scalar]]
 ==== `operator/=` (scalar)
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3601,7 +3407,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation divides a matrix by a scalar.
 
@@ -3612,7 +3417,6 @@ Returns: :: `a`.
 [[mat_div_scalar]]
 ==== `operator/` (scalar)
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3625,7 +3429,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A matrix that is the result of dividing the matrix `a` by the scalar `b`.
 
@@ -3636,7 +3439,6 @@ NOTE: The <<deduce_mat,`deduce_mat`>> template can be specialized to deduce the 
 [[mat_mul_eq]]
 ==== `operator*=`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3652,7 +3454,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -3668,7 +3469,6 @@ return a;
 [[mat_mul_eq_scalar]]
 ==== `operator*=` (scalar)
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3680,7 +3480,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: This operation multiplies the matrix `a` matrix by the scalar `b`.
 
@@ -3691,7 +3490,6 @@ Returns: :: `a`.
 [[mat_mul]]
 ==== `operator*`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3706,7 +3504,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The result of https://en.wikipedia.org/wiki/Matrix_multiplication[multiplying] the matrices `a` and `b`.
 
@@ -3717,7 +3514,6 @@ NOTE: The <<deduce_mat2,`deduce_mat2`>> template can be specialized to deduce th
 [[mat_mul_scalar]]
 ==== `operator*` (scalar)
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3735,7 +3531,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A matrix that is the result of multiplying the matrix `a` by the scalar `b`.
 
@@ -3746,7 +3541,6 @@ NOTE: The <<deduce_mat,`deduce_mat`>> template can be specialized to deduce the 
 [[mat_eq]]
 ==== `operator==`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3761,7 +3555,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `true` if each element of `a` compares equal to its corresponding element of `b`, `false` otherwise.
 
@@ -3770,7 +3563,6 @@ Returns: :: `true` if each element of `a` compares equal to its corresponding el
 [[mat_neq]]
 ==== `operator!=`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3785,7 +3577,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: `!( a <<mat_eq,=\=>> b )`.
 
@@ -3794,7 +3585,6 @@ Returns: :: `!( a <<mat_eq,=\=>> b )`.
 [[mat_cmp]]
 ==== `cmp`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3809,7 +3599,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: Similar to <<mat_eq,`operator==`>>, except that the individual elements of `a` and `b` are passed to the binary predicate `pred` for comparison.
 
@@ -3818,7 +3607,6 @@ Returns: :: Similar to <<mat_eq,`operator==`>>, except that the individual eleme
 [[mat_inverse]]
 ==== `inverse`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3827,18 +3615,17 @@ namespace boost { namespace qvm {
     //Only enabled if:
     //  is_mat<A>::value && is_scalar<B>::value
     //  mat_traits<A>::rows==mat_traits<A>::cols
-    
+
     template <class A,class B>
     typename deduce_mat<A>::type
     inverse( A const & a, B det );
-    
+
     template <class A>
     typename deduce_mat<A>::type
     inverse( A const & a );
 
 } }
 ----
-====
 
 Preconditions: :: `det!=<<scalar_traits,scalar_traits>><typename <<mat_traits,mat_traits<A>::scalar_type>>>::value(0)`
 
@@ -3853,7 +3640,6 @@ NOTE: The <<deduce_mat,`deduce_mat`>> template can be specialized to deduce the 
 [[zero_mat]]
 ==== `zero_mat`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3861,13 +3647,12 @@ namespace boost { namespace qvm {
 
     template <class T,int D>
     -unspecified-return-type- zero_mat();
-    
+
     template <class T,int R,int C>
     -unspecified-return-type- zero_mat();
 
 } }
 ----
-====
 
 Returns: :: A read-only matrix of unspecified type with <<mat_traits,`scalar_type`>> `T`, `R` rows and `C` columns (or `D` rows and `D` columns), with all elements equal to <<scalar_traits,`scalar_traits<T>::value(0)`>>.
 
@@ -3876,7 +3661,6 @@ Returns: :: A read-only matrix of unspecified type with <<mat_traits,`scalar_typ
 [[mat_set_zero]]
 ==== `set_zero`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3889,7 +3673,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -3907,7 +3690,6 @@ assign(a,
 [[identity_mat]]
 ==== `identity_mat`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 ----
 namespace boost { namespace qvm {
@@ -3917,7 +3699,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: An identity matrix of size `D` x `D` and scalar type `S`.
 
@@ -3926,7 +3707,6 @@ Returns: :: An identity matrix of size `D` x `D` and scalar type `S`.
 [[mat_set_identity]]
 ==== `set_identity`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3940,7 +3720,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -3959,7 +3738,6 @@ assign(
 [[rot_mat]]
 ==== `rot_mat` / Euler angles
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -3970,27 +3748,27 @@ namespace boost { namespace qvm {
     template <int Dim,class A,class Angle>
     -unspecified-return-type-
     rot_mat( A const & axis, Angle angle );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_xzy( Angle x1, Angle z2, Angle y3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_xyz( Angle x1, Angle y2, Angle z3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_yxz( Angle y1, Angle x2, Angle z3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_yzx( Angle y1, Angle z2, Angle x3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_zyx( Angle z1, Angle y2, Angle x3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_zxy( Angle z1, Angle x2, Angle y3 );
@@ -3998,30 +3776,29 @@ namespace boost { namespace qvm {
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_xzx( Angle x1, Angle z2, Angle x3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_xyx( Angle x1, Angle y2, Angle x3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_yxy( Angle y1, Angle x2, Angle y3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_yzy( Angle y1, Angle z2, Angle y3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_zyz( Angle z1, Angle y2, Angle z3 );
-    
+
     template <int Dim,class Angle>
     -unspecified-return-type-
     rot_mat_zxz( Angle z1, Angle y2, Angle z3 );
 
 } }
 ----
-====
 
 Returns: :: A matrix of unspecified type, of `Dim` rows and `Dim` columns parameter, which performs a rotation around the `axis` at `angle` radians, or Tait–Bryan angles (x-y-z, y-z-x, z-x-y, x-z-y, z-y-x, y-x-z), or proper Euler angles (z-x-z, x-y-x, y-z-y, z-y-z, x-z-x, y-x-y). See https://en.wikipedia.org/wiki/Euler_angles[Euler angles].
 
@@ -4034,7 +3811,6 @@ NOTE: These functions are not view proxies; they return a temp object.
 [[mat_set_rot]]
 ==== `set_rot` / Euler angles
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4046,79 +3822,79 @@ namespace boost { namespace qvm {
     //  is_vec<B>::value && vec_traits<B>::dim==3
     template <class A>
     void set_rot( A & a, B const & axis, typename vec_traits<B>::scalar_type angle );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_xzy( A & a, Angle x1, Angle z2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_xyz( A & a, Angle x1, Angle y2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_yxz( A & a, Angle y1, Angle x2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_yzx( A & a, Angle y1, Angle z2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_zyx( A & a, Angle z1, Angle y2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_zxy( A & a, Angle z1, Angle x2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_xzx( A & a, Angle x1, Angle z2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_xyx( A & a, Angle x1, Angle y2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_yxy( A & a, Angle y1, Angle x2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_yzy( A & a, Angle y1, Angle z2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_zyz( A & a, Angle z1, Angle y2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void set_rot_zxz( A & a, Angle z1, Angle x2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
@@ -4127,16 +3903,14 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Assigns the return value of the corresponding <<rot_mat,`rot_mat`>> function to `a`.
 
 '''
-        
+
 [[mat_rotate]]
 ==== `rotate` / Euler angles
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4148,73 +3922,73 @@ namespace boost { namespace qvm {
     //  is_vec<B>::value && vec_traits<B>::dim==3
     template <class A,class B>
     void rotate( A & a, B const & axis, typename mat_traits<A>::scalar_type angle );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_xzy( A & a, Angle x1, Angle z2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_xyz( A & a, Angle x1, Angle y2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_yxz( A & a, Angle y1, Angle x2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_yzx( A & a, Angle y1, Angle z2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_zyx( A & a, Angle z1, Angle y2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_zxy( A & a, Angle z1, Angle x2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_xzx( A & a, Angle x1, Angle z2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_xyx( A & a, Angle x1, Angle y2, Angle x3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_yxy( A & a, Angle y1, Angle x2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_yzy( A & a, Angle y1, Angle z2, Angle y3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
     template <class A,class Angle>
     void rotate_zyz( A & a, Angle z1, Angle y2, Angle z3 );
-    
+
     //Only enabled if:
     //  is_mat<A>::value && mat_traits<A>::rows>=3 &&
     //  mat_traits<A>::rows==mat_traits<A>::cols
@@ -4223,7 +3997,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: Multiplies the matrix `a` in-place by the return value of the corresponding <<rot_mat,`rot_mat`>> function.
 
@@ -4232,7 +4005,6 @@ Effects: :: Multiplies the matrix `a` in-place by the return value of the corres
 [[rotx_mat]]
 ==== `rotx_mat`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4243,7 +4015,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` rows and `Dim` columns and scalar type `Angle`, which performs a rotation around the `X` axis at `angle` radians.
 
@@ -4252,7 +4023,6 @@ Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` row
 [[mat_set_rotx]]
 ==== `set_rotx`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4266,7 +4036,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -4282,7 +4051,6 @@ assign(
 [[mat_rotate_x]]
 ==== `rotate_x`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4296,7 +4064,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a <<mat_mul_eq,*\=>> <<rotx_mat,rotx_mat>><<<mat_traits,mat_traits<A>::rows>>>(angle)`.
 
@@ -4306,7 +4073,6 @@ Effects: :: As if: `a <<mat_mul_eq,*\=>> <<rotx_mat,rotx_mat>><<<mat_traits,mat_
 [[roty_mat]]
 ==== `roty_mat`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4317,7 +4083,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` rows and `Dim` columns and scalar type `Angle`, which performs a rotation around the `Y` axis at `angle` radians.
 
@@ -4326,7 +4091,6 @@ Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` row
 [[mat_set_roty]]
 ==== `set_roty`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4340,7 +4104,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -4356,7 +4119,6 @@ assign(
 [[mat_rotate_y]]
 ==== `rotate_y`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4370,7 +4132,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a <<mat_mul_eq,*\=>> <<roty_mat,roty_mat>><<<mat_traits,mat_traits<A>::rows>>>(angle)`.
 
@@ -4379,7 +4140,6 @@ Effects: :: As if: `a <<mat_mul_eq,*\=>> <<roty_mat,roty_mat>><<<mat_traits,mat_
 [[rotz_mat]]
 ==== `rotz_mat`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4390,7 +4150,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` rows and `Dim` columns and scalar type `Angle`, which performs a rotation around the `Z` axis at `angle` radians.
 
@@ -4399,7 +4158,6 @@ Returns: :: A <<view_proxy,view proxy>> matrix of unspecified type, of `Dim` row
 [[mat_set_rotz]]
 ==== `set_rotz`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4413,7 +4171,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if:
 +
@@ -4429,7 +4186,6 @@ assign(
 [[mat_rotate_z]]
 ==== `rotate_z`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4443,7 +4199,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `a <<mat_mul_eq,*\=>> <<rotz_mat,rotz_mat>><<<mat_traits,mat_traits<A>::rows>>>(angle)`.
 
@@ -4452,7 +4207,6 @@ Effects: :: As if: `a <<mat_mul_eq,*\=>> <<rotz_mat,rotz_mat>><<<mat_traits,mat_
 [[determinant]]
 ==== `determinant`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4466,7 +4220,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This function computes the https://en.wikipedia.org/wiki/Determinant[determinant] of the square matrix `a`.
 
@@ -4475,7 +4228,6 @@ This function computes the https://en.wikipedia.org/wiki/Determinant[determinant
 [[perspective_lh]]
 ==== `perspective_lh`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4487,7 +4239,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A 4x4 projection matrix of unspecified type of the following form:
 +
@@ -4506,7 +4257,6 @@ where `ys` = cot(`fov_y`/2) and `xs` = `ys`/`aspect`.
 [[perspective_rh]]
 ==== `perspective_rh`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4518,7 +4268,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A 4x4 projection matrix of unspecified type of the following form:
 +
@@ -4537,7 +4286,6 @@ where `ys` = cot(`fov_y`/2), and `xs` = `ys`/`aspect`.
 [[mat_scalar_cast]]
 ==== `scalar_cast`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4549,7 +4297,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a matrix of the same dimensions as `a`, but with <<mat_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
 
@@ -4558,7 +4305,6 @@ Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a matri
 [[mref]]
 ==== `mref`
 
-====
 .#include <boost/qvm/mat_operations.hpp>
 [source,c++]
 ----
@@ -4570,7 +4316,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: An identity view proxy of `a`; that is, it simply accesses the elements of `a`.
 
@@ -4583,7 +4328,6 @@ TIP: `mref` allows calling Boost QVM operations when `a` is of built-in type, fo
 [[quat_vec_mul]]
 ==== `operator*`
 
-====
 .#include <boost/qvm/quat_vec_operations.hpp>
 [source,c++]
 ----
@@ -4598,7 +4342,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The result of transforming the vector `b` by the quaternion `a`.
 
@@ -4611,7 +4354,6 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[mat_vec_mul]]
 ==== `operator*`
 
-====
 .#include <boost/qvm/mat_vec_operations.hpp>
 [source,c++]
 ----
@@ -4626,7 +4368,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Returns: :: The result of multiplying the matrix `a` and the vector `b`, where `b` is interpreted as a matrix-column. The resulting matrix-row is returned as a vector type.
 
@@ -4637,7 +4378,6 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[transform_vector]]
 ==== `transform_vector`
 
-====
 .#include <boost/qvm/mat_vec_operations.hpp>
 [source,c++]
 ----
@@ -4653,7 +4393,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ0>>(b)`.
 
@@ -4662,7 +4401,6 @@ Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ0>>(b)`.
 [[transform_point]]
 ==== `transform_pointt`
 
-====
 .#include <boost/qvm/mat_vec_operations.hpp>
 [source,c++]
 ----
@@ -4678,7 +4416,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ1>>(b)`.
 
@@ -4689,7 +4426,6 @@ Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ1>>(b)`.
 [[del_row]]
 ==== `del_row`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4700,7 +4436,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `del_row<R>(m)` returns an lvalue <<view_proxy,view proxy>> that looks like the matrix `m` with row `R` deleted.
 
@@ -4709,7 +4444,6 @@ The expression `del_row<R>(m)` returns an lvalue <<view_proxy,view proxy>> that 
 [[del_col]]
 ==== `del_col`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4720,7 +4454,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `del_col<C>(m)` returns an lvalue <<view_proxy,view proxy>> that looks like the matrix `m` with column `C` deleted.
 
@@ -4729,7 +4462,6 @@ The expression `del_col<C>(m)` returns an lvalue <<view_proxy,view proxy>> that 
 [[del_row_col]]
 ==== `del_row_col`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4740,7 +4472,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `del_row_col<R,C>(m)` returns an lvalue <<view_proxy,view proxy>> that looks like the matrix `m` with row `R` and column `C` deleted.
 
@@ -4749,7 +4480,6 @@ The expression `del_row_col<R,C>(m)` returns an lvalue <<view_proxy,view proxy>>
 [[neg_row]]
 ==== `neg_row`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4760,7 +4490,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `neg_row<R>(m)` returns a read-only <<view_proxy,view proxy>> that looks like the matrix `m` with row `R` negated.
 
@@ -4769,7 +4498,6 @@ The expression `neg_row<R>(m)` returns a read-only <<view_proxy,view proxy>> tha
 [[neg_col]]
 ==== `neg_col`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4780,7 +4508,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
  The expression `neg_col<C>(m)` returns a read-only <<view_proxy,`view proxy`>> that looks like the matrix `m` with column `C` negated.
 
@@ -4789,7 +4516,6 @@ namespace boost { namespace qvm {
 [[swap_rows]]
 ==== `swap_rows`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4800,7 +4526,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `swap_rows<R1,R2>(m)` returns an lvalue <<view_proxy,view proxy>> that looks like the matrix `m` with rows `R1` and `R2` swapped.
 
@@ -4809,7 +4534,6 @@ The expression `swap_rows<R1,R2>(m)` returns an lvalue <<view_proxy,view proxy>>
 [[swap_cols]]
 ==== `swap_cols`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4820,7 +4544,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `swap_cols<C1,C2>(m)` returns an lvalue <<view_proxy,view proxy>> that looks like the matrix `m` with columns `C1` and `C2` swapped.
 
@@ -4829,7 +4552,6 @@ The expression `swap_cols<C1,C2>(m)` returns an lvalue <<view_proxy,view proxy>>
 [[transposed]]
 ==== `transposed`
 
-====
 .#include <boost/qvm/map_mat_mat.hpp>
 [source,c++]
 ----
@@ -4839,7 +4561,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `transposed(m)` returns an lvalue <<view_proxy,view proxy>> that transposes the matrix `m`.
 
@@ -4850,7 +4571,6 @@ The expression `transposed(m)` returns an lvalue <<view_proxy,view proxy>> that 
 [[col_mat]]
 ==== `col_mat`
 
-====
 .#include <boost/qvm/map_vec_mat.hpp>
 [source,c++]
 ----
@@ -4862,7 +4582,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `col_mat(v)` returns an lvalue <<view_proxy,view proxy>> that accesses the vector `v` as a matrix-column.
 
@@ -4871,7 +4590,6 @@ The expression `col_mat(v)` returns an lvalue <<view_proxy,view proxy>> that acc
 [[row_mat]]
 ==== `row_mat`
 
-====
 .#include <boost/qvm/map_vec_mat.hpp>
 [source,c++]
 ----
@@ -4883,7 +4601,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `row_mat(v)` returns an lvalue <<view_proxy,view proxy>> that accesses the vector `v` as a matrix-row.
 
@@ -4892,7 +4609,6 @@ The expression `row_mat(v)` returns an lvalue <<view_proxy,view proxy>> that acc
 [[translation_mat]]
 ==== `translation_mat`
 
-====
 .#include <boost/qvm/map_vec_mat.hpp>
 [source,c++]
 ----
@@ -4904,7 +4620,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `translation_mat(v)` returns an lvalue <<view_proxy,view proxy>> that accesses the vector `v` as translation matrix of size 1 + <<vec_traits,`vec_traits<A>::dim`>>.
 
@@ -4913,7 +4628,6 @@ The expression `translation_mat(v)` returns an lvalue <<view_proxy,view proxy>> 
 [[diag_mat]]
 ==== `diag_mat`
 
-====
 .#include <boost/qvm/map_vec_mat.hpp>
 [source,c++]
 ----
@@ -4925,7 +4639,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `diag_mat(v)` returns an lvalue <<view_proxy,view proxy>> that accesses the vector `v` as a square matrix of the same dimensions in which the elements of `v` appear as the main diagonal and all other elements are zero.
 
@@ -4938,7 +4651,6 @@ TIP: If `v` is a 3D vector, the expression `diag_mat(XYZ1(v))` can be used as a 
 [[col]]
 ==== `col`
 
-====
 .#include <boost/qvm/map_mat_vec.hpp>
 [source,c++]
 ----
@@ -4950,7 +4662,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `col<C>(m)` returns an lvalue <<view_proxy,view proxy>> that accesses column `C` of the matrix `m` as a vector.
 
@@ -4959,7 +4670,6 @@ The expression `col<C>(m)` returns an lvalue <<view_proxy,view proxy>> that acce
 [[row]]
 ==== `row`
 
-====
 .#include <boost/qvm/map_mat_vec.hpp>
 [source,c++]
 ----
@@ -4971,7 +4681,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `row<R>(m)` returns an lvalue <<view_proxy,view proxy>> that accesses row `R` of the matrix `m` as a vector.
 
@@ -4980,7 +4689,6 @@ The expression `row<R>(m)` returns an lvalue <<view_proxy,view proxy>> that acce
 [[diag]]
 ==== `diag`
 
-====
 .#include <boost/qvm/map_mat_vec.hpp>
 [source,c++]
 ----
@@ -4992,7 +4700,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `diag(m)` returns an lvalue <<view_proxy,view proxy>> that accesses the main diagonal of the matrix `m` as a vector.
 
@@ -5001,7 +4708,6 @@ The expression `diag(m)` returns an lvalue <<view_proxy,view proxy>> that access
 [[translation]]
 ==== `translation`
 
-====
 .#include <boost/qvm/map_mat_vec.hpp>
 [source,c++]
 ----
@@ -5015,7 +4721,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 The expression `translation(m)` returns an lvalue <<view_proxy,view proxy>> that accesses the translation component of the square matrix `m`, which is a vector of size `D`-1, where `D` is the size of `m`.
 
@@ -5026,17 +4731,15 @@ The expression `translation(m)` returns an lvalue <<view_proxy,view proxy>> that
 [[error]]
 ==== `error`
 
-====
 .#include <boost/qvm/error.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
 
-    struct error: virtual boost::exception, virtual std::exception { };        
+    struct error: virtual boost::exception, virtual std::exception { };
 
 } }
 ----
-====
 
 This is the base for all exceptions thorwn by Boost QVM.
 
@@ -5045,17 +4748,15 @@ This is the base for all exceptions thorwn by Boost QVM.
 [[zero_magnitude_error]]
 ==== `zero_magnitude_error`
 
-====
 .#include <boost/qvm/error.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
 
-    struct zero_magnitude_error: virtual error { };        
+    struct zero_magnitude_error: virtual error { };
 
 } }
 ----
-====
 
 This exception indicates that an operation requires a vector or a quaternion with non-zero magnitude, but the computed magnitude is zero.
 
@@ -5064,28 +4765,26 @@ This exception indicates that an operation requires a vector or a quaternion wit
 [[zero_determinant_error]]
 ==== `zero_determinant_error`
 
-====
 .#include <boost/qvm/error.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
 
-    struct zero_determinant_error: virtual error { };        
+    struct zero_determinant_error: virtual error { };
 
 } }
 ----
-====
 
 This exception indicates that an operation requires a matrix with non-zero determinant, but the computed determinant is zero.
 
 '''
 
-=== Macros and configuration
+=== Macros and configuration: BOOST_QVM_
 
 [[BOOST_QVM_INLINE]]
-==== `BOOST_QVM_INLINE`
+==== `INLINE`
+===== `BOOST_QVM_INLINE`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5097,16 +4796,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This macro is not used directly by Boost QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions.
 
 '''
 
 [[BOOST_QVM_FORCE_INLINE]]
-==== `BOOST_QVM_FORCE_INLINE`
+==== `FORCE_INLINE`
+===== `BOOST_QVM_FORCE_INLINE`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5118,16 +4816,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This macro is not used directly by Boost QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_FORCE_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions, to indicate that the compiler must inline the function. Of course, actual inlining may or may not occur.
 
 '''
 
 [[BOOST_QVM_INLINE_TRIVIAL]]
-==== `BOOST_QVM_INLINE_TRIVIAL`
+==== `INLINE_TRIVIAL`
+===== `BOOST_QVM_INLINE_TRIVIAL`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5139,16 +4836,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Boost QVM uses `BOOST_QVM_INLINE_TRIVIAL` in definitions of functions that are not critical for the overall performance of the library but are extremely simple (such as one-liners) and therefore should always be inlined.
 
 '''
 
 [[BOOST_QVM_INLINE_CRITICAL]]
-==== `BOOST_QVM_INLINE_CRITICAL`
+==== `INLINE_CRITICAL`
+===== `BOOST_QVM_INLINE_CRITICAL`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5160,16 +4856,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Boost QVM uses `BOOST_QVM_INLINE_CRITICAL` in definitions of functions that are critical for the overall performance of the library, such as functions that access individual vector and matrix elements.
 
 '''
 
 [[BOOST_QVM_INLINE_OPERATIONS]]
-==== `BOOST_QVM_INLINE_OPERATIONS`
+==== `INLINE_OPERATIONS`
+===== `BOOST_QVM_INLINE_OPERATIONS`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5181,16 +4876,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Boost QVM uses `BOOST_QVM_INLINE_OPERATIONS` in definitions of functions that implement various high-level operations, such as matrix multiplication, computing the magnitude of a vector, etc.
 
 '''
 
 [[BOOST_QVM_INLINE_RECURSION]]
-==== `BOOST_QVM_INLINE_RECURSION`
+==== `INLINE_RECURSION`
+===== `BOOST_QVM_INLINE_RECURSION`
 
-====
 .#include <boost/qvm/inline.hpp>
 [source,c++]
 ----
@@ -5202,16 +4896,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 Boost QVM uses `BOOST_QVM_INLINE_RECURSION` in definitions of recursive functions that are not critical for the overall performance of the library (definitions of all critical functions, including critical recursive functions, use <<BOOST_QVM_INLINE_CRITICAL,`BOOST_QVM_INLINE_CRITICAL`>>).
 
 '''
 
 [[BOOST_QVM_ASSERT]]
-==== `BOOST_QVM_ASSERT`
+==== `ASSERT`
+===== `BOOST_QVM_ASSERT`
 
-====
 .#include <boost/qvm/assert.hpp>
 [source,c++]
 ----
@@ -5224,16 +4917,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This is the macro Boost QVM uses to assert on precondition violations and logic errors. A user-defined `BOOST_QVM_ASSERT` should have the semantics of the standard `assert`.
 
 '''
 
 [[BOOST_QVM_STATIC_ASSERT]]
-==== `BOOST_QVM_STATIC_ASSERT`
+==== `STATIC_ASSERT`
+===== `BOOST_QVM_STATIC_ASSERT`
 
-====
 .#include <boost/qvm/static_assert.hpp>
 [source,c++]
 ----
@@ -5246,16 +4938,15 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 All static assertions in Boost QVM use the `BOOST_QVM_STATIC_ASSERT` macro.
 
 '''
 
 [[BOOST_QVM_THROW_EXCEPTION]]
-==== `BOOST_QVM_THROW_EXCEPTION`
+==== `THROW_EXCEPTION`
+===== `BOOST_QVM_THROW_EXCEPTION`
 
-====
 .#include <boost/qvm/throw_exception.hpp>
 [source,c++]
 ----
@@ -5268,7 +4959,6 @@ namespace boost { namespace qvm {
 
 } }
 ----
-====
 
 This macro is used whenever Boost QVM throws an exception. Users who override the standard `BOOST_QVM_THROW_EXCEPTION` behavior must ensure that when invoked, the substituted implementation does not return control to the caller. Below is a list of all QVM functions that invoke `BOOST_QVM_THROW_EXCEPTION`:
 
@@ -5360,7 +5050,7 @@ The operator overloads in namespace `boost::qvm` are designed to work with user-
 namespace ns1 {
 
     struct float2 { float x, y; };
-    
+
 }
 
 namespace ns2 {
