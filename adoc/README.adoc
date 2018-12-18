@@ -4973,21 +4973,13 @@ This macro is used whenever Boost QVM throws an exception. Users who override th
 
 == Design rationale
 
-In graphics and simulation applications, there is a need for a library that makes it easy to perform 2D and 3D transformations efficiently. {CPP} makes it possible to define vector and matrix types and to overload various operators to implement the standard algebraic operations. Because this is a relatively straightforward process, there are many such libraries in existence, each with its own types and operator overrloads. Such libraries are typically part of a higher level system, such as a graphics engine or a 3D modeling API. As a result, it is typical for programmers to have to integrate and to translate between several different quaternion, vector and matrix types that come with the various APIs they use.
+In graphics and simulation applications, there is a need for a library that makes it easy to perform 2D and 3D transformations efficiently. {CPP} makes it possible to define vector and matrix types and to overload various operators to implement the standard algebraic operations. Because this is a relatively straightforward process, there are many such libraries in existence, each with its own types and operator overloads. Such libraries are typically part of a higher level system, for example a graphics engine or a 3D modeling API. As a result, it is typical for programmers to have to integrate and to translate between several different quaternion, vector and matrix types that come with the various APIs they use.
 
-On the other hand, performance considerations often lead to matrix and vector types becoming coupled with a particular platform, or to (over time) acquire various `#ifdefs` needed to enable optimizations through platform-specific compiler features that control the physical format or layout of their elements. But such optimizations may interfere with ease of use and portability; for example on some platforms requiring 16-byte alignment for matrix types makes them incompatible with standard containers.
+Boost QVM facilitates this interoperability by decoupling the standard algebraic functions from the types they operate on -- without compromising type safety. The operations work on any type for which proper traits have been specialized. Using QVM there is no need to translate between the different quaternion, vector or matrix types; they can be mixed in the same expression safely and efficiently.
 
-Boost QVM solves both of these issues by decoupling the standard algebraic functions from the types they operate on -- without compromising type safety.
+This design choice enables QVM to generate types and adaptors at compile time, compatible with any other QVM or user-defined type. For example, transposing a matrix needs not store the result: rather than modifying its argument or returning a new object, it simply binds the original matrix object through a generated type which remaps element access on the fly.
 
-Key design features of Boost QVM:
-
-- Emphasis on 2, 3 and 4-dimensional operations (including quaternions and zero-overhead <<swizzling,swizzling>>) as needed in graphics and simulation applications.
-
-- Zero-overhead <<view_proxy,view proxies>> that can be used to access any object with quaternion, vector or matrix semantics through a read-only or lvalue reference of a different type. For example, `<<col,col>><C>(m)` binds the `C`-th column of a matrix `m` as a mutable vector type without the overhead of a temporary.
-
-- Integration of various user-defined or 3rd-party quaternion, vector or matrix types into a coherent type-safe system. This enables the user to build algebraic expressions using objects of diverse types that would otherwise be incompatible.
-
-- When users need to implement platform-specific or even project-specific optimizations in a given subsystem, Boost QVM makes it simple to define custom new types that automatically aquire the full set of algebraic operations so they can interface seamlessly with the rest of the program. At the same time, the user can define a limited number of overloads for the new types as needed to implement specific optimizations.
+In addition, QVM can be helpful in selectively optimizing individual types or operations for maximum performance where that matters. For example, users can overload a specific operation for specific types, or define highly optimized, possibly platform-specific or for some reason cumbersome to use types, then mix and match them with more user-friendly types in parts of the program where performance isn't critical.
 
 == Code generator
 
