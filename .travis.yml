@@ -31,6 +31,8 @@ addons:
       - clang-3.6
       - clang-3.7
       - clang-3.8
+      - ruby-full
+
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-precise
@@ -69,6 +71,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
 
 install:
+  - gem install coderay
   - cd ..
   - git clone -b $TRAVIS_BRANCH --depth 1 https://github.com/boostorg/boost.git boost-root
   - cd boost-root
