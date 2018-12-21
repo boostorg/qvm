@@ -83,8 +83,18 @@ install:
 
 script:
   - |-
-    echo "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;" > ~/user-config.jam
+    echo -e "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;\nusing asciidoctor ;" > ~/user-config.jam
   - ./b2 libs/qvm/test toolset=$TOOLSET
+  - ./b2 libs/qvm/doc
+
+deploy:
+  local-dir: libs/qvm/doc/html/index.html
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_PAGES_TOKEN
+  keep-history: false
+  on:
+    branch: master
 
 notifications:
   email:
