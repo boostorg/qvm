@@ -7,7 +7,6 @@
 Generic {CPP} library for working with Quaternions Vectors and Matrices
 :toclevels: 3
 :toc: left
-:toc-title: QVM
 :sectnumlevels: 2
 :keywords: c++, boost, matrix, vector, quaternion
 
@@ -20,24 +19,12 @@ Boost QVM is a generic library for working with Quaternions, Vectors and Matrice
 * Free function templates operate on any compatible user-defined quaternion, vector or matrix type.
 * Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.
 * Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.
+
+[.text-right]
+https://github.com/boostorg/qvm[GitHub] | <<tutorial>> | <<reference>> | <<rationale>>
 ====
 
-== Distribution
-
-QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
-
-The source code is available in https://github.com/boostorg/qvm[BOOST QVM GitHub repository].
-
-(C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
-
-== Feedback / support
-
-Please use the link:https://lists.boost.org/mailman/listinfo.cgi/boost[Boost Developers mailing list].
-
-== Portability
-
-See the link:https://travis-ci.org/boostorg/qvm[Boost QVM Travis CI Builds].
-
+[[tutorial]]
 == Tutorial
 
 === Quaternions, Vectors, Matrices
@@ -342,9 +329,10 @@ Any time you need to create a matrix of a particular {CPP} type from any other c
 user_matrix2 m=convert_to<user_matrix2>(m1 * m2);
 ----
 
-'''
+[[reference]]
+== Reference
 
-=== Header files
+=== Header Files
 
 Boost QVM is split into multiple headers to allow different compilation units to `#include` only the components they need. Each function in this document specifies the exact header that must be `#included` in order to use it.
 
@@ -400,17 +388,15 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 | <<mat,`mat`>> class template | #include <boost/qvm/mat.hpp>
 |====
 
-== Reference
-
 [[type_traits]]
-=== Type traits system
+=== Type Traits System
 
 Boost QVM is designed to work with user-defined quaternion, vector and matrix types, as well as user-defined scalar types. This section formally defines the way such types can be integrated.
 
 '''
 
 [[scalar_requirements]]
-==== Scalar requirements
+==== Scalar Requirements
 
 A valid scalar type `S` must have accessible destructor, default constructor, copy constructor and assignment operator, and must support the following operations:
 
@@ -1292,7 +1278,7 @@ A typical use of the `deduce_mat2` template is for specifying the preferred matr
 
 '''
 
-=== Built-in quaternion, vector and matrix types
+=== Built-in Quaternion, Vector and Matrix Types
 
 Boost QVM defines several class templates (together with appropriate specializations of <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> templates) which can be used as generic quaternion, vector and matrix types. Using these types directly wouldn't be typical though, the main design goal of Boost QVM is to allow users to plug in their own quaternion, vector and matrix types.
 
@@ -1467,7 +1453,7 @@ The partial specialization of the <<mat_traits,`mat_traits`>> template makes the
 
 '''
 
-=== Generic element access
+=== Element Access
 
 [[quat_access]]
 ==== Quaternions
@@ -1562,7 +1548,7 @@ Y(v) *= 42;
 TIP: The return types are lvalues.
 
 [[swizzling]]
-==== Vector element swizzling
+==== Vector Element Swizzling
 
 .#include <boost/qvm/swizzle.hpp>
 [source,c++]
@@ -1725,7 +1711,7 @@ TIP: The return types are lvalues.
 
 '''
 
-=== Generic quaternion operations
+=== Quaternion Operations
 
 [[quat_assign]]
 ==== `assign`
@@ -2668,7 +2654,7 @@ TIP: `qref` allows calling Boost QVM operations when `a` is of built-in type, fo
 
 '''
 
-=== Generic vector operations
+=== Vector Operations
 
 [[vec_assign]]
 ==== `assign`
@@ -3219,7 +3205,7 @@ TIP: `vref` allows calling Boost QVM operations when `a` is of built-in type, fo
 
 '''
 
-=== Generic matrix operations
+=== Matrix Operations
 
 [[mat_assign]]
 ==== `assign`
@@ -4321,7 +4307,7 @@ TIP: `mref` allows calling Boost QVM operations when `a` is of built-in type, fo
 
 '''
 
-=== Generic quaternion-vector operations
+=== Quaternion-Vector Operations
 
 [[quat_vec_mul]]
 ==== `operator*`
@@ -4347,7 +4333,7 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 
 '''
 
-=== Generic matrix-vector operations
+=== Matrix-Vector Operations
 
 [[mat_vec_mul]]
 ==== `operator*`
@@ -4419,7 +4405,7 @@ Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ1>>(b)`.
 
 '''
 
-=== Generic matrix-to-matrix view proxies
+=== Matrix-to-Matrix View Proxies
 
 [[del_row]]
 ==== `del_row`
@@ -4564,7 +4550,7 @@ The expression `transposed(m)` returns an lvalue <<view_proxy,view proxy>> that 
 
 '''
 
-=== Generic vector-to-matrix view proxies
+=== Vector-to-Matrix View Proxies
 
 [[col_mat]]
 ==== `col_mat`
@@ -4644,7 +4630,7 @@ TIP: If `v` is a 3D vector, the expression `diag_mat(XYZ1(v))` can be used as a 
 
 '''
 
-=== Generic matrix-to-vector view proxies
+=== Matrix-to-Vector View Proxies
 
 [[col]]
 ==== `col`
@@ -4777,7 +4763,7 @@ This exception indicates that an operation requires a matrix with non-zero deter
 
 '''
 
-=== Macros and configuration: BOOST_QVM_
+=== Macros and Configuration: BOOST_QVM_
 
 [[BOOST_QVM_INLINE]]
 ==== `INLINE`
@@ -4972,7 +4958,8 @@ This macro is used whenever Boost QVM throws an exception. Users who override th
 ** <<mat_inverse,`inverse`>>
 ** <<rot_mat,`rot_mat`>>
 
-== Design rationale
+[[rationale]]
+== Design Rationale
 
 In graphics and simulation applications, there is a need for a library that makes it easy to perform 2D and 3D transformations efficiently. {CPP} makes it possible to define vector and matrix types and to overload various operators to implement the standard algebraic operations. Because this is a relatively straightforward process, there are many such libraries in existence, each with its own types and operator overloads. Such libraries are typically part of a higher level system, for example a graphics engine or a 3D modeling API. As a result, it is typical for programmers to have to integrate and to translate between several different quaternion, vector and matrix types that come with the various APIs they use.
 
@@ -4982,7 +4969,7 @@ This design choice enables QVM to generate types and adaptors at compile time, c
 
 In addition, QVM can be helpful in selectively optimizing individual types or operations for maximum performance where that matters. For example, users can overload a specific operation for specific types, or define highly optimized, possibly platform-specific or for some reason cumbersome to use types, then mix and match them with more user-friendly types in parts of the program where performance isn't critical.
 
-== Code generator
+== Code Generator
 
 While Boost QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier to read than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.
 
@@ -5009,9 +4996,9 @@ Any such generated headers must be included before the corresponding generic hea
 
 NOTE: headers under `boost/qvm/gen` are not part of the public interface of Boost QVM. For example, `boost/qvm/gen/mat_operations2.hpp` should not be included directly; `#include <boost/qvm/mat_operations2.hpp>` instead.
 
-== Known quirks and issues
+== Known Quirks and Issues
 
-=== Capturing view proxies with `auto`
+=== Capturing View Proxies with `auto`
 
 By design, <<view_proxy,view proxies>> must not return temporary objects. They return reference to an argument they take by (`const`) reference, cast to reference of unspecified type that is not copyable. Because of this, the return value of a view proxy can not be captured by value with `auto`:
 
@@ -5031,7 +5018,7 @@ NOTE: Many view proxies are not read-only, that is, they're lvalues; changes mad
 
 '''
 
-=== Binding QVM overloads from an unrelated namespace
+=== Binding QVM Overloads From an Unrelated Namespace
 
 The operator overloads in namespace `boost::qvm` are designed to work with user-defined types. Typically it is sufficient to make these operators available in the namespace where the operator is used, by `using namespace boost::qvm`. A problem arises if the scope that uses the operator is not controlled by the user. For example:
 
@@ -5070,13 +5057,29 @@ namespace ns1 {
 
 '''
 
-=== Link errors when calling math functions with int arguments
+=== Link Errors When Calling Math Functions with `int` Arguments
 
 Boost QVM does not call standard math functions (e.g. sin, cos, etc.) directly. Instead, it calls function templates declared in `boost/qvm/math.hpp` in namespace `boost::qvm`. This allows the user to specialize these templates for user-defined scalar types.
 
 Boost QVM itself defines specializations of the math function templates only for `float` and `double`, but it does not provide generic definitions. This is done to protect the user from unintentionally writing code that binds standard math functions that take `double` when passing arguments of lesser types, which would be suboptimal.
 
 Because of this, a call to e.g. `<<rot_mat,rot_mat>>(axis,1)` will compile successfully but fail to link, since it calls e.g. `boost::qvm::sin<int>`, which is undefined. Because rotations by integer number of radians are rarely needed, in QVM there is no protection against such errors. In such cases the solution is to use `rot_mat(axis,1.0f)` instead.
+
+== Distribution
+
+QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
+
+The source code is available in https://github.com/boostorg/qvm[BOOST QVM GitHub repository].
+
+(C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
+
+== Portability
+
+See the link:https://travis-ci.org/boostorg/qvm[Boost QVM Travis CI Builds].
+
+== Feedback / Support
+
+Please use the link:https://lists.boost.org/mailman/listinfo.cgi/boost[Boost Developers mailing list].
 
 == Q&A
 
