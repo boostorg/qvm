@@ -53,8 +53,9 @@ matrix:
         - |-
           echo "using asciidoctor ;" > ~/user-config.jam
         - ./b2 libs/qvm/doc
+        - cp libs/qvm/doc/html/* $TRAVIS_BUILD_DIR/doc/html
       deploy:
-        local-dir: libs/qvm/doc/html
+        local-dir: $TRAVIS_BUILD_DIR/doc/html
         provider: pages
         skip-cleanup: true
         github-token: $GH_PAGES_TOKEN
