@@ -54,7 +54,7 @@ matrix:
           echo "using asciidoctor ;" > ~/user-config.jam
         - ./b2 libs/qvm/doc
       deploy:
-        local-dir: $TRAVIS_BUILD_DIR/* libs/qvm/doc/html
+        local-dir: $TRAVIS_BUILD_DIR/libs/qvm/doc/html
         provider: pages
         skip-cleanup: true
         github-token: $GH_PAGES_TOKEN
@@ -240,8 +240,9 @@ install:
 
 script:
   - |-
-    echo "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;" > ~/user-config.jam
-  - ./b2 libs/qvm/test toolset=$TOOLSET
+    echo "using $TOOLSET : : $COMPILER ;" > ~/user-config.jam
+  - ./b2 variant=debug libs/qvm/test toolset=$TOOLSET cxxstd=$CXXSTD
+  - ./b2 variant=release libs/qvm/test toolset=$TOOLSET cxxstd=$CXXSTD
 
 notifications:
   email:
