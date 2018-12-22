@@ -46,29 +46,180 @@ matrix:
     - env: BOGUS_JOB=true
 
   include:
-    - os: linux
-      env: TOOLSET=gcc COMPILER=g++-4.9 CXXSTD=c++11
 
     - os: linux
-      env: TOOLSET=gcc COMPILER=g++-5 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=c++1z
-
-    - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.6 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.7 CXXSTD=c++11
-
-    - os: linux
-      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=c++11
+      env: DOC=1
+      script:
+        - ./b2 libs/qvm/doc
+      deploy:
+        local-dir: libs/qvm/doc/html
+        provider: pages
+        skip-cleanup: true
+        github-token: $GH_PAGES_TOKEN
+        keep-history: false
+        on:
+          branch: master
 
     - os: osx
-      env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
+      compiler: clang++
+      env: TOOLSET=clang COMPILER=clang++ CXXSTD=11,14,1z
+
+    - os: linux
+      compiler: g++-4.9
+      env: TOOLSET=gcc COMPILER=g++-4.9 CXXSTD=11
+      addons:
+        apt:
+          packages:
+            - g++-4.9
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
+      compiler: g++-5
+      env: TOOLSET=gcc COMPILER=g++-5 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - g++-5
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
+      compiler: g++-6
+      env: TOOLSET=gcc COMPILER=g++-6 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - g++-6
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
+      compiler: g++-7
+      env: TOOLSET=gcc COMPILER=g++-7 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - g++-7
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
+      compiler: g++-8
+      env: TOOLSET=gcc COMPILER=g++-8 CXXSTD=11,14,17
+      addons:
+        apt:
+          packages:
+            - g++-8
+          sources:
+            - ubuntu-toolchain-r-test
+
+    - os: linux
+      compiler: /usr/bin/clang++
+      env: TOOLSET=clang COMPILER=/usr/bin/clang++ CXXSTD=11
+      addons:
+        apt:
+          packages:
+            - clang-3.3
+
+    - os: linux
+      compiler: /usr/bin/clang++
+      env: TOOLSET=clang COMPILER=/usr/bin/clang++ CXXSTD=11
+      addons:
+        apt:
+          packages:
+            - clang-3.4
+
+    - os: linux
+      compiler: clang++-3.5
+      env: TOOLSET=clang COMPILER=clang++-3.5 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-3.5
+            - libstdc++-4.9-dev
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.5
+
+    - os: linux
+      compiler: clang++-3.6
+      env: TOOLSET=clang COMPILER=clang++-3.6 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-3.6
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.6
+
+    - os: linux
+      compiler: clang++-3.7
+      env: TOOLSET=clang COMPILER=clang++-3.7 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-3.7
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.7
+
+    - os: linux
+      compiler: clang++-3.8
+      env: TOOLSET=clang COMPILER=clang++-3.8 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-3.8
+            - libstdc++-4.9-dev
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.8
+
+    - os: linux
+      compiler: clang++-3.9
+      env: TOOLSET=clang COMPILER=clang++-3.9 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-3.9
+            - libstdc++-4.9-dev
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-precise-3.9
+
+    - os: linux
+      compiler: clang++-4.0
+      env: TOOLSET=clang COMPILER=clang++-4.0 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-4.0
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-4.0
+
+    - os: linux
+      compiler: clang++-5.0
+      env: TOOLSET=clang COMPILER=clang++-5.0 CXXSTD=11,14,1z
+      addons:
+        apt:
+          packages:
+            - clang-5.0
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-5.0
+
+    - os: linux
+      compiler: clang++-6.0
+      env: TOOLSET=clang COMPILER=clang++-6.0 CXXSTD=11,14,17
+      addons:
+        apt:
+          packages:
+            - clang-6.0
+          sources:
+            - ubuntu-toolchain-r-test
+            - llvm-toolchain-trusty-6.0
 
 install:
   - gem install asciidoctor
@@ -88,17 +239,7 @@ install:
 script:
   - |-
     echo -e "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;\nusing asciidoctor ;" > ~/user-config.jam
-  - ./b2 libs/qvm/doc
   - ./b2 libs/qvm/test toolset=$TOOLSET
-
-deploy:
-  local-dir: libs/qvm/doc/html/index.html
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_PAGES_TOKEN
-  keep-history: false
-  on:
-    branch: master
 
 notifications:
   email:
