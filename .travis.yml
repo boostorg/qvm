@@ -31,7 +31,6 @@ addons:
       - clang-3.6
       - clang-3.7
       - clang-3.8
-      - asciidoctor
       - ruby-full
 
     sources:
@@ -72,6 +71,7 @@ matrix:
       env: TOOLSET=clang COMPILER=clang++ CXXSTD=c++11
 
 install:
+  - gem install asciidoctor
   - gem install coderay
   - cd ..
   - git clone -b $TRAVIS_BRANCH --depth 1 https://github.com/boostorg/boost.git boost-root
@@ -88,8 +88,8 @@ install:
 script:
   - |-
     echo -e "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;\nusing asciidoctor ;" > ~/user-config.jam
-  - ./b2 libs/qvm/test toolset=$TOOLSET
   - ./b2 libs/qvm/doc
+  - ./b2 libs/qvm/test toolset=$TOOLSET
 
 deploy:
   local-dir: libs/qvm/doc/html/index.html
