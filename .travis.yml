@@ -50,6 +50,8 @@ matrix:
     - os: linux
       env: DOC=1
       script:
+        - |-
+          echo "using asciidoctor ;" > ~/user-config.jam
         - ./b2 libs/qvm/doc
       deploy:
         local-dir: libs/qvm/doc/html
@@ -238,7 +240,7 @@ install:
 
 script:
   - |-
-    echo -e "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;\nusing asciidoctor ;" > ~/user-config.jam
+    echo "using $TOOLSET : : $COMPILER : <cxxflags>-std=$CXXSTD ;" > ~/user-config.jam
   - ./b2 libs/qvm/test toolset=$TOOLSET
 
 notifications:
