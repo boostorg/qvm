@@ -12,7 +12,7 @@ Generic {CPP} library for working with Quaternions Vectors and Matrices
 
 [abstract]
 == Abstract
-Boost QVM is a generic library for working with Quaternions, Vectors and Matrices of static size. Features:
+QVM is a generic library for working with Quaternions, Vectors and Matrices of static size. Features:
 
 ====
 * Emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
@@ -29,7 +29,7 @@ https://github.com/boostorg/qvm[GitHub] | <<tutorial>> | <<reference>> | <<ratio
 
 === Quaternions, Vectors, Matrices
 
-Out of the box Boost QVM defines generic yet simple <<quat,`quat`>>, <<vec,`vec`>> and <<mat,`mat`>> types. For example, the following snippet creates a quaternion object that rotates around the X axis:
+Out of the box QVM defines generic yet simple <<quat,`quat`>>, <<vec,`vec`>> and <<mat,`mat`>> types. For example, the following snippet creates a quaternion object that rotates around the X axis:
 
 [source,c++]
 ----
@@ -44,9 +44,9 @@ vec<float,3> v = {0,0,7};
 mat<float,4,4> tr = translation_mat(v);
 ----
 
-The usual quaternion, vector and matrix operations work on these Boost QVM types, however the operations are decoupled from any specific type: they work on any suitable type that has been registered by specializing the <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> templates.
+The usual quaternion, vector and matrix operations work on these QVM types, however the operations are decoupled from any specific type: they work on any suitable type that has been registered by specializing the <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> templates.
 
-For example, a user-defined 3D vector type `float3` can be introduced to Boost QVM as follows:
+For example, a user-defined 3D vector type `float3` can be introduced to QVM as follows:
 
 [source,c++]
 ----
@@ -106,7 +106,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-After a similar specialization of the <<mat_traits,`mat_traits`>> template for a user-defined 3x3 matrix type `float33`, the full range of vector and matrix operations defined by Boost QVM headers becomes available automatically:
+After a similar specialization of the <<mat_traits,`mat_traits`>> template for a user-defined 3x3 matrix type `float33`, the full range of vector and matrix operations defined by QVM headers becomes available automatically:
 
 [source,c++]
 ----
@@ -119,13 +119,13 @@ float33 m = rotx_mat<3>(3.14159f);
 float3 vrot = m * v;
 ----
 
-User-defined quaternion types are similarly introduced to Boost QVM by specializing the <<quat_traits,`quat_traits`>> template.
+User-defined quaternion types are similarly introduced to QVM by specializing the <<quat_traits,`quat_traits`>> template.
 
 '''
 
 === C Arrays
 
-In <<boost/qvm/quat_traits_array.hpp,`boost/qvm/quat_traits_array.hpp`>>, <<boost/qvm/vec_traits_array.hpp,`boost/qvm/vec_traits_array.hpp`>> and <<boost/qvm/mat_traits_array.hpp,`boost/qvm/mat_traits_array.hpp`>> Boost QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow Boost QVM functions to operate directly on plain old C arrays:
+In <<boost/qvm/quat_traits_array.hpp,`boost/qvm/quat_traits_array.hpp`>>, <<boost/qvm/vec_traits_array.hpp,`boost/qvm/vec_traits_array.hpp`>> and <<boost/qvm/mat_traits_array.hpp,`boost/qvm/mat_traits_array.hpp`>> QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow QVM functions to operate directly on plain old C arrays:
 
 [source,c++]
 ----
@@ -154,7 +154,7 @@ vref(v) *= 42;
 [[view_proxy]]
 === View proxies
 
-Boost QVM defines various function templates that provide static mapping between (possibly user-defined) quaternion, vector and matrix types. The example below multiplies column 1 (Boost QVM indexes are always zero-based) of the matrix `m` by a scalar:
+QVM defines various function templates that provide static mapping between (possibly user-defined) quaternion, vector and matrix types. The example below multiplies column 1 (QVM indexes are always zero-based) of the matrix `m` by a scalar:
 
 [source,c++]
 ----
@@ -179,7 +179,7 @@ In general, the various view proxy functions return references of unspecified, n
 
 === Swizzling
 
-Boost QVM allows accessing vector elements by swizzling, exposing vector views of different dimensions, and/or views with reordered elements. The example below rotates `v` around the X axis, and stores the resulting vector back in `v` but with the X and Y elements swapped:
+QVM allows accessing vector elements by swizzling, exposing vector views of different dimensions, and/or views with reordered elements. The example below rotates `v` around the X axis, and stores the resulting vector back in `v` but with the X and Y elements swapped:
 
 [source,c++]
 ----
@@ -204,7 +204,7 @@ float3 v = {0,0,7};
 float4 v1 = ZZZZ(v); //{7,7,7,7}
 ----
 
-Boost QVM defines all permutations of `X`, `Y`, `Z`, `W` for 1D, 2D, 3D and 4D swizzling, plus each dimension defines variants with 0 or 1 used at any position (if 0 or 1 appear at the first position, the swizzling function name begins with underscore, e.g. `_1XY`).
+QVM defines all permutations of `X`, `Y`, `Z`, `W` for 1D, 2D, 3D and 4D swizzling, plus each dimension defines variants with 0 or 1 used at any position (if 0 or 1 appear at the first position, the swizzling function name begins with underscore, e.g. `_1XY`).
 
 The swizzling syntax can also be used to bind scalars as vectors. For example:
 
@@ -222,7 +222,7 @@ SFINAE stands for Substitution Failure Is Not An Error. This refers to a situati
 
 In absence of concepts support, SFINAE can be used to disable function template overloads that would otherwise present a signature that is too generic. More formally, this is supported by the Boost `enable_if` library.
 
-For example, Boost QVM defines `operator*` overload which works with any user-defined matrix and vector types. The naive approach would be to declare this overload as follows:
+For example, QVM defines `operator*` overload which works with any user-defined matrix and vector types. The naive approach would be to declare this overload as follows:
 
 [source,c++]
 ----
@@ -232,7 +232,7 @@ Vector operator*( Matrix const & m, Vector const & v );
 
 Even if the function definition might contain code that would compile only for `Matrix` and `Vector` types, because the function declaration itself is valid, it will participate in overload rezolutions when multiplying objects of any two types whatsoever. This typically renders overload resolutions ambiguous and the compiler (correctly) issues an error.
 
-Using `enable_if`, Boost QVM declares such overloads in a way that preserves their generic signature but only participate in overload resolutions if the passed parameters make sense depending on the semantics of the operation being defined:
+Using `enable_if`, QVM declares such overloads in a way that preserves their generic signature but only participate in overload resolutions if the passed parameters make sense depending on the semantics of the operation being defined:
 
 [source,c++]
 ----
@@ -249,7 +249,7 @@ For brevity, function declarations throughout this documentation specify the con
 
 === Interoperability
 
-An important design goal of Boost QVM is that it works seamlessly with 3rd-party quaternion, vector and matrix types and libraries. Even when such libraries overload the same {CPP} operators as Boost QVM, it is safe to bring the entire `boost::qvm` namespace in scope by specifying:
+An important design goal of QVM is that it works seamlessly with 3rd-party quaternion, vector and matrix types and libraries. Even when such libraries overload the same {CPP} operators as QVM, it is safe to bring the entire `boost::qvm` namespace in scope by specifying:
 
 [source,c++]
 ----
@@ -258,7 +258,7 @@ using namespace boost::qvm;
 
 The above using directive does not introduce ambiguities with function and operator overloads defined by a 3rd-party library because:
 
-- Most `boost::qvm` function overloads and all operator overloads use SFINAE/`enable_if`, which makes them "disappear" unless an expression uses types that have the appropriate Boost QVM-specific type traits defined;
+- Most `boost::qvm` function overloads and all operator overloads use SFINAE/`enable_if`, which makes them "disappear" unless an expression uses types that have the appropriate QVM-specific type traits defined;
 
 - Whenever such overloads are compatible with a given expression, their signature is extremely generic, which means that any other (user-defined) compatible overload will be a better match in any overload resolution.
 
@@ -268,7 +268,7 @@ NOTE: Bringing the entire boost::qvm namespace in scope may introduce ambiguitie
 
 Bringing the `boost::qvm` namespace in scope lets you mix vector and matrix types that come from different APIs into a common, type-safe framework. In this case however, it should be considered what types should be returned by binary operations that return an object by value. For example, if you multiply a 3x3 matrix `m1` of type `user_matrix1` by a 3x3 matrix `m2` of type `user_matrix2`, what type should that operation return?
 
-The answer is that by default, Boost QVM returns some kind of compatible matrix type, so it is always safe to write:
+The answer is that by default, QVM returns some kind of compatible matrix type, so it is always safe to write:
 
 [source,c++]
 ----
@@ -318,7 +318,7 @@ float m[3][3];
 auto & inv = inverse(m);
 ----
 
-Above, the object returned by <<mat_inverse,`inverse`>> and captured by `inv` can not be of type `float[3][3]`, because that type isn't copyable. By default, Boost QVM "just works", returning an object of suitable matrix type that is copyable. This deduction process can be controlled, by specializing the <<deduce_mat,`deduce_mat`>> template.
+Above, the object returned by <<mat_inverse,`inverse`>> and captured by `inv` can not be of type `float[3][3]`, because that type isn't copyable. By default, QVM "just works", returning an object of suitable matrix type that is copyable. This deduction process can be controlled, by specializing the <<deduce_mat,`deduce_mat`>> template.
 
 ==== Converting between different quaternion, vector and matrix types
 
@@ -334,7 +334,7 @@ user_matrix2 m=convert_to<user_matrix2>(m1 * m2);
 
 === Header Files
 
-Boost QVM is split into multiple headers to allow different compilation units to `#include` only the components they need. Each function in this document specifies the exact header that must be `#included` in order to use it.
+QVM is split into multiple headers to allow different compilation units to `#include` only the components they need. Each function in this document specifies the exact header that must be `#included` in order to use it.
 
 The tables below list commonly used components and the headers they're found in. Header names containing a number define functions that only work with objects of that dimension; e.g. `vec_operations2.hpp` contains only functions for working with 2D vectors.
 
@@ -391,7 +391,7 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 [[type_traits]]
 === Type Traits System
 
-Boost QVM is designed to work with user-defined quaternion, vector and matrix types, as well as user-defined scalar types. This section formally defines the way such types can be integrated.
+QVM is designed to work with user-defined quaternion, vector and matrix types, as well as user-defined scalar types. This section formally defines the way such types can be integrated.
 
 '''
 
@@ -449,7 +449,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a valid scalar type. It must be specialized together with the <<scalar_traits,`scalar_traits`>> template in order to introduce a user-defined scalar type to Boost QVM. Such types must satisfy the <<scalar_requirements,scalar requirements>>.
+This template defines a compile-time boolean constant value which can be used to determine whether a type `T` is a valid scalar type. It must be specialized together with the <<scalar_traits,`scalar_traits`>> template in order to introduce a user-defined scalar type to QVM. Such types must satisfy the <<scalar_requirements,scalar requirements>>.
 
 '''
 
@@ -474,7 +474,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This template may be specialized for user-defined scalar types to define the appropriate conversion from `int`; this is primarily used whenever Boost QVM needs to deduce a zero or one value.
+This template may be specialized for user-defined scalar types to define the appropriate conversion from `int`; this is primarily used whenever QVM needs to deduce a zero or one value.
 
 '''
 
@@ -592,7 +592,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-The `quat_traits` template must be specialized for (user-defined) quaternion types in order to enable quaternion operations defined in Boost QVM headers for objects of those types.
+The `quat_traits` template must be specialized for (user-defined) quaternion types in order to enable quaternion operations defined in QVM headers for objects of those types.
 
 NOTE: QVM quaternion operations do not require that quaternion types are copyable.
 
@@ -714,11 +714,11 @@ Requirements: ::
 - `<<is_quat,is_quat>><deduce_quat<Q>::type>::value` must be `true`;
 - `deduce_quat<Q>::type` must be copyable.
 
-This template is used by Boost QVM whenever it needs to deduce a copyable quaternion type from a single user-supplied function parameter of quaternion type. Note that `Q` itself may be non-copyable.
+This template is used by QVM whenever it needs to deduce a copyable quaternion type from a single user-supplied function parameter of quaternion type. Note that `Q` itself may be non-copyable.
 
-The main template definition returns `Q`, which means that it is suitable only for copyable quaternion types. Boost QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns `Q`, which means that it is suitable only for copyable quaternion types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the `deduce_quat` template is for specifying the preferred quaternion type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the `deduce_quat` template is for specifying the preferred quaternion type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
@@ -745,11 +745,11 @@ Requirements: ::
 - `is_quat<deduce_quat2<A,B>::type>::value` must be `true`;
 - `deduce_quat2<A,B>::type` must be copyable.
 
-This template is used by Boost QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a quaternion type.)
+This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a quaternion type.)
 
-The main template definition returns an unspecified quaternion type with <<quat_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same quaternion type `Q`, in which case `Q` is returned, which is only suitable for copyable types. Boost QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns an unspecified quaternion type with <<quat_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same quaternion type `Q`, in which case `Q` is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the `deduce_quat2` template is for specifying the preferred quaternion type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the `deduce_quat2` template is for specifying the preferred quaternion type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
@@ -815,7 +815,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-The `vec_traits` template must be specialized for (user-defined) vector types in order to enable vector and matrix operations defined in Boost QVM headers for objects of those types.
+The `vec_traits` template must be specialized for (user-defined) vector types in order to enable vector and matrix operations defined in QVM headers for objects of those types.
 
 NOTE: QVM vector operations do not require that vector types are copyable.
 
@@ -975,11 +975,11 @@ Requirements: ::
 - `deduce_vec<V>::type` must be copyable;
 - `vec_traits<deduce_vec<V>::type>::dim==Dim`.
 
-This template is used by Boost QVM whenever it needs to deduce a copyable vector type of certain dimension from a single user-supplied function parameter of vector type. The returned type must have accessible copy constructor. Note that `V` may be non-copyable.
+This template is used by QVM whenever it needs to deduce a copyable vector type of certain dimension from a single user-supplied function parameter of vector type. The returned type must have accessible copy constructor. Note that `V` may be non-copyable.
 
-The main template definition returns an unspecified copyable vector type of size `Dim`, except if `<<vec_traits,vec_traits>><V>::dim==Dim`, in which case it returns `V`, which is suitable only if `V` is a copyable type. Boost QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns an unspecified copyable vector type of size `Dim`, except if `<<vec_traits,vec_traits>><V>::dim==Dim`, in which case it returns `V`, which is suitable only if `V` is a copyable type. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the `deduce_vec` template is for specifying the preferred vector type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the `deduce_vec` template is for specifying the preferred vector type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
@@ -1007,11 +1007,11 @@ Requirements: ::
 - `deduce_vec2<A,B>::type` must be copyable;
 - `vec_traits<deduce_vec2<A,B>::type>::dim==Dim`.
 
-This template is used by Boost QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a vector type.)
+This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a vector type.)
 
-The main template definition returns an unspecified vector type of the requested dimension with <<vec_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same vector type `V` of dimension `Dim`, in which case `V` is returned, which is only suitable for copyable types. Boost QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns an unspecified vector type of the requested dimension with <<vec_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same vector type `V` of dimension `Dim`, in which case `V` is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the `deduce_vec2` template is for specifying the preferred vector type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the `deduce_vec2` template is for specifying the preferred vector type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
@@ -1077,9 +1077,9 @@ namespace boost { namespace qvm {
 } }
 ----
 
-The `mat_traits` template must be specialized for (user-defined) matrix types in order to enable vector and matrix operations defined in Boost QVM headers for objects of those types.
+The `mat_traits` template must be specialized for (user-defined) matrix types in order to enable vector and matrix operations defined in QVM headers for objects of those types.
 
-NOTE: The matrix operations defined by Boost QVM do not require matrix types to be copyable.
+NOTE: The matrix operations defined by QVM do not require matrix types to be copyable.
 
 The main `mat_traits` template members are not specified. Valid specializations are required to define the following members:
 
@@ -1235,11 +1235,11 @@ Requirements: ::
 - `<<mat_traits,mat_traits>><deduce_mat<M>::type>::rows==Rows`;
 - `mat_traits<deduce_mat<M>::type>::cols==Cols`.
 
-This template is used by Boost QVM whenever it needs to deduce a copyable matrix type of certain dimensions from a single user-supplied function parameter of matrix type. The returned type must have accessible copy constructor. Note that M itself may be non-copyable.
+This template is used by QVM whenever it needs to deduce a copyable matrix type of certain dimensions from a single user-supplied function parameter of matrix type. The returned type must have accessible copy constructor. Note that M itself may be non-copyable.
 
-The main template definition returns an unspecified copyable matrix type of size `Rows` x `Cols`, except if `<<mat_traits,mat_traits>><M>::rows==Rows && mat_traits<M>::cols==Cols`, in which case it returns `M`, which is suitable only if `M` is a copyable type. Boost QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns an unspecified copyable matrix type of size `Rows` x `Cols`, except if `<<mat_traits,mat_traits>><M>::rows==Rows && mat_traits<M>::cols==Cols`, in which case it returns `M`, which is suitable only if `M` is a copyable type. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the deduce_mat template is for specifying the preferred matrix type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the deduce_mat template is for specifying the preferred matrix type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
@@ -1270,17 +1270,17 @@ Requirements: ::
 - `<<mat_traits,mat_traits>><deduce_mat2<A,B>::type>::rows==Rows`;
 - `mat_traits<deduce_mat2<A,B>::type>::cols==Cols`.
 
-This template is used by Boost QVM whenever it needs to deduce a matrix type of certain dimensions from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may be a non-matrix type.)
+This template is used by QVM whenever it needs to deduce a matrix type of certain dimensions from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may be a non-matrix type.)
 
-The main template definition returns an unspecified matrix type of the requested dimensions with <<mat_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same matrix type `M` of dimensions `Rows` x `Cols`, in which case `M` is returned, which is only suitable for copyable types. Boost QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.
+The main template definition returns an unspecified matrix type of the requested dimensions with <<mat_traits,`scalar_type`>> obtained by `<<deduce_scalar,deduce_scalar>><A,B>::type`, except if `A` and `B` are the same matrix type `M` of dimensions `Rows` x `Cols`, in which case `M` is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.
 
-A typical use of the `deduce_mat2` template is for specifying the preferred matrix type to be returned by the generic function template overloads in Boost QVM depending on the type of their arguments.
+A typical use of the `deduce_mat2` template is for specifying the preferred matrix type to be returned by the generic function template overloads in QVM depending on the type of their arguments.
 
 '''
 
 === Built-in Quaternion, Vector and Matrix Types
 
-Boost QVM defines several class templates (together with appropriate specializations of <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> templates) which can be used as generic quaternion, vector and matrix types. Using these types directly wouldn't be typical though, the main design goal of Boost QVM is to allow users to plug in their own quaternion, vector and matrix types.
+QVM defines several class templates (together with appropriate specializations of <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> templates) which can be used as generic quaternion, vector and matrix types. Using these types directly wouldn't be typical though, the main design goal of QVM is to allow users to plug in their own quaternion, vector and matrix types.
 
 [[quat]]
 ==== `quat`
@@ -1329,7 +1329,7 @@ namespace boost { namespace qvm {
 
 This is a simple quaternion type. It converts to any other quaternion type.
 
-The partial specialization of the <<quat_traits,`quat_traits`>> template makes the `quat` template compatible with the generic operations defined by Boost QVM.
+The partial specialization of the <<quat_traits,`quat_traits`>> template makes the `quat` template compatible with the generic operations defined by QVM.
 
 '''
 
@@ -1388,7 +1388,7 @@ namespace boost { namespace qvm {
 
 This is a simple vector type. It converts to any other vector type of compatible size.
 
-The partial specialization of the <<vec_traits,`vec_traits`>> template makes the `vec` template compatible with the generic operations defined by Boost QVM.
+The partial specialization of the <<vec_traits,`vec_traits`>> template makes the `vec` template compatible with the generic operations defined by QVM.
 
 '''
 
@@ -1449,7 +1449,7 @@ namespace boost { namespace qvm {
 
 This is a simple matrix type. It converts to any other matrix type of compatible size.
 
-The partial specialization of the <<mat_traits,`mat_traits`>> template makes the `mat` template compatible with the generic operations defined by Boost QVM.
+The partial specialization of the <<mat_traits,`mat_traits`>> template makes the `mat` template compatible with the generic operations defined by QVM.
 
 '''
 
@@ -1529,7 +1529,7 @@ An expression of the form of `A<I>(v)` can be used to access the `I`-th element 
 A<1>(v) *= 42;
 ----
 
-can be used to multiply the element at index 1 (indexing in Boost QVM is always zero-based) of a vector `v` by 42.
+can be used to multiply the element at index 1 (indexing in QVM is always zero-based) of a vector `v` by 42.
 
 For convenience, there are also non-template overloads for `I` from 0 to 9; an alternative way to write the above expression is:
 
@@ -2650,7 +2650,7 @@ namespace boost { namespace qvm {
 
 Returns: :: An identity view proxy of `a`; that is, it simply accesses the elements of `a`.
 
-TIP: `qref` allows calling Boost QVM operations when `a` is of built-in type, for example a plain old C array.
+TIP: `qref` allows calling QVM operations when `a` is of built-in type, for example a plain old C array.
 
 '''
 
@@ -3201,7 +3201,7 @@ namespace boost { namespace qvm {
 
 Returns: :: An identity <<view_proxy,view proxy>> of `a`; that is, it simply accesses the elements of `a`.
 
-TIP: `vref` allows calling Boost QVM operations when `a` is of built-in type, for example a plain old C array.
+TIP: `vref` allows calling QVM operations when `a` is of built-in type, for example a plain old C array.
 
 '''
 
@@ -4303,7 +4303,7 @@ namespace boost { namespace qvm {
 
 Returns: :: An identity view proxy of `a`; that is, it simply accesses the elements of `a`.
 
-TIP: `mref` allows calling Boost QVM operations when `a` is of built-in type, for example a plain old C array.
+TIP: `mref` allows calling QVM operations when `a` is of built-in type, for example a plain old C array.
 
 '''
 
@@ -4725,7 +4725,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This is the base for all exceptions thorwn by Boost QVM.
+This is the base for all exceptions thorwn by QVM.
 
 '''
 
@@ -4781,7 +4781,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This macro is not used directly by Boost QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions.
+This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions.
 
 '''
 
@@ -4801,7 +4801,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This macro is not used directly by Boost QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_FORCE_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions, to indicate that the compiler must inline the function. Of course, actual inlining may or may not occur.
+This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_FORCE_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions, to indicate that the compiler must inline the function. Of course, actual inlining may or may not occur.
 
 '''
 
@@ -4821,7 +4821,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Boost QVM uses `BOOST_QVM_INLINE_TRIVIAL` in definitions of functions that are not critical for the overall performance of the library but are extremely simple (such as one-liners) and therefore should always be inlined.
+QVM uses `BOOST_QVM_INLINE_TRIVIAL` in definitions of functions that are not critical for the overall performance of the library but are extremely simple (such as one-liners) and therefore should always be inlined.
 
 '''
 
@@ -4841,7 +4841,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Boost QVM uses `BOOST_QVM_INLINE_CRITICAL` in definitions of functions that are critical for the overall performance of the library, such as functions that access individual vector and matrix elements.
+QVM uses `BOOST_QVM_INLINE_CRITICAL` in definitions of functions that are critical for the overall performance of the library, such as functions that access individual vector and matrix elements.
 
 '''
 
@@ -4861,7 +4861,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Boost QVM uses `BOOST_QVM_INLINE_OPERATIONS` in definitions of functions that implement various high-level operations, such as matrix multiplication, computing the magnitude of a vector, etc.
+QVM uses `BOOST_QVM_INLINE_OPERATIONS` in definitions of functions that implement various high-level operations, such as matrix multiplication, computing the magnitude of a vector, etc.
 
 '''
 
@@ -4881,7 +4881,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Boost QVM uses `BOOST_QVM_INLINE_RECURSION` in definitions of recursive functions that are not critical for the overall performance of the library (definitions of all critical functions, including critical recursive functions, use <<BOOST_QVM_INLINE_CRITICAL,`BOOST_QVM_INLINE_CRITICAL`>>).
+QVM uses `BOOST_QVM_INLINE_RECURSION` in definitions of recursive functions that are not critical for the overall performance of the library (definitions of all critical functions, including critical recursive functions, use <<BOOST_QVM_INLINE_CRITICAL,`BOOST_QVM_INLINE_CRITICAL`>>).
 
 '''
 
@@ -4902,7 +4902,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This is the macro Boost QVM uses to assert on precondition violations and logic errors. A user-defined `BOOST_QVM_ASSERT` should have the semantics of the standard `assert`.
+This is the macro QVM uses to assert on precondition violations and logic errors. A user-defined `BOOST_QVM_ASSERT` should have the semantics of the standard `assert`.
 
 '''
 
@@ -4923,7 +4923,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-All static assertions in Boost QVM use the `BOOST_QVM_STATIC_ASSERT` macro.
+All static assertions in QVM use the `BOOST_QVM_STATIC_ASSERT` macro.
 
 '''
 
@@ -4944,7 +4944,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This macro is used whenever Boost QVM throws an exception. Users who override the standard `BOOST_QVM_THROW_EXCEPTION` behavior must ensure that when invoked, the substituted implementation does not return control to the caller. Below is a list of all QVM functions that invoke `BOOST_QVM_THROW_EXCEPTION`:
+This macro is used whenever QVM throws an exception. Users who override the standard `BOOST_QVM_THROW_EXCEPTION` behavior must ensure that when invoked, the substituted implementation does not return control to the caller. Below is a list of all QVM functions that invoke `BOOST_QVM_THROW_EXCEPTION`:
 
 * Quaternion operations:
 ** <<quat_inverse,`inverse`>>
@@ -4973,9 +4973,9 @@ In addition, QVM can be helpful in selectively optimizing individual types or op
 
 == Code Generator
 
-While Boost QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier to read than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.
+While QVM defines generic functions that operate on matrix and vector types of arbitrary static dimensions, it also provides a code generator that can be used to create compatible header files that define much simpler specializations of these functions for specific dimensions. This is useful during debugging since the generated code is much easier to read than the template metaprogramming-heavy generic implementations. It is also potentially friendlier to the optimizer.
 
-The code generator is a command-line utility program. Its source code can be found in the `boost/libs/qvm/gen` directory. It was used to generate the following headers that ship with Boost QVM:
+The code generator is a command-line utility program. Its source code can be found in the `boost/libs/qvm/gen` directory. It was used to generate the following headers that ship with QVM:
 
 * 2D, 3D and 4D matrix operations:
 ** `boost/qvm/gen/mat_operations2.hpp` (matrices of size 2x2, 2x1 and 1x2, included by `boost/qvm/mat_operations2.hpp`)
@@ -4996,7 +4996,7 @@ The code generator is a command-line utility program. Its source code can be fou
 
 Any such generated headers must be included before the corresponding generic header file is included. For example, if one creates a header `boost/qvm/gen/m5.hpp`, it must be included before `boost/qvm/mat_operations.hpp` in included. However, the generic headers (`boost/qvm/mat_operations.hpp`, `boost/qvm/vec_operations.hpp`, `boost/qvm/vec_mat_operations.hpp` and `boost/qvm/swizzle.hpp`) already include the generated headers from the list above, so the generated headers don't need to be included manually.
 
-NOTE: headers under `boost/qvm/gen` are not part of the public interface of Boost QVM. For example, `boost/qvm/gen/mat_operations2.hpp` should not be included directly; `#include <boost/qvm/mat_operations2.hpp>` instead.
+NOTE: headers under `boost/qvm/gen` are not part of the public interface of QVM. For example, `boost/qvm/gen/mat_operations2.hpp` should not be included directly; `#include <boost/qvm/mat_operations2.hpp>` instead.
 
 == Known Quirks and Issues
 
@@ -5061,9 +5061,9 @@ namespace ns1 {
 
 === Link Errors When Calling Math Functions with `int` Arguments
 
-Boost QVM does not call standard math functions (e.g. sin, cos, etc.) directly. Instead, it calls function templates declared in `boost/qvm/math.hpp` in namespace `boost::qvm`. This allows the user to specialize these templates for user-defined scalar types.
+QVM does not call standard math functions (e.g. sin, cos, etc.) directly. Instead, it calls function templates declared in `boost/qvm/math.hpp` in namespace `boost::qvm`. This allows the user to specialize these templates for user-defined scalar types.
 
-Boost QVM itself defines specializations of the math function templates only for `float` and `double`, but it does not provide generic definitions. This is done to protect the user from unintentionally writing code that binds standard math functions that take `double` when passing arguments of lesser types, which would be suboptimal.
+QVM itself defines specializations of the math function templates only for `float` and `double`, but it does not provide generic definitions. This is done to protect the user from unintentionally writing code that binds standard math functions that take `double` when passing arguments of lesser types, which would be suboptimal.
 
 Because of this, a call to e.g. `<<rot_mat,rot_mat>>(axis,1)` will compile successfully but fail to link, since it calls e.g. `boost::qvm::sin<int>`, which is undefined. Because rotations by integer number of radians are rarely needed, in QVM there is no protection against such errors. In such cases the solution is to use `rot_mat(axis,1.0f)` instead.
 
@@ -5071,13 +5071,13 @@ Because of this, a call to e.g. `<<rot_mat,rot_mat>>(axis,1)` will compile succe
 
 QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
 
-The source code is available in https://github.com/boostorg/qvm[BOOST QVM GitHub repository].
+The source code is available in https://github.com/boostorg/qvm[QVM GitHub repository].
 
 (C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
 
 == Portability
 
-See the link:https://travis-ci.org/boostorg/qvm[Boost QVM Travis CI Builds].
+See the link:https://travis-ci.org/boostorg/qvm[QVM Travis CI Builds].
 
 == Feedback / Support
 
@@ -5086,7 +5086,7 @@ Please use the link:https://lists.boost.org/mailman/listinfo.cgi/boost[Boost Dev
 == Q&A
 
 [qanda]
-What is the motivation behind Boost QVM? Why not just use uBLAS/Eigen/CML/GLM/etc?:: The primary domain of Boost QVM is realtime graphics and simulation applications, so it is not a complete linear algebra library. While (naturally) there is some overlap with such libraries, QVM puts the emphasis on 2, 3 and 4 dimensional zero-overhead operations (hence domain-specific features like Swizzling).
+What is the motivation behind QVM? Why not just use uBLAS/Eigen/CML/GLM/etc?:: The primary domain of QVM is realtime graphics and simulation applications, so it is not a complete linear algebra library. While (naturally) there is some overlap with such libraries, QVM puts the emphasis on 2, 3 and 4 dimensional zero-overhead operations (hence domain-specific features like Swizzling).
 
 How does the `qvm::<<vec,vec>>` (or `qvm::<<mat,mat>>`, or `qvm::<<quat,quat>>`) template compare to vector types from other libraries?:: The `qvm::vec` template is not in any way central to the vector operations defined by QVM. The operations are designed to work with any user-defined vector type or with 3rd-party vector types (e.g. `D3DVECTOR`), while the `qvm::vec` template is simply a default return type for expressions that use arguments of different types that would be incompatible outside of QVM. For example, if the <<deduce_mat2,`deduce_mat2`>> hasn't been specialized, calling <<cross,`cross`>> with a user-defined type `vec3` and a user-defined type `float3` returns a `qvm::vec`.
 
