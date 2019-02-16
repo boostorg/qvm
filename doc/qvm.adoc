@@ -4383,7 +4383,7 @@ Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ0>>(b)`.
 '''
 
 [[transform_point]]
-==== `transform_pointt`
+==== `transform_point`
 
 .#include <boost/qvm/mat_vec_operations.hpp>
 [source,c++]
