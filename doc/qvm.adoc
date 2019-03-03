@@ -4338,7 +4338,7 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[mat_vec_mul]]
 ==== `operator*`
 
-.#include <boost/qvm/mat_vec_operations.hpp>
+.#include <boost/qvm/vec_mat_operations.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4362,7 +4362,7 @@ NOTE: The <<deduce_vec2,`deduce_vec2`>> template can be specialized to deduce th
 [[transform_vector]]
 ==== `transform_vector`
 
-.#include <boost/qvm/mat_vec_operations.hpp>
+.#include <boost/qvm/vec_mat_operations.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4383,9 +4383,9 @@ Effects: :: As if: `return a <<mat_vec_mul,*>> <<swizzling,XYZ0>>(b)`.
 '''
 
 [[transform_point]]
-==== `transform_pointt`
+==== `transform_point`
 
-.#include <boost/qvm/mat_vec_operations.hpp>
+.#include <boost/qvm/vec_mat_operations.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
