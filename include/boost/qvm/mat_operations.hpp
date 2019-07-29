@@ -112,16 +112,11 @@ boost
             bool>::type
         cmp( A const & a, B const & b, Cmp f )
             {
-            typedef typename deduce_scalar<
-                typename mat_traits<A>::scalar_type,
-                typename mat_traits<B>::scalar_type>::type T;
-            int const rows=mat_traits<A>::rows;
-            int const cols=mat_traits<A>::cols;
-            T m1[rows][cols]; assign(m1,a);
-            T m2[rows][cols]; assign(m2,b);
-            for( int i=0; i!=rows; ++i )
-                for( int j=0; j!=cols; ++j )
-                    if( !f(m1[i][j],m2[i][j]) )
+            for( int i=0; i!=mat_traits<A>::rows; ++i )
+                for( int j=0; j!=mat_traits<A>::cols; ++j )
+                    if( !f(
+                        mat_traits<A>::read_element_idx(i, j, a),
+                        mat_traits<B>::read_element_idx(i, j, b)) )
                         return false;
             return true;
             }
