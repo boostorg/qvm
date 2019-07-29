@@ -151,14 +151,10 @@ boost
             bool>::type
         cmp( A const & a, B const & b, Cmp f )
             {
-            typedef typename deduce_scalar<
-                typename vec_traits<A>::scalar_type,
-                typename vec_traits<B>::scalar_type>::type T;
-            int const dim=vec_traits<A>::dim;
-            T v1[dim]; assign(v1,a);
-            T v2[dim]; assign(v2,b);
-            for( int i=0; i!=dim; ++i )
-                if( !f(v1[i],v2[i]) )
+            for( int i=0; i!=vec_traits<A>::dim; ++i )
+                if( !f(
+                    vec_traits<A>::read_element_idx(i,a),
+                    vec_traits<B>::read_element_idx(i,b)) )
                     return false;
             return true;
             }
