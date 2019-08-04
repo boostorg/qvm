@@ -41,40 +41,40 @@ namespace
         typedef boost::qvm::vec<scalar_b, 5> vec_b;
 
         vec_a const a
-            {
+            {{
             scalar_a(42),
             scalar_a(94),
             scalar_a(96),
             scalar_a(72),
             scalar_a(95)
-            };
+            }};
 
         vec_b const b
-            {
+            {{
             scalar_b(42),
             scalar_b(94),
             scalar_b(96),
             scalar_b(72),
             scalar_b(95)
-            };
+            }};
 
         vec_a const c
-            {
+            {{
             scalar_a(21),
             scalar_a(47),
             scalar_a(48),
             scalar_a(36),
             scalar_a(47)
-            };
+            }};
 
         vec_b const d
-            {
+            {{
             scalar_b(21),
             scalar_b(47),
             scalar_b(48),
             scalar_b(36),
             scalar_b(47)
-            };
+            }};
 
         BOOST_TEST(cmp(a,a,boost::qvm::qvm_detail::equal_to<>()));
         BOOST_TEST(cmp(a,b,boost::qvm::qvm_detail::equal_to<>()));
