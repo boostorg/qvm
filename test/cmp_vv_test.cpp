@@ -31,6 +31,17 @@ namespace
             }
         }
 
+    struct
+    equal_to
+    {
+        template <class T,class U>
+        bool
+        operator()( T const & a, U const & b )
+        {
+            return a==b;
+        }
+    };
+
     template <class A, class B>
     void
     test2()
@@ -40,7 +51,7 @@ namespace
         typedef boost::qvm::vec<scalar_a, 5> vec_a;
         typedef boost::qvm::vec<scalar_b, 5> vec_b;
 
-        vec_a const a
+        vec_a const a =
             {
             scalar_a(42),
             scalar_a(94),
@@ -49,7 +60,7 @@ namespace
             scalar_a(95)
             };
 
-        vec_b const b
+        vec_b const b =
             {
             scalar_b(42),
             scalar_b(94),
@@ -58,7 +69,7 @@ namespace
             scalar_b(95)
             };
 
-        vec_a const c
+        vec_a const c =
             {
             scalar_a(21),
             scalar_a(47),
@@ -67,7 +78,7 @@ namespace
             scalar_a(47)
             };
 
-        vec_b const d
+        vec_b const d =
             {
             scalar_b(21),
             scalar_b(47),
@@ -76,22 +87,22 @@ namespace
             scalar_b(47)
             };
 
-        BOOST_TEST(cmp(a,a,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(a,b,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(b,a,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(b,b,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(c,c,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(c,d,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(d,c,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(cmp(d,d,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(a,c,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(c,a,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(a,d,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(d,a,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(b,c,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(c,b,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(b,d,boost::qvm::qvm_detail::equal_to<>()));
-        BOOST_TEST(!cmp(d,b,boost::qvm::qvm_detail::equal_to<>()));
+        BOOST_TEST(cmp(a,a,equal_to()));
+        BOOST_TEST(cmp(a,b,equal_to()));
+        BOOST_TEST(cmp(b,a,equal_to()));
+        BOOST_TEST(cmp(b,b,equal_to()));
+        BOOST_TEST(cmp(c,c,equal_to()));
+        BOOST_TEST(cmp(c,d,equal_to()));
+        BOOST_TEST(cmp(d,c,equal_to()));
+        BOOST_TEST(cmp(d,d,equal_to()));
+        BOOST_TEST(!cmp(a,c,equal_to()));
+        BOOST_TEST(!cmp(c,a,equal_to()));
+        BOOST_TEST(!cmp(a,d,equal_to()));
+        BOOST_TEST(!cmp(d,a,equal_to()));
+        BOOST_TEST(!cmp(b,c,equal_to()));
+        BOOST_TEST(!cmp(c,b,equal_to()));
+        BOOST_TEST(!cmp(b,d,equal_to()));
+        BOOST_TEST(!cmp(d,b,equal_to()));
         }
     }
 

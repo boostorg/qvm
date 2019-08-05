@@ -6,35 +6,35 @@
 namespace
 test_qvm
     {
-    // Non default constructible, non copy constructible, non move
-    // constructible, non copy assignable, non move assignable scalar.
+    // Non default constructible scalar.
     template <class T>
     class
     inconvenient_scalar
         {
-        T value;
+        T value_;
     public:
-        inconvenient_scalar( T const & a )
-            : value(a)
+        explicit inconvenient_scalar( T const & value ):
+            value_(value)
             {
             }
-        T const & const_deref() const { return value;                          }
-        T const & deref      () const { return const_deref();                  }
-        T       & deref      ()       { return const_cast<T &>(const_deref()); }
-        T         get        () const { return const_deref();                  }
-        void set( T const & a )
+        void
+        set( T const & value )
             {
-            deref() = a;
+            value_ = value;
             }
-        template <class U>
-        bool operator==( inconvenient_scalar<U> const & b )
+        template <class A, class B>
+        friend
+        bool
+        operator==( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
             {
-            return deref() == b.deref();
+            return a.value_==b.value_;
             }
-        template <class U>
-        bool operator!=( inconvenient_scalar<U> const & b )
+        template <class A, class B>
+        friend
+        bool
+        operator!=( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
             {
-            return deref() != b.deref();
+            return !(a.value_==b.value_);
             }
         };
     }

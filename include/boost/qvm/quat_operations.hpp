@@ -7,7 +7,6 @@
 #define UUID_E6519754D19211DFB8405F74DFD72085
 
 #include <boost/qvm/detail/quat_assign.hpp>
-#include <boost/qvm/detail/quat_cmp.hpp>
 #include <boost/qvm/deduce_quat.hpp>
 #include <boost/qvm/mat_traits.hpp>
 #include <boost/qvm/scalar_traits.hpp>
@@ -79,7 +78,32 @@ boost
             bool>::type
         cmp( A const & a, B const & b, Cmp f )
             {
-            return qvm_detail::cmp_quat<0>::f(a,b,f);
+            typedef typename quat_traits<A>::scalar_type T;
+            typedef typename quat_traits<B>::scalar_type U;
+            T q1[4] =
+                {
+                quat_traits<A>::template read_element<0>(a),
+                quat_traits<A>::template read_element<1>(a),
+                quat_traits<A>::template read_element<2>(a),
+                quat_traits<A>::template read_element<3>(a)
+                };
+            U q2[4] =
+                {
+                quat_traits<B>::template read_element<0>(b),
+                quat_traits<B>::template read_element<1>(b),
+                quat_traits<B>::template read_element<2>(b),
+                quat_traits<B>::template read_element<3>(b)
+                };
+            int i;
+            for( i=0; i!=4; ++i )
+                if( !f(q1[i],q2[i]) )
+                    break;
+            if( i==4 )
+                return true;
+            for( i=0; i!=4; ++i )
+                if( !f(q1[i],-q2[i]) )
+                    return false;
+            return true;
             }
 
         ////////////////////////////////////////////////
