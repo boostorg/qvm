@@ -11,8 +11,13 @@ test_qvm
     class
     inconvenient_scalar
         {
+        template <class U>
+        friend class inconvenient_scalar;
+
         T value_;
-    public:
+
+        public:
+
         explicit inconvenient_scalar( T const & value ):
             value_(value)
             {
@@ -22,21 +27,17 @@ test_qvm
             {
             value_ = value;
             }
-        template <class A, class B>
-        friend
-        inline
+        template <class U>
         bool
-        operator==( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
+        operator==( inconvenient_scalar<U> const & b ) const
             {
-            return a.value_==b.value_;
+            return this->value_==b.value_;
             }
-        template <class A, class B>
-        friend
-        inline
+        template <class U>
         bool
-        operator!=( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
+        operator!=( inconvenient_scalar<U> const & b ) const
             {
-            return !(a==b);
+            return !(*this==b);
             }
         };
     }
