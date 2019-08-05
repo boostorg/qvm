@@ -24,6 +24,7 @@ test_qvm
             }
         template <class A, class B>
         friend
+        inline
         bool
         operator==( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
             {
@@ -31,10 +32,11 @@ test_qvm
             }
         template <class A, class B>
         friend
+        inline
         bool
         operator!=( inconvenient_scalar<A> const & a, inconvenient_scalar<B> const & b )
             {
-            return !(a.value_==b.value_);
+            return !(a==b);
             }
         };
     }
