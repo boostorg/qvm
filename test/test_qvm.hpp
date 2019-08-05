@@ -6,7 +6,7 @@
 #ifndef UUID_06E5D36EB6C211DEA317E19C55D89593
 #define UUID_06E5D36EB6C211DEA317E19C55D89593
 
-#include <boost/test/floating_point_comparison.hpp>
+#include <boost/test/tools/floating_point_comparison.hpp>
 #include <boost/detail/lightweight_test.hpp>
 #include <iostream>
 
