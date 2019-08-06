@@ -9,7 +9,6 @@
 #include <boost/qvm/vec_traits_array.hpp>
 #include "test_qvm_vector.hpp"
 #include "gold.hpp"
-#include "test_qvm_scalar.hpp"
 #include <functional>
 
 namespace
@@ -31,6 +30,13 @@ namespace
             }
         }
 
+    template <class T>
+    struct test_scalar
+    {
+        T value_;
+        test_scalar( T value ): value_(value) {}
+    }; //No operator==
+
     struct
     equal_to
     {
@@ -38,7 +44,7 @@ namespace
         bool
         operator()( T const & a, U const & b )
         {
-            return a==b;
+            return a.value_==b.value_;
         }
     };
 
@@ -46,47 +52,14 @@ namespace
     void
     test2()
         {
-        typedef test_qvm::inconvenient_scalar<A> scalar_a;
-        typedef test_qvm::inconvenient_scalar<B> scalar_b;
+        typedef test_scalar<A> scalar_a;
+        typedef test_scalar<B> scalar_b;
         typedef boost::qvm::vec<scalar_a, 5> vec_a;
         typedef boost::qvm::vec<scalar_b, 5> vec_b;
-
-        vec_a const a =
-            {
-            scalar_a(42),
-            scalar_a(94),
-            scalar_a(96),
-            scalar_a(72),
-            scalar_a(95)
-            };
-
-        vec_b const b =
-            {
-            scalar_b(42),
-            scalar_b(94),
-            scalar_b(96),
-            scalar_b(72),
-            scalar_b(95)
-            };
-
-        vec_a const c =
-            {
-            scalar_a(21),
-            scalar_a(47),
-            scalar_a(48),
-            scalar_a(36),
-            scalar_a(47)
-            };
-
-        vec_b const d =
-            {
-            scalar_b(21),
-            scalar_b(47),
-            scalar_b(48),
-            scalar_b(36),
-            scalar_b(47)
-            };
-
+        vec_a const a = { 42, 94, 96, 72, 95 };
+        vec_b const b = { 42, 94, 96, 72, 95 };
+        vec_a const c = { 21, 47, 48, 36, 47 };
+        vec_b const d = { 21, 47, 48, 36, 47 };
         BOOST_TEST(cmp(a,a,equal_to()));
         BOOST_TEST(cmp(a,b,equal_to()));
         BOOST_TEST(cmp(b,a,equal_to()));
