@@ -5,6 +5,7 @@
 
 #include <boost/qvm/mat_operations.hpp>
 #include <boost/qvm/mat_traits_array.hpp>
+#include <boost/qvm/mat.hpp>
 #include "test_qvm_matrix.hpp"
 #include "gold.hpp"
 
@@ -33,6 +34,54 @@ namespace
                     }
                 }
         }
+
+    template <class T>
+    struct test_scalar
+    {
+        T value_;
+        test_scalar( T value ): value_(value) {}
+    }; //No operator==
+
+    struct
+    equal_to
+    {
+        template <class T,class U>
+        bool
+        operator()( T const & a, U const & b )
+        {
+            return a.value_==b.value_;
+        }
+    };
+
+    template <class A, class B>
+    void
+    test2()
+        {
+        typedef test_scalar<A> scalar_a;
+        typedef test_scalar<B> scalar_b;
+        typedef boost::qvm::mat<scalar_a, 3, 3> mat_a;
+        typedef boost::qvm::mat<scalar_b, 3, 3> mat_b;
+        mat_a const a = { { {42, 94, 96}, {72, 95, 81}, {12, 84, 33} } };
+        mat_b const b = { { {42, 94, 96}, {72, 95, 81}, {12, 84, 33} } };
+        mat_a const c = { { {21, 47, 48}, {36, 47, 65}, {79, 27, 41} } };
+        mat_b const d = { { {21, 47, 48}, {36, 47, 65}, {79, 27, 41} } };
+        BOOST_TEST(cmp(a,a,equal_to()));
+        BOOST_TEST(cmp(a,b,equal_to()));
+        BOOST_TEST(cmp(b,a,equal_to()));
+        BOOST_TEST(cmp(b,b,equal_to()));
+        BOOST_TEST(cmp(c,c,equal_to()));
+        BOOST_TEST(cmp(c,d,equal_to()));
+        BOOST_TEST(cmp(d,c,equal_to()));
+        BOOST_TEST(cmp(d,d,equal_to()));
+        BOOST_TEST(!cmp(a,c,equal_to()));
+        BOOST_TEST(!cmp(c,a,equal_to()));
+        BOOST_TEST(!cmp(a,d,equal_to()));
+        BOOST_TEST(!cmp(d,a,equal_to()));
+        BOOST_TEST(!cmp(b,c,equal_to()));
+        BOOST_TEST(!cmp(c,b,equal_to()));
+        BOOST_TEST(!cmp(b,d,equal_to()));
+        BOOST_TEST(!cmp(d,b,equal_to()));
+        }
     }
 
 int
@@ -50,5 +99,9 @@ main()
     test<1,5>();
     test<5,1>();
     test<5,5>();
+    test2<int, int>();
+    test2<int, double>();
+    test2<double, int>();
+    test2<double, double>();
     return boost::report_errors();
     }

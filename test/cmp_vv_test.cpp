@@ -56,10 +56,10 @@ namespace
         typedef test_scalar<B> scalar_b;
         typedef boost::qvm::vec<scalar_a, 5> vec_a;
         typedef boost::qvm::vec<scalar_b, 5> vec_b;
-        vec_a const a = { 42, 94, 96, 72, 95 };
-        vec_b const b = { 42, 94, 96, 72, 95 };
-        vec_a const c = { 21, 47, 48, 36, 47 };
-        vec_b const d = { 21, 47, 48, 36, 47 };
+        vec_a const a = { { 42, 94, 96, 72, 95 } };
+        vec_b const b = { { 42, 94, 96, 72, 95 } };
+        vec_a const c = { { 21, 47, 48, 36, 47 } };
+        vec_b const d = { { 21, 47, 48, 36, 47 } };
         BOOST_TEST(cmp(a,a,equal_to()));
         BOOST_TEST(cmp(a,b,equal_to()));
         BOOST_TEST(cmp(b,a,equal_to()));
