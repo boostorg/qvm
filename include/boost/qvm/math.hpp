@@ -3,8 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef UUID_5FD6A664ACC811DEAAFF8A8055D89593
-#define UUID_5FD6A664ACC811DEAAFF8A8055D89593
+#ifndef BOOST_QVM_5FD6A664ACC811DEAAFF8A8055D89593
+#define BOOST_QVM_5FD6A664ACC811DEAAFF8A8055D89593
 
 #include <math.h>
 #include <boost/qvm/inline.hpp>
@@ -59,7 +59,7 @@ boost
         template <> BOOST_QVM_INLINE_TRIVIAL float floor<float>( float x ) { return ::floorf(x); }
         template <> BOOST_QVM_INLINE_TRIVIAL float ldexp<float>( float x, int y ) { return ::ldexpf(x,y); }
         template <> BOOST_QVM_INLINE_TRIVIAL float sign<float>( float x ) { return x<0 ? -1.f : +1.f; }
-                    
+
         template <> BOOST_QVM_INLINE_TRIVIAL double acos<double>( double x ) { return ::acos(x); }
         template <> BOOST_QVM_INLINE_TRIVIAL double asin<double>( double x ) { return ::asin(x); }
         template <> BOOST_QVM_INLINE_TRIVIAL double atan<double>( double x ) { return ::atan(x); }

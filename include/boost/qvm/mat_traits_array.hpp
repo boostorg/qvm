@@ -3,8 +3,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef UUID_FA3ED0DCA17911DEA6BBA09955D89593
-#define UUID_FA3ED0DCA17911DEA6BBA09955D89593
+#ifndef BOOST_QVM_FA3ED0DCA17911DEA6BBA09955D89593
+#define BOOST_QVM_FA3ED0DCA17911DEA6BBA09955D89593
 
 #include <boost/qvm/inline.hpp>
 #include <boost/qvm/deduce_mat.hpp>

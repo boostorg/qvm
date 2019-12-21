@@ -4,8 +4,8 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#ifndef UUID_4F915D9ED30A11DF962186E3DFD72085
-#define UUID_4F915D9ED30A11DF962186E3DFD72085
+#ifndef BOOST_QVM_4F915D9ED30A11DF962186E3DFD72085
+#define BOOST_QVM_4F915D9ED30A11DF962186E3DFD72085
 
 #include <boost/qvm/detail/mat_assign.hpp>
 #include <boost/qvm/mat_operations2.hpp>
