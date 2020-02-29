@@ -697,7 +697,7 @@ boost
         namespace
         qvm_detail
             {
-            template <int R,int CR,int C>
+            template <int R,int /*CR*/,int C>
             struct
             mul_mm_defined
                 {

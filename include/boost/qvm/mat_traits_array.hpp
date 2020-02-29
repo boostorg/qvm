@@ -17,9 +17,9 @@ boost
     namespace
     qvm
         {
-        template <class T,int R,int CR,int C>
+        template <class T,int R,int Q,int C>
         struct
-        mat_traits<T[R][CR][C]>
+        mat_traits<T[R][Q][C]>
             {
             static int const rows=0;
             static int const cols=0;

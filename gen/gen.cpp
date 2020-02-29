@@ -574,7 +574,7 @@ namespace
             TAB2 "namespace" NL
             TAB2 "qvm_detail" NL
             TAB3 "{" NL
-            TAB3 "template <int R,int CR,int C>" NL
+            TAB3 "template <int R,int /*CR*/,int C>" NL
             TAB3 "struct "<<name<<";" NL
             NL
             TAB3 "template <>" NL
@@ -1728,8 +1728,8 @@ namespace
             public:
             int const argc;
             next( int argc, char const * argv[] ):
-                argc(argc),
-                argv(argv)
+                argv(argv),
+                argc(argc)
                 {
                 }
             std::string
