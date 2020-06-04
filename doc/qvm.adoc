@@ -1,14 +1,18 @@
 :last-update-label!:
 :icons: font
 :prewrap!:
-:source-highlighter: coderay
-:stylesheet: zajo.css
+:docinfo: shared
+:stylesheet: zajo-dark.css
 = QVM
 Generic {CPP} library for working with Quaternions Vectors and Matrices
-:toclevels: 3
+ifndef::backend-pdf[]
 :toc: left
-:sectnumlevels: 2
-:keywords: c++, boost, matrix, vector, quaternion
+:toclevels: 3
+:toc-title: pass:[<div style="float:right"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div>]
+
+[.text-right]
+https://github.com/boostorg/qvm[GitHub] | https://travis-ci.org/boostorg/qvm[Travis] | https://ci.appveyor.com/project/boostorg/qvm[AppVeyor] | link:./qvm.pdf[PDF]
+endif::[]
 
 [abstract]
 == Abstract
@@ -19,10 +23,12 @@ QVM is a generic library for working with Quaternions, Vectors and Matrices of s
 * Free function templates operate on any compatible user-defined quaternion, vector or matrix type.
 * Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.
 * Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.
-
-[.text-right]
-https://github.com/boostorg/qvm[GitHub] | <<tutorial>> | <<reference>> | <<rationale>>
 ====
+
+ifndef::backend-pdf[]
+[.text-right]
+<<tutorial>> | <<reference>> | <<rationale>>
+endif::[]
 
 [[tutorial]]
 == Tutorial
@@ -362,14 +368,14 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 #include <boost/qvm/swizzle2.hpp>
 #include <boost/qvm/swizzle3.hpp>
 #include <boost/qvm/swizzle4.hpp>
-| Vector operations | #include <boost/qvm/vec_operations.hpp>
+| Vector operations |#include <boost/qvm/vec_operations.hpp>
 #include <boost/qvm/vec_operations2.hpp>
 #include <boost/qvm/vec_operations3.hpp>
 #include <boost/qvm/vec_operations4.hpp>
-| Quaternion-vector operations | #include <boost/qvm/quat_vec_operations.hpp>
-| Vector-matrix operations | #include <boost/qvm/vec_mat_operations.hpp>
-| Vector-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_vec_mat.hpp>
-| <<vec,`vec`>> class template | #include <boost/qvm/vec.hpp>
+| Quaternion-vector operations |#include <boost/qvm/quat_vec_operations.hpp>
+| Vector-matrix operations |#include <boost/qvm/vec_mat_operations.hpp>
+| Vector-matrix <<view_proxy,view proxies>> |#include <boost/qvm/map_vec_mat.hpp>
+| <<vec,`vec`>> class template |#include <boost/qvm/vec.hpp>
 |====
 
 .Matrix header files
@@ -383,9 +389,9 @@ The header `boost/qvm/all.hpp` is provided for convenience. It includes all othe
 #include <boost/qvm/mat_operations2.hpp>
 #include <boost/qvm/mat_operations3.hpp>
 #include <boost/qvm/mat_operations4.hpp>
-| Matrix-matrix <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_mat.hpp>
-| Matrix-vector <<view_proxy,view proxies>> | #include <boost/qvm/map_mat_vec.hpp>
-| <<mat,`mat`>> class template | #include <boost/qvm/mat.hpp>
+| Matrix-matrix <<view_proxy,view proxies>> |#include <boost/qvm/map_mat_mat.hpp>
+| Matrix-vector <<view_proxy,view proxies>> |#include <boost/qvm/map_mat_vec.hpp>
+| <<mat,`mat`>> class template |#include <boost/qvm/mat.hpp>
 |====
 
 [[type_traits]]
@@ -495,7 +501,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: :: `A` and `B` satisfy the <<scalar_requirements,scalar requirements>>.
+Requires: :: `A` and `B` satisfy the <<scalar_requirements,scalar requirements>>.
 
 Returns: ::
 
@@ -708,7 +714,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - `<<is_quat,is_quat>><Q>::value` is `true`;
 - `<<is_quat,is_quat>><deduce_quat<Q>::type>::value` must be `true`;
@@ -738,7 +744,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_quat,is_quat>><A>::value` || `is_quat<B>::value` is `true`;
@@ -968,7 +974,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - `<<is_vec,is_vec>><V>::value` is `true`;
 - `is_vec<deduce_vec<V>::type>::value` must be `true`;
@@ -999,7 +1005,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_vec,is_vec>><A>::value || is_vec<B>::value` is `true`;
@@ -1227,7 +1233,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - `<<is_mat,is_mat>><M>::value` is `true`;
 - `is_mat<deduce_mat<M>::type>::value` must be `true`;
@@ -1261,7 +1267,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: ::
+Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_mat,is_mat>><A>::value || is_mat<B>::value` is `true`;
@@ -1757,7 +1763,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: :: `R` must be copyable.
+Requires: :: `R` must be copyable.
 
 Effects: ::
 
@@ -2164,7 +2170,7 @@ namespace boost { namespace qvm {
 
 Effects: :: Normalizes `a`.
 
-Postcondition: :: `mag(a)==scalar_traits<typename quat_traits<A>::scalar_type>::value(1).`
+Ensures: :: `mag(a)==scalar_traits<typename quat_traits<A>::scalar_type>::value(1).`
 
 Throws: :: If the magnitude of `a` is zero, throws <<zero_magnitude_error,`zero_magnitude_error`>>.
 
@@ -2696,7 +2702,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: :: `R` must be copyable.
+Requires: :: `R` must be copyable.
 
 Effects: :: As if: `R r; assign(r,a); return r;`
 
@@ -3063,7 +3069,7 @@ namespace boost { namespace qvm {
 
 Effects: :: Normalizes `a`.
 
-Postcondition:
+Ensures:
 
 `mag(a)==<<scalar_traits,scalar_traits>><typename <<vec_traits,vec_traits<A>::scalar_type>>>::value(1)`.
 
@@ -3249,7 +3255,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-Requirements: :: `R` must be copyable.
+Requires: :: `R` must be copyable.
 
 Effects:
 
@@ -5095,4 +5101,7 @@ Why doesn't QVM use [] or () to access vector and matrix elements?:: Because it'
 '''
 
 [.text-right]
-(C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
+Documentation rendered by https://asciidoctor.org/[Asciidoctor] with https://github.com/zajo/asciidoctor_skin[these customizations].
+
+[.text-right]
+(C) 2008-2020 Emil Dotchevski and Reverge Studios, Inc.

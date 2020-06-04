@@ -51,12 +51,24 @@ matrix:
 
     - os: linux
       env: DOC=1
+      install:
+        - gem install asciidoctor
+        - gem install asciidoctor-pdf --pre
+        - cd ..
+        - git clone -b master --depth 1 https://github.com/boostorg/boost.git boost-root
+        - cd boost-root
+        - git submodule update --init tools/build
+        - git submodule update --init libs/config
+        - mkdir libs/qvm
+        - cp -r $TRAVIS_BUILD_DIR/* libs/qvm
+        - ./bootstrap.sh
+        - cd libs/qvm
       script:
         - |-
           echo "using asciidoctor ;" > ~/user-config.jam
-        - ./b2 libs/qvm/doc
+        - ../../b2 doc
       deploy:
-        local-dir: ../boost-root/libs/qvm/doc/html
+        local-dir: ../boost-root/libs/qvm/doc/out
         provider: pages
         skip-cleanup: true
         github-token: $GH_PAGES_TOKEN
@@ -226,8 +238,6 @@ matrix:
             - llvm-toolchain-trusty-6.0
 
 install:
-  - gem install asciidoctor
-  - gem install coderay
   - cd ..
   - git clone -b $TRAVIS_BRANCH --depth 1 https://github.com/boostorg/boost.git boost-root
   - cd boost-root
