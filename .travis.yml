@@ -59,6 +59,7 @@ matrix:
         - cd boost-root
         - git submodule update --init tools/build
         - git submodule update --init libs/config
+        - rm -rf libs/qvm
         - mkdir libs/qvm
         - cp -r $TRAVIS_BUILD_DIR/* libs/qvm
         - ./bootstrap.sh
