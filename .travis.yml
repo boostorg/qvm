@@ -379,6 +379,7 @@ install:
   - python tools/boostdep/depinst/depinst.py qvm
   - ./bootstrap.sh
   - ./b2 headers
+  - cd libs/qvm
 
 script:
   - |-
