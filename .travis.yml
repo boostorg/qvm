@@ -383,8 +383,7 @@ install:
 script:
   - |-
     echo "using $TOOLSET : : $COMPILER ;" > ~/user-config.jam
-  - ./b2 variant=debug libs/qvm/test toolset=$TOOLSET cxxstd=$CXXSTD
-  - ./b2 variant=release libs/qvm/test toolset=$TOOLSET cxxstd=$CXXSTD
+  - ../../b2 test toolset=$TOOLSET cxxstd=$CXXSTD variant=debug,release ${UBSAN:+cxxflags=-fsanitize=undefined cxxflags=-fno-sanitize-recover=undefined linkflags=-fsanitize=undefined debug-symbols=on} ${LINKFLAGS:+linkflags=$LINKFLAGS}
 
 notifications:
   email:
