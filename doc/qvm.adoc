@@ -4331,8 +4331,8 @@ TIP: `mref` allows calling QVM operations when `a` is of built-in type, for exam
 namespace boost { namespace qvm {
 
   //Only enabled if:
-  //  is_mat<A>::value && is_vec<B>::value &&
-  //  mat_traits<A>::cols==vec_traits<B>::dim
+  //  is_quat<A>::value && is_vec<B>::value &&
+  //  is_vec<B>::value && vec_traits<B>::dim==3
   template <class A,class B>
   typename deduce_vec2<A,B,mat_traits<A>::rows>::type
   operator*( A const & a, B const & b );
