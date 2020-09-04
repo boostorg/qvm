@@ -8,3 +8,4 @@
 vcxproj.bat
 vcxproj.exe
 *.opensdf
+/doc/html/**
