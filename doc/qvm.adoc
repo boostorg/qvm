@@ -4574,7 +4574,7 @@ The expression `transposed(m)` returns an lvalue <<view_proxy,view proxy>> that 
 namespace boost { namespace qvm {
 
   //Only enabled if: is_vec<A>::value
-  template <iclass A>
+  template <class A>
   -unspecified-return-type- col_mat( A & a );
 
 } }
@@ -4593,7 +4593,7 @@ The expression `col_mat(v)` returns an lvalue <<view_proxy,view proxy>> that acc
 namespace boost { namespace qvm {
 
   //Only enabled if: is_vec<A>::value
-  template <iclass A>
+  template <class A>
   -unspecified-return-type- row_mat( A & a );
 
 } }
@@ -4612,7 +4612,7 @@ The expression `row_mat(v)` returns an lvalue <<view_proxy,view proxy>> that acc
 namespace boost { namespace qvm {
 
   //Only enabled if: is_vec<A>::value
-  template <iclass A>
+  template <class A>
   -unspecified-return-type- translation_mat( A & a );
 
 } }
@@ -4631,7 +4631,7 @@ The expression `translation_mat(v)` returns an lvalue <<view_proxy,view proxy>> 
 namespace boost { namespace qvm {
 
   //Only enabled if: is_vec<A>::value
-  template <iclass A>
+  template <class A>
   -unspecified-return-type- diag_mat( A & a );
 
 } }
