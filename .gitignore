@@ -9,3 +9,7 @@ vcxproj.bat
 vcxproj.exe
 *.opensdf
 /doc/html/**
+/.vscode/c_cpp_properties.json
+/bld/*
+/include/boost/qvm.hpp
+/include/boost/qvm_lite.hpp

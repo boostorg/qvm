@@ -3,14 +3,22 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/mat_operations.hpp>
-#include <boost/qvm/vec_operations.hpp>
-#include <boost/qvm/vec.hpp>
-#include <boost/qvm/vec_mat_operations.hpp>
-#include <boost/qvm/vec_access.hpp>
-#include <boost/qvm/map_mat_mat.hpp>
-#include <boost/qvm/map_mat_vec.hpp>
-#include <boost/qvm/swizzle.hpp>
+#ifdef BOOST_QVM_TEST_SINGLE_HEADER
+#   include BOOST_QVM_TEST_SINGLE_HEADER
+#   ifdef BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE
+#       include BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE
+#   endif
+#else
+#   include <boost/qvm/mat_operations.hpp>
+#   include <boost/qvm/vec_operations.hpp>
+#   include <boost/qvm/vec.hpp>
+#   include <boost/qvm/vec_mat_operations.hpp>
+#   include <boost/qvm/vec_access.hpp>
+#   include <boost/qvm/map_mat_mat.hpp>
+#   include <boost/qvm/map_mat_vec.hpp>
+#   include <boost/qvm/swizzle.hpp>
+#endif
+
 #include "test_qvm_matrix.hpp"
 #include "test_qvm_vector.hpp"
 #include "test_qvm.hpp"

@@ -3,9 +3,14 @@
 //Distributed under the Boost Software License, Version 1.0. (See accompanying
 //file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
+#ifdef BOOST_QVM_TEST_SINGLE_HEADER
+#   include BOOST_QVM_TEST_SINGLE_HEADER
+#else
+#   include <boost/qvm/vec_operations.hpp>
+#endif
+
 #include <boost/qvm/vec_traits_array.hpp>
-#include <boost/qvm/vec_operations.hpp>
-#include <boost/detail/lightweight_test.hpp>
+#include <boost/core/lightweight_test.hpp>
 
 template <class T,class U>
 struct same_type;
