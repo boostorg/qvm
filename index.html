@@ -4,13 +4,14 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.10">
-<meta name="author" content="Quaternion / Vector / Matrix Library for C&#43;&#43;-11 | Emil Dotchevski">
+<meta name="generator" content="Asciidoctor 2.0.12">
+<meta name="author" content="Quaternion / Vector / Matrix Library for C&#43;&#43;03 | Emil Dotchevski">
 <title>QVM</title>
 <link rel="stylesheet" href="./zajo-dark.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="keywords" content="c++,quaternion,vector,matrix,open source">
-<meta name="description" content="Generic C++ library for working with Quaternions, Vectors and Matrices">
+<link rel="stylesheet" href="./rouge-github.css">
+<meta name="keywords" content="c++,error handling,open source">
+<meta name="description" content="Lightweight Error Augmentation Framework">
 <link rel="stylesheet" href="./zajo-light.css" disabled=true>
 <script>
 function switch_style()
@@ -24,9 +25,9 @@ function switch_style()
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>QVM <a href="https://ci.appveyor.com/project/zajo/qvm"><img style="margin-left:8px; margin-top:21px; float:right; vertical-align: top" src="https://ci.appveyor.com/api/projects/status/rphx1liilphuk1t5?svg=true"></a> <a href="https://travis-ci.org/boostorg/qvm"><img style="margin-top:21px; float:right; vertical-align: top" src="https://travis-ci.org/boostorg/qvm.svg?branch=master"></a><div style="z-index: 3; bottom:-16px; right:4px; position:fixed"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div></h1>
+<h1>QVM</h1>
 <div class="details">
-<span id="author" class="author">Quaternion / Vector / Matrix Library for C&#43;&#43;-11 | Emil Dotchevski</span><br>
+<span id="author" class="author">Quaternion / Vector / Matrix Library for C&#43;&#43;03 | Emil Dotchevski</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle"></div>
@@ -1195,7 +1196,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Q</span><span class="p">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Q</span><span class="p">,</span><span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">quat_traits</span><span class="o">&lt;</span><span class="n">Q</span><span class="p">&gt;</span><span class="o">::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_quat</span> <span class="p">{</span>
     <span class="k">typedef</span> <span class="n">Q</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
@@ -1210,13 +1211,16 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="#is_quat">is_quat</a>&lt;Q&gt;::value</code> is <code>true</code>;</p>
+<p><code><a href="#is_quat">is_quat</a>&lt;Q,S&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
-<p><code><a href="#is_quat">is_quat</a>&lt;deduce_quat&lt;Q&gt;::type&gt;::value</code> must be <code>true</code>;</p>
+<p><code><a href="#is_quat">is_quat</a>&lt;deduce_quat&lt;Q,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_quat&lt;Q&gt;::type</code> must be copyable.</p>
+<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat&lt;Q,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>.</p>
+</li>
+<li>
+<p><code>deduce_quat&lt;Q,S&gt;::type</code> must be copyable.</p>
 </li>
 </ul>
 </div>
@@ -1227,7 +1231,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <p>This template is used by QVM whenever it needs to deduce a copyable quaternion type from a single user-supplied function parameter of quaternion type. Note that <code>Q</code> itself may be non-copyable.</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns <code>Q</code>, which means that it is suitable only for copyable quaternion types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified quaternion type, except if <code>S</code> is the same type as <code><a href="#quat_traits">quat_traits</a>&lt;Q&gt;::scalar_type</code>, in which case it returns <code>Q</code>, which is only suitable if <code>Q</code> is copyable. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the <code>deduce_quat</code> template is for specifying the preferred quaternion type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -1241,7 +1245,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">quat_traits</span><span class="o">&lt;</span><span class="n">Q</span><span class="p">&gt;</span><span class="o">::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_quat2</span> <span class="p">{</span>
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
@@ -1262,10 +1266,13 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <p><code><a href="#is_quat">is_quat</a>&lt;A&gt;::value</code> || <code>is_quat&lt;B&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
-<p><code>is_quat&lt;deduce_quat2&lt;A,B&gt;::type&gt;::value</code> must be <code>true</code>;</p>
+<p><code>is_quat&lt;deduce_quat2&lt;A,B,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_quat2&lt;A,B&gt;::type</code> must be copyable.</p>
+<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat2&lt;A,B,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>.</p>
+</li>
+<li>
+<p><code>deduce_quat2&lt;A,B,S&gt;::type</code> must be copyable.</p>
 </li>
 </ul>
 </div>
@@ -1276,7 +1283,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <p>This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may not be a quaternion type.)</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns an unspecified quaternion type with <a href="#quat_traits"><code>scalar_type</code></a> obtained by <code><a href="#deduce_scalar">deduce_scalar</a>&lt;A,B&gt;::type</code>, except if <code>A</code> and <code>B</code> are the same quaternion type <code>Q</code>, in which case <code>Q</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified quaternion type with <a href="#quat_traits"><code>scalar_type</code></a> <code>S</code>, except if <code>A</code> and <code>B</code> are the same quaternion type <code>Q</code>, in which case <code>Q</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the <code>deduce_quat2</code> template is for specifying the preferred quaternion type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -1526,7 +1533,9 @@ QVM vector operations do not require that vector types are copyable.
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">V</span><span class="p">,</span> <span class="kt">int</span> <span class="n">Dim</span><span class="o">=</span><span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">Vector</span><span class="p">&gt;</span><span class="o">::</span><span class="n">dim</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">V</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">D</span><span class="o">=</span><span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">Vector</span><span class="p">&gt;</span><span class="o">::</span><span class="n">dim</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">V</span><span class="o">&gt;::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_vec</span> <span class="p">{</span>
 
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
@@ -1546,13 +1555,16 @@ QVM vector operations do not require that vector types are copyable.
 <p><code><a href="#is_vec">is_vec</a>&lt;V&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
-<p><code>is_vec&lt;deduce_vec&lt;V&gt;::type&gt;::value</code> must be <code>true</code>;</p>
+<p><code>is_vec&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_vec&lt;V&gt;::type</code> must be copyable;</p>
+<p><code>deduce_vec&lt;V,D,S&gt;::type</code> must be copyable;</p>
 </li>
 <li>
-<p><code>vec_traits&lt;deduce_vec&lt;V&gt;::type&gt;::dim==Dim</code>.</p>
+<p><code>vec_traits&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::dim==D</code>.</p>
+</li>
+<li>
+<p><code>vec_traits&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::scalar_type</code> is the same type as <code>S</code>.</p>
 </li>
 </ul>
 </div>
@@ -1563,7 +1575,7 @@ QVM vector operations do not require that vector types are copyable.
 <p>This template is used by QVM whenever it needs to deduce a copyable vector type of certain dimension from a single user-supplied function parameter of vector type. The returned type must have accessible copy constructor. Note that <code>V</code> may be non-copyable.</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns an unspecified copyable vector type of size <code>Dim</code>, except if <code><a href="#vec_traits">vec_traits</a>&lt;V&gt;::dim==Dim</code>, in which case it returns <code>V</code>, which is suitable only if <code>V</code> is a copyable type. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified copyable vector type of size <code>D</code> and scalar type <code>S</code>, except if <code><a href="#vec_traits">vec_traits</a>&lt;V&gt;::dim==D</code> and <code><a href="#vec_traits">vec_traits</a>&lt;V&gt;::scalar_type</code> is the same type as <code>S</code>, in which case it returns <code>V</code>, which is suitable only if <code>V</code> is a copyable type. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the <code>deduce_vec</code> template is for specifying the preferred vector type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -1577,7 +1589,10 @@ QVM vector operations do not require that vector types are copyable.
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="kt">int</span> <span class="n">Dim</span><span class="p">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="kt">int</span> <span class="n">D</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">deduce_scalar_detail</span><span class="o">::</span><span class="n">deduce_scalar_impl</span><span class="o">&lt;</span>
+      <span class="k">typename</span> <span class="nc">scalar</span><span class="o">&lt;</span><span class="n">A</span><span class="p">&gt;</span><span class="o">::</span><span class="n">type</span><span class="p">,</span>
+      <span class="k">typename</span> <span class="n">scalar</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_vec2</span> <span class="p">{</span>
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
@@ -1598,13 +1613,16 @@ QVM vector operations do not require that vector types are copyable.
 <p><code><a href="#is_vec">is_vec</a>&lt;A&gt;::value || is_vec&lt;B&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
-<p><code>is_vec&lt;deduce_vec2&lt;A,B&gt;::type&gt;::value</code> must be <code>true</code>;</p>
+<p><code>is_vec&lt;deduce_vec2&lt;A,B,D,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_vec2&lt;A,B&gt;::type</code> must be copyable;</p>
+<p><code>deduce_vec2&lt;A,B,D,S&gt;::type</code> must be copyable;</p>
 </li>
 <li>
-<p><code>vec_traits&lt;deduce_vec2&lt;A,B&gt;::type&gt;::dim==Dim</code>.</p>
+<p><code>vec_traits&lt;deduce_vec2&lt;A,B,D,S&gt;::type&gt;::dim==D</code>.</p>
+</li>
+<li>
+<p><code>vec_traits&lt;deduce_vec2&lt;A,B,D,S&gt;::type&gt;::scalar_type</code> is the same type as <code>S</code>.</p>
 </li>
 </ul>
 </div>
@@ -1615,7 +1633,7 @@ QVM vector operations do not require that vector types are copyable.
 <p>This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may not be a vector type.)</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns an unspecified vector type of the requested dimension with <a href="#vec_traits"><code>scalar_type</code></a> obtained by <code><a href="#deduce_scalar">deduce_scalar</a>&lt;A,B&gt;::type</code>, except if <code>A</code> and <code>B</code> are the same vector type <code>V</code> of dimension <code>Dim</code>, in which case <code>V</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified vector type of the requested dimension with <a href="#vec_traits"><code>scalar_type</code></a> <code>S</code>, except if <code>A</code> and <code>B</code> are the same vector type <code>V</code>, in which case <code>V</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the <code>deduce_vec2</code> template is for specifying the preferred vector type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -1867,8 +1885,9 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 
   <span class="k">template</span> <span class="o">&lt;</span>
     <span class="k">class</span> <span class="nc">M</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">Rows</span><span class="o">=</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="p">&gt;</span><span class="o">::</span><span class="n">rows</span><span class="p">,</span>
-    <span class="kt">int</span> <span class="n">Cols</span><span class="o">=</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&gt;::</span><span class="n">cols</span><span class="o">&gt;</span>
+    <span class="kt">int</span> <span class="n">R</span><span class="o">=</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="p">&gt;</span><span class="o">::</span><span class="n">rows</span><span class="p">,</span>
+    <span class="kt">int</span> <span class="n">C</span><span class="o">=</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&gt;::</span><span class="n">cols</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">M</span><span class="o">&gt;::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_mat</span> <span class="p">{</span>
 
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
@@ -1885,19 +1904,22 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="#is_mat">is_mat</a>&lt;M&gt;::value</code> is <code>true</code>;</p>
+<p><code><a href="#is_mat">is_mat</a>&lt;M,R,C,S&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
-<p><code>is_mat&lt;deduce_mat&lt;M&gt;::type&gt;::value</code> must be <code>true</code>;</p>
+<p><code>is_mat&lt;deduce_mat&lt;M,R,C,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_mat&lt;M&gt;::type</code> must be copyable;</p>
+<p><code>deduce_mat&lt;M,R,C,S&gt;::type</code> must be copyable;</p>
 </li>
 <li>
-<p><code><a href="#mat_traits">mat_traits</a>&lt;deduce_mat&lt;M&gt;::type&gt;::rows==Rows</code>;</p>
+<p><code><a href="#mat_traits">mat_traits</a>&lt;deduce_mat&lt;M,R,C,S&gt;::type&gt;::rows==R</code>;</p>
 </li>
 <li>
-<p><code>mat_traits&lt;deduce_mat&lt;M&gt;::type&gt;::cols==Cols</code>.</p>
+<p><code>mat_traits&lt;deduce_mat&lt;M,R,C,S&gt;::type&gt;::cols==C</code>,</p>
+</li>
+<li>
+<p><code>mat_traits&lt;deduce_mat&lt;M,R,C,S&gt;::type::scalar_type</code> is the same type as <code>S</code>.</p>
 </li>
 </ul>
 </div>
@@ -1908,7 +1930,7 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 <p>This template is used by QVM whenever it needs to deduce a copyable matrix type of certain dimensions from a single user-supplied function parameter of matrix type. The returned type must have accessible copy constructor. Note that M itself may be non-copyable.</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns an unspecified copyable matrix type of size <code>Rows</code> x <code>Cols</code>, except if <code><a href="#mat_traits">mat_traits</a>&lt;M&gt;::rows==Rows &amp;&amp; mat_traits&lt;M&gt;::cols==Cols</code>, in which case it returns <code>M</code>, which is suitable only if <code>M</code> is a copyable type. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified copyable matrix type of size <code>R</code> x <code>C</code> and scalar type <code>S</code>, except if <code><a href="#mat_traits">mat_traits</a>&lt;M&gt;::rows==R</code> and <code>mat_traits&lt;M&gt;::cols==Cols</code> and <code>mat_traits&lt;M&gt;::scalar_type</code> is S, in which case it returns <code>M</code>, which is suitable only if <code>M</code> is a copyable type. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the deduce_mat template is for specifying the preferred matrix type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -1922,7 +1944,10 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="kt">int</span> <span class="n">Rows</span><span class="p">,</span><span class="kt">int</span> <span class="n">Cols</span><span class="p">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="kt">int</span> <span class="n">R</span><span class="p">,</span><span class="kt">int</span> <span class="n">C</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span> <span class="o">=</span> <span class="k">typename</span> <span class="nc">deduce_scalar</span><span class="o">&lt;</span>
+      <span class="k">typename</span> <span class="nc">scalar</span><span class="o">&lt;</span><span class="n">A</span><span class="p">&gt;</span><span class="o">::</span><span class="n">type</span><span class="p">,</span>
+      <span class="k">typename</span> <span class="n">scalar</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">struct</span> <span class="nc">deduce_mat2</span> <span class="p">{</span>
 
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
@@ -1948,13 +1973,16 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 <p><code>is_mat&lt;deduce_mat2&lt;A,B&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code>deduce_mat2&lt;A,B&gt;::type</code> must be copyable;</p>
+<p><code>deduce_mat2&lt;A,B,R,C,S&gt;::type</code> must be copyable;</p>
 </li>
 <li>
-<p><code><a href="#mat_traits">mat_traits</a>&lt;deduce_mat2&lt;A,B&gt;::type&gt;::rows==Rows</code>;</p>
+<p><code><a href="#mat_traits">mat_traits</a>&lt;deduce_mat2&lt;A,B,R,C,S&gt;::type&gt;::rows==R</code>;</p>
 </li>
 <li>
-<p><code>mat_traits&lt;deduce_mat2&lt;A,B&gt;::type&gt;::cols==Cols</code>.</p>
+<p><code>mat_traits&lt;deduce_mat2&lt;A,B,R,C,S&gt;::type&gt;::cols==C</code>;</p>
+</li>
+<li>
+<p><code>mat_traits&lt;deduce_mat2&lt;A,B,R,C,S&gt;::type&gt;::scalar_type</code> is the same type as <code>S</code>.</p>
 </li>
 </ul>
 </div>
@@ -1965,7 +1993,7 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 <p>This template is used by QVM whenever it needs to deduce a matrix type of certain dimensions from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may be a non-matrix type.)</p>
 </div>
 <div class="paragraph">
-<p>The main template definition returns an unspecified matrix type of the requested dimensions with <a href="#mat_traits"><code>scalar_type</code></a> obtained by <code><a href="#deduce_scalar">deduce_scalar</a>&lt;A,B&gt;::type</code>, except if <code>A</code> and <code>B</code> are the same matrix type <code>M</code> of dimensions <code>Rows</code> x <code>Cols</code>, in which case <code>M</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.</p>
+<p>The main template definition returns an unspecified matrix type of the requested dimensions with <a href="#mat_traits"><code>scalar_type</code></a> <code>S</code>, except if <code>A</code> and <code>B</code> are the same matrix type <code>M</code>, in which case <code>M</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable matrix types it produces. Users can define other (partial) specializations for their own types.</p>
 </div>
 <div class="paragraph">
 <p>A typical use of the <code>deduce_mat2</code> template is for specifying the preferred matrix type to be returned by the generic function template overloads in QVM depending on the type of their arguments.</p>
@@ -2741,7 +2769,7 @@ The <a href="#deduce_quat2"><code>deduce_quat2</code></a> template can be specia
 
   <span class="c1">//Only enabled if: is_quat&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_quat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_quat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">/</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -2762,7 +2790,7 @@ The <a href="#deduce_quat2"><code>deduce_quat2</code></a> template can be specia
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_quat2"><code>deduce_quat2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -2838,7 +2866,7 @@ The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be speciali
 
   <span class="c1">//Only enabled if: is_quat&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_quat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_quat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -2859,7 +2887,7 @@ The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be speciali
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_quat2"><code>deduce_quat2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -4055,7 +4083,7 @@ The <a href="#deduce_vec2"><code>deduce_vec2</code></a> template can be speciali
 
     <span class="c1">//Only enabled if: is_vec&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
     <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-    <span class="k">typename</span> <span class="n">deduce_vec</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+    <span class="k">typename</span> <span class="n">deduce_vec2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">dim</span><span class="o">&gt;::</span><span class="n">type</span>
     <span class="k">operator</span><span class="o">/</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -4076,7 +4104,7 @@ The <a href="#deduce_vec2"><code>deduce_vec2</code></a> template can be speciali
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_vec"><code>deduce_vec</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_vec2"><code>deduce_vec2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -4119,9 +4147,14 @@ The <a href="#deduce_vec"><code>deduce_vec</code></a> template can be specialize
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
     <span class="c1">//Only enabled if: is_vec&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
-    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
-    <span class="k">typename</span> <span class="n">deduce_vec</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
+    <span class="k">typename</span> <span class="n">deduce_vec2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">dim</span><span class="o">&gt;::</span><span class="n">type</span>
     <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
+
+    <span class="c1">//Only enabled if: is_scalar&lt;B&gt;::value &amp;&amp; is_vec&lt;A&gt;::value</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
+    <span class="k">typename</span> <span class="n">deduce_vec2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">dim</span><span class="o">&gt;::</span><span class="n">type</span>
+    <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
 </div>
@@ -4141,7 +4174,7 @@ The <a href="#deduce_vec"><code>deduce_vec</code></a> template can be specialize
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_vec"><code>deduce_vec</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_vec2"><code>deduce_vec2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -4420,6 +4453,15 @@ The <a href="#deduce_scalar"><code>deduce_scalar</code></a> template can be spec
     <span class="k">typename</span> <span class="n">deduce_vec2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="mi">3</span><span class="o">&gt;::</span><span class="n">type</span>
     <span class="n">cross</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="p">);</span>
 
+    <span class="c1">//Only enabled if:</span>
+    <span class="c1">//  is_vec&lt;A&gt;::value &amp;&amp; is_vec&lt;B&gt;::value &amp;&amp;</span>
+    <span class="c1">//  vec_traits&lt;A&gt;::dim==2 &amp;&amp; vec_traits&lt;B&gt;::dim==2</span>
+    <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
+    <span class="k">typename</span> <span class="n">deduce_scalar</span><span class="o">&lt;</span>
+      <span class="k">typename</span> <span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">scalar_type</span><span class="p">,</span>
+      <span class="k">typename</span> <span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">scalar_type</span><span class="o">&gt;::</span><span class="n">type</span>
+    <span class="n">cross</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="p">);</span>
+
 <span class="p">}</span> <span class="p">}</span></code></pre>
 </div>
 </div>
@@ -4438,7 +4480,7 @@ The <a href="#deduce_scalar"><code>deduce_scalar</code></a> template can be spec
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_vec2"><code>deduce_vec2</code></a> template can be specialized to deduce the desired return type, given the types <code>A</code> and <code>B</code>.
+The <a href="#deduce_vec2"><code>deduce_vec2</code></a> (and <a href="#deduce_scalar"><code>deduce_scalar</code></a>) templates can be specialized to deduce the desired return type, given the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -4844,7 +4886,7 @@ The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be speciali
 
   <span class="c1">//Only enabled if: is_mat&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_mat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_mat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">rows</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">cols</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">/</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -4865,7 +4907,7 @@ The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be speciali
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -4983,12 +5025,12 @@ The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be speciali
 
   <span class="c1">//Only enabled if: is_mat&lt;A&gt;::value &amp;&amp; is_scalar&lt;B&gt;::value</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_mat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_mat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">rows</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">cols</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">b</span> <span class="p">);</span>
 
   <span class="c1">//Only enabled if: is_scalar&lt;B&gt;::value &amp;&amp; is_mat&lt;A&gt;::value</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_mat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_mat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">rows</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">cols</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">B</span> <span class="n">b</span><span class="p">,</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -5009,7 +5051,7 @@ The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be speciali
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_mat2"><code>deduce_mat2</code></a> template can be specialized to deduce the desired return type from the types <code>A</code> and <code>B</code>.
 </td>
 </tr>
 </table>
@@ -5109,7 +5151,7 @@ The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialize
   <span class="c1">//  mat_traits&lt;A&gt;::rows==mat_traits&lt;A&gt;::cols</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
-  <span class="k">typename</span> <span class="n">deduce_mat</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">type</span>
+  <span class="k">typename</span> <span class="n">deduce_mat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">rows</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">cols</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="n">inverse</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="n">det</span> <span class="p">);</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
@@ -5123,7 +5165,7 @@ The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialize
 <dl>
 <dt class="hdlist1">Preconditions: </dt>
 <dd>
-<p><code>det!=<a href="#scalar_traits">scalar_traits</a>&lt;typename <a href="#mat_traits">mat_traits&lt;A&gt;::scalar_type</a>&gt;::value(0)</code></p>
+<p><code>det!=0</code></p>
 </dd>
 <dt class="hdlist1">Returns: </dt>
 <dd>
@@ -5142,7 +5184,7 @@ The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialize
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The <a href="#deduce_mat"><code>deduce_mat</code></a> template can be specialized to deduce the desired return type from the type <code>A</code>.
+The <a href="#deduce_mat"><code>deduce_mat</code></a> (and <a href="#deduce_mat2"><code>deduce_mat2</code></a>) templates can be specialized to deduce the desired return type from the type <code>A</code> (and <code>B</code>).
 </td>
 </tr>
 </table>
@@ -6022,8 +6064,8 @@ These functions are not view proxies; they return a temp object.
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
   <span class="c1">//Only enabled if:</span>
-  <span class="c1">//  is_mat&lt;A&gt;::value &amp;&amp; is_vec&lt;B&gt;::value &amp;&amp;</span>
-  <span class="c1">//  mat_traits&lt;A&gt;::cols==vec_traits&lt;B&gt;::dim</span>
+  <span class="c1">//  is_quat&lt;A&gt;::value &amp;&amp; is_vec&lt;B&gt;::value &amp;&amp;</span>
+  <span class="c1">//  is_vec&lt;B&gt;::value &amp;&amp; vec_traits&lt;B&gt;::dim==3</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
   <span class="k">typename</span> <span class="n">deduce_vec2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;::</span><span class="n">rows</span><span class="o">&gt;::</span><span class="n">type</span>
   <span class="k">operator</span><span class="o">*</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span> <span class="p">);</span>
@@ -7047,6 +7089,5 @@ Many view proxies are not read-only, that is, they&#8217;re lvalues; changes mad
 <div id="footer-text">
 </div>
 </div>
-<link rel="stylesheet" href="./rouge-github.css">
 </body>
 </html>
