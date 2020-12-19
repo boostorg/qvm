@@ -9,9 +9,9 @@ project doc/qvm ;
 import asciidoctor ;
 
 html index.html : qvm.adoc : <asciidoctor-attribute>stylesheet=zajo-dark.css <asciidoctor-attribute>linkcss ;
-install html_ : index.html skin.png zajo-dark.css zajo-light.css : <location>html ;
+install html_ : index.html skin.png zajo-dark.css zajo-light.css rouge-github.css : <location>html ;
 
-pdf qvm.pdf : qvm.adoc : <asciidoctor-doctype>book  <asciidoctor-attribute>pdf-themesdir=doc <asciidoctor-attribute>pdf-theme=qvm ;
+pdf qvm.pdf : qvm.adoc : <asciidoctor-doctype>book <asciidoctor-attribute>pdf-themesdir=. <asciidoctor-attribute>pdf-theme=qvm ;
 install pdf_ : qvm.pdf : <location>html ;
 
 alias boostdoc ;

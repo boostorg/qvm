@@ -5,13 +5,8 @@
 :stylesheet: zajo-dark.css
 :source-highlighter: rouge
 
-ifdef::backend-pdf[]
 = QVM
-endif::[]
-ifndef::backend-pdf[]
-= QVM pass:[<a href="https://ci.appveyor.com/project/zajo/qvm"><img style="margin-left:8px; margin-top:21px; float:right; vertical-align: top" src="https://ci.appveyor.com/api/projects/status/rphx1liilphuk1t5?svg=true"></a> <a href="https://travis-ci.org/boostorg/qvm"><img style="margin-top:21px; float:right; vertical-align: top" src="https://travis-ci.org/boostorg/qvm.svg?branch=master"></a><div style="z-index: 3; bottom:-16px; right:4px; position:fixed"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div>]
-endif::[]
-Quaternion / Vector / Matrix Library for {CPP}-11 | Emil Dotchevski
+Quaternion / Vector / Matrix Library for {CPP}03 | Emil Dotchevski
 ifndef::backend-pdf[]
 :toc: left
 :toclevels: 3
@@ -27,9 +22,11 @@ QVM is a generic library for working with Quaternions, Vectors and Matrices of s
 
 ====
 * Emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.
-* Free function templates operate on any compatible user-defined quaternion, vector or matrix type.
-* Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.
-* Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.
+* Free function templates operate on any compatible user-defined Quaternion, Vector or Matrix type.
+* Enables Quaternion, Vector and Matrix types from different libraries to be safely mixed in the same expression.
+* Type-safe mapping between compatible lvalue types with no temporary objects; f.ex. transpose remaps the access to the elements, rather than transforming the matrix.
+* Requires only {CPP}03.
+* Zero dependencies.
 ====
 
 ifndef::backend-pdf[]
@@ -138,7 +135,7 @@ User-defined quaternion types are similarly introduced to QVM by specializing th
 
 === C Arrays
 
-In <<boost/qvm/quat_traits_array.hpp,`boost/qvm/quat_traits_array.hpp`>>, <<boost/qvm/vec_traits_array.hpp,`boost/qvm/vec_traits_array.hpp`>> and <<boost/qvm/mat_traits_array.hpp,`boost/qvm/mat_traits_array.hpp`>> QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow QVM functions to operate directly on plain old C arrays:
+In `boost/qvm/quat_traits_array.hpp`, `vec_traits_array.hpp` and `mat_traits_array.hpp`, QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow QVM functions to operate directly on plain old C arrays:
 
 [source,c++]
 ----
@@ -285,7 +282,7 @@ The answer is that by default, QVM returns some kind of compatible matrix type, 
 
 [source,c++]
 ----
-auto & m = m1 * m2;
+auto & m = m1 * m2; // auto requires C++11
 ----
 
 However, the type deduced by default converts implicitly to any compatible matrix type, so the following is also valid, at the cost of a temporary:
@@ -502,7 +499,7 @@ namespace boost { namespace qvm {
   template <class A,class B>
   struct deduce_scalar
   {
-    typedef typename impl<A,B>::type type;
+    typedef typename /*exact definition unspecified*/ type;
   };
 
 } }
@@ -512,11 +509,22 @@ Requires: :: `A` and `B` satisfy the <<scalar_requirements,scalar requirements>>
 
 Returns: ::
 
-If `A` and `B` are the same type, `impl<A,B>::type` returns that type. Otherwise, `impl<A,B>::type` is well defined for the following types only: `signed`/`unsigned char`, `signed`/`unsigned short`, `signed`/`unsigned int`, `signed`/`unsigned long`, `float` and `double`. The deduction logic is as follows:
+If `A` and `B` are the same type, `scalar_traits<A,B>::type` is defined as that type. Otherwise for the following types:
+
+* `signed`/`unsigned char`,
+* `signed`/`unsigned short`,
+* `signed`/`unsigned int`,
+* `signed`/`unsigned long`,
+* `float`,
+* `double`,
+
+the deduction logic is as follows:
 
 - if either of `A` and `B` is `double`, the result is `double`;
 - else, if one of `A` or `B` is an integer type and the other is `float`, the result is `float`;
 - else, if one of `A` or `B` is a signed integer and the other type is unsigned integer, the signed type is changed to unsigned, and then the lesser of the two integers is promoted to the other.
+
+For any other types `scalar_traits<A,B>::type` is defined as `void`. It can be specialized for user-defined scalar types.
 
 NOTE: This template is used by generic binary operations that return a scalar, to deduce the return type based on the (possibly different) scalars of their arguments.
 
@@ -713,7 +721,8 @@ The `quat_traits_defaults` template is designed to be used as a public base for 
 ----
 namespace boost { namespace qvm {
 
-  template <class Q,class S=typename quat_traits<Q>::scalar_type>
+  template <class Q,
+    class S=typename quat_traits<Q>::scalar_type>
   struct deduce_quat {
     typedef Q type;
   };
@@ -723,12 +732,13 @@ namespace boost { namespace qvm {
 
 Requires: ::
 
-- `<<is_quat,is_quat>><Q,S>::value` is `true`;
+- `<<is_quat,is_quat>><Q>::value` is `true`;
+- `<<is_scalar,is_scalar>><S>::value` is `true`;
 - `<<is_quat,is_quat>><deduce_quat<Q,S>::type>::value` must be `true`;
-- `<<quat_traits,quat_traits>><deduce_quat<Q,S>::type>::scalar_type` must be the same type as `S`.
+- `<<quat_traits,quat_traits>><deduce_quat<Q,S>::type>::scalar_type` must be the same type as `S`;
 - `deduce_quat<Q,S>::type` must be copyable.
 
-This template is used by QVM whenever it needs to deduce a copyable quaternion type from a single user-supplied function parameter of quaternion type. Note that `Q` itself may be non-copyable.
+This template is used by QVM whenever it needs to deduce a copyable quaternion type from the quaternion type `Q`, with a scalar type `S`. Note that `Q` itself may be non-copyable.
 
 The main template definition returns an unspecified quaternion type, except if `S` is the same type as `<<quat_traits,quat_traits>><Q>::scalar_type`, in which case it returns `Q`, which is only suitable if `Q` is copyable. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
 
@@ -744,7 +754,10 @@ A typical use of the `deduce_quat` template is for specifying the preferred quat
 ----
 namespace boost { namespace qvm {
 
-  template <class A,class B,class S=typename quat_traits<Q>::scalar_type>
+  template <class A,class B,
+    class S=typename deduce_scalar<
+      typename scalar<A>::type,
+      typename scalar<B>::type>::type>
   struct deduce_quat2 {
     typedef /*unspecified*/ type;
   };
@@ -756,11 +769,12 @@ Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_quat,is_quat>><A>::value` || `is_quat<B>::value` is `true`;
+- `<<is_scalar,is_scalar>><S>::value` is `true`;
 - `is_quat<deduce_quat2<A,B,S>::type>::value` must be `true`;
-- `<<quat_traits,quat_traits>><deduce_quat2<A,B,S>::type>::scalar_type` must be the same type as `S`.
+- `<<quat_traits,quat_traits>><deduce_quat2<A,B,S>::type>::scalar_type` must be the same type as `S`;
 - `deduce_quat2<A,B,S>::type` must be copyable.
 
-This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a quaternion type.)
+This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters, with scalar type `S`. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a quaternion type.)
 
 The main template definition returns an unspecified quaternion type with <<quat_traits,`scalar_type`>> `S`, except if `A` and `B` are the same quaternion type `Q`, in which case `Q` is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.
 
@@ -988,9 +1002,10 @@ namespace boost { namespace qvm {
 Requires: ::
 
 - `<<is_vec,is_vec>><V>::value` is `true`;
+- `<<is_scalar,is_scalar>><S>::value` is `true`;
 - `is_vec<deduce_vec<V,D,S>::type>::value` must be `true`;
 - `deduce_vec<V,D,S>::type` must be copyable;
-- `vec_traits<deduce_vec<V,D,S>::type>::dim==D`.
+- `vec_traits<deduce_vec<V,D,S>::type>::dim==D`;
 - `vec_traits<deduce_vec<V,D,S>::type>::scalar_type` is the same type as `S`.
 
 This template is used by QVM whenever it needs to deduce a copyable vector type of certain dimension from a single user-supplied function parameter of vector type. The returned type must have accessible copy constructor. Note that `V` may be non-copyable.
@@ -1010,7 +1025,7 @@ A typical use of the `deduce_vec` template is for specifying the preferred vecto
 namespace boost { namespace qvm {
 
   template <class A,class B,int D,
-    class S=typename deduce_scalar_detail::deduce_scalar_impl<
+    class S=typename deduce_scalar<
       typename scalar<A>::type,
       typename scalar<B>::type>::type>
   struct deduce_vec2 {
@@ -1024,12 +1039,13 @@ Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_vec,is_vec>><A>::value || is_vec<B>::value` is `true`;
+- `<<is_scalar,is_scalar>><S>::value` is `true`;
 - `is_vec<deduce_vec2<A,B,D,S>::type>::value` must be `true`;
 - `deduce_vec2<A,B,D,S>::type` must be copyable;
 - `vec_traits<deduce_vec2<A,B,D,S>::type>::dim==D`.
 - `vec_traits<deduce_vec2<A,B,D,S>::type>::scalar_type` is the same type as `S`.
 
-This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may not be a vector type.)
+This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the `A` and `B` types themselves could be non-copyable, and either one of them may be a non-vector type.)
 
 The main template definition returns an unspecified vector type of the requested dimension with <<vec_traits,`scalar_type`>> `S`, except if `A` and `B` are the same vector type `V`, in which case `V` is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.
 
@@ -1292,6 +1308,7 @@ Requires: ::
 
 - Both `<<scalar,scalar>><A>::type` and `scalar<B>::type` are well defined;
 - `<<is_mat,is_mat>><A>::value || is_mat<B>::value` is `true`;
+- `<<is_scalar,is_scalar>><S>::value` is `true`;
 - `is_mat<deduce_mat2<A,B>::type>::value` must be `true`;
 - `deduce_mat2<A,B,R,C,S>::type` must be copyable;
 - `<<mat_traits,mat_traits>><deduce_mat2<A,B,R,C,S>::type>::rows==R`;
