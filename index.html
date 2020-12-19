@@ -307,13 +307,19 @@ function switch_style()
 <p>Emphasis on 2, 3 and 4-dimensional operations needed in graphics, video games and simulation applications.</p>
 </li>
 <li>
-<p>Free function templates operate on any compatible user-defined quaternion, vector or matrix type.</p>
+<p>Free function templates operate on any compatible user-defined Quaternion, Vector or Matrix type.</p>
 </li>
 <li>
-<p>Quaternion, vector and matrix types from different libraries or subsystems can be safely mixed in the same expression.</p>
+<p>Enables Quaternion, Vector and Matrix types from different libraries to be safely mixed in the same expression.</p>
 </li>
 <li>
-<p>Type-safe mapping between compatible lvalue types with no temporary objects; e.g. transpose remaps the elements, rather than transforming the matrix.</p>
+<p>Type-safe mapping between compatible lvalue types with no temporary objects; f.ex. transpose remaps the access to the elements, rather than transforming the matrix.</p>
+</li>
+<li>
+<p>Requires only C&#43;&#43;03.</p>
+</li>
+<li>
+<p>Zero dependencies.</p>
 </li>
 </ul>
 </div>
@@ -433,7 +439,7 @@ function switch_style()
 <div class="sect2">
 <h3 id="_c_arrays">C Arrays</h3>
 <div class="paragraph">
-<p>In <a href="#boost/qvm/quat_traits_array.hpp"><code>boost/qvm/quat_traits_array.hpp</code></a>, <a href="#boost/qvm/vec_traits_array.hpp"><code>boost/qvm/vec_traits_array.hpp</code></a> and <a href="#boost/qvm/mat_traits_array.hpp"><code>boost/qvm/mat_traits_array.hpp</code></a> QVM defines appropriate <a href="#quat_traits"><code>quat_traits</code></a>, <a href="#vec_traits"><code>vec_traits</code></a> and <a href="#mat_traits"><code>mat_traits</code></a> specializations that allow QVM functions to operate directly on plain old C arrays:</p>
+<p>In <code>boost/qvm/quat_traits_array.hpp</code>, <code>vec_traits_array.hpp</code> and <code>mat_traits_array.hpp</code>, QVM defines appropriate <a href="#quat_traits"><code>quat_traits</code></a>, <a href="#vec_traits"><code>vec_traits</code></a> and <a href="#mat_traits"><code>mat_traits</code></a> specializations that allow QVM functions to operate directly on plain old C arrays:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -615,7 +621,7 @@ Bringing the entire boost::qvm namespace in scope may introduce ambiguities when
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">auto</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span><span class="p">;</span></code></pre>
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">auto</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">*</span> <span class="n">m2</span><span class="p">;</span> <span class="c1">// auto requires C++11</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -922,7 +928,7 @@ Bringing the entire boost::qvm namespace in scope may introduce ambiguities when
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_scalar</span>
   <span class="p">{</span>
-    <span class="k">typedef</span> <span class="k">typename</span> <span class="n">impl</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span> <span class="n">type</span><span class="p">;</span>
+    <span class="k">typedef</span> <span class="k">typename</span> <span class="cm">/*exact definition unspecified*/</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
@@ -936,7 +942,35 @@ Bringing the entire boost::qvm namespace in scope may introduce ambiguities when
 </dd>
 <dt class="hdlist1">Returns: </dt>
 <dd>
-<p>If <code>A</code> and <code>B</code> are the same type, <code>impl&lt;A,B&gt;::type</code> returns that type. Otherwise, <code>impl&lt;A,B&gt;::type</code> is well defined for the following types only: <code>signed</code>/<code>unsigned char</code>, <code>signed</code>/<code>unsigned short</code>, <code>signed</code>/<code>unsigned int</code>, <code>signed</code>/<code>unsigned long</code>, <code>float</code> and <code>double</code>. The deduction logic is as follows:</p>
+<p>If <code>A</code> and <code>B</code> are the same type, <code>scalar_traits&lt;A,B&gt;::type</code> is defined as that type. Otherwise for the following types:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>signed</code>/<code>unsigned char</code>,</p>
+</li>
+<li>
+<p><code>signed</code>/<code>unsigned short</code>,</p>
+</li>
+<li>
+<p><code>signed</code>/<code>unsigned int</code>,</p>
+</li>
+<li>
+<p><code>signed</code>/<code>unsigned long</code>,</p>
+</li>
+<li>
+<p><code>float</code>,</p>
+</li>
+<li>
+<p><code>double</code>,</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>the deduction logic is as follows:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -950,8 +984,8 @@ Bringing the entire boost::qvm namespace in scope may introduce ambiguities when
 </li>
 </ul>
 </div>
-</dd>
-</dl>
+<div class="paragraph">
+<p>For any other types <code>scalar_traits&lt;A,B&gt;::type</code> is defined as <code>void</code>. It can be specialized for user-defined scalar types.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1196,7 +1230,8 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Q</span><span class="p">,</span><span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">quat_traits</span><span class="o">&lt;</span><span class="n">Q</span><span class="p">&gt;</span><span class="o">::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">Q</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">quat_traits</span><span class="o">&lt;</span><span class="n">Q</span><span class="p">&gt;</span><span class="o">::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_quat</span> <span class="p">{</span>
     <span class="k">typedef</span> <span class="n">Q</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
@@ -1211,13 +1246,16 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="ulist">
 <ul>
 <li>
-<p><code><a href="#is_quat">is_quat</a>&lt;Q,S&gt;::value</code> is <code>true</code>;</p>
+<p><code><a href="#is_quat">is_quat</a>&lt;Q&gt;::value</code> is <code>true</code>;</p>
+</li>
+<li>
+<p><code><a href="#is_scalar">is_scalar</a>&lt;S&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
 <p><code><a href="#is_quat">is_quat</a>&lt;deduce_quat&lt;Q,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat&lt;Q,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>.</p>
+<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat&lt;Q,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>;</p>
 </li>
 <li>
 <p><code>deduce_quat&lt;Q,S&gt;::type</code> must be copyable.</p>
@@ -1228,7 +1266,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 </dl>
 </div>
 <div class="paragraph">
-<p>This template is used by QVM whenever it needs to deduce a copyable quaternion type from a single user-supplied function parameter of quaternion type. Note that <code>Q</code> itself may be non-copyable.</p>
+<p>This template is used by QVM whenever it needs to deduce a copyable quaternion type from the quaternion type <code>Q</code>, with a scalar type <code>S</code>. Note that <code>Q</code> itself may be non-copyable.</p>
 </div>
 <div class="paragraph">
 <p>The main template definition returns an unspecified quaternion type, except if <code>S</code> is the same type as <code><a href="#quat_traits">quat_traits</a>&lt;Q&gt;::scalar_type</code>, in which case it returns <code>Q</code>, which is only suitable if <code>Q</code> is copyable. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
@@ -1245,7 +1283,10 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <div class="content">
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
-  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">quat_traits</span><span class="o">&lt;</span><span class="n">Q</span><span class="p">&gt;</span><span class="o">::</span><span class="n">scalar_type</span><span class="o">&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">deduce_scalar</span><span class="o">&lt;</span>
+      <span class="k">typename</span> <span class="nc">scalar</span><span class="o">&lt;</span><span class="n">A</span><span class="p">&gt;</span><span class="o">::</span><span class="n">type</span><span class="p">,</span>
+      <span class="k">typename</span> <span class="n">scalar</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_quat2</span> <span class="p">{</span>
     <span class="k">typedef</span> <span class="cm">/*unspecified*/</span> <span class="n">type</span><span class="p">;</span>
   <span class="p">};</span>
@@ -1266,10 +1307,13 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 <p><code><a href="#is_quat">is_quat</a>&lt;A&gt;::value</code> || <code>is_quat&lt;B&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
+<p><code><a href="#is_scalar">is_scalar</a>&lt;S&gt;::value</code> is <code>true</code>;</p>
+</li>
+<li>
 <p><code>is_quat&lt;deduce_quat2&lt;A,B,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
-<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat2&lt;A,B,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>.</p>
+<p><code><a href="#quat_traits">quat_traits</a>&lt;deduce_quat2&lt;A,B,S&gt;::type&gt;::scalar_type</code> must be the same type as <code>S</code>;</p>
 </li>
 <li>
 <p><code>deduce_quat2&lt;A,B,S&gt;::type</code> must be copyable.</p>
@@ -1280,7 +1324,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
 </dl>
 </div>
 <div class="paragraph">
-<p>This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may not be a quaternion type.)</p>
+<p>This template is used by QVM whenever it needs to deduce a quaternion type from the types of two user-supplied function parameters, with scalar type <code>S</code>. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may not be a quaternion type.)</p>
 </div>
 <div class="paragraph">
 <p>The main template definition returns an unspecified quaternion type with <a href="#quat_traits"><code>scalar_type</code></a> <code>S</code>, except if <code>A</code> and <code>B</code> are the same quaternion type <code>Q</code>, in which case <code>Q</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable quaternion types it produces. Users can define other (partial) specializations for their own types.</p>
@@ -1555,13 +1599,16 @@ QVM vector operations do not require that vector types are copyable.
 <p><code><a href="#is_vec">is_vec</a>&lt;V&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
+<p><code><a href="#is_scalar">is_scalar</a>&lt;S&gt;::value</code> is <code>true</code>;</p>
+</li>
+<li>
 <p><code>is_vec&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
 <p><code>deduce_vec&lt;V,D,S&gt;::type</code> must be copyable;</p>
 </li>
 <li>
-<p><code>vec_traits&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::dim==D</code>.</p>
+<p><code>vec_traits&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::dim==D</code>;</p>
 </li>
 <li>
 <p><code>vec_traits&lt;deduce_vec&lt;V,D,S&gt;::type&gt;::scalar_type</code> is the same type as <code>S</code>.</p>
@@ -1590,7 +1637,7 @@ QVM vector operations do not require that vector types are copyable.
 <pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
 
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="kt">int</span> <span class="n">D</span><span class="p">,</span>
-    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">deduce_scalar_detail</span><span class="o">::</span><span class="n">deduce_scalar_impl</span><span class="o">&lt;</span>
+    <span class="k">class</span> <span class="nc">S</span><span class="o">=</span><span class="k">typename</span> <span class="nc">deduce_scalar</span><span class="o">&lt;</span>
       <span class="k">typename</span> <span class="nc">scalar</span><span class="o">&lt;</span><span class="n">A</span><span class="p">&gt;</span><span class="o">::</span><span class="n">type</span><span class="p">,</span>
       <span class="k">typename</span> <span class="n">scalar</span><span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;::</span><span class="n">type</span><span class="o">&gt;</span>
   <span class="k">struct</span> <span class="nc">deduce_vec2</span> <span class="p">{</span>
@@ -1613,6 +1660,9 @@ QVM vector operations do not require that vector types are copyable.
 <p><code><a href="#is_vec">is_vec</a>&lt;A&gt;::value || is_vec&lt;B&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
+<p><code><a href="#is_scalar">is_scalar</a>&lt;S&gt;::value</code> is <code>true</code>;</p>
+</li>
+<li>
 <p><code>is_vec&lt;deduce_vec2&lt;A,B,D,S&gt;::type&gt;::value</code> must be <code>true</code>;</p>
 </li>
 <li>
@@ -1630,7 +1680,7 @@ QVM vector operations do not require that vector types are copyable.
 </dl>
 </div>
 <div class="paragraph">
-<p>This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may not be a vector type.)</p>
+<p>This template is used by QVM whenever it needs to deduce a vector type of certain dimension from the types of two user-supplied function parameters. The returned type must have accessible copy constructor (the <code>A</code> and <code>B</code> types themselves could be non-copyable, and either one of them may be a non-vector type.)</p>
 </div>
 <div class="paragraph">
 <p>The main template definition returns an unspecified vector type of the requested dimension with <a href="#vec_traits"><code>scalar_type</code></a> <code>S</code>, except if <code>A</code> and <code>B</code> are the same vector type <code>V</code>, in which case <code>V</code> is returned, which is only suitable for copyable types. QVM also defines (partial) specializations for the non-copyable vector types it produces. Users can define other (partial) specializations for their own types.</p>
@@ -1968,6 +2018,9 @@ The matrix operations defined by QVM do not require matrix types to be copyable.
 </li>
 <li>
 <p><code><a href="#is_mat">is_mat</a>&lt;A&gt;::value || is_mat&lt;B&gt;::value</code> is <code>true</code>;</p>
+</li>
+<li>
+<p><code><a href="#is_scalar">is_scalar</a>&lt;S&gt;::value</code> is <code>true</code>;</p>
 </li>
 <li>
 <p><code>is_mat&lt;deduce_mat2&lt;A,B&gt;::type&gt;::value</code> must be <code>true</code>;</p>
