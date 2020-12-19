@@ -5,4 +5,7 @@
 
 #include <boost/qvm/deduce_scalar.hpp>
 
-typedef boost::qvm::deduce_scalar<char,int>::type char_scalars_not_supported_use_signed_char_instead;
+template <class> struct tester { };
+template <> struct tester<void>;
+
+int char_scalars_not_supported_use_signed_char_instead = sizeof(tester<boost::qvm::deduce_scalar<char,int>::type>);

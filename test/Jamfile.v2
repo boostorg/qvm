@@ -3,6 +3,16 @@
 # Distributed under the Boost Software License, Version 1.0. (See accompanying
 # file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
+project
+    : requirements
+		<include>../include
+    ;
+
+variant debug_qvm_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm.hpp>\" ;
+variant release_qvm_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm.hpp>\" ;
+variant debug_qvm_lite_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm_lite.hpp>\" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
+variant release_qvm_lite_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm_lite.hpp>\" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
+
 import testing ;
 import path ;
 
@@ -164,8 +174,9 @@ compile-fail deduce_scalar_fail1.cpp ;
 compile-fail deduce_scalar_fail2.cpp ;
 compile-fail deduce_scalar_fail3.cpp ;
 
-compile deduce_matrix_test.cpp ;
-compile deduce_vector_test.cpp ;
+compile deduce_mat_test.cpp ;
+compile deduce_quat_test.cpp ;
+compile deduce_vec_test.cpp ;
 
 run interop_test.cpp ;
 

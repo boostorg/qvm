@@ -38,12 +38,8 @@ test_qvm
         }
     }
 
-namespace
-boost
-    {
-    namespace
-    qvm
-        {
+namespace boost { namespace qvm {
+
         template <class Tag,int Rows,int Cols,class T>
         struct
         mat_traits< test_qvm::matrix<Tag,Rows,Cols,T> >:
