@@ -33,6 +33,9 @@ function switch_style()
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#_abstract">Abstract</a></li>
+<li><a href="#support">Support</a></li>
+<li><a href="#_portability">Portability</a></li>
+<li><a href="#_distribution">Distribution</a></li>
 <li><a href="#tutorial">Tutorial</a>
 <ul class="sectlevel2">
 <li><a href="#_quaternions_vectors_matrices">Quaternions, Vectors, Matrices</a></li>
@@ -278,9 +281,6 @@ function switch_style()
 <li><a href="#_link_errors_when_calling_math_functions_with_int_arguments">Link Errors When Calling Math Functions with <code>int</code> Arguments</a></li>
 </ul>
 </li>
-<li><a href="#_distribution">Distribution</a></li>
-<li><a href="#_portability">Portability</a></li>
-<li><a href="#_feedback_support">Feedback / Support</a></li>
 <li><a href="#_qa">Q&amp;A</a></li>
 </ul>
 </div>
@@ -327,6 +327,81 @@ function switch_style()
 </div>
 <div class="paragraph text-right">
 <p><a href="#tutorial">Tutorial</a> | <a href="#reference">Reference</a> | <a href="#rationale">Design Rationale</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="support">Support</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://Cpplang.slack.com">cpplang on Slack</a> (use the <code>#boost</code> channel)</p>
+</li>
+<li>
+<p><a href="https://lists.boost.org/mailman/listinfo.cgi/boost-users">Boost Users Mailing List</a></p>
+</li>
+<li>
+<p><a href="https://lists.boost.org/mailman/listinfo.cgi/boost">Boost Developers Mailing List</a></p>
+</li>
+<li>
+<p><a href="https://github.com/boostorg/qvm/issues">Report an issue</a> on GitHub</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_portability">Portability</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>QVM requires only C&#43;&#43;03 but is tested on many compiler versions and C&#43;&#43; standards.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_distribution">Distribution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Copyright &#169; 2008-2021 Emil Dotchevski. Distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</p>
+</div>
+<div class="paragraph">
+<p>There are three distribution channels:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>QVM is included in official <a href="https://www.boost.org/">Boost</a> releases.</p>
+</li>
+<li>
+<p>The source code is hosted on <a href="https://github.com/boostorg/qvm">GitHub</a>.</p>
+</li>
+<li>
+<p>For maximum portability, the library is also available in single-header format, in two variants (direct download links):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="qvm.hpp">qvm.hpp</a>: single header containing the complete QVM source, including the complete set of <a href="#swizzling">swizzling</a> overloads.</p>
+</li>
+<li>
+<p><a href="qvm_lite.hpp">qvm_lite.hpp</a>: single header containing everything except for the swizzling overloads.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+QVM does not depend on Boost or other libraries.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -7079,49 +7154,6 @@ Many view proxies are not read-only, that is, they&#8217;re lvalues; changes mad
 <div class="paragraph">
 <p>Because of this, a call to e.g. <code><a href="#rot_mat">rot_mat</a>(axis,1)</code> will compile successfully but fail to link, since it calls e.g. <code>boost::qvm::sin&lt;int&gt;</code>, which is undefined. Because rotations by integer number of radians are rarely needed, in QVM there is no protection against such errors. In such cases the solution is to use <code>rot_mat(axis,1.0f)</code> instead.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_distribution">Distribution</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>&#169; 2008-2021 Emil Dotchevski and Reverge Studios, Inc.</p>
-</div>
-<div class="paragraph">
-<p>QVM is part of <a href="https://www.boost.org/">Boost</a> and is distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</p>
-</div>
-<div class="paragraph">
-<p>The source code is available in the <a href="https://github.com/boostorg/qvm">QVM GitHub repository</a>.</p>
-</div>
-<div class="paragraph">
-<p>In addition, Boost QVM is available in single-header format for maximum portability. There are two versions of this distribution (the links below point to the actual header files for direct download):</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="qvm.hpp">qvm.hpp</a>: single header containing all QVM code, including complete swizzling overloads.</p>
-</li>
-<li>
-<p><a href="qvm_lite.hpp">qvm_lite.hpp</a>: single header containing everything except for the swizzling overloads.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_portability">Portability</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Boost QVM requires only C&#43;&#43;03 but is tested on many compiler versions and C&#43;&#43; standards.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_feedback_support">Feedback / Support</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Please use the <a href="https://lists.boost.org/mailman/listinfo.cgi/boost">Boost Developers mailing list</a>.</p>
 </div>
 </div>
 </div>
