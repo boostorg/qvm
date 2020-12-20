@@ -8,10 +8,10 @@ project
 		<include>../include
     ;
 
-variant debug_qvm_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm.hpp>\" ;
-variant release_qvm_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm.hpp>\" ;
-variant debug_qvm_lite_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm_lite.hpp>\" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
-variant release_qvm_lite_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER=\"<boost/qvm_lite.hpp>\" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
+variant debug_qvm_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER="\\\"qvm.hpp\\\"" ;
+variant release_qvm_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER="\\\"qvm.hpp\\\"" ;
+variant debug_qvm_lite_hpp : debug : <define>BOOST_QVM_TEST_SINGLE_HEADER="\\\"qvm_lite.hpp\\\"" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
+variant release_qvm_lite_hpp : release : <define>BOOST_QVM_TEST_SINGLE_HEADER="\\\"qvm_lite.hpp\\\"" <define>BOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=\"<boost/qvm/swizzle.hpp>\" ;
 
 import testing ;
 import path ;

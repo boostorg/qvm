@@ -11,5 +11,5 @@ vcxproj.exe
 /doc/html/**
 /.vscode/c_cpp_properties.json
 /bld/*
-/include/boost/qvm.hpp
-/include/boost/qvm_lite.hpp
+/test/qvm.hpp
+/test/qvm_lite.hpp

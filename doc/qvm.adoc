@@ -5,8 +5,13 @@
 :stylesheet: zajo-dark.css
 :source-highlighter: rouge
 
+ifdef::backend-pdf[]
 = QVM
-Quaternion / Vector / Matrix Library for {CPP}03 | Emil Dotchevski
+endif::[]
+ifndef::backend-pdf[]
+= QVM pass:[<div style="z-index: 3; bottom:-16px; right:4px; position:fixed"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div>]
+endif::[]
+Quaternion / Vector / Matrix Library written in {CPP}03 | Emil Dotchevski
 ifndef::backend-pdf[]
 :toc: left
 :toclevels: 3
@@ -33,6 +38,32 @@ ifndef::backend-pdf[]
 [.text-right]
 <<tutorial>> | <<reference>> | <<rationale>>
 endif::[]
+
+[[support]]
+== Support
+
+* https://Cpplang.slack.com[cpplang on Slack] (use the `#boost` channel)
+* https://lists.boost.org/mailman/listinfo.cgi/boost-users[Boost Users Mailing List]
+* https://lists.boost.org/mailman/listinfo.cgi/boost[Boost Developers Mailing List]
+* https://github.com/boostorg/qvm/issues[Report an issue] on GitHub
+
+== Portability
+
+QVM requires only {CPP}03 but is tested on many compiler versions and {CPP} standards.
+
+== Distribution
+
+Copyright (C) 2008-2021 Emil Dotchevski. Distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
+
+There are three distribution channels:
+
+* QVM is included in official https://www.boost.org/[Boost] releases.
+* The source code is hosted on https://github.com/boostorg/qvm[GitHub].
+* For maximum portability, the library is also available in single-header format, in two variants (direct download links):
+** link:qvm.hpp[qvm.hpp]: single header containing the complete QVM source, including the complete set of <<swizzling,swizzling>> overloads.
+** link:qvm_lite.hpp[qvm_lite.hpp]: single header containing everything except for the swizzling overloads.
+
+NOTE: QVM does not depend on Boost or other libraries.
 
 [[tutorial]]
 == Tutorial
@@ -349,6 +380,8 @@ QVM is split into multiple headers to allow different compilation units to `#inc
 The tables below list commonly used components and the headers they're found in. Header names containing a number define functions that only work with objects of that dimension; e.g. `vec_operations2.hpp` contains only functions for working with 2D vectors.
 
 The header `boost/qvm/all.hpp` is provided for convenience. It includes all other QVM headers.
+
+In addition, Boost QVM is available in single-header format for maximum portability. See <<Distribution>>.
 
 .Quaternion header files
 [cols="1,2l"]
@@ -5125,22 +5158,6 @@ QVM does not call standard math functions (e.g. sin, cos, etc.) directly. Instea
 QVM itself defines specializations of the math function templates only for `float` and `double`, but it does not provide generic definitions. This is done to protect the user from unintentionally writing code that binds standard math functions that take `double` when passing arguments of lesser types, which would be suboptimal.
 
 Because of this, a call to e.g. `<<rot_mat,rot_mat>>(axis,1)` will compile successfully but fail to link, since it calls e.g. `boost::qvm::sin<int>`, which is undefined. Because rotations by integer number of radians are rarely needed, in QVM there is no protection against such errors. In such cases the solution is to use `rot_mat(axis,1.0f)` instead.
-
-== Distribution
-
-QVM is part of https://www.boost.org/[Boost] and is distributed under the http://www.boost.org/LICENSE_1_0.txt[Boost Software License, Version 1.0].
-
-The source code is available in https://github.com/boostorg/qvm[QVM GitHub repository].
-
-(C) 2008-2018 Emil Dotchevski and Reverge Studios, Inc.
-
-== Portability
-
-See the link:https://travis-ci.org/boostorg/qvm[QVM Travis CI Builds].
-
-== Feedback / Support
-
-Please use the link:https://lists.boost.org/mailman/listinfo.cgi/boost[Boost Developers mailing list].
 
 == Q&A
 
