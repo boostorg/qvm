@@ -151,9 +151,9 @@ if option_enable_unit_tests
 
 	dep_header_inclusion_mode = []
 	if option_qvm_header_mode == 'single'
-		dep_header_inclusion_mode = declare_dependency(compile_args: ['-DBOOST_QVM_TEST_SINGLE_HEADER=<boost/qvm.hpp>'])
+		dep_header_inclusion_mode = declare_dependency(compile_args: ['-DBOOST_QVM_TEST_SINGLE_HEADER="qvm.hpp"'])
 	elif option_qvm_header_mode == 'single_lite'
-		dep_header_inclusion_mode = declare_dependency(compile_args: ['-DBOOST_QVM_TEST_SINGLE_HEADER=<boost/qvm_lite.hpp>', '-DBOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=<boost/qvm/swizzle.hpp>'])
+		dep_header_inclusion_mode = declare_dependency(compile_args: ['-DBOOST_QVM_TEST_SINGLE_HEADER="qvm_lite.hpp"', '-DBOOST_QVM_TEST_SINGLE_HEADER_SWIZZLE=<boost/qvm/swizzle.hpp>'])
 	elif option_qvm_header_mode != 'multi'
 		error('Bad qvm_header_mode='+option_qvm_header_mode+', valid values are multi, single, single_lite')
 	endif

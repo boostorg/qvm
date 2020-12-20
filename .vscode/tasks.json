@@ -18,7 +18,7 @@
 		{
 			"label": "Generate headers",
 			"type": "shell",
-			"command": "cd ${workspaceRoot} && python3 gen/generate_single_header.py -guard BOOST_QVM_HPP_INCLUDED -i include/boost/qvm/all.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/include/boost/qvm.hpp boost/qvm && python3 gen/generate_single_header.py -guard BOOST_QVM_LIGHT_HPP_INCLUDED -i include/boost/qvm/detail/all_light.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/include/boost/qvm_lite.hpp boost/qvm",
+			"command": "cd ${workspaceRoot} && python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm.hpp boost/qvm && python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm_lite.hpp boost/qvm",
 			"problemMatcher": []
 		},
 		{
@@ -99,9 +99,6 @@
 					"relative",
 					"${workspaceRoot}/bld/debug"
 				]
-			},
-			"windows": {
-				"command": "${workspaceRoot}/.vscode/msvc.bat && cd ${workspaceRoot}/bld/debug && meson test access_m_test"
 			}
 		}
 	]

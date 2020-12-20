@@ -9,7 +9,6 @@ on:
       - feature/**
 
 env:
-  LIBRARY: qvm
   UBSAN_OPTIONS: print_stacktrace=1
 
 jobs:
@@ -125,9 +124,9 @@ jobs:
           cd ..
           git clone -b $BOOST_BRANCH --depth 1 https://github.com/boostorg/boost.git boost-root
           cd boost-root
-          cp -r $GITHUB_WORKSPACE/* libs/$LIBRARY
+          cp -r $GITHUB_WORKSPACE/* libs/qvm
           git submodule update --init tools/boostdep
-          python tools/boostdep/depinst/depinst.py --git_args "--jobs 3" $LIBRARY
+          python tools/boostdep/depinst/depinst.py --git_args "--jobs 3" qvm
           ./bootstrap.sh
           ./b2 -d0 headers
 
@@ -136,10 +135,16 @@ jobs:
         run: |
           echo "using ${{matrix.toolset}} : : ${{matrix.compiler}} ;" > ~/user-config.jam
 
+      - name: Generate headers
+        run: |
+          cd ../boost-root/libs/qvm
+          python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o test/qvm.hpp boost/qvm
+          python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p include -o test/qvm_lite.hpp boost/qvm
+
       - name: Run tests
         run: |
           cd ../boost-root
-          ./b2 -j3 libs/$LIBRARY/test toolset=${{matrix.toolset}} cxxstd=${{matrix.cxxstd}} variant=debug,release
+          ./b2 -j3 libs/qvm/test toolset=${{matrix.toolset}} cxxstd=${{matrix.cxxstd}} variant=debug,release,debug_qvm_hpp,release_qvm_hpp,debug_qvm_lite_hpp,release_qvm_lite_hpp
 
   windows:
     strategy:
@@ -173,15 +178,20 @@ jobs:
           cd ..
           git clone -b %BOOST_BRANCH% --depth 1 https://github.com/boostorg/boost.git boost-root
           cd boost-root
-          xcopy /s /e /q %GITHUB_WORKSPACE% libs\%LIBRARY%\
+          xcopy /s /e /q %GITHUB_WORKSPACE% libs\qvm\
           git submodule update --init tools/boostdep
-          python tools/boostdep/depinst/depinst.py --git_args "--jobs 3" %LIBRARY%
+          python tools/boostdep/depinst/depinst.py --git_args "--jobs 3" qvm
           cmd /c bootstrap
           b2 -d0 headers
+
+      - name: Generate headers
+        run: |
+          cd ..\boost-root\libs\qvm
+          python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o test/qvm.hpp boost/qvm
+          python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p include -o test/qvm_lite.hpp boost/qvm
 
       - name: Run tests
         shell: cmd
         run: |
-          cd ../boost-root
-          b2 -j3 libs/%LIBRARY%/test toolset=${{matrix.toolset}} cxxstd=${{matrix.cxxstd}} address-model=${{matrix.addrmd}} variant=debug,release
-        
+          cd ..\boost-root
+          b2 -j3 libs/qvm/test toolset=${{matrix.toolset}} cxxstd=${{matrix.cxxstd}} address-model=${{matrix.addrmd}} variant=debug,release,debug_qvm_hpp,release_qvm_hpp,debug_qvm_lite_hpp,release_qvm_lite_hpp
