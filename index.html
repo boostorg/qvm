@@ -5,13 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.12">
-<meta name="author" content="Quaternion / Vector / Matrix Library for C&#43;&#43;03 | Emil Dotchevski">
+<meta name="author" content="Quaternion / Vector / Matrix Library written in C&#43;&#43;03 | Emil Dotchevski">
 <title>QVM</title>
 <link rel="stylesheet" href="./zajo-dark.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./rouge-github.css">
-<meta name="keywords" content="c++,quaternion,vector,matrix,open source">
-<meta name="description" content="Generic C++ library for working with Quaternions, Vectors and Matrices">
+<meta name="keywords" content="c++,error handling,open source">
+<meta name="description" content="Lightweight Error Augmentation Framework">
 <link rel="stylesheet" href="./zajo-light.css" disabled=true>
 <script>
 function switch_style()
@@ -25,9 +25,9 @@ function switch_style()
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>QVM</h1>
+<h1>QVM <div style="z-index: 3; bottom:-16px; right:4px; position:fixed"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div></h1>
 <div class="details">
-<span id="author" class="author">Quaternion / Vector / Matrix Library for C&#43;&#43;03 | Emil Dotchevski</span><br>
+<span id="author" class="author">Quaternion / Vector / Matrix Library written in C&#43;&#43;03 | Emil Dotchevski</span><br>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle"></div>
@@ -712,6 +712,9 @@ Bringing the entire boost::qvm namespace in scope may introduce ambiguities when
 </div>
 <div class="paragraph">
 <p>The header <code>boost/qvm/all.hpp</code> is provided for convenience. It includes all other QVM headers.</p>
+</div>
+<div class="paragraph">
+<p>In addition, Boost QVM is available in single-header format for maximum portability. See <a href="#_distribution">Distribution</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Quaternion header files</caption>
@@ -7083,13 +7086,26 @@ Many view proxies are not read-only, that is, they&#8217;re lvalues; changes mad
 <h2 id="_distribution">Distribution</h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>&#169; 2008-2021 Emil Dotchevski and Reverge Studios, Inc.</p>
+</div>
+<div class="paragraph">
 <p>QVM is part of <a href="https://www.boost.org/">Boost</a> and is distributed under the <a href="http://www.boost.org/LICENSE_1_0.txt">Boost Software License, Version 1.0</a>.</p>
 </div>
 <div class="paragraph">
-<p>The source code is available in <a href="https://github.com/boostorg/qvm">QVM GitHub repository</a>.</p>
+<p>The source code is available in the <a href="https://github.com/boostorg/qvm">QVM GitHub repository</a>.</p>
 </div>
 <div class="paragraph">
-<p>&#169; 2008-2018 Emil Dotchevski and Reverge Studios, Inc.</p>
+<p>In addition, Boost QVM is available in single-header format for maximum portability. There are two versions of this distribution (the links below point to the actual header files for direct download):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="qvm.hpp">qvm.hpp</a>: single header containing all QVM code, including complete swizzling overloads (huge).</p>
+</li>
+<li>
+<p><a href="qvm_lite.hpp">qvm_lite.hpp</a>: single header containing everything except for the swizzling overloads.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -7097,7 +7113,7 @@ Many view proxies are not read-only, that is, they&#8217;re lvalues; changes mad
 <h2 id="_portability">Portability</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>See the <a href="https://travis-ci.org/boostorg/qvm">QVM Travis CI Builds</a>.</p>
+<p>Boost QVM requires only C&#43;&#43;03 but is tested on many compiler versions and C&#43;&#43; standards.</p>
 </div>
 </div>
 </div>
