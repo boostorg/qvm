@@ -18,7 +18,7 @@ ifndef::backend-pdf[]
 :toc-title:
 
 [.text-right]
-https://github.com/boostorg/qvm[GitHub] | link:./qvm.pdf[PDF]
+https://github.com/boostorg/qvm[GitHub] | https://boostorg.github.io/qvm/qvm.pdf[PDF]
 endif::[]
 
 [abstract]
