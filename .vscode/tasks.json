@@ -18,7 +18,7 @@
 		{
 			"label": "Generate headers",
 			"type": "shell",
-			"command": "cd ${workspaceRoot} && python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm.hpp boost/qvm && python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm_lite.hpp boost/qvm",
+			"command": "cd ${workspaceRoot} && python gen/generate_single_header.py -i include/boost/qvm.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm.hpp boost/qvm && python gen/generate_single_header.py -i include/boost/qvm_lite.hpp -p ${workspaceRoot}/include -o ${workspaceRoot}/test/qvm_lite.hpp boost/qvm",
 			"problemMatcher": []
 		},
 		{

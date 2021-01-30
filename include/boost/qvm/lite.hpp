@@ -1,6 +1,3 @@
-#ifndef BOOST_QVM_LITE_HPP_INCLUDED
-#define BOOST_QVM_LITE_HPP_INCLUDED
-
 /// Copyright (c) 2008-2021 Emil Dotchevski and Reverge Studios, Inc.
 
 /// Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -28,5 +25,3 @@
 #include <boost/qvm/vec_register.hpp>
 #include <boost/qvm/map.hpp>
 #include <boost/qvm/to_string.hpp>
-
-#endif
