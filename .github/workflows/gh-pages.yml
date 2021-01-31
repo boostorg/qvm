@@ -23,8 +23,8 @@ jobs:
           cd boost-root
           git submodule update --init tools/build
           git submodule update --init libs/config
-          git submodule update --init libs/leaf
-          cd libs/leaf
+          git submodule update --init libs/qvm
+          cd libs/qvm
           git checkout master
           git pull
           cd ../..
