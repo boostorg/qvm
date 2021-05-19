@@ -39,7 +39,7 @@ jobs:
           cd ../boost-root/libs/qvm/doc
           ../../../b2
 
-      - name: Generate headers
+      - name: Generate single header distributions
         run: |
           cd ../boost-root/libs/qvm
           python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o doc/html/qvm.hpp boost/qvm
