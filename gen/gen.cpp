@@ -1464,7 +1464,7 @@ namespace
             }
         g<<
             ";" NL
-            TAB1 "T const mag=sqrt<T>(m2);" NL
+            TAB1 "T const mag=sqrt(m2);" NL
             TAB1 "return mag;" NL
             TAB1 "}" NL
             ;
@@ -1497,7 +1497,7 @@ namespace
             ";" NL
             TAB1 "if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )" NL
             TAB2"BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());" NL
-            TAB1 "T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);" NL
+            TAB1 "T const rm=scalar_traits<T>::value(1)/sqrt(m2);" NL
             TAB1 "typedef typename deduce_vec<A>::type R;" NL
             TAB1 "R r;" NL
             ;
@@ -1535,7 +1535,7 @@ namespace
             ";" NL
             TAB1 "if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )" NL
             TAB2"BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());" NL
-            TAB1 "T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);" NL
+            TAB1 "T const rm=scalar_traits<T>::value(1)/sqrt(m2);" NL
             ;
         for( int i=0; i!=d; ++i )
             g<<TAB1 "vec_traits<A>::template write_element<"<<i<<">(a)*=rm;" NL;
