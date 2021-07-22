@@ -170,9 +170,9 @@ run swizzle4_test4.cpp ;
 run swizzle4_test.cpp ;
 
 compile deduce_scalar_test.cpp ;
-compile-fail deduce_scalar_fail1.cpp ;
-compile-fail deduce_scalar_fail2.cpp ;
-compile-fail deduce_scalar_fail3.cpp ;
+run deduce_scalar_mq_test.cpp ;
+run deduce_scalar_mv_test.cpp ;
+compile-fail deduce_scalar_fail.cpp ;
 
 compile deduce_mat_test.cpp ;
 compile deduce_quat_test.cpp ;

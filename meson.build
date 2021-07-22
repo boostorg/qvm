@@ -41,6 +41,8 @@ if option_enable_unit_tests
 		'deduce_mat_test',
 		'deduce_quat_test',
 		'deduce_scalar_test',
+		'deduce_scalar_mq_test',
+		'deduce_scalar_mv_test',
 		'deduce_vec_test',
 		'del_col_test',
 		'del_row_col_test',
