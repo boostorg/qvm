@@ -1,7 +1,7 @@
 // QVM single header distribution. Do not edit.
 
-// Generated from https://github.com/boostorg/qvm on June 10, 2021,
-// Git hash cdc1a96133ef1db9405e0f5a27f4aa9213d627b4.
+// Generated from https://github.com/boostorg/qvm on August 22, 2021,
+// Git hash 36ab7dfd000d8100727ceee98df233dc7e5de226.
 
 // Latest versions:
 //      https://boostorg.github.io/qvm/qvm.hpp
@@ -1011,8 +1011,6 @@ template <class A,class B>
 struct
 deduce_scalar
     {
-    BOOST_QVM_STATIC_ASSERT(is_scalar<A>::value);
-    BOOST_QVM_STATIC_ASSERT(is_scalar<B>::value);
     typedef typename deduce_scalar_detail::deduce_scalar_impl<A,B>::type type;
     };
 
@@ -1095,7 +1093,7 @@ qvm_detail
         };
     }
 
-template <class A,class B,int R,int C,class S=typename deduce_scalar_detail::deduce_scalar_impl<typename scalar<A>::type,typename scalar<B>::type>::type>
+template <class A,class B,int R,int C,class S=typename deduce_scalar<typename scalar<A>::type,typename scalar<B>::type>::type>
 struct
 deduce_mat2
     {
@@ -1186,7 +1184,7 @@ qvm_detail
         };
     }
 
-template <class A,class B,int D,class S=typename deduce_scalar_detail::deduce_scalar_impl<typename scalar<A>::type,typename scalar<B>::type>::type>
+template <class A,class B,int D,class S=typename deduce_scalar<typename scalar<A>::type,typename scalar<B>::type>::type>
 struct
 deduce_vec2
     {
@@ -7831,7 +7829,7 @@ BOOST_QVM_INLINE_OPERATIONS
 perspective_lh( T fov_y, T aspect_ratio, T z_near, T z_far )
     {
     T const one = scalar_traits<T>::value(1);
-    T const ys = one/tan<T>(fov_y/scalar_traits<T>::value(2));
+    T const ys = one/tan(fov_y/scalar_traits<T>::value(2));
     T const xs = ys/aspect_ratio;
     T const zd = z_far-z_near;
     T const z1 = z_far/zd;
@@ -7845,7 +7843,7 @@ BOOST_QVM_INLINE_OPERATIONS
 perspective_rh( T fov_y, T aspect_ratio, T z_near, T z_far )
     {
     T const one = scalar_traits<T>::value(1);
-    T const ys = one/tan<T>(fov_y/scalar_traits<T>::value(2));
+    T const ys = one/tan(fov_y/scalar_traits<T>::value(2));
     T const xs = ys/aspect_ratio;
     T const zd = z_near-z_far;
     T const z1 = z_far/zd;
@@ -8666,8 +8664,8 @@ rot_mat( V const & axis, Angle angle )
     scalar_type const m2=x*x+y*y+z*z;
     if( m2==scalar_traits<scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    scalar_type const s = sin<scalar_type>(angle);
-    scalar_type const c = cos<scalar_type>(angle);
+    scalar_type const s = sin(angle);
+    scalar_type const c = cos(angle);
     scalar_type const x2 = x*x;
     scalar_type const y2 = y*y;
     scalar_type const z2 = z*z;
@@ -8717,12 +8715,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xzy( Angle x1, Angle z2, Angle y3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(x1);
-    scalar_type const s1 = sin<scalar_type>(x1);
-    scalar_type const c2 = cos<scalar_type>(z2);
-    scalar_type const s2 = sin<scalar_type>(z2);
-    scalar_type const c3 = cos<scalar_type>(y3);
-    scalar_type const s3 = sin<scalar_type>(y3);
+    scalar_type const c1 = cos(x1);
+    scalar_type const s1 = sin(x1);
+    scalar_type const c2 = cos(z2);
+    scalar_type const s2 = sin(z2);
+    scalar_type const c3 = cos(y3);
+    scalar_type const s3 = sin(y3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c2*c3, -s2, c2*s3,
         s1*s3 + c1*c3*s2, c1*c2, c1*s2*s3 - c3*s1,
@@ -8759,12 +8757,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xyz( Angle x1, Angle y2, Angle z3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(x1);
-    scalar_type const s1 = sin<scalar_type>(x1);
-    scalar_type const c2 = cos<scalar_type>(y2);
-    scalar_type const s2 = sin<scalar_type>(y2);
-    scalar_type const c3 = cos<scalar_type>(z3);
-    scalar_type const s3 = sin<scalar_type>(z3);
+    scalar_type const c1 = cos(x1);
+    scalar_type const s1 = sin(x1);
+    scalar_type const c2 = cos(y2);
+    scalar_type const s2 = sin(y2);
+    scalar_type const c3 = cos(z3);
+    scalar_type const s3 = sin(z3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c2*c3, -c2*s3, s2,
         c1*s3 + c3*s1*s2, c1*c3 - s1*s2*s3, -c2*s1,
@@ -8801,12 +8799,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yxz( Angle y1, Angle x2, Angle z3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(y1);
-    scalar_type const s1 = sin<scalar_type>(y1);
-    scalar_type const c2 = cos<scalar_type>(x2);
-    scalar_type const s2 = sin<scalar_type>(x2);
-    scalar_type const c3 = cos<scalar_type>(z3);
-    scalar_type const s3 = sin<scalar_type>(z3);
+    scalar_type const c1 = cos(y1);
+    scalar_type const s1 = sin(y1);
+    scalar_type const c2 = cos(x2);
+    scalar_type const s2 = sin(x2);
+    scalar_type const c3 = cos(z3);
+    scalar_type const s3 = sin(z3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c3 + s1*s2*s3, c3*s1*s2 - c1*s3, c2*s1,
         c2*s3, c2*c3, -s2,
@@ -8843,12 +8841,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yzx( Angle y1, Angle z2, Angle x3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(y1);
-    scalar_type const s1 = sin<scalar_type>(y1);
-    scalar_type const c2 = cos<scalar_type>(z2);
-    scalar_type const s2 = sin<scalar_type>(z2);
-    scalar_type const c3 = cos<scalar_type>(x3);
-    scalar_type const s3 = sin<scalar_type>(x3);
+    scalar_type const c1 = cos(y1);
+    scalar_type const s1 = sin(y1);
+    scalar_type const c2 = cos(z2);
+    scalar_type const s2 = sin(z2);
+    scalar_type const c3 = cos(x3);
+    scalar_type const s3 = sin(x3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c2, s1*s3 - c1*c3*s2, c3*s1 + c1*s2*s3,
         s2, c2*c3, -c2*s3,
@@ -8885,12 +8883,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zyx( Angle z1, Angle y2, Angle x3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(z1);
-    scalar_type const s1 = sin<scalar_type>(z1);
-    scalar_type const c2 = cos<scalar_type>(y2);
-    scalar_type const s2 = sin<scalar_type>(y2);
-    scalar_type const c3 = cos<scalar_type>(x3);
-    scalar_type const s3 = sin<scalar_type>(x3);
+    scalar_type const c1 = cos(z1);
+    scalar_type const s1 = sin(z1);
+    scalar_type const c2 = cos(y2);
+    scalar_type const s2 = sin(y2);
+    scalar_type const c3 = cos(x3);
+    scalar_type const s3 = sin(x3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c2, c1*s2*s3 - c3*s1, s1*s3 + c1*c3*s2,
         c2*s1, c1*c3 + s1*s2*s3, c3*s1*s2 - c1*s3,
@@ -8927,12 +8925,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zxy( Angle z1, Angle x2, Angle y3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(z1);
-    scalar_type const s1 = sin<scalar_type>(z1);
-    scalar_type const c2 = cos<scalar_type>(x2);
-    scalar_type const s2 = sin<scalar_type>(x2);
-    scalar_type const c3 = cos<scalar_type>(y3);
-    scalar_type const s3 = sin<scalar_type>(y3);
+    scalar_type const c1 = cos(z1);
+    scalar_type const s1 = sin(z1);
+    scalar_type const c2 = cos(x2);
+    scalar_type const s2 = sin(x2);
+    scalar_type const c3 = cos(y3);
+    scalar_type const s3 = sin(y3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c3 - s1*s2*s3, -c2*s1, c1*s3 + c3*s1*s2,
         c3*s1 + c1*s2*s3, c1*c2, s1*s3 - c1*c3*s2,
@@ -8969,12 +8967,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xzx( Angle x1, Angle z2, Angle x3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(x1);
-    scalar_type const s1 = sin<scalar_type>(x1);
-    scalar_type const c2 = cos<scalar_type>(z2);
-    scalar_type const s2 = sin<scalar_type>(z2);
-    scalar_type const c3 = cos<scalar_type>(x3);
-    scalar_type const s3 = sin<scalar_type>(x3);
+    scalar_type const c1 = cos(x1);
+    scalar_type const s1 = sin(x1);
+    scalar_type const c2 = cos(z2);
+    scalar_type const s2 = sin(z2);
+    scalar_type const c3 = cos(x3);
+    scalar_type const s3 = sin(x3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c2, -c3*s2, s2*s3,
         c1*s2, c1*c2*c3 - s1*s3, -c3*s1 - c1*c2*s3,
@@ -9011,12 +9009,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xyx( Angle x1, Angle y2, Angle x3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(x1);
-    scalar_type const s1 = sin<scalar_type>(x1);
-    scalar_type const c2 = cos<scalar_type>(y2);
-    scalar_type const s2 = sin<scalar_type>(y2);
-    scalar_type const c3 = cos<scalar_type>(x3);
-    scalar_type const s3 = sin<scalar_type>(x3);
+    scalar_type const c1 = cos(x1);
+    scalar_type const s1 = sin(x1);
+    scalar_type const c2 = cos(y2);
+    scalar_type const s2 = sin(y2);
+    scalar_type const c3 = cos(x3);
+    scalar_type const s3 = sin(x3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c2, s2*s3, c3*s2,
         s1*s2, c1*c3 - c2*s1*s3, -c1*s3 - c2*c3*s1,
@@ -9053,12 +9051,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yxy( Angle y1, Angle x2, Angle y3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(y1);
-    scalar_type const s1 = sin<scalar_type>(y1);
-    scalar_type const c2 = cos<scalar_type>(x2);
-    scalar_type const s2 = sin<scalar_type>(x2);
-    scalar_type const c3 = cos<scalar_type>(y3);
-    scalar_type const s3 = sin<scalar_type>(y3);
+    scalar_type const c1 = cos(y1);
+    scalar_type const s1 = sin(y1);
+    scalar_type const c2 = cos(x2);
+    scalar_type const s2 = sin(x2);
+    scalar_type const c3 = cos(y3);
+    scalar_type const s3 = sin(y3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c3 - c2*s1*s3, s1*s2, c1*s3 + c2*c3*s1,
         s2*s3, c2, -c3*s2,
@@ -9095,12 +9093,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yzy( Angle y1, Angle z2, Angle y3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(y1);
-    scalar_type const s1 = sin<scalar_type>(y1);
-    scalar_type const c2 = cos<scalar_type>(z2);
-    scalar_type const s2 = sin<scalar_type>(z2);
-    scalar_type const c3 = cos<scalar_type>(y3);
-    scalar_type const s3 = sin<scalar_type>(y3);
+    scalar_type const c1 = cos(y1);
+    scalar_type const s1 = sin(y1);
+    scalar_type const c2 = cos(z2);
+    scalar_type const s2 = sin(z2);
+    scalar_type const c3 = cos(y3);
+    scalar_type const s3 = sin(y3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c2*c3 - s1*s3, -c1*s2, c3*s1 + c1*c2*s3,
         c3*s2, c2, s2*s3,
@@ -9137,12 +9135,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zyz( Angle z1, Angle y2, Angle z3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(z1);
-    scalar_type const s1 = sin<scalar_type>(z1);
-    scalar_type const c2 = cos<scalar_type>(y2);
-    scalar_type const s2 = sin<scalar_type>(y2);
-    scalar_type const c3 = cos<scalar_type>(z3);
-    scalar_type const s3 = sin<scalar_type>(z3);
+    scalar_type const c1 = cos(z1);
+    scalar_type const s1 = sin(z1);
+    scalar_type const c2 = cos(y2);
+    scalar_type const s2 = sin(y2);
+    scalar_type const c3 = cos(z3);
+    scalar_type const s3 = sin(z3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c2*c3 - s1*s3, -c3*s1 - c1*c2*s3, c1*s2,
         c1*s3 + c2*c3*s1, c1*c3 - c2*s1*s3, s1*s2,
@@ -9179,12 +9177,12 @@ qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zxz( Angle z1, Angle x2, Angle z3 )
     {
     typedef Angle scalar_type;
-    scalar_type const c1 = cos<scalar_type>(z1);
-    scalar_type const s1 = sin<scalar_type>(z1);
-    scalar_type const c2 = cos<scalar_type>(x2);
-    scalar_type const s2 = sin<scalar_type>(x2);
-    scalar_type const c3 = cos<scalar_type>(z3);
-    scalar_type const s3 = sin<scalar_type>(z3);
+    scalar_type const c1 = cos(z1);
+    scalar_type const s1 = sin(z1);
+    scalar_type const c2 = cos(x2);
+    scalar_type const s2 = sin(x2);
+    scalar_type const c3 = cos(z3);
+    scalar_type const s3 = sin(z3);
     return qvm_detail::rot_mat_<Dim,Angle>(
         c1*c3 - c2*s1*s3, -c1*s3 - c2*c3*s1, s1*s2,
         c3*s1 + c1*c2*s3, c1*c2*c3 - s1*s3, -c1*s2,
@@ -9267,7 +9265,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
 
@@ -9281,7 +9279,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return -sin<T>(angle);
+            return -sin(angle);
             }
         };
 
@@ -9295,7 +9293,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle);
+            return sin(angle);
             }
         };
 
@@ -9309,7 +9307,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
     }
@@ -9349,16 +9347,16 @@ mat_traits< qvm_detail::rotx_mat_<Dim,Angle> >
         if( row==1 )
             {
             if( col==1 )
-                return cos<scalar_type>(a);
+                return cos(a);
             if( col==2 )
-                return -sin<scalar_type>(a);
+                return -sin(a);
             }
         if( row==2 )
             {
             if( col==1 )
-                return sin<scalar_type>(a);
+                return sin(a);
             if( col==2 )
-                return cos<scalar_type>(a);
+                return cos(a);
             }
         return scalar_traits<scalar_type>::value(row==col);
         }
@@ -9463,7 +9461,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
 
@@ -9477,7 +9475,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle);
+            return sin(angle);
             }
         };
 
@@ -9491,7 +9489,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return -sin<T>(angle);
+            return -sin(angle);
             }
         };
 
@@ -9505,7 +9503,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
     }
@@ -9545,16 +9543,16 @@ mat_traits< qvm_detail::roty_mat_<Dim,Angle> >
         if( row==0 )
             {
             if( col==0 )
-                return cos<scalar_type>(a);
+                return cos(a);
             if( col==2 )
-                return sin<scalar_type>(a);
+                return sin(a);
             }
         if( row==2 )
             {
             if( col==0 )
-                return -sin<scalar_type>(a);
+                return -sin(a);
             if( col==2 )
-                return cos<scalar_type>(a);
+                return cos(a);
             }
         return scalar_traits<scalar_type>::value(row==col);
         }
@@ -9659,7 +9657,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
 
@@ -9673,7 +9671,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return -sin<T>(angle);
+            return -sin(angle);
             }
         };
 
@@ -9687,7 +9685,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle);
+            return sin(angle);
             }
         };
 
@@ -9701,7 +9699,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle);
+            return cos(angle);
             }
         };
     }
@@ -9741,16 +9739,16 @@ mat_traits< qvm_detail::rotz_mat_<Dim,Angle> >
         if( row==0 )
             {
             if( col==0 )
-                return cos<scalar_type>(a);
+                return cos(a);
             if( col==1 )
-                return -sin<scalar_type>(a);
+                return -sin(a);
             }
         if( row==1 )
             {
             if( col==0 )
-                return sin<scalar_type>(a);
+                return sin(a);
             if( col==1 )
-                return cos<scalar_type>(a);
+                return cos(a);
             }
         return scalar_traits<scalar_type>::value(row==col);
         }
@@ -10416,7 +10414,7 @@ qvm_detail
         };
     }
 
-template <class A,class B,class S=typename deduce_scalar_detail::deduce_scalar_impl<typename scalar<A>::type,typename scalar<B>::type>::type>
+template <class A,class B,class S=typename deduce_scalar<typename scalar<A>::type,typename scalar<B>::type>::type>
 struct
 deduce_quat2
     {
@@ -10547,7 +10545,7 @@ convert_to( A const & a )
     if( mat[0][0]+mat[1][1]+mat[2][2] > scalar_traits<T>::value(0) )
         {
         T t = mat[0][0] + mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
-        T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
+        T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
         quat_traits<R>::template write_element<0>(r)=s*t;
         quat_traits<R>::template write_element<1>(r)=(mat[2][1]-mat[1][2])*s;
         quat_traits<R>::template write_element<2>(r)=(mat[0][2]-mat[2][0])*s;
@@ -10556,7 +10554,7 @@ convert_to( A const & a )
     else if( mat[0][0]>mat[1][1] && mat[0][0]>mat[2][2] )
         {
         T t = mat[0][0] - mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
-        T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
+        T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
         quat_traits<R>::template write_element<0>(r)=(mat[2][1]-mat[1][2])*s;
         quat_traits<R>::template write_element<1>(r)=s*t;
         quat_traits<R>::template write_element<2>(r)=(mat[1][0]+mat[0][1])*s;
@@ -10565,7 +10563,7 @@ convert_to( A const & a )
     else if( mat[1][1]>mat[2][2] )
         {
         T t = - mat[0][0] + mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
-        T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
+        T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
         quat_traits<R>::template write_element<0>(r)=(mat[0][2]-mat[2][0])*s;
         quat_traits<R>::template write_element<1>(r)=(mat[1][0]+mat[0][1])*s;
         quat_traits<R>::template write_element<2>(r)=s*t;
@@ -10574,7 +10572,7 @@ convert_to( A const & a )
     else
         {
         T t = - mat[0][0] - mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
-        T s = (scalar_traits<T>::value(1)/sqrt<T>(t))/2;
+        T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
         quat_traits<R>::template write_element<0>(r)=(mat[1][0]-mat[0][1])*s;
         quat_traits<R>::template write_element<1>(r)=(mat[0][2]+mat[2][0])*s;
         quat_traits<R>::template write_element<2>(r)=(mat[2][1]+mat[1][2])*s;
@@ -10881,7 +10879,7 @@ mag( A const & a )
     T y=quat_traits<A>::template read_element<1>(a);
     T z=quat_traits<A>::template read_element<2>(a);
     T w=quat_traits<A>::template read_element<3>(a);
-    return sqrt<T>(x*x+y*y+z*z+w*w);
+    return sqrt(x*x+y*y+z*z+w*w);
     }
 
 template <class A,class B>
@@ -11039,7 +11037,7 @@ normalized( A const & a )
     T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
     if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     typedef typename deduce_quat<A>::type R;
     R r;
     quat_traits<R>::template write_element<0>(r)=a0*rm;
@@ -11064,7 +11062,7 @@ normalize( A & a )
     T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
     if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     quat_traits<A>::template write_element<0>(a)*=rm;
     quat_traits<A>::template write_element<1>(a)*=rm;
     quat_traits<A>::template write_element<2>(a)*=rm;
@@ -11115,10 +11113,10 @@ slerp( A const & a, B const & b, C t )
     TR sc=one;
     if( dp < one )
         {
-        TR const theta = acos<TR>(dp);
-        TR const invsintheta = one/sin<TR>(theta);
-        TR const scale = sin<TR>(theta*(one-t)) * invsintheta;
-        TR const invscale = sin<TR>(theta*t) * invsintheta * sc;
+        TR const theta = acos(dp);
+        TR const invsintheta = one/sin(theta);
+        TR const scale = sin(theta*(one-t)) * invsintheta;
+        TR const invscale = sin(theta*t) * invsintheta * sc;
         return a*scale + b*invscale;
         }
     else
@@ -11314,10 +11312,10 @@ qvm_detail
             scalar_type const m2=x*x+y*y+z*z;
             if( m2==scalar_traits<scalar_type>::value(0) )
                 BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-            scalar_type const rm=scalar_traits<scalar_type>::value(1)/sqrt<scalar_type>(m2);
+            scalar_type const rm=scalar_traits<scalar_type>::value(1)/sqrt(m2);
             angle/=2;
-            scalar_type const s=sin<Angle>(angle);
-            a[0] = cos<Angle>(angle);
+            scalar_type const s=sin(angle);
+            a[0] = cos(angle);
             a[1] = rm*x*s;
             a[2] = rm*y*s;
             a[3] = rm*z*s;
@@ -11444,7 +11442,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle/2);
+            return sin(angle/2);
             }
         };
 
@@ -11458,7 +11456,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle/2);
+            return cos(angle/2);
             }
         };
     }
@@ -11576,7 +11574,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle/2);
+            return sin(angle/2);
             }
         };
 
@@ -11590,7 +11588,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle/2);
+            return cos(angle/2);
             }
         };
     }
@@ -11708,7 +11706,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return sin<T>(angle/2);
+            return sin(angle/2);
             }
         };
 
@@ -11722,7 +11720,7 @@ qvm_detail
         T
         get( T const & angle )
             {
-            return cos<T>(angle/2);
+            return cos(angle/2);
             }
         };
     }
@@ -11805,13 +11803,13 @@ axis_angle( A const & a, B & b )
         T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
         if( m2==scalar_traits<T>::value(0) )
             BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-        T const s=sqrt<T>(m2);
+        T const s=sqrt(m2);
         a0/=s;
         a1/=s;
         a2/=s;
         a3/=s;
         }
-    if( T s=sqrt<T>(1-a0*a0) )
+    if( T s=sqrt(1-a0*a0) )
         {
         vec_traits<B>::template write_element<0>(b) = a1/s;
         vec_traits<B>::template write_element<1>(b) = a2/s;
@@ -12793,7 +12791,7 @@ mag( A const & a )
     T const a0=vec_traits<A>::template read_element<0>(a);
     T const a1=vec_traits<A>::template read_element<1>(a);
     T const m2=a0*a0+a1*a1;
-    T const mag=sqrt<T>(m2);
+    T const mag=sqrt(m2);
     return mag;
     }
 
@@ -12864,7 +12862,7 @@ normalized( A const & a )
     T const m2=a0*a0+a1*a1;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     typedef typename deduce_vec<A>::type R;
     R r;
     vec_traits<R>::template write_element<0>(r)=a0*rm;
@@ -12891,7 +12889,7 @@ normalize( A & a )
     T const m2=a0*a0+a1*a1;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     vec_traits<A>::template write_element<0>(a)*=rm;
     vec_traits<A>::template write_element<1>(a)*=rm;
     }
@@ -13429,7 +13427,7 @@ mag( A const & a )
     T const a1=vec_traits<A>::template read_element<1>(a);
     T const a2=vec_traits<A>::template read_element<2>(a);
     T const m2=a0*a0+a1*a1+a2*a2;
-    T const mag=sqrt<T>(m2);
+    T const mag=sqrt(m2);
     return mag;
     }
 
@@ -13502,7 +13500,7 @@ normalized( A const & a )
     T const m2=a0*a0+a1*a1+a2*a2;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     typedef typename deduce_vec<A>::type R;
     R r;
     vec_traits<R>::template write_element<0>(r)=a0*rm;
@@ -13531,7 +13529,7 @@ normalize( A & a )
     T const m2=a0*a0+a1*a1+a2*a2;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     vec_traits<A>::template write_element<0>(a)*=rm;
     vec_traits<A>::template write_element<1>(a)*=rm;
     vec_traits<A>::template write_element<2>(a)*=rm;
@@ -14086,7 +14084,7 @@ mag( A const & a )
     T const a2=vec_traits<A>::template read_element<2>(a);
     T const a3=vec_traits<A>::template read_element<3>(a);
     T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
-    T const mag=sqrt<T>(m2);
+    T const mag=sqrt(m2);
     return mag;
     }
 
@@ -14161,7 +14159,7 @@ normalized( A const & a )
     T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     typedef typename deduce_vec<A>::type R;
     R r;
     vec_traits<R>::template write_element<0>(r)=a0*rm;
@@ -14192,7 +14190,7 @@ normalize( A & a )
     T const m2=a0*a0+a1*a1+a2*a2+a3*a3;
     if( m2==scalar_traits<typename vec_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T const rm=scalar_traits<T>::value(1)/sqrt<T>(m2);
+    T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     vec_traits<A>::template write_element<0>(a)*=rm;
     vec_traits<A>::template write_element<1>(a)*=rm;
     vec_traits<A>::template write_element<2>(a)*=rm;
@@ -14739,7 +14737,7 @@ mag( A const & a )
         T x=vec_traits<A>::read_element_idx(i,a);
         m+=x*x;
         }
-    return sqrt<T>(m);
+    return sqrt(m);
     }
 
 namespace
@@ -14950,7 +14948,7 @@ normalized( A const & a )
         }
     if( m==scalar_traits<T>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T rm=scalar_traits<T>::value(1)/sqrt<T>(m);
+    T rm=scalar_traits<T>::value(1)/sqrt(m);
     typedef typename deduce_vec<A>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
@@ -14975,7 +14973,7 @@ normalize( A & a )
         }
     if( m==scalar_traits<T>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
-    T rm=scalar_traits<T>::value(1)/sqrt<T>(m);
+    T rm=scalar_traits<T>::value(1)/sqrt(m);
     for( int i=0; i!=vec_traits<A>::dim; ++i )
         vec_traits<A>::write_element_idx(i,a)*=rm;
     }
