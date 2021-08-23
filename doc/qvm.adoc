@@ -59,9 +59,9 @@ There are three distribution channels:
 
 * QVM is included in official https://www.boost.org/[Boost] releases.
 * The source code is hosted on https://github.com/boostorg/qvm[GitHub].
-* For maximum portability, the library is also available in single-header format, in two variants (direct download links):
-** link:qvm.hpp[qvm.hpp]: single header containing the complete QVM source, including the complete set of <<swizzling,swizzling>> overloads.
-** link:qvm_lite.hpp[qvm_lite.hpp]: single header containing everything except for the swizzling overloads.
+* For maximum portability, the latest release of the library is also available in single-header format, in two variants (direct download links):
+** link:https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp[qvm.hpp]: single header containing the complete QVM source, including the complete set of <<swizzling,swizzling>> overloads.
+** link:https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp[qvm_lite.hpp]: single header containing everything except for the swizzling overloads.
 
 NOTE: QVM does not depend on Boost or other libraries.
 
