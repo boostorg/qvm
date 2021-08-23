@@ -4,7 +4,7 @@
     "authors": [
         "Emil Dotchevski"
     ],
-    "description": "Generic {CPP} library for working with Quaternions Vectors and Matrices.",
+    "description": "Generic C++ library for working with Quaternions Vectors and Matrices.",
     "documentation": "index.html",
     "category": [
 		"Generic",
