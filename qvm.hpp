@@ -1,7 +1,7 @@
 // QVM single header distribution. Do not edit.
 
-// Generated from https://github.com/boostorg/qvm on August 23, 2021,
-// Git hash 3fe24a09d4a17d9c830abe5c687de535c114581a.
+// Generated from https://github.com/boostorg/qvm on August 24, 2021,
+// Git hash ff6cd98ef7b77cfb49e979e12e53fa05bb076ede.
 
 // Latest versions:
 //      https://boostorg.github.io/qvm/qvm.hpp
