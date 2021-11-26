@@ -18,7 +18,7 @@ struct
 scalar_traits
     {
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     Scalar
     value( int v )
         {

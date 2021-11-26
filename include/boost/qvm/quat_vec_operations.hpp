@@ -14,7 +14,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value &&
     is_vec<B>::value && vec_traits<B>::dim==3,

@@ -23,7 +23,7 @@ quat_traits_defaults
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( quat_type const & x )
         {

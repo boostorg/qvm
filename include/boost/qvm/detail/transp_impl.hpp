@@ -26,7 +26,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         transposed_ &
         operator=( T const & x )
             {
@@ -35,7 +35,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -56,7 +56,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -69,7 +69,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -81,7 +81,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -93,7 +93,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {

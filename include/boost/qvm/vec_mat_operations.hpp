@@ -24,7 +24,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_vec<B>::value &&
     mat_traits<A>::cols==vec_traits<B>::dim &&
@@ -57,7 +57,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_mat<B>::value &&
     vec_traits<A>::dim==mat_traits<B>::rows &&
@@ -81,7 +81,7 @@ operator*( A const & a, B const & b )
 ////////////////////////////////////////////////
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 &&
     vec_traits<B>::dim==3,
@@ -115,7 +115,7 @@ transform_point( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 &&
     vec_traits<B>::dim==3,

@@ -23,7 +23,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits<A>::scalar_type &
         write_element_idx( int r, int c, A & a )
             {
@@ -39,7 +39,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         typename mat_traits<A>::scalar_type &
         write_element_idx( int, int, A & a )
             {
@@ -60,7 +60,7 @@ mat_traits_defaults
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( mat_type const & x )
         {
@@ -68,7 +68,7 @@ mat_traits_defaults
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int r, int c, mat_type const & x )
         {
@@ -78,7 +78,7 @@ mat_traits_defaults
     protected:
 
     static
-    BOOST_QVM_INLINE_TRIVIAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
     scalar_type &
     write_element_idx( int r, int c, mat_type & m )
         {

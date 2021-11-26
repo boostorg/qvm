@@ -31,7 +31,7 @@ vec_traits<T[Dim]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -42,7 +42,7 @@ vec_traits<T[Dim]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -52,7 +52,7 @@ vec_traits<T[Dim]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -62,7 +62,7 @@ vec_traits<T[Dim]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {

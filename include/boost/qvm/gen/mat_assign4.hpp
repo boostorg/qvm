@@ -15,7 +15,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -62,7 +62,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -97,7 +97,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,

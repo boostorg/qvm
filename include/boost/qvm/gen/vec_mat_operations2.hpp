@@ -17,7 +17,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 &&
     vec_traits<B>::dim==2,
@@ -61,7 +61,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<B>::rows==2 && mat_traits<B>::cols==2 &&
     vec_traits<A>::dim==2,

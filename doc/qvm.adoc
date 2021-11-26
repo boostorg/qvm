@@ -11,7 +11,7 @@ endif::[]
 ifndef::backend-pdf[]
 = QVM pass:[<div style="z-index: 3; bottom:-9px; right:4px; position:fixed"><input width="32" height="32" type="image" alt="Skin" src="./skin.png" onclick="this.blur();switch_style();return false;"/></div>]
 endif::[]
-Quaternion / Vector / Matrix Library written in {CPP}03 | Emil Dotchevski
+Quaternion / Vector / Matrix Library written in C++03 | Emil Dotchevski
 ifndef::backend-pdf[]
 :toc: left
 :toclevels: 3

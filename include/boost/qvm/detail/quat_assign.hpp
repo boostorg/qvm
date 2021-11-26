@@ -13,7 +13,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     A &>::type

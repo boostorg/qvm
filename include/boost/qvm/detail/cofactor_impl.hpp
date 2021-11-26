@@ -16,7 +16,7 @@ namespace
 qvm_detail
     {
     template <class A>
-    BOOST_QVM_INLINE_OPERATIONS
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
     typename deduce_mat<A>::type
     cofactor_impl( A const & a )
         {

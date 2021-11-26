@@ -53,7 +53,7 @@ quat_traits<T[4]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -64,7 +64,7 @@ quat_traits<T[4]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_quaternion & x )
         {
@@ -74,7 +74,7 @@ quat_traits<T[4]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_quaternion const & x )
         {
@@ -84,7 +84,7 @@ quat_traits<T[4]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_quaternion & x )
         {

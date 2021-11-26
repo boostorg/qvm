@@ -19,7 +19,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_vec2<A,B,4> >::type
@@ -56,7 +56,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_vec2<A,B,4> >::type
@@ -93,7 +93,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     A &>::type
@@ -127,7 +127,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     A &>::type
@@ -161,7 +161,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -197,7 +197,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && vec_traits<B>::dim==4,
     deduce_vec2<A,B,vec_traits<B>::dim> >::type
@@ -233,7 +233,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     A &>::type
@@ -267,7 +267,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -303,7 +303,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     A &>::type
@@ -337,7 +337,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     vec_traits<R>::dim==4 && vec_traits<A>::dim==4,
@@ -373,7 +373,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
 bool>::type
@@ -407,7 +407,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
 bool>::type
@@ -441,7 +441,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4,
     deduce_vec<A> >::type
@@ -477,7 +477,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==4,
     typename vec_traits<A>::scalar_type>::type
@@ -514,7 +514,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==4,
     typename vec_traits<A>::scalar_type>::type
@@ -550,7 +550,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4,
     deduce_vec<A> >::type
@@ -581,7 +581,7 @@ sfinae
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4,
     void>::type
@@ -623,7 +623,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type

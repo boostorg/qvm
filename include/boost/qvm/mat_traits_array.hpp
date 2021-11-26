@@ -33,7 +33,7 @@ mat_traits<T[Rows][Cols]>
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -46,7 +46,7 @@ mat_traits<T[Rows][Cols]>
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -58,7 +58,7 @@ mat_traits<T[Rows][Cols]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -70,7 +70,7 @@ mat_traits<T[Rows][Cols]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {

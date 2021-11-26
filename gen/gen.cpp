@@ -206,7 +206,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_M);
         out.stream() <<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&" NL
             TAB1 "mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<"," NL
@@ -225,7 +225,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_M);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<m<<" && mat_traits<B>::rows=="<<n<<" &&" NL
             TAB1 "mat_traits<A>::cols=="<<n<<" && mat_traits<B>::cols=="<<p<<"," NL
@@ -243,7 +243,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" &&" NL
             TAB1 "vec_traits<B>::dim=="<<c<<"," NL
@@ -261,7 +261,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<B>::rows=="<<r<<" && mat_traits<B>::cols=="<<c<<" &&" NL
             TAB1 "vec_traits<A>::dim=="<<c<<"," NL
@@ -278,7 +278,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<"," NL
             TAB1 "deduce_vec2<A,B,"<<d<<"> >::type" NL
@@ -294,7 +294,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&" NL
             TAB1 "mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<"," NL
@@ -310,7 +310,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<"," NL
             "bool>::type" NL
@@ -326,7 +326,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<B>::rows=="<<r<<" &&" NL
             TAB1 "mat_traits<A>::cols=="<<c<<" && mat_traits<B>::cols=="<<c<<"," NL
@@ -342,7 +342,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<"," NL
             TAB1 "A &>::type" NL
@@ -358,7 +358,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<"," NL
             TAB1 "typename mat_traits<A>::scalar_type>::type" NL
@@ -374,7 +374,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_S);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && vec_traits<B>::dim=="<<d<<"," NL
             TAB1 "deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type" NL
@@ -389,7 +389,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "is_vec<A>::value && vec_traits<A>::dim=="<<d<<"," NL
             TAB1 "typename vec_traits<A>::scalar_type>::type" NL
@@ -406,7 +406,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_M);
         out.stream()<<
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<"," NL
             TAB1 "deduce_mat<A> >::type" NL
@@ -422,7 +422,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<"," NL
             TAB1 "deduce_vec<A> >::type" NL
@@ -437,7 +437,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class R,class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "is_vec<A>::value &&" NL
             TAB1 "vec_traits<R>::dim=="<<d<<" && vec_traits<A>::dim=="<<d<<"," NL
@@ -455,7 +455,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_M);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" && is_scalar<B>::value," NL
             TAB1 "deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type" NL
@@ -472,7 +472,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_M);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "is_scalar<A>::value && mat_traits<B>::rows=="<<r<<" && mat_traits<B>::cols=="<<c<<"," NL
             TAB1 "deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type" NL
@@ -488,7 +488,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && is_scalar<B>::value," NL
             TAB1 "deduce_vec2<A,B,vec_traits<A>::dim> >::type" NL
@@ -504,7 +504,7 @@ namespace
         out.require_include(INCLUDE_DEDUCE_V);
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "is_scalar<A>::value && vec_traits<B>::dim=="<<d<<"," NL
             TAB1 "deduce_vec2<A,B,vec_traits<B>::dim> >::type" NL
@@ -520,7 +520,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<r<<" && mat_traits<A>::cols=="<<c<<" && is_scalar<B>::value," NL
             TAB1 "A &>::type" NL
@@ -535,7 +535,7 @@ namespace
         assert(!name.empty());
         out.stream()<<
             "template <class A,class  B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<" && is_scalar<B>::value," NL
             TAB1 "A &>::type" NL
@@ -1188,7 +1188,7 @@ namespace
         std::ostream & g=out.stream();
         g<<
             "template <class R,class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "mat_traits<R>::rows=="<<r<<" && mat_traits<A>::rows=="<<r<<" &&" NL
             TAB1 "mat_traits<R>::cols=="<<c<<" && mat_traits<A>::cols=="<<c<<"," NL
@@ -1209,7 +1209,7 @@ namespace
             g<<
                 NL
                 "template <class R,class A>" NL
-                "BOOST_QVM_INLINE" NL
+                "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE" NL
                 "typename enable_if_c<" NL
                 TAB1 "is_mat<R>::value && is_quat<A>::value &&" NL
                 TAB1 "mat_traits<R>::rows=="<<r<<" && mat_traits<R>::cols=="<<c<<"," NL
@@ -1371,7 +1371,7 @@ namespace
         std::ostream & g=out.stream();
         g<<
             "template <class A,class B>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<d<<" && mat_traits<A>::cols=="<<d<<" && is_scalar<B>::value," NL
             TAB1 "deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type" NL
@@ -1400,7 +1400,7 @@ namespace
             TAB1 "}" NL
             NL
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename lazy_enable_if_c<" NL
             TAB1 "mat_traits<A>::rows=="<<d<<" && mat_traits<A>::cols=="<<d<<"," NL
             TAB1 "deduce_mat<A> >::type" NL
@@ -1514,7 +1514,7 @@ namespace
             TAB1 "}" NL
             NL
             "template <class A>" NL
-            "BOOST_QVM_INLINE_OPERATIONS" NL
+            "BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS" NL
             "typename enable_if_c<" NL
             TAB1 "vec_traits<A>::dim=="<<d<<"," NL
             TAB1 "void>::type" NL

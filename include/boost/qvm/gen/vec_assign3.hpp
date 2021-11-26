@@ -15,7 +15,7 @@
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     A &>::type
