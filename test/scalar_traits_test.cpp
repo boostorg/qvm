@@ -23,7 +23,7 @@ tester<true>
     };
 
 using namespace boost::qvm;
-tester<is_scalar<char>::value> t1;
+tester<!is_scalar<char>::value> t1;
 tester<is_scalar<signed char>::value> t2;
 tester<is_scalar<unsigned char>::value> t3;
 tester<is_scalar<signed short>::value> t4;

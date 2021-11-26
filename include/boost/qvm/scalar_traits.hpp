@@ -26,25 +26,6 @@ scalar_traits
         }
     };
 
-template <class T>
-struct
-is_scalar
-    {
-    static bool const value=false;
-    };
-template <> struct is_scalar<char> { static bool const value=true; };
-template <> struct is_scalar<signed char> { static bool const value=true; };
-template <> struct is_scalar<unsigned char> { static bool const value=true; };
-template <> struct is_scalar<signed short> { static bool const value=true; };
-template <> struct is_scalar<unsigned short> { static bool const value=true; };
-template <> struct is_scalar<signed int> { static bool const value=true; };
-template <> struct is_scalar<unsigned int> { static bool const value=true; };
-template <> struct is_scalar<signed long> { static bool const value=true; };
-template <> struct is_scalar<unsigned long> { static bool const value=true; };
-template <> struct is_scalar<float> { static bool const value=true; };
-template <> struct is_scalar<double> { static bool const value=true; };
-template <> struct is_scalar<long double> { static bool const value=true; };
-
 namespace
 qvm_detail
     {

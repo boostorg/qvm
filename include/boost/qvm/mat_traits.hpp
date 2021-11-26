@@ -6,6 +6,8 @@
 /// Distributed under the Boost Software License, Version 1.0. (See accompanying
 /// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
+#include <boost/qvm/is_scalar.hpp>
+
 namespace boost { namespace qvm {
 
 template <class M>
@@ -21,7 +23,7 @@ template <class T>
 struct
 is_mat
     {
-    static bool const value=mat_traits<T>::rows>0 && mat_traits<T>::cols>0;
+    static bool const value = is_scalar<typename mat_traits<T>::scalar_type>::value && mat_traits<T>::rows>0 && mat_traits<T>::cols>0;
     };
 
 } }

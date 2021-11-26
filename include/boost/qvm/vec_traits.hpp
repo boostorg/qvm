@@ -6,6 +6,8 @@
 #ifndef BOOST_QVM_VEC_TRAITS_HPP_INCLUDED
 #define BOOST_QVM_VEC_TRAITS_HPP_INCLUDED
 
+#include <boost/qvm/is_scalar.hpp>
+
 namespace boost { namespace qvm {
 
 template <class V>
@@ -20,7 +22,7 @@ template <class T>
 struct
 is_vec
     {
-    static bool const value=vec_traits<T>::dim>0;
+    static bool const value = is_scalar<typename vec_traits<T>::scalar_type>::value && vec_traits<T>::dim>0;
     };
 
 } }
