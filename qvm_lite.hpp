@@ -1,7 +1,7 @@
 // QVM single header distribution. Do not edit.
 
-// Generated from https://github.com/boostorg/qvm on August 24, 2021,
-// Git hash 355d79fe3bbe210845be6a71d8c506708f47acbe.
+// Generated from https://github.com/boostorg/qvm on December 10, 2021,
+// Git hash afe965c4edad392d240f21bb5194e1159d8f6d7e.
 
 // Latest versions:
 //      https://boostorg.github.io/qvm/qvm.hpp
@@ -196,23 +196,31 @@ namespace boost { namespace qvm {
 #endif
 
 #ifndef BOOST_QVM_INLINE
-#define BOOST_QVM_INLINE inline
+#   define BOOST_QVM_INLINE inline
 #endif
 
 #ifndef BOOST_QVM_INLINE_TRIVIAL
-#define BOOST_QVM_INLINE_TRIVIAL BOOST_QVM_FORCEINLINE
+#   define BOOST_QVM_INLINE_TRIVIAL BOOST_QVM_FORCEINLINE
 #endif
 
 #ifndef BOOST_QVM_INLINE_CRITICAL
-#define BOOST_QVM_INLINE_CRITICAL BOOST_QVM_FORCEINLINE
+#   define BOOST_QVM_INLINE_CRITICAL BOOST_QVM_FORCEINLINE
 #endif
 
 #ifndef BOOST_QVM_INLINE_OPERATIONS
-#define BOOST_QVM_INLINE_OPERATIONS BOOST_QVM_INLINE
+#   define BOOST_QVM_INLINE_OPERATIONS BOOST_QVM_INLINE
 #endif
 
 #ifndef BOOST_QVM_INLINE_RECURSION
-#define BOOST_QVM_INLINE_RECURSION BOOST_QVM_INLINE_OPERATIONS
+#   define BOOST_QVM_INLINE_RECURSION BOOST_QVM_INLINE_OPERATIONS
+#endif
+
+#ifndef BOOST_QVM_CONSTEXPR
+#   if __cplusplus >= 201703L
+#       define BOOST_QVM_CONSTEXPR constexpr
+#   else
+#       define BOOST_QVM_CONSTEXPR
+#   endif
 #endif
 // <<< #include <boost/qvm/inline.hpp>
 #line 13 "boost/qvm/gen/mat_assign2.hpp"
@@ -220,6 +228,37 @@ namespace boost { namespace qvm {
 #line 1 "boost/qvm/mat_traits.hpp"
 #ifndef BOOST_QVM_TRAITS_HPP_INCLUDED
 #define BOOST_QVM_TRAITS_HPP_INCLUDED
+
+// >>> #include <boost/qvm/is_scalar.hpp>
+#line 1 "boost/qvm/is_scalar.hpp"
+#ifndef BOOST_QVM_IS_SCALAR_HPP_INCLUDED
+#define BOOST_QVM_IS_SCALAR_HPP_INCLUDED
+
+namespace boost { namespace qvm {
+
+template <class T>
+struct
+is_scalar
+    {
+    static bool const value=false;
+    };
+template <> struct is_scalar<signed char> { static bool const value=true; };
+template <> struct is_scalar<unsigned char> { static bool const value=true; };
+template <> struct is_scalar<signed short> { static bool const value=true; };
+template <> struct is_scalar<unsigned short> { static bool const value=true; };
+template <> struct is_scalar<signed int> { static bool const value=true; };
+template <> struct is_scalar<unsigned int> { static bool const value=true; };
+template <> struct is_scalar<signed long> { static bool const value=true; };
+template <> struct is_scalar<unsigned long> { static bool const value=true; };
+template <> struct is_scalar<float> { static bool const value=true; };
+template <> struct is_scalar<double> { static bool const value=true; };
+template <> struct is_scalar<long double> { static bool const value=true; };
+
+} }
+
+#endif
+// <<< #include <boost/qvm/is_scalar.hpp>
+#line 10 "boost/qvm/mat_traits.hpp"
 
 namespace boost { namespace qvm {
 
@@ -236,7 +275,7 @@ template <class T>
 struct
 is_mat
     {
-    static bool const value=mat_traits<T>::rows>0 && mat_traits<T>::cols>0;
+    static bool const value = is_scalar<typename mat_traits<T>::scalar_type>::value && mat_traits<T>::rows>0 && mat_traits<T>::cols>0;
     };
 
 } }
@@ -248,7 +287,7 @@ is_mat
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -283,7 +322,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -316,7 +355,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -362,7 +401,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -402,7 +441,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -436,7 +475,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -483,7 +522,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -530,7 +569,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -565,7 +604,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -623,7 +662,7 @@ qvm_detail
         {
         template <class A,class B>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         void
         f( A & a, B const & b )
             {
@@ -639,7 +678,7 @@ qvm_detail
         {
         template <class A,class B>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         void
         f( A &, B const & )
             {
@@ -648,7 +687,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -707,6 +746,7 @@ assign( A & a, B const & b )
 #ifndef BOOST_QVM_QUAT_TRAITS
 #define BOOST_QVM_QUAT_TRAITS
 
+
 namespace boost { namespace qvm {
 
 template <class Q>
@@ -716,29 +756,11 @@ quat_traits
     typedef void scalar_type;
     };
 
-namespace
-is_quaternion_detail
-    {
-    template <class>
-    struct
-    is_void
-        {
-        static bool const value=false;
-        };
-
-    template <>
-    struct
-    is_void<void>
-        {
-        static bool const value=true;
-        };
-    }
-
 template <class T>
 struct
 is_quat
     {
-    static bool const value=!is_quaternion_detail::is_void<typename quat_traits<T>::scalar_type>::value;
+    static bool const value = is_scalar<typename quat_traits<T>::scalar_type>::value;
     };
 
 } }
@@ -751,6 +773,7 @@ is_quat
 
 #ifndef BOOST_QVM_VEC_TRAITS_HPP_INCLUDED
 #define BOOST_QVM_VEC_TRAITS_HPP_INCLUDED
+
 
 namespace boost { namespace qvm {
 
@@ -766,7 +789,7 @@ template <class T>
 struct
 is_vec
     {
-    static bool const value=vec_traits<T>::dim>0;
+    static bool const value = is_scalar<typename vec_traits<T>::scalar_type>::value && vec_traits<T>::dim>0;
     };
 
 } }
@@ -782,32 +805,13 @@ struct
 scalar_traits
     {
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     Scalar
     value( int v )
         {
         return Scalar(v);
         }
     };
-
-template <class T>
-struct
-is_scalar
-    {
-    static bool const value=false;
-    };
-template <> struct is_scalar<char> { static bool const value=true; };
-template <> struct is_scalar<signed char> { static bool const value=true; };
-template <> struct is_scalar<unsigned char> { static bool const value=true; };
-template <> struct is_scalar<signed short> { static bool const value=true; };
-template <> struct is_scalar<unsigned short> { static bool const value=true; };
-template <> struct is_scalar<signed int> { static bool const value=true; };
-template <> struct is_scalar<unsigned int> { static bool const value=true; };
-template <> struct is_scalar<signed long> { static bool const value=true; };
-template <> struct is_scalar<unsigned long> { static bool const value=true; };
-template <> struct is_scalar<float> { static bool const value=true; };
-template <> struct is_scalar<double> { static bool const value=true; };
-template <> struct is_scalar<long double> { static bool const value=true; };
 
 namespace
 qvm_detail
@@ -1309,7 +1313,7 @@ namespace boost { namespace qvm {
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1348,7 +1352,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -1385,7 +1389,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1422,7 +1426,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1461,7 +1465,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -1498,7 +1502,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1535,7 +1539,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1570,7 +1574,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -1603,7 +1607,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1636,7 +1640,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1671,7 +1675,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -1704,7 +1708,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -1737,7 +1741,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -1773,7 +1777,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==2 && mat_traits<B>::cols==2,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -1809,7 +1813,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -1843,7 +1847,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==2 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -1877,7 +1881,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -1911,7 +1915,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==1 && mat_traits<B>::cols==2,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -1945,7 +1949,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     A &>::type
@@ -1979,7 +1983,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -2011,7 +2015,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     A &>::type
@@ -2043,7 +2047,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -2079,7 +2083,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==2 && mat_traits<B>::cols==2,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -2115,7 +2119,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -2149,7 +2153,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==2 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -2183,7 +2187,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -2217,7 +2221,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     A &>::type
@@ -2251,7 +2255,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -2283,7 +2287,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     A &>::type
@@ -2315,7 +2319,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==2 && mat_traits<A>::rows==2 &&
     mat_traits<R>::cols==2 && mat_traits<A>::cols==2,
@@ -2351,7 +2355,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==2 && mat_traits<A>::rows==2 &&
     mat_traits<R>::cols==1 && mat_traits<A>::cols==1,
@@ -2385,7 +2389,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==1 && mat_traits<A>::rows==1 &&
     mat_traits<R>::cols==2 && mat_traits<A>::cols==2,
@@ -2419,7 +2423,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2454,7 +2458,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -2487,7 +2491,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2520,7 +2524,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2555,7 +2559,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -2588,7 +2592,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2621,7 +2625,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2,
     deduce_mat<A> >::type
@@ -2657,7 +2661,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==1,
     deduce_mat<A> >::type
@@ -2691,7 +2695,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==2,
     deduce_mat<A> >::type
@@ -2725,7 +2729,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2,
     typename mat_traits<A>::scalar_type>::type
@@ -2761,7 +2765,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -2784,7 +2788,7 @@ inverse( A const & a, B det )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2,
     deduce_mat<A> >::type
@@ -2818,7 +2822,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2867,7 +2871,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -2912,7 +2916,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==1,
@@ -2957,7 +2961,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==2 &&
     mat_traits<A>::cols==2 && mat_traits<B>::cols==2,
@@ -3020,7 +3024,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3064,7 +3068,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -3102,7 +3106,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3140,7 +3144,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3184,7 +3188,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -3222,7 +3226,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3260,7 +3264,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3300,7 +3304,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -3334,7 +3338,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3368,7 +3372,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3408,7 +3412,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -3442,7 +3446,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -3476,7 +3480,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3517,7 +3521,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==3 && mat_traits<B>::cols==3,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -3558,7 +3562,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3593,7 +3597,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==3 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -3628,7 +3632,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3663,7 +3667,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==1 && mat_traits<B>::cols==3,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -3698,7 +3702,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     A &>::type
@@ -3737,7 +3741,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -3770,7 +3774,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     A &>::type
@@ -3803,7 +3807,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3844,7 +3848,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==3 && mat_traits<B>::cols==3,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -3885,7 +3889,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3920,7 +3924,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==3 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -3955,7 +3959,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -3990,7 +3994,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     A &>::type
@@ -4029,7 +4033,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -4062,7 +4066,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     A &>::type
@@ -4095,7 +4099,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==3 && mat_traits<A>::rows==3 &&
     mat_traits<R>::cols==3 && mat_traits<A>::cols==3,
@@ -4116,7 +4120,7 @@ convert_to( A const & a )
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 typename enable_if_c<
     is_mat<R>::value && is_quat<A>::value &&
     mat_traits<R>::rows==3 && mat_traits<R>::cols==3,
@@ -4173,7 +4177,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==3 && mat_traits<A>::rows==3 &&
     mat_traits<R>::cols==1 && mat_traits<A>::cols==1,
@@ -4208,7 +4212,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==1 && mat_traits<A>::rows==1 &&
     mat_traits<R>::cols==3 && mat_traits<A>::cols==3,
@@ -4243,7 +4247,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4283,7 +4287,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -4317,7 +4321,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4351,7 +4355,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4391,7 +4395,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -4425,7 +4429,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4459,7 +4463,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
     deduce_mat<A> >::type
@@ -4500,7 +4504,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==1,
     deduce_mat<A> >::type
@@ -4535,7 +4539,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==3,
     deduce_mat<A> >::type
@@ -4570,7 +4574,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
     typename mat_traits<A>::scalar_type>::type
@@ -4611,7 +4615,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -4644,7 +4648,7 @@ inverse( A const & a, B det )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
     deduce_mat<A> >::type
@@ -4678,7 +4682,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4742,7 +4746,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4802,7 +4806,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==1,
@@ -4854,7 +4858,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==3 &&
     mat_traits<A>::cols==3 && mat_traits<B>::cols==3,
@@ -4924,7 +4928,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -4975,7 +4979,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -5014,7 +5018,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5053,7 +5057,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5104,7 +5108,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -5143,7 +5147,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5182,7 +5186,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5229,7 +5233,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -5264,7 +5268,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5299,7 +5303,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5346,7 +5350,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -5381,7 +5385,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -5416,7 +5420,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5464,7 +5468,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==4 && mat_traits<B>::cols==4,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -5512,7 +5516,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5548,7 +5552,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==4 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -5584,7 +5588,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5620,7 +5624,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==1 && mat_traits<B>::cols==4,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -5656,7 +5660,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     A &>::type
@@ -5702,7 +5706,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -5736,7 +5740,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     A &>::type
@@ -5770,7 +5774,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5818,7 +5822,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==4 && mat_traits<B>::cols==4,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -5866,7 +5870,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5902,7 +5906,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && mat_traits<B>::rows==4 && mat_traits<B>::cols==1,
     deduce_mat2<A,B,mat_traits<B>::rows,mat_traits<B>::cols> >::type
@@ -5938,7 +5942,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -5974,7 +5978,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     A &>::type
@@ -6020,7 +6024,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==1 && is_scalar<B>::value,
     A &>::type
@@ -6054,7 +6058,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     A &>::type
@@ -6088,7 +6092,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==4 && mat_traits<A>::rows==4 &&
     mat_traits<R>::cols==4 && mat_traits<A>::cols==4,
@@ -6116,7 +6120,7 @@ convert_to( A const & a )
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 typename enable_if_c<
     is_mat<R>::value && is_quat<A>::value &&
     mat_traits<R>::rows==4 && mat_traits<R>::cols==4,
@@ -6181,7 +6185,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==4 && mat_traits<A>::rows==4 &&
     mat_traits<R>::cols==1 && mat_traits<A>::cols==1,
@@ -6217,7 +6221,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<R>::rows==1 && mat_traits<A>::rows==1 &&
     mat_traits<R>::cols==4 && mat_traits<A>::cols==4,
@@ -6253,7 +6257,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6300,7 +6304,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -6335,7 +6339,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6370,7 +6374,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6417,7 +6421,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==1 && mat_traits<B>::cols==1,
@@ -6452,7 +6456,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==1 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6487,7 +6491,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4,
     deduce_mat<A> >::type
@@ -6535,7 +6539,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==1,
     deduce_mat<A> >::type
@@ -6571,7 +6575,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<A>::cols==4,
     deduce_mat<A> >::type
@@ -6607,7 +6611,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4,
     typename mat_traits<A>::scalar_type>::type
@@ -6655,7 +6659,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 && is_scalar<B>::value,
     deduce_mat2<A,B,mat_traits<A>::rows,mat_traits<A>::cols> >::type
@@ -6702,7 +6706,7 @@ inverse( A const & a, B det )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4,
     deduce_mat<A> >::type
@@ -6736,7 +6740,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6821,7 +6825,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -6902,7 +6906,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==1,
@@ -6963,7 +6967,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==1 && mat_traits<B>::rows==4 &&
     mat_traits<A>::cols==4 && mat_traits<B>::cols==4,
@@ -7196,7 +7200,7 @@ mat_traits<T[Rows][Cols]>
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -7209,7 +7213,7 @@ mat_traits<T[Rows][Cols]>
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -7221,7 +7225,7 @@ mat_traits<T[Rows][Cols]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -7233,7 +7237,7 @@ mat_traits<T[Rows][Cols]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -7290,7 +7294,7 @@ qvm_detail
         };
 
     template <class M>
-    BOOST_QVM_INLINE_TRIVIAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
     typename mat_traits<M>::scalar_type
     determinant_impl_( M const & a, det_size<2> )
         {
@@ -7300,7 +7304,7 @@ qvm_detail
         }
 
     template <class M,int N>
-    BOOST_QVM_INLINE_RECURSION
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_RECURSION
     typename mat_traits<M>::scalar_type
     determinant_impl_( M const & a, det_size<N> )
         {
@@ -7329,7 +7333,7 @@ qvm_detail
         }
 
     template <class M>
-    BOOST_QVM_INLINE_TRIVIAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
     typename mat_traits<M>::scalar_type
     determinant_impl( M const & a )
         {
@@ -7355,7 +7359,7 @@ namespace
 qvm_detail
     {
     template <class A>
-    BOOST_QVM_INLINE_OPERATIONS
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
     typename deduce_mat<A>::type
     cofactor_impl( A const & a )
         {
@@ -7421,7 +7425,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         transposed_ &
         operator=( T const & x )
             {
@@ -7430,7 +7434,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -7451,7 +7455,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -7464,7 +7468,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -7476,7 +7480,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -7488,7 +7492,7 @@ mat_traits< qvm_detail::transposed_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -7600,7 +7604,7 @@ to_string( A const & a )
     }
 
 template <class A,class B,class Cmp>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -7629,7 +7633,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<R>::value && is_mat<A>::value &&
     mat_traits<R>::rows==mat_traits<A>::rows &&
@@ -7654,7 +7658,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -7679,7 +7683,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -7700,7 +7704,7 @@ mat_traits< qvm_detail::identity_mat_<T,Dim> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & /*x*/ )
         {
@@ -7712,7 +7716,7 @@ mat_traits< qvm_detail::identity_mat_<T,Dim> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & /*x*/ )
         {
@@ -7725,7 +7729,7 @@ mat_traits< qvm_detail::identity_mat_<T,Dim> >
     };
 
 template <class T,int Dim>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::identity_mat_<T,Dim> const &
 identity_mat()
     {
@@ -7733,7 +7737,7 @@ identity_mat()
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols,
@@ -7756,7 +7760,7 @@ qvm_detail
         T const _23;
         T const _32;
 
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         projection_( T _00, T _11, T _22, T _23, T _32 ):
             _00(_00),
             _11(_11),
@@ -7767,7 +7771,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -7782,7 +7786,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( projection_<T> const & )
             {
@@ -7790,11 +7794,11 @@ qvm_detail
             }
         };
 
-    template <> struct projection_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._00; } };
-    template <> struct projection_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._11; } };
-    template <> struct projection_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._22; } };
-    template <> struct projection_get<2,3> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._23; } };
-    template <> struct projection_get<3,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._32; } };
+    template <> struct projection_get<0,0> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._00; } };
+    template <> struct projection_get<1,1> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._11; } };
+    template <> struct projection_get<2,2> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._22; } };
+    template <> struct projection_get<2,3> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._23; } };
+    template <> struct projection_get<3,2> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( projection_<T> const & m ) { return m._32; } };
     }
 
 template <class T>
@@ -7808,7 +7812,7 @@ mat_traits< qvm_detail::projection_<T> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -7822,7 +7826,7 @@ mat_traits< qvm_detail::projection_<T> >
 
 template <class T>
 qvm_detail::projection_<T>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 perspective_lh( T fov_y, T aspect_ratio, T z_near, T z_far )
     {
     T const one = scalar_traits<T>::value(1);
@@ -7836,7 +7840,7 @@ perspective_lh( T fov_y, T aspect_ratio, T z_near, T z_far )
 
 template <class T>
 qvm_detail::projection_<T>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 perspective_rh( T fov_y, T aspect_ratio, T z_near, T z_far )
     {
     T const one = scalar_traits<T>::value(1);
@@ -7862,7 +7866,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         matrix_scalar_cast_ &
         operator=( T const & x )
             {
@@ -7871,7 +7875,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -7895,7 +7899,7 @@ mat_traits< qvm_detail::matrix_scalar_cast_<OriginalType,Scalar> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -7907,7 +7911,7 @@ mat_traits< qvm_detail::matrix_scalar_cast_<OriginalType,Scalar> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -7927,7 +7931,7 @@ deduce_mat<qvm_detail::matrix_scalar_cast_<OriginalType,Scalar>,R,C>
     };
 
 template <class Scalar,class T>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::matrix_scalar_cast_<T,Scalar> const &
 scalar_cast( T const & x, typename qvm_detail::scalar_cast_matrix_filter<is_mat<T>::value>::type=0 )
     {
@@ -7946,7 +7950,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_scalar<B>::value &&
     !qvm_detail::div_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -7971,7 +7975,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_scalar<B>::value &&
     !qvm_detail::div_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -7998,7 +8002,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8026,7 +8030,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8053,7 +8057,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value &&
     !qvm_detail::minus_m_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -8080,7 +8084,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8109,7 +8113,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     is_mat<B>::value &&
@@ -8148,7 +8152,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_scalar<B>::value &&
     !qvm_detail::mul_eq_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -8173,7 +8177,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::cols==mat_traits<B>::rows &&
@@ -8207,7 +8211,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_scalar<B>::value &&
     !qvm_detail::mul_ms_defined<mat_traits<A>::rows,mat_traits<A>::cols>::value,
@@ -8234,7 +8238,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && is_mat<B>::value &&
     !qvm_detail::mul_sm_defined<mat_traits<B>::rows,mat_traits<B>::cols>::value,
@@ -8261,7 +8265,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8289,7 +8293,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8316,7 +8320,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_mat<B>::value &&
     mat_traits<A>::rows==mat_traits<B>::rows &&
@@ -8347,7 +8351,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         mref_ &
         operator=( R const & x )
             {
@@ -8356,7 +8360,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -8377,7 +8381,7 @@ mat_traits< qvm_detail::mref_<M> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -8390,7 +8394,7 @@ mat_traits< qvm_detail::mref_<M> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -8402,7 +8406,7 @@ mat_traits< qvm_detail::mref_<M> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -8414,7 +8418,7 @@ mat_traits< qvm_detail::mref_<M> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -8434,7 +8438,7 @@ deduce_mat<qvm_detail::mref_<M>,R,C>
     };
 
 template <class M>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<M>::value,
     qvm_detail::mref_<M> const &>::type
@@ -8444,7 +8448,7 @@ mref( M const & a )
     }
 
 template <class M>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<M>::value,
     qvm_detail::mref_<M> &>::type
@@ -8467,7 +8471,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -8488,7 +8492,7 @@ mat_traits< qvm_detail::zero_mat_<T,Rows,Cols> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & )
         {
@@ -8500,7 +8504,7 @@ mat_traits< qvm_detail::zero_mat_<T,Rows,Cols> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & )
         {
@@ -8520,7 +8524,7 @@ deduce_mat<qvm_detail::zero_mat_<T,Rows,Cols>,R,C>
     };
 
 template <class T,int Rows,int Cols>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::zero_mat_<T,Rows,Cols> const &
 zero_mat()
     {
@@ -8528,7 +8532,7 @@ zero_mat()
     }
 
 template <class T,int Dim>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::zero_mat_<T,Dim,Dim> const &
 zero_mat()
     {
@@ -8536,7 +8540,7 @@ zero_mat()
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value,
     void>::type
@@ -8555,7 +8559,7 @@ qvm_detail
         typedef S scalar_type;
         scalar_type a[3][3];
 
-        BOOST_QVM_INLINE
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
         rot_mat_(
                 scalar_type a00, scalar_type a01, scalar_type a02,
                 scalar_type a10, scalar_type a11, scalar_type a12,
@@ -8573,7 +8577,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -8588,7 +8592,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const (&)[3][3] )
             {
@@ -8596,15 +8600,15 @@ qvm_detail
             }
         };
 
-    template <> struct rot_m_get<0,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][0]; } };
-    template <> struct rot_m_get<0,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][1]; } };
-    template <> struct rot_m_get<0,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][2]; } };
-    template <> struct rot_m_get<1,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][0]; } };
-    template <> struct rot_m_get<1,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][1]; } };
-    template <> struct rot_m_get<1,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][2]; } };
-    template <> struct rot_m_get<2,0> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][0]; } };
-    template <> struct rot_m_get<2,1> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][1]; } };
-    template <> struct rot_m_get<2,2> { template <class T> static BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][2]; } };
+    template <> struct rot_m_get<0,0> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][0]; } };
+    template <> struct rot_m_get<0,1> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][1]; } };
+    template <> struct rot_m_get<0,2> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[0][2]; } };
+    template <> struct rot_m_get<1,0> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][0]; } };
+    template <> struct rot_m_get<1,1> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][1]; } };
+    template <> struct rot_m_get<1,2> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[1][2]; } };
+    template <> struct rot_m_get<2,0> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][0]; } };
+    template <> struct rot_m_get<2,1> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][1]; } };
+    template <> struct rot_m_get<2,2> { template <class T> static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL T get( T const (&a)[3][3] ) { return a[2][2]; } };
     }
 
 template <class M>
@@ -8621,7 +8625,7 @@ mat_traits< qvm_detail::rot_mat_<D,S> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -8633,7 +8637,7 @@ mat_traits< qvm_detail::rot_mat_<D,S> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -8648,7 +8652,7 @@ mat_traits< qvm_detail::rot_mat_<D,S> >
     };
 
 template <int Dim,class V,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 typename enable_if_c<
     is_vec<V>::value && vec_traits<V>::dim==3,
     qvm_detail::rot_mat_<Dim,Angle> >::type
@@ -8681,7 +8685,7 @@ rot_mat( V const & axis, Angle angle )
     }
 
 template <class A,class B,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8694,7 +8698,7 @@ set_rot( A & a, B const & axis, Angle angle )
     }
 
 template <class A,class B,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8707,7 +8711,7 @@ rotate( A & a, B const & axis, Angle angle )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xzy( Angle x1, Angle z2, Angle y3 )
     {
@@ -8725,7 +8729,7 @@ rot_mat_xzy( Angle x1, Angle z2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8737,7 +8741,7 @@ set_rot_xzy( A & a, Angle x1, Angle z2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8749,7 +8753,7 @@ rotate_xzy( A & a, Angle x1, Angle z2, Angle y3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xyz( Angle x1, Angle y2, Angle z3 )
     {
@@ -8767,7 +8771,7 @@ rot_mat_xyz( Angle x1, Angle y2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8779,7 +8783,7 @@ set_rot_xyz( A & a, Angle x1, Angle y2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8791,7 +8795,7 @@ rotate_xyz( A & a, Angle x1, Angle y2, Angle z3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yxz( Angle y1, Angle x2, Angle z3 )
     {
@@ -8809,7 +8813,7 @@ rot_mat_yxz( Angle y1, Angle x2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8821,7 +8825,7 @@ set_rot_yxz( A & a, Angle y1, Angle x2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8833,7 +8837,7 @@ rotate_yxz( A & a, Angle y1, Angle x2, Angle z3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yzx( Angle y1, Angle z2, Angle x3 )
     {
@@ -8851,7 +8855,7 @@ rot_mat_yzx( Angle y1, Angle z2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8863,7 +8867,7 @@ set_rot_yzx( A & a, Angle y1, Angle z2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8875,7 +8879,7 @@ rotate_yzx( A & a, Angle y1, Angle z2, Angle x3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zyx( Angle z1, Angle y2, Angle x3 )
     {
@@ -8893,7 +8897,7 @@ rot_mat_zyx( Angle z1, Angle y2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8905,7 +8909,7 @@ set_rot_zyx( A & a, Angle z1, Angle y2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8917,7 +8921,7 @@ rotate_zyx( A & a, Angle z1, Angle y2, Angle x3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zxy( Angle z1, Angle x2, Angle y3 )
     {
@@ -8935,7 +8939,7 @@ rot_mat_zxy( Angle z1, Angle x2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8947,7 +8951,7 @@ set_rot_zxy( A & a, Angle z1, Angle x2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8959,7 +8963,7 @@ rotate_zxy( A & a, Angle z1, Angle x2, Angle y3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xzx( Angle x1, Angle z2, Angle x3 )
     {
@@ -8977,7 +8981,7 @@ rot_mat_xzx( Angle x1, Angle z2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -8989,7 +8993,7 @@ set_rot_xzx( A & a, Angle x1, Angle z2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9001,7 +9005,7 @@ rotate_xzx( A & a, Angle x1, Angle z2, Angle x3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_xyx( Angle x1, Angle y2, Angle x3 )
     {
@@ -9019,7 +9023,7 @@ rot_mat_xyx( Angle x1, Angle y2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9031,7 +9035,7 @@ set_rot_xyx( A & a, Angle x1, Angle y2, Angle x3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9043,7 +9047,7 @@ rotate_xyx( A & a, Angle x1, Angle y2, Angle x3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yxy( Angle y1, Angle x2, Angle y3 )
     {
@@ -9061,7 +9065,7 @@ rot_mat_yxy( Angle y1, Angle x2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9073,7 +9077,7 @@ set_rot_yxy( A & a, Angle y1, Angle x2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9085,7 +9089,7 @@ rotate_yxy( A & a, Angle y1, Angle x2, Angle y3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_yzy( Angle y1, Angle z2, Angle y3 )
     {
@@ -9103,7 +9107,7 @@ rot_mat_yzy( Angle y1, Angle z2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9115,7 +9119,7 @@ set_rot_yzy( A & a, Angle y1, Angle z2, Angle y3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9127,7 +9131,7 @@ rotate_yzy( A & a, Angle y1, Angle z2, Angle y3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zyz( Angle z1, Angle y2, Angle z3 )
     {
@@ -9145,7 +9149,7 @@ rot_mat_zyz( Angle z1, Angle y2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9157,7 +9161,7 @@ set_rot_zyz( A & a, Angle z1, Angle y2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9169,7 +9173,7 @@ rotate_zyz( A & a, Angle z1, Angle y2, Angle z3 )
     }
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 qvm_detail::rot_mat_<Dim,Angle>
 rot_mat_zxz( Angle z1, Angle x2, Angle z3 )
     {
@@ -9187,7 +9191,7 @@ rot_mat_zxz( Angle z1, Angle x2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9199,7 +9203,7 @@ set_rot_zxz( A & a, Angle z1, Angle x2, Angle z3 )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9217,13 +9221,13 @@ qvm_detail
     struct
     rotx_mat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         rotx_mat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -9244,7 +9248,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -9258,7 +9262,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9272,7 +9276,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9286,7 +9290,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9300,7 +9304,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9320,7 +9324,7 @@ mat_traits< qvm_detail::rotx_mat_<Dim,Angle> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -9332,7 +9336,7 @@ mat_traits< qvm_detail::rotx_mat_<Dim,Angle> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -9374,7 +9378,7 @@ deduce_mat2<qvm_detail::rotx_mat_<Dim,Angle>,qvm_detail::rotx_mat_<Dim,Angle>,Di
     };
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::rotx_mat_<Dim,Angle> const &
 rotx_mat( Angle const & angle )
     {
@@ -9383,7 +9387,7 @@ rotx_mat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=3 &&
@@ -9395,7 +9399,7 @@ set_rotx( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=3 &&
@@ -9413,13 +9417,13 @@ qvm_detail
     struct
     roty_mat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         roty_mat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -9440,7 +9444,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -9454,7 +9458,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9468,7 +9472,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9482,7 +9486,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9496,7 +9500,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9516,7 +9520,7 @@ mat_traits< qvm_detail::roty_mat_<Dim,Angle> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -9528,7 +9532,7 @@ mat_traits< qvm_detail::roty_mat_<Dim,Angle> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -9570,7 +9574,7 @@ deduce_mat2<qvm_detail::roty_mat_<Dim,Angle>,qvm_detail::roty_mat_<Dim,Angle>,Di
     };
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::roty_mat_<Dim,Angle> const &
 roty_mat( Angle const & angle )
     {
@@ -9579,7 +9583,7 @@ roty_mat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=2 &&
@@ -9591,7 +9595,7 @@ set_roty( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=3 &&
@@ -9609,13 +9613,13 @@ qvm_detail
     struct
     rotz_mat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         rotz_mat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -9636,7 +9640,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -9650,7 +9654,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9664,7 +9668,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9678,7 +9682,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9692,7 +9696,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -9712,7 +9716,7 @@ mat_traits< qvm_detail::rotz_mat_<Dim,Angle> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -9724,7 +9728,7 @@ mat_traits< qvm_detail::rotz_mat_<Dim,Angle> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -9766,7 +9770,7 @@ deduce_mat2<qvm_detail::rotz_mat_<Dim,Angle>,qvm_detail::rotz_mat_<Dim,Angle>,R,
     };
 
 template <int Dim,class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::rotz_mat_<Dim,Angle> const &
 rotz_mat( Angle const & angle )
     {
@@ -9775,7 +9779,7 @@ rotz_mat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=2 &&
@@ -9787,7 +9791,7 @@ set_rotz( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows>=2 &&
@@ -9810,7 +9814,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename lazy_enable_if_c<
     is_mat<A>::value && is_scalar<B>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9827,7 +9831,7 @@ inverse( A const & a, B det )
     }
 
 template <class A>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename lazy_enable_if_c<
     is_mat<A>::value &&
     mat_traits<A>::rows==mat_traits<A>::cols &&
@@ -9890,7 +9894,7 @@ sfinae
 namespace boost { namespace qvm {
 
 template <int R,int C,class M>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<M>::value,
     typename mat_traits<M>::scalar_type>::type
@@ -9904,7 +9908,7 @@ A( M const & a )
     }
 
 template <int R,int C,class M>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_mat<M>::value,
     typename mat_traits<M>::scalar_type &>::type
@@ -9917,207 +9921,207 @@ A( M & a )
     return mat_traits<M>::template write_element<R,C>(a);
     }
 
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A00( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A01( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A02( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A03( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A04( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A05( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A06( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A07( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A08( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A09( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A10( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A11( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A12( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A13( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A14( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A15( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A16( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A17( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A18( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A19( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A20( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A21( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A22( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A23( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A24( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A25( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A26( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A27( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A28( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A29( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A30( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A31( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A32( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A33( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A34( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A35( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A36( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A37( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A38( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A39( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A40( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A41( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A42( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A43( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A44( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A45( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A46( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A47( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A48( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A49( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A50( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A51( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A52( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A53( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A54( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A55( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A56( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A57( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A58( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A59( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A60( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A61( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A62( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A63( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A64( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A65( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A66( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A67( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A68( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A69( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A70( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A71( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A72( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A73( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A74( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A75( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A76( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A77( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A78( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A79( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A80( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A81( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A82( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A83( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A84( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A85( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A86( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A87( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A88( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A89( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A90( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A91( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A92( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A93( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A94( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A95( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A96( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A97( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A98( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A99( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A00( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A01( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A02( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A03( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A04( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A05( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A06( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A07( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A08( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A09( M const & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<0,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A10( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A11( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A12( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A13( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A14( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A15( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A16( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A17( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A18( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A19( M const & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<1,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A20( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A21( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A22( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A23( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A24( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A25( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A26( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A27( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A28( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A29( M const & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<2,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A30( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A31( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A32( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A33( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A34( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A35( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A36( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A37( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A38( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A39( M const & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<3,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A40( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A41( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A42( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A43( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A44( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A45( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A46( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A47( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A48( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A49( M const & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<4,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A50( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A51( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A52( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A53( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A54( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A55( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A56( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A57( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A58( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A59( M const & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<5,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A60( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A61( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A62( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A63( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A64( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A65( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A66( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A67( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A68( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A69( M const & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<6,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A70( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A71( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A72( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A73( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A74( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A75( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A76( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A77( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A78( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A79( M const & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<7,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A80( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A81( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A82( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A83( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A84( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A85( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A86( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A87( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A88( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A89( M const & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<8,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A90( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A91( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A92( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A93( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A94( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A95( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A96( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A97( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A98( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type>::type A99( M const & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template read_element<9,9>(a); }
 
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A00( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A01( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A02( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A03( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A04( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A05( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A06( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A07( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A08( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A09( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A10( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A11( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A12( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A13( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A14( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A15( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A16( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A17( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A18( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A19( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A20( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A21( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A22( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A23( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A24( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A25( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A26( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A27( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A28( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A29( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A30( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A31( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A32( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A33( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A34( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A35( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A36( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A37( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A38( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A39( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A40( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A41( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A42( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A43( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A44( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A45( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A46( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A47( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A48( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A49( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A50( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A51( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A52( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A53( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A54( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A55( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A56( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A57( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A58( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A59( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A60( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A61( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A62( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A63( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A64( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A65( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A66( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A67( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A68( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A69( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A70( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A71( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A72( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A73( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A74( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A75( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A76( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A77( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A78( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A79( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A80( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A81( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A82( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A83( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A84( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A85( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A86( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A87( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A88( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A89( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,9>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A90( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,0>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A91( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,1>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A92( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,2>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A93( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,3>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A94( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,4>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A95( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,5>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A96( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,6>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A97( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,7>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A98( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,8>(a); }
-template <class M> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A99( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A00( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A01( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A02( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A03( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A04( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A05( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A06( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A07( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A08( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A09( M & a ) { BOOST_QVM_STATIC_ASSERT(0<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<0,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A10( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A11( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A12( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A13( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A14( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A15( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A16( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A17( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A18( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A19( M & a ) { BOOST_QVM_STATIC_ASSERT(1<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<1,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A20( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A21( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A22( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A23( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A24( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A25( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A26( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A27( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A28( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A29( M & a ) { BOOST_QVM_STATIC_ASSERT(2<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<2,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A30( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A31( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A32( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A33( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A34( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A35( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A36( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A37( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A38( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A39( M & a ) { BOOST_QVM_STATIC_ASSERT(3<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<3,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A40( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A41( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A42( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A43( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A44( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A45( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A46( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A47( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A48( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A49( M & a ) { BOOST_QVM_STATIC_ASSERT(4<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<4,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A50( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A51( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A52( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A53( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A54( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A55( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A56( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A57( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A58( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A59( M & a ) { BOOST_QVM_STATIC_ASSERT(5<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<5,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A60( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A61( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A62( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A63( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A64( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A65( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A66( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A67( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A68( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A69( M & a ) { BOOST_QVM_STATIC_ASSERT(6<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<6,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A70( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A71( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A72( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A73( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A74( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A75( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A76( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A77( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A78( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A79( M & a ) { BOOST_QVM_STATIC_ASSERT(7<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<7,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A80( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A81( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A82( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A83( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A84( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A85( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A86( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A87( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A88( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A89( M & a ) { BOOST_QVM_STATIC_ASSERT(8<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<8,9>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A90( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 0<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,0>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A91( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 1<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,1>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A92( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 2<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,2>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A93( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 3<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,3>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A94( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 4<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,4>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A95( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 5<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,5>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A96( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 6<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,6>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A97( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 7<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,7>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A98( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 8<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,8>(a); }
+template <class M> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_mat<M>::value,typename mat_traits<M>::scalar_type &>::type A99( M & a ) { BOOST_QVM_STATIC_ASSERT(9<mat_traits<M>::rows && 9<mat_traits<M>::cols); return mat_traits<M>::template write_element<9,9>(a); }
 
 } }
 
@@ -10144,7 +10148,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits<A>::scalar_type &
         write_element_idx( int r, int c, A & a )
             {
@@ -10160,7 +10164,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         typename mat_traits<A>::scalar_type &
         write_element_idx( int, int, A & a )
             {
@@ -10181,7 +10185,7 @@ mat_traits_defaults
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( mat_type const & x )
         {
@@ -10189,7 +10193,7 @@ mat_traits_defaults
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int r, int c, mat_type const & x )
         {
@@ -10199,7 +10203,7 @@ mat_traits_defaults
     protected:
 
     static
-    BOOST_QVM_INLINE_TRIVIAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
     scalar_type &
     write_element_idx( int r, int c, mat_type & m )
         {
@@ -10248,7 +10252,7 @@ mat_traits< mat<T,Rows,Cols> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -10261,7 +10265,7 @@ mat_traits< mat<T,Rows,Cols> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -10273,7 +10277,7 @@ mat_traits< mat<T,Rows,Cols> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -10285,7 +10289,7 @@ mat_traits< mat<T,Rows,Cols> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -10316,7 +10320,7 @@ mat_traits< mat<T,Rows,Cols> >
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     A &>::type
@@ -10474,7 +10478,7 @@ to_string( A const & a )
     }
 
 template <class A,class B,class Cmp>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     bool>::type
@@ -10496,8 +10500,8 @@ cmp( A const & a, B const & b, Cmp f )
         quat_traits<B>::template read_element<2>(b),
         quat_traits<B>::template read_element<3>(b)
         };
-    int i;
-    for( i=0; i!=4; ++i )
+    int i=0;
+    for( ; i!=4; ++i )
         if( !f(q1[i],q2[i]) )
             break;
     if( i==4 )
@@ -10509,7 +10513,7 @@ cmp( A const & a, B const & b, Cmp f )
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_quat<R>::value && is_quat<A>::value,
     R>::type
@@ -10524,7 +10528,7 @@ convert_to( A const & a )
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<R>::value && is_mat<A>::value &&
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3,
@@ -10579,7 +10583,7 @@ convert_to( A const & a )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value,
     deduce_quat<A> >::type
@@ -10608,7 +10612,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -10627,7 +10631,7 @@ quat_traits< qvm_detail::identity_quat_<T> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -10637,7 +10641,7 @@ quat_traits< qvm_detail::identity_quat_<T> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_quaternion const & x )
         {
@@ -10662,7 +10666,7 @@ deduce_quat2< qvm_detail::identity_quat_<T>, qvm_detail::identity_quat_<T> >
     };
 
 template <class T>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::identity_quat_<T> const &
 identity_quat()
     {
@@ -10670,7 +10674,7 @@ identity_quat()
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -10699,7 +10703,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         quaternion_scalar_cast_ &
         operator=( T const & x )
             {
@@ -10708,7 +10712,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -10730,7 +10734,7 @@ quat_traits< qvm_detail::quaternion_scalar_cast_<OriginalType,Scalar> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -10740,7 +10744,7 @@ quat_traits< qvm_detail::quaternion_scalar_cast_<OriginalType,Scalar> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_quaternion const & x )
         {
@@ -10751,7 +10755,7 @@ quat_traits< qvm_detail::quaternion_scalar_cast_<OriginalType,Scalar> >
     };
 
 template <class Scalar,class T>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::quaternion_scalar_cast_<T,Scalar> const &
 scalar_cast( T const & x, typename qvm_detail::scalar_cast_quaternion_filter<is_quat<T>::value>::type=0 )
     {
@@ -10759,7 +10763,7 @@ scalar_cast( T const & x, typename qvm_detail::scalar_cast_quaternion_filter<is_
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_scalar<B>::value,
     A &>::type
@@ -10773,7 +10777,7 @@ operator/=( A & a, B b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_scalar<B>::value,
     deduce_quat2<A,B> >::type
@@ -10789,7 +10793,7 @@ operator/( A const & a, B b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     deduce_scalar<typename quat_traits<A>::scalar_type,typename quat_traits<B>::scalar_type> >::type
@@ -10811,7 +10815,7 @@ dot( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     bool>::type
@@ -10825,7 +10829,7 @@ operator==( A const & a, B const & b )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value,
     deduce_quat<A> >::type
@@ -10850,7 +10854,7 @@ inverse( A const & a )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     typename quat_traits<A>::scalar_type>::type
@@ -10865,7 +10869,7 @@ mag_sqr( A const & a )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     typename quat_traits<A>::scalar_type>::type
@@ -10880,7 +10884,7 @@ mag( A const & a )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if<
     msvc_parse_bug_workaround::quats<A,B>,
     A &>::type
@@ -10894,7 +10898,7 @@ operator-=( A & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     deduce_quat2<A,B> >::type
@@ -10910,7 +10914,7 @@ operator-( A const & a, B const & b )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value,
     deduce_quat<A> >::type
@@ -10926,7 +10930,7 @@ operator-( A const & a )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if<
     msvc_parse_bug_workaround::quats<A,B>,
     A &>::type
@@ -10950,7 +10954,7 @@ operator*=( A & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_scalar<B>::value,
     A &>::type
@@ -10964,7 +10968,7 @@ operator*=( A & a, B b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     deduce_quat2<A,B> >::type
@@ -10990,7 +10994,7 @@ operator*( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c2<
     is_quat<A>::value && is_scalar<B>::value,
     deduce_quat2<A,B> >::type
@@ -11006,7 +11010,7 @@ operator*( A const & a, B b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     bool>::type
@@ -11020,7 +11024,7 @@ operator!=( A const & a, B const & b )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value,
     deduce_quat<A> >::type
@@ -11045,7 +11049,7 @@ normalized( A const & a )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11067,7 +11071,7 @@ normalize( A & a )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if<
     msvc_parse_bug_workaround::quats<A,B>,
     A &>::type
@@ -11081,7 +11085,7 @@ operator+=( A & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value,
     deduce_quat2<A,B> >::type
@@ -11097,7 +11101,7 @@ operator+( A const & a, B const & b )
     }
 
 template <class A,class B,class C>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value && is_scalar<C>::value,
     deduce_quat2<A,B> >::type
@@ -11134,7 +11138,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         qref_ &
         operator=( R const & x )
             {
@@ -11143,7 +11147,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11165,7 +11169,7 @@ quat_traits< qvm_detail::qref_<Q> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11176,7 +11180,7 @@ quat_traits< qvm_detail::qref_<Q> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_quaternion & x )
         {
@@ -11194,7 +11198,7 @@ deduce_quat< qvm_detail::qref_<Q> >
     };
 
 template <class Q>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_quat<Q>::value,
     qvm_detail::qref_<Q> const &>::type
@@ -11204,7 +11208,7 @@ qref( Q const & a )
     }
 
 template <class Q>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_quat<Q>::value,
     qvm_detail::qref_<Q> &>::type
@@ -11227,7 +11231,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11246,7 +11250,7 @@ quat_traits< qvm_detail::zero_q_<T> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11256,7 +11260,7 @@ quat_traits< qvm_detail::zero_q_<T> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_quaternion const & x )
         {
@@ -11267,7 +11271,7 @@ quat_traits< qvm_detail::zero_q_<T> >
     };
 
 template <class T>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::zero_q_<T> const &
 zero_quat()
     {
@@ -11275,7 +11279,7 @@ zero_quat()
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11300,7 +11304,7 @@ qvm_detail
         scalar_type a[4];
 
         template <class Angle>
-        BOOST_QVM_INLINE
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
         rot_quat_( V const & axis, Angle angle )
             {
             scalar_type const x=vec_traits<V>::template read_element<0>(axis);
@@ -11319,7 +11323,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11338,7 +11342,7 @@ quat_traits< qvm_detail::rot_quat_<V> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11356,7 +11360,7 @@ deduce_quat< qvm_detail::rot_quat_<V> >
     };
 
 template <class A,class Angle>
-BOOST_QVM_INLINE
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==3,
     qvm_detail::rot_quat_<A> >::type
@@ -11366,7 +11370,7 @@ rot_quat( A const & axis, Angle angle )
     }
 
 template <class A,class B,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value &&
     is_vec<B>::value && vec_traits<B>::dim==3,
@@ -11377,7 +11381,7 @@ set_rot( A & a, B const & axis, Angle angle )
     }
 
 template <class A,class B,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value &&
     is_vec<B>::value && vec_traits<B>::dim==3,
@@ -11394,13 +11398,13 @@ qvm_detail
     struct
     rotx_quat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         rotx_quat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11421,7 +11425,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -11435,7 +11439,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11449,7 +11453,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11467,7 +11471,7 @@ quat_traits< qvm_detail::rotx_quat_<Angle> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11492,7 +11496,7 @@ deduce_quat2< qvm_detail::rotx_quat_<Angle>, qvm_detail::rotx_quat_<Angle> >
     };
 
 template <class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::rotx_quat_<Angle> const &
 rotx_quat( Angle const & angle )
     {
@@ -11500,7 +11504,7 @@ rotx_quat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11510,7 +11514,7 @@ set_rotx( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11526,13 +11530,13 @@ qvm_detail
     struct
     roty_quat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         roty_quat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11553,7 +11557,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -11567,7 +11571,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11581,7 +11585,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11599,7 +11603,7 @@ quat_traits< qvm_detail::roty_quat_<Angle> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11624,7 +11628,7 @@ deduce_quat2< qvm_detail::roty_quat_<Angle>, qvm_detail::roty_quat_<Angle> >
     };
 
 template <class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::roty_quat_<Angle> const &
 roty_quat( Angle const & angle )
     {
@@ -11632,7 +11636,7 @@ roty_quat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11642,7 +11646,7 @@ set_roty( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11658,13 +11662,13 @@ qvm_detail
     struct
     rotz_quat_
         {
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         rotz_quat_()
             {
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -11685,7 +11689,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & )
             {
@@ -11699,7 +11703,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11713,7 +11717,7 @@ qvm_detail
         {
         template <class T>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         T
         get( T const & angle )
             {
@@ -11731,7 +11735,7 @@ quat_traits< qvm_detail::rotz_quat_<Angle> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -11756,7 +11760,7 @@ deduce_quat2< qvm_detail::rotz_quat_<Angle>, qvm_detail::rotz_quat_<Angle> >
     };
 
 template <class Angle>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::rotz_quat_<Angle> const &
 rotz_quat( Angle const & angle )
     {
@@ -11764,7 +11768,7 @@ rotz_quat( Angle const & angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11774,7 +11778,7 @@ set_rotz( A & a, Angle angle )
     }
 
 template <class A,class Angle>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value,
     void>::type
@@ -11784,7 +11788,7 @@ rotate_z( A & a, Angle angle )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_quat<A>::value && is_vec<B>::value && vec_traits<B>::dim==3,
     typename quat_traits<A>::scalar_type>::type
@@ -11911,7 +11915,7 @@ vec_traits< qvm_detail::quat_v_<Q> >
     static int const dim=3;
 
     template <int I>
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     static
     scalar_type
     read_element( this_vector const & q )
@@ -11922,7 +11926,7 @@ vec_traits< qvm_detail::quat_v_<Q> >
         }
 
     template <int I>
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     static
     scalar_type &
     write_element( this_vector & q )
@@ -11948,7 +11952,7 @@ deduce_vec2<qvm_detail::quat_v_<Q>,qvm_detail::quat_v_<Q>,D>
     };
 
 template <class Q>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_quat<Q>::value,
     qvm_detail::quat_v_<Q> const &>::type
@@ -11958,7 +11962,7 @@ V( Q const & a )
     }
 
 template <class Q>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_quat<Q>::value,
     qvm_detail::quat_v_<Q> &>::type
@@ -11967,15 +11971,15 @@ V( Q & a )
     return reinterpret_cast<qvm_detail::quat_v_<Q> &>(a);
     }
 
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type S( Q const & a ) { return quat_traits<Q>::template read_element<0>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type X( Q const & a ) { return quat_traits<Q>::template read_element<1>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Y( Q const & a ) { return quat_traits<Q>::template read_element<2>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Z( Q const & a ) { return quat_traits<Q>::template read_element<3>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type S( Q const & a ) { return quat_traits<Q>::template read_element<0>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type X( Q const & a ) { return quat_traits<Q>::template read_element<1>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Y( Q const & a ) { return quat_traits<Q>::template read_element<2>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type>::type Z( Q const & a ) { return quat_traits<Q>::template read_element<3>(a); }
 
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type S( Q & a ) { return quat_traits<Q>::template write_element<0>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type X( Q & a ) { return quat_traits<Q>::template write_element<1>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Y( Q & a ) { return quat_traits<Q>::template write_element<2>(a); }
-template <class Q> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Z( Q & a ) { return quat_traits<Q>::template write_element<3>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type S( Q & a ) { return quat_traits<Q>::template write_element<0>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type X( Q & a ) { return quat_traits<Q>::template write_element<1>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Y( Q & a ) { return quat_traits<Q>::template write_element<2>(a); }
+template <class Q> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_quat<Q>::value,typename quat_traits<Q>::scalar_type &>::type Z( Q & a ) { return quat_traits<Q>::template write_element<3>(a); }
 
 } }
 
@@ -12002,7 +12006,7 @@ quat_traits_defaults
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( quat_type const & x )
         {
@@ -12049,7 +12053,7 @@ quat_traits< quat<T> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_quaternion const & x )
         {
@@ -12060,7 +12064,7 @@ quat_traits< quat<T> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_quaternion & x )
         {
@@ -12084,7 +12088,7 @@ quat_traits< quat<T> >
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value &&
     is_vec<B>::value && vec_traits<B>::dim==3,
@@ -12147,7 +12151,7 @@ sfinae
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     A &>::type
@@ -12192,7 +12196,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     A &>::type
@@ -12238,7 +12242,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     A &>::type
@@ -12346,7 +12350,7 @@ assign( A & a, B const & b )
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     deduce_vec2<A,B,2> >::type
@@ -12381,7 +12385,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     deduce_vec2<A,B,2> >::type
@@ -12416,7 +12420,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     A &>::type
@@ -12448,7 +12452,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     A &>::type
@@ -12480,7 +12484,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -12514,7 +12518,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && vec_traits<B>::dim==2,
     deduce_vec2<A,B,vec_traits<B>::dim> >::type
@@ -12548,7 +12552,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && is_scalar<B>::value,
     A &>::type
@@ -12580,7 +12584,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -12614,7 +12618,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && is_scalar<B>::value,
     A &>::type
@@ -12646,7 +12650,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     vec_traits<R>::dim==2 && vec_traits<A>::dim==2,
@@ -12680,7 +12684,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
 bool>::type
@@ -12712,7 +12716,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
 bool>::type
@@ -12744,7 +12748,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2,
     deduce_vec<A> >::type
@@ -12778,7 +12782,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==2,
     typename vec_traits<A>::scalar_type>::type
@@ -12813,7 +12817,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==2,
     typename vec_traits<A>::scalar_type>::type
@@ -12847,7 +12851,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2,
     deduce_vec<A> >::type
@@ -12874,7 +12878,7 @@ sfinae
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==2,
     void>::type
@@ -12912,7 +12916,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
     deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type
@@ -12968,7 +12972,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     deduce_vec2<A,B,3> >::type
@@ -13004,7 +13008,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     deduce_vec2<A,B,3> >::type
@@ -13040,7 +13044,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     A &>::type
@@ -13073,7 +13077,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     A &>::type
@@ -13106,7 +13110,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -13141,7 +13145,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && vec_traits<B>::dim==3,
     deduce_vec2<A,B,vec_traits<B>::dim> >::type
@@ -13176,7 +13180,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && is_scalar<B>::value,
     A &>::type
@@ -13209,7 +13213,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -13244,7 +13248,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && is_scalar<B>::value,
     A &>::type
@@ -13277,7 +13281,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     vec_traits<R>::dim==3 && vec_traits<A>::dim==3,
@@ -13312,7 +13316,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
 bool>::type
@@ -13345,7 +13349,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
 bool>::type
@@ -13378,7 +13382,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3,
     deduce_vec<A> >::type
@@ -13413,7 +13417,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==3,
     typename vec_traits<A>::scalar_type>::type
@@ -13449,7 +13453,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==3,
     typename vec_traits<A>::scalar_type>::type
@@ -13484,7 +13488,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3,
     deduce_vec<A> >::type
@@ -13513,7 +13517,7 @@ sfinae
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==3,
     void>::type
@@ -13553,7 +13557,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
     deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type
@@ -13611,7 +13615,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_vec2<A,B,4> >::type
@@ -13648,7 +13652,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_vec2<A,B,4> >::type
@@ -13685,7 +13689,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     A &>::type
@@ -13719,7 +13723,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     A &>::type
@@ -13753,7 +13757,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -13789,7 +13793,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && vec_traits<B>::dim==4,
     deduce_vec2<A,B,vec_traits<B>::dim> >::type
@@ -13825,7 +13829,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     A &>::type
@@ -13859,7 +13863,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     deduce_vec2<A,B,vec_traits<A>::dim> >::type
@@ -13895,7 +13899,7 @@ qvm_detail
     }
 
 template <class A,class  B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && is_scalar<B>::value,
     A &>::type
@@ -13929,7 +13933,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     vec_traits<R>::dim==4 && vec_traits<A>::dim==4,
@@ -13965,7 +13969,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
 bool>::type
@@ -13999,7 +14003,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
 bool>::type
@@ -14033,7 +14037,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4,
     deduce_vec<A> >::type
@@ -14069,7 +14073,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==4,
     typename vec_traits<A>::scalar_type>::type
@@ -14106,7 +14110,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && vec_traits<A>::dim==4,
     typename vec_traits<A>::scalar_type>::type
@@ -14142,7 +14146,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4,
     deduce_vec<A> >::type
@@ -14173,7 +14177,7 @@ sfinae
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     vec_traits<A>::dim==4,
     void>::type
@@ -14215,7 +14219,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     vec_traits<A>::dim==4 && vec_traits<B>::dim==4,
     deduce_scalar<typename vec_traits<A>::scalar_type,typename vec_traits<B>::scalar_type> >::type
@@ -14348,7 +14352,7 @@ qvm_detail
     }
 
 template <class R,class A>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_vec<R>::value && is_vec<A>::value &&
     vec_traits<R>::dim==vec_traits<A>::dim &&
@@ -14361,7 +14365,7 @@ convert_to( A const & a )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==3 && vec_traits<B>::dim==3,
@@ -14383,7 +14387,7 @@ cross( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==2 && vec_traits<B>::dim==2,
@@ -14398,7 +14402,7 @@ cross( A const & a, B const & b )
     }
 
 template <class A,class B,class Cmp>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim,
@@ -14427,7 +14431,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -14450,7 +14454,7 @@ vec_traits< qvm_detail::zero_vec_<T,Dim> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & )
         {
@@ -14460,7 +14464,7 @@ vec_traits< qvm_detail::zero_vec_<T,Dim> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & )
         {
@@ -14478,7 +14482,7 @@ deduce_vec<qvm_detail::zero_vec_<T,Dim>,D>
     };
 
 template <class T,int Dim>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::zero_vec_<T,Dim> const &
 zero_vec()
     {
@@ -14486,7 +14490,7 @@ zero_vec()
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value,
     void>::type
@@ -14509,7 +14513,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         vector_scalar_cast_ &
         operator=( T const & x )
             {
@@ -14518,7 +14522,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -14541,7 +14545,7 @@ vec_traits< qvm_detail::vector_scalar_cast_<OriginalType,Scalar> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -14551,7 +14555,7 @@ vec_traits< qvm_detail::vector_scalar_cast_<OriginalType,Scalar> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -14569,7 +14573,7 @@ deduce_vec<qvm_detail::vector_scalar_cast_<OriginalType,Scalar>,D>
     };
 
 template <class Scalar,class T>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 qvm_detail::vector_scalar_cast_<T,Scalar> const &
 scalar_cast( T const & x, typename qvm_detail::scalar_cast_vector_filter<is_vec<T>::value>::type=0 )
     {
@@ -14588,7 +14592,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_scalar<B>::value &&
     !qvm_detail::div_eq_vs_defined<vec_traits<A>::dim>::value,
@@ -14612,7 +14616,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_scalar<B>::value &&
     !qvm_detail::div_vs_defined<vec_traits<A>::dim>::value,
@@ -14638,7 +14642,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -14665,7 +14669,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -14691,7 +14695,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     !qvm_detail::mag_sqr_v_defined<vec_traits<A>::dim>::value,
@@ -14720,7 +14724,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     !qvm_detail::mag_v_defined<vec_traits<A>::dim>::value,
@@ -14749,7 +14753,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -14774,7 +14778,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value &&
     !qvm_detail::minus_v_defined<vec_traits<A>::dim>::value,
@@ -14800,7 +14804,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -14827,7 +14831,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_scalar<B>::value &&
     !qvm_detail::mul_eq_vs_defined<vec_traits<A>::dim>::value,
@@ -14851,7 +14855,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_scalar<B>::value &&
     !qvm_detail::mul_vs_defined<vec_traits<A>::dim>::value,
@@ -14877,7 +14881,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_scalar<A>::value && is_vec<B>::value &&
     !qvm_detail::mul_sv_defined<vec_traits<B>::dim>::value,
@@ -14903,7 +14907,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -14929,7 +14933,7 @@ qvm_detail
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value &&
     !qvm_detail::normalize_v_defined<vec_traits<A>::dim>::value,
@@ -14954,7 +14958,7 @@ normalized( A const & a )
     }
 
 template <class A>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value &&
     !qvm_detail::normalize_v_defined<vec_traits<A>::dim>::value,
@@ -14987,7 +14991,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -15012,7 +15016,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_vec<B>::value &&
     vec_traits<A>::dim==vec_traits<B>::dim &&
@@ -15041,7 +15045,7 @@ qvm_detail
         public:
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         vref_ &
         operator=( R const & x )
             {
@@ -15050,7 +15054,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -15070,7 +15074,7 @@ vec_traits< qvm_detail::vref_<V> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -15081,7 +15085,7 @@ vec_traits< qvm_detail::vref_<V> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -15091,7 +15095,7 @@ vec_traits< qvm_detail::vref_<V> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -15101,7 +15105,7 @@ vec_traits< qvm_detail::vref_<V> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -15119,7 +15123,7 @@ deduce_vec<qvm_detail::vref_<V>,D>
     };
 
 template <class V>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_vec<V>::value,
     qvm_detail::vref_<V> const &>::type
@@ -15129,7 +15133,7 @@ vref( V const & a )
     }
 
 template <class V>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_vec<V>::value,
     qvm_detail::vref_<V> &>::type
@@ -15180,7 +15184,7 @@ sfinae
 namespace boost { namespace qvm {
 
 template <int I,class V>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_vec<V>::value,
     typename vec_traits<V>::scalar_type>::type
@@ -15192,7 +15196,7 @@ A( V const & a )
     }
 
 template <int I,class V>
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 typename enable_if_c<
     is_vec<V>::value,
     typename vec_traits<V>::scalar_type &>::type
@@ -15203,37 +15207,37 @@ A( V & a )
     return vec_traits<V>::template write_element<I>(a);
     }
 
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type X( V const & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Y( V const & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Z( V const & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type W( V const & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type X( V const & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Y( V const & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type Z( V const & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type W( V const & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
 
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type X( V & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Y( V & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Z( V & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type W( V & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type X( V & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Y( V & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type Z( V & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type W( V & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
 
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A0( V const & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A1( V const & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A2( V const & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A3( V const & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A4( V const & a ) { BOOST_QVM_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template read_element<4>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A5( V const & a ) { BOOST_QVM_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template read_element<5>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A6( V const & a ) { BOOST_QVM_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template read_element<6>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A7( V const & a ) { BOOST_QVM_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template read_element<7>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A8( V const & a ) { BOOST_QVM_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template read_element<8>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A9( V const & a ) { BOOST_QVM_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template read_element<9>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A0( V const & a ) { BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template read_element<0>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A1( V const & a ) { BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template read_element<1>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A2( V const & a ) { BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template read_element<2>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A3( V const & a ) { BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template read_element<3>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A4( V const & a ) { BOOST_QVM_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template read_element<4>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A5( V const & a ) { BOOST_QVM_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template read_element<5>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A6( V const & a ) { BOOST_QVM_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template read_element<6>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A7( V const & a ) { BOOST_QVM_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template read_element<7>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A8( V const & a ) { BOOST_QVM_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template read_element<8>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type>::type A9( V const & a ) { BOOST_QVM_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template read_element<9>(a); }
 
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A0( V & a ) {  BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A1( V & a ) {  BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A2( V & a ) {  BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A3( V & a ) {  BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A4( V & a ) {  BOOST_QVM_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template write_element<4>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A5( V & a ) {  BOOST_QVM_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template write_element<5>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A6( V & a ) {  BOOST_QVM_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template write_element<6>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A7( V & a ) {  BOOST_QVM_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template write_element<7>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A8( V & a ) {  BOOST_QVM_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template write_element<8>(a); }
-template <class V> BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A9( V & a ) {  BOOST_QVM_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template write_element<9>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A0( V & a ) {  BOOST_QVM_STATIC_ASSERT(0<vec_traits<V>::dim); return vec_traits<V>::template write_element<0>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A1( V & a ) {  BOOST_QVM_STATIC_ASSERT(1<vec_traits<V>::dim); return vec_traits<V>::template write_element<1>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A2( V & a ) {  BOOST_QVM_STATIC_ASSERT(2<vec_traits<V>::dim); return vec_traits<V>::template write_element<2>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A3( V & a ) {  BOOST_QVM_STATIC_ASSERT(3<vec_traits<V>::dim); return vec_traits<V>::template write_element<3>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A4( V & a ) {  BOOST_QVM_STATIC_ASSERT(4<vec_traits<V>::dim); return vec_traits<V>::template write_element<4>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A5( V & a ) {  BOOST_QVM_STATIC_ASSERT(5<vec_traits<V>::dim); return vec_traits<V>::template write_element<5>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A6( V & a ) {  BOOST_QVM_STATIC_ASSERT(6<vec_traits<V>::dim); return vec_traits<V>::template write_element<6>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A7( V & a ) {  BOOST_QVM_STATIC_ASSERT(7<vec_traits<V>::dim); return vec_traits<V>::template write_element<7>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A8( V & a ) {  BOOST_QVM_STATIC_ASSERT(8<vec_traits<V>::dim); return vec_traits<V>::template write_element<8>(a); }
+template <class V> BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL typename enable_if_c<is_vec<V>::value,typename vec_traits<V>::scalar_type &>::type A9( V & a ) {  BOOST_QVM_STATIC_ASSERT(9<vec_traits<V>::dim); return vec_traits<V>::template write_element<9>(a); }
 
 } }
 
@@ -15260,7 +15264,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename vec_traits<A>::scalar_type &
         write_element_idx( int i, A & a )
             {
@@ -15276,7 +15280,7 @@ qvm_detail
         {
         template <class A>
         static
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         typename vec_traits<A>::scalar_type &
         write_element_idx( int, A & a )
             {
@@ -15296,7 +15300,7 @@ vec_traits_defaults
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( vec_type const & x )
         {
@@ -15304,7 +15308,7 @@ vec_traits_defaults
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, vec_type const & x )
         {
@@ -15314,7 +15318,7 @@ vec_traits_defaults
     protected:
 
     static
-    BOOST_QVM_INLINE_TRIVIAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
     scalar_type &
     write_element_idx( int i, vec_type & m )
         {
@@ -15353,7 +15357,7 @@ vec_traits<T[Dim]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -15364,7 +15368,7 @@ vec_traits<T[Dim]>
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -15374,7 +15378,7 @@ vec_traits<T[Dim]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -15384,7 +15388,7 @@ vec_traits<T[Dim]>
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -15461,7 +15465,7 @@ vec_traits< vec<T,Dim> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -15472,7 +15476,7 @@ vec_traits< vec<T,Dim> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -15482,7 +15486,7 @@ vec_traits< vec<T,Dim> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -15492,7 +15496,7 @@ vec_traits< vec<T,Dim> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -15524,7 +15528,7 @@ vec_traits< vec<T,Dim> >
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==2 && mat_traits<A>::cols==2 &&
     vec_traits<B>::dim==2,
@@ -15568,7 +15572,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<B>::rows==2 && mat_traits<B>::cols==2 &&
     vec_traits<A>::dim==2,
@@ -15630,7 +15634,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==3 && mat_traits<A>::cols==3 &&
     vec_traits<B>::dim==3,
@@ -15681,7 +15685,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<B>::rows==3 && mat_traits<B>::cols==3 &&
     vec_traits<A>::dim==3,
@@ -15750,7 +15754,7 @@ qvm_detail
 namespace boost { namespace qvm {
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 &&
     vec_traits<B>::dim==4,
@@ -15810,7 +15814,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<B>::rows==4 && mat_traits<B>::cols==4 &&
     vec_traits<A>::dim==4,
@@ -15891,7 +15895,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_mat<A>::value && is_vec<B>::value &&
     mat_traits<A>::cols==vec_traits<B>::dim &&
@@ -15924,7 +15928,7 @@ qvm_detail
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_vec<A>::value && is_mat<B>::value &&
     vec_traits<A>::dim==mat_traits<B>::rows &&
@@ -15946,7 +15950,7 @@ operator*( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 &&
     vec_traits<B>::dim==3,
@@ -15980,7 +15984,7 @@ transform_point( A const & a, B const & b )
     }
 
 template <class A,class B>
-BOOST_QVM_INLINE_OPERATIONS
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     mat_traits<A>::rows==4 && mat_traits<A>::cols==4 &&
     vec_traits<B>::dim==3,
@@ -16057,7 +16061,7 @@ struct vec_register_read
 
     template<int I, int N> struct read_element_idx_detail
     {
-        static BOOST_QVM_INLINE_CRITICAL ScalarType impl(int const i, VecType const& v)
+        static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL ScalarType impl(int const i, VecType const& v)
         {
             return I == i
                 ? read_element<I>(v)
@@ -16067,14 +16071,14 @@ struct vec_register_read
 
     template<int N> struct read_element_idx_detail<N, N>
     {
-        static BOOST_QVM_INLINE_TRIVIAL ScalarType impl(int, VecType const& v)
+        static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL ScalarType impl(int, VecType const& v)
         {
             BOOST_QVM_ASSERT(0);
             return read_element<0>(v);
         }
     };
 
-    static BOOST_QVM_INLINE_CRITICAL ScalarType read_element_idx(int const i, VecType const& v)
+    static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL ScalarType read_element_idx(int const i, VecType const& v)
     {
         return read_element_idx_detail<0, Dim>::impl(i, v);
     }
@@ -16087,7 +16091,7 @@ struct vec_register_write
 
     template<int I, int N> struct write_element_idx_detail
     {
-        static BOOST_QVM_INLINE_CRITICAL ScalarType& impl(int const i, VecType& v)
+        static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL ScalarType& impl(int const i, VecType& v)
         {
             return I == i
                 ? write_element<I>(v)
@@ -16097,14 +16101,14 @@ struct vec_register_write
 
     template<int N> struct write_element_idx_detail<N, N>
     {
-        static BOOST_QVM_INLINE_TRIVIAL ScalarType& impl(int, VecType& v)
+        static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL ScalarType& impl(int, VecType& v)
         {
             BOOST_QVM_ASSERT(0);
             return write_element<0>(v);
         }
     };
 
-    static BOOST_QVM_INLINE_CRITICAL ScalarType& write_element_idx(int const i, VecType& v)
+    static BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL ScalarType& write_element_idx(int const i, VecType& v)
     {
         return write_element_idx_detail<0, Dim>::impl(i, v);
     }
@@ -16116,7 +16120,7 @@ struct vec_register_write
 namespace boost { namespace qvm {namespace qvm_detail{ \
 template<> \
 template<> \
-BOOST_QVM_INLINE_CRITICAL \
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL \
 ScalarType vec_register_read<VecType, ScalarType, Dim>::read_element<I>(VecType const& v) \
 { \
     BOOST_QVM_STATIC_ASSERT(I>=0); \
@@ -16129,7 +16133,7 @@ ScalarType vec_register_read<VecType, ScalarType, Dim>::read_element<I>(VecType 
 namespace boost { namespace qvm {namespace qvm_detail{ \
 template<> \
 template<> \
-BOOST_QVM_INLINE_CRITICAL \
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL \
 ScalarType& vec_register_write<VecType, ScalarType, Dim>::write_element<I>(VecType& v) \
 { \
     BOOST_QVM_STATIC_ASSERT(I>=0); \
@@ -16266,7 +16270,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         col_mat_ &
         operator=( T const & x )
             {
@@ -16275,7 +16279,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16296,7 +16300,7 @@ mat_traits< qvm_detail::col_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -16308,7 +16312,7 @@ mat_traits< qvm_detail::col_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -16319,7 +16323,7 @@ mat_traits< qvm_detail::col_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -16330,7 +16334,7 @@ mat_traits< qvm_detail::col_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -16359,7 +16363,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::col_mat_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 col_mat( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::col_mat_<A> const &>(a);
@@ -16369,7 +16373,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::col_mat_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 col_mat( A & a )
     {
     return reinterpret_cast<typename qvm_detail::col_mat_<A> &>(a);
@@ -16389,7 +16393,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         row_mat_ &
         operator=( T const & x )
             {
@@ -16398,7 +16402,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16419,7 +16423,7 @@ mat_traits< qvm_detail::row_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -16431,7 +16435,7 @@ mat_traits< qvm_detail::row_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -16442,7 +16446,7 @@ mat_traits< qvm_detail::row_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -16453,7 +16457,7 @@ mat_traits< qvm_detail::row_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -16482,7 +16486,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::row_mat_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 row_mat( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::row_mat_<A> const &>(a);
@@ -16492,7 +16496,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::row_mat_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 row_mat( A & a )
     {
     return reinterpret_cast<typename qvm_detail::row_mat_<A> &>(a);
@@ -16512,7 +16516,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         translation_mat_ &
         operator=( T const & x )
             {
@@ -16521,7 +16525,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16538,7 +16542,7 @@ qvm_detail
     read_translation_matat<translation_mat_<OriginalVector>,Row,Col,TransCol>
         {
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits< translation_mat_<OriginalVector> >::scalar_type
         f( translation_mat_<OriginalVector> const & )
             {
@@ -16551,7 +16555,7 @@ qvm_detail
     read_translation_matat<translation_mat_<OriginalVector>,D,D,false>
         {
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits< translation_mat_<OriginalVector> >::scalar_type
         f( translation_mat_<OriginalVector> const & )
             {
@@ -16564,7 +16568,7 @@ qvm_detail
     read_translation_matat<translation_mat_<OriginalVector>,D,D,true>
         {
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits< translation_mat_<OriginalVector> >::scalar_type
         f( translation_mat_<OriginalVector> const & )
             {
@@ -16577,7 +16581,7 @@ qvm_detail
     read_translation_matat<translation_mat_<OriginalVector>,Row,Col,true>
         {
         static
-        BOOST_QVM_INLINE_CRITICAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
         typename mat_traits< translation_mat_<OriginalVector> >::scalar_type
         f( translation_mat_<OriginalVector> const & x )
             {
@@ -16597,7 +16601,7 @@ mat_traits< qvm_detail::translation_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -16610,7 +16614,7 @@ mat_traits< qvm_detail::translation_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -16622,7 +16626,7 @@ mat_traits< qvm_detail::translation_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -16639,7 +16643,7 @@ mat_traits< qvm_detail::translation_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix const & x )
         {
@@ -16669,7 +16673,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::translation_mat_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 translation_mat( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::translation_mat_<A> const &>(a);
@@ -16679,7 +16683,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::translation_mat_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 translation_mat( A & a )
     {
     return reinterpret_cast<typename qvm_detail::translation_mat_<A> &>(a);
@@ -16699,7 +16703,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         diag_mat_ &
         operator=( T const & x )
             {
@@ -16708,7 +16712,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16729,7 +16733,7 @@ mat_traits< qvm_detail::diag_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -16742,7 +16746,7 @@ mat_traits< qvm_detail::diag_mat_<OriginalVector> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -16753,7 +16757,7 @@ mat_traits< qvm_detail::diag_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -16765,7 +16769,7 @@ mat_traits< qvm_detail::diag_mat_<OriginalVector> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -16794,7 +16798,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::diag_mat_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 diag_mat( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::diag_mat_<A> const &>(a);
@@ -16804,7 +16808,7 @@ template <class A>
 typename enable_if_c<
     is_vec<A>::value,
     qvm_detail::diag_mat_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 diag_mat( A & a )
     {
     return reinterpret_cast<typename qvm_detail::diag_mat_<A> &>(a);
@@ -16837,7 +16841,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         col_ &
         operator=( T const & x )
             {
@@ -16846,7 +16850,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16868,7 +16872,7 @@ vec_traits< qvm_detail::col_<Col,OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -16879,7 +16883,7 @@ vec_traits< qvm_detail::col_<Col,OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -16889,7 +16893,7 @@ vec_traits< qvm_detail::col_<Col,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -16899,7 +16903,7 @@ vec_traits< qvm_detail::col_<Col,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -16927,7 +16931,7 @@ template <int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::col_<Col,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 col( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::col_<Col,A> const &>(a);
@@ -16937,7 +16941,7 @@ template <int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::col_<Col,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 col( A & a )
     {
     return reinterpret_cast<typename qvm_detail::col_<Col,A> &>(a);
@@ -16957,7 +16961,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         row_ &
         operator=( T const & x )
             {
@@ -16966,7 +16970,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -16988,7 +16992,7 @@ vec_traits< qvm_detail::row_<Row,OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -16999,7 +17003,7 @@ vec_traits< qvm_detail::row_<Row,OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -17009,7 +17013,7 @@ vec_traits< qvm_detail::row_<Row,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -17019,7 +17023,7 @@ vec_traits< qvm_detail::row_<Row,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -17047,7 +17051,7 @@ template <int Row,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::row_<Row,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 row( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::row_<Row,A> const &>(a);
@@ -17057,7 +17061,7 @@ template <int Row,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::row_<Row,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 row( A & a )
     {
     return reinterpret_cast<typename qvm_detail::row_<Row,A> &>(a);
@@ -17077,7 +17081,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         diag_ &
         operator=( T const & x )
             {
@@ -17086,7 +17090,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17126,7 +17130,7 @@ vec_traits< qvm_detail::diag_<OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -17137,7 +17141,7 @@ vec_traits< qvm_detail::diag_<OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -17147,7 +17151,7 @@ vec_traits< qvm_detail::diag_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -17157,7 +17161,7 @@ vec_traits< qvm_detail::diag_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -17185,7 +17189,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::diag_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 diag( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::diag_<A> const &>(a);
@@ -17195,7 +17199,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::diag_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 diag( A & a )
     {
     return reinterpret_cast<typename qvm_detail::diag_<A> &>(a);
@@ -17221,7 +17225,7 @@ qvm_detail
             }
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         translation_ &
         operator=( T const & x )
             {
@@ -17230,7 +17234,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17252,7 +17256,7 @@ vec_traits< qvm_detail::translation_<OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_vector const & x )
         {
@@ -17263,7 +17267,7 @@ vec_traits< qvm_detail::translation_<OriginalMatrix> >
 
     template <int I>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_vector & x )
         {
@@ -17273,7 +17277,7 @@ vec_traits< qvm_detail::translation_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int i, this_vector const & x )
         {
@@ -17283,7 +17287,7 @@ vec_traits< qvm_detail::translation_<OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int i, this_vector & x )
         {
@@ -17311,7 +17315,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
     qvm_detail::translation_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 translation( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::translation_<A> const &>(a);
@@ -17321,7 +17325,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value && mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3,
     qvm_detail::translation_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 translation( A & a )
     {
     return reinterpret_cast<typename qvm_detail::translation_<A> &>(a);
@@ -17354,7 +17358,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         del_row_ &
         operator=( T const & x )
             {
@@ -17363,7 +17367,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17384,7 +17388,7 @@ mat_traits< qvm_detail::del_row_<I,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17397,7 +17401,7 @@ mat_traits< qvm_detail::del_row_<I,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -17409,7 +17413,7 @@ mat_traits< qvm_detail::del_row_<I,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -17421,7 +17425,7 @@ mat_traits< qvm_detail::del_row_<I,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -17451,7 +17455,7 @@ template <int Row,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_row_<Row,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_row( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::del_row_<Row,A> const &>(a);
@@ -17461,7 +17465,7 @@ template <int Row,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_row_<Row,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_row( A & a )
     {
     return reinterpret_cast<typename qvm_detail::del_row_<Row,A> &>(a);
@@ -17481,7 +17485,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         del_col_ &
         operator=( T const & x )
             {
@@ -17490,7 +17494,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17511,7 +17515,7 @@ mat_traits< qvm_detail::del_col_<J,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17524,7 +17528,7 @@ mat_traits< qvm_detail::del_col_<J,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -17536,7 +17540,7 @@ mat_traits< qvm_detail::del_col_<J,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -17548,7 +17552,7 @@ mat_traits< qvm_detail::del_col_<J,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -17578,7 +17582,7 @@ template <int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_col_<Col,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_col( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::del_col_<Col,A> const &>(a);
@@ -17588,7 +17592,7 @@ template <int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_col_<Col,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_col( A & a )
     {
     return reinterpret_cast<typename qvm_detail::del_col_<Col,A> &>(a);
@@ -17606,7 +17610,7 @@ qvm_detail
 
         public:
 
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         del_row_col_ &
         operator=( del_row_col_ const & x )
             {
@@ -17615,7 +17619,7 @@ qvm_detail
             }
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         del_row_col_ &
         operator=( T const & x )
             {
@@ -17624,7 +17628,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17645,7 +17649,7 @@ mat_traits< qvm_detail::del_row_col_<I,J,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17658,7 +17662,7 @@ mat_traits< qvm_detail::del_row_col_<I,J,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -17670,7 +17674,7 @@ mat_traits< qvm_detail::del_row_col_<I,J,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -17682,7 +17686,7 @@ mat_traits< qvm_detail::del_row_col_<I,J,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -17712,7 +17716,7 @@ template <int Row,int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_row_col_<Row,Col,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_row_col( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::del_row_col_<Row,Col,A> const &>(a);
@@ -17722,7 +17726,7 @@ template <int Row,int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::del_row_col_<Row,Col,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 del_row_col( A & a )
     {
     return reinterpret_cast<typename qvm_detail::del_row_col_<Row,Col,A> &>(a);
@@ -17742,7 +17746,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         neg_row_ &
         operator=( T const & x )
             {
@@ -17751,7 +17755,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17772,7 +17776,7 @@ mat_traits< qvm_detail::neg_row_<I,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17786,7 +17790,7 @@ mat_traits< qvm_detail::neg_row_<I,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -17818,7 +17822,7 @@ template <int Row,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::neg_row_<Row,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 neg_row( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::neg_row_<Row,A> const &>(a);
@@ -17838,7 +17842,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         neg_col_ &
         operator=( T const & x )
             {
@@ -17847,7 +17851,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17868,7 +17872,7 @@ mat_traits< qvm_detail::neg_col_<J,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17882,7 +17886,7 @@ mat_traits< qvm_detail::neg_col_<J,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -17914,7 +17918,7 @@ template <int Col,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::neg_col_<Col,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 neg_col( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::neg_col_<Col,A> const &>(a);
@@ -17924,7 +17928,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::transposed_<A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 transposed( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::transposed_<A> const &>(a);
@@ -17934,7 +17938,7 @@ template <class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::transposed_<A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 transposed( A & a )
     {
     return reinterpret_cast<typename qvm_detail::transposed_<A> &>(a);
@@ -17954,7 +17958,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         swap_rows_ &
         operator=( T const & x )
             {
@@ -17963,7 +17967,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -17984,7 +17988,7 @@ mat_traits< qvm_detail::swap_rows_<R1,R2,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -17997,7 +18001,7 @@ mat_traits< qvm_detail::swap_rows_<R1,R2,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -18009,7 +18013,7 @@ mat_traits< qvm_detail::swap_rows_<R1,R2,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -18021,7 +18025,7 @@ mat_traits< qvm_detail::swap_rows_<R1,R2,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -18051,7 +18055,7 @@ template <int R1,int R2,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::swap_rows_<R1,R2,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 swap_rows( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::swap_rows_<R1,R2,A> const &>(a);
@@ -18061,7 +18065,7 @@ template <int R1,int R2,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::swap_rows_<R1,R2,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 swap_rows( A & a )
     {
     return reinterpret_cast<typename qvm_detail::swap_rows_<R1,R2,A> &>(a);
@@ -18081,7 +18085,7 @@ qvm_detail
         public:
 
         template <class T>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         swap_cols_ &
         operator=( T const & x )
             {
@@ -18090,7 +18094,7 @@ qvm_detail
             }
 
         template <class R>
-        BOOST_QVM_INLINE_TRIVIAL
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
             R r;
@@ -18111,7 +18115,7 @@ mat_traits< qvm_detail::swap_cols_<C1,C2,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element( this_matrix const & x )
         {
@@ -18124,7 +18128,7 @@ mat_traits< qvm_detail::swap_cols_<C1,C2,OriginalMatrix> >
 
     template <int Row,int Col>
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element( this_matrix & x )
         {
@@ -18136,7 +18140,7 @@ mat_traits< qvm_detail::swap_cols_<C1,C2,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
     read_element_idx( int row, int col, this_matrix const & x )
         {
@@ -18148,7 +18152,7 @@ mat_traits< qvm_detail::swap_cols_<C1,C2,OriginalMatrix> >
         }
 
     static
-    BOOST_QVM_INLINE_CRITICAL
+    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type &
     write_element_idx( int row, int col, this_matrix & x )
         {
@@ -18178,7 +18182,7 @@ template <int C1,int C2,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::swap_cols_<C1,C2,A> const &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 swap_cols( A const & a )
     {
     return reinterpret_cast<typename qvm_detail::swap_cols_<C1,C2,A> const &>(a);
@@ -18188,7 +18192,7 @@ template <int C1,int C2,class A>
 typename enable_if_c<
     is_mat<A>::value,
     qvm_detail::swap_cols_<C1,C2,A> &>::type
-BOOST_QVM_INLINE_TRIVIAL
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
 swap_cols( A & a )
     {
     return reinterpret_cast<typename qvm_detail::swap_cols_<C1,C2,A> &>(a);
