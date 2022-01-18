@@ -1,7 +1,6 @@
 """
 
-	Copyright (c) 2018-2021 Emil Dotchevski and Reverge Studios, Inc.
-	Copyright (c) Sorin Fetche
+	Copyright 2018-2022 Emil Dotchevski and Reverge Studios, Inc.
 
 	Distributed under the Boost Software License, Version 1.0. (See accompanying
 	file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -22,31 +21,32 @@ import re
 from datetime import date
 import subprocess
 
-included = []
+included = {}
+total_line_count = 10
 
 def append(input_file_name, input_file, output_file, regex_includes, include_folder):
+	global total_line_count
 	line_count = 1
-	last_line_was_empty = False
 	for line in input_file:
 		line_count += 1
-		this_line_is_empty = (line=='\n')
 		result = regex_includes.search(line)
 		if result:
 			next_input_file_name = result.group("include")
-			if next_input_file_name not in included:
-				included.append(next_input_file_name)
-				print("%s" % next_input_file_name)
+			if next_input_file_name in included:
+				output_file.write("// Expanded at line %d: %s" % (included[next_input_file_name], line))
+				total_line_count += 1
+			else:
+				included[next_input_file_name] = total_line_count
+				print("%s (%d)" % (next_input_file_name, total_line_count))
 				with open(os.path.join(include_folder, next_input_file_name), "r") as next_input_file:
 					output_file.write('// >>> %s#line 1 "%s"\n' % (line, next_input_file_name))
+					total_line_count += 2
 					append(next_input_file_name, next_input_file, output_file, regex_includes, include_folder)
 					output_file.write('// <<< %s#line %d "%s"\n' % (line, line_count, input_file_name))
+					total_line_count += 2
 		else:
-			if '///' in line:
-				continue
-			if this_line_is_empty and last_line_was_empty:
-				continue
 			output_file.write(line)
-		last_line_was_empty = this_line_is_empty
+			total_line_count += 1
 
 def _main():
 	parser = argparse.ArgumentParser(
@@ -57,6 +57,8 @@ def _main():
 		help="Output file. NOTE: It will be overwritten!")
 	parser.add_argument("-p", "--path", action="store", type=str, default=".",
 		help="Include path")
+	parser.add_argument("--hash", action="store", type=str,
+		help="The git hash to print in the output file, e.g. the output of \"git rev-parse HEAD\"")
 	parser.add_argument("prefix", action="store", type=str,
 		help="Non-empty include file prefix (e.g. a/b)")
 	args = parser.parse_args()
@@ -67,17 +69,15 @@ def _main():
 		output_file.write(
 			'// QVM single header distribution. Do not edit.\n'
 			'\n'
-			'// Generated from https://github.com/boostorg/qvm on ' + date.today().strftime("%B %d, %Y") + ',\n'
-			'// Git hash ' + subprocess.check_output(['git', 'rev-parse', 'HEAD']).decode().rstrip() + '.\n'
-			'\n'
+			'// Generated on ' + date.today().strftime("%m/%d/%Y"))
+		if args.hash:
+			output_file.write(
+				' from https://github.com/boostorg/qvm/tree/' + args.hash[0:7])
+		output_file.write(
+			'.\n'
 			'// Latest versions:\n'
-			'//      https://boostorg.github.io/qvm/qvm.hpp\n'
-			'//      https://boostorg.github.io/qvm/qvm_lite.hpp\n'
-			'\n'
-			'// Copyright (c) 2008-2021 Emil Dotchevski and Reverge Studios, Inc.\n'
-			'\n'
-			'// Distributed under the Boost Software License, Version 1.0. (See accompanying\n'
-			'// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)\n'
+			'//      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp\n'
+			'//      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp\n'
 			'\n' )
 		append(args.input, input_file, output_file, regex_includes, args.path)
 
