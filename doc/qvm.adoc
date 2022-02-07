@@ -164,7 +164,7 @@ User-defined quaternion types are similarly introduced to QVM by specializing th
 
 '''
 
-=== C Arrays
+=== C/{CPP} Arrays
 
 In `boost/qvm/quat_traits_array.hpp`, `vec_traits_array.hpp` and `mat_traits_array.hpp`, QVM defines appropriate <<quat_traits,`quat_traits`>>, <<vec_traits,`vec_traits`>> and <<mat_traits,`mat_traits`>> specializations that allow QVM functions to operate directly on plain old C arrays:
 
@@ -189,6 +189,8 @@ The <<vref,`vref`>> and <<mref,`mref`>> function templates can be used to work a
 float v[3] = {0,0,7};
 vref(v) *= 42;
 ----
+
+If {CPP}-11 is available, the same headers define appropriate `quat_traits`, `vec_traits` and `mat_traits` for `std::array` objects.
 
 '''
 
