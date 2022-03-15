@@ -28,7 +28,7 @@
 			},
 			"label": "Build all unit tests and examples (debug)",
 			"type": "shell",
-			"command": "cd ${workspaceRoot}/bld/debug && ninja",
+			"command": "cd ${workspaceRoot}/bld/debug && ninja && cd ${workspaceRoot}/bld/debug_qvm_hpp && ninja && cd ${workspaceRoot}/bld/debug_qvm_lite_hpp && ninja",
 			"problemMatcher": {
 				"base": "$gcc",
 				"fileLocation": [
@@ -44,7 +44,7 @@
 			"dependsOn": [
 				"Generate headers"
 			],
-			"command": "cd ${workspaceRoot}/bld/debug && meson test && cd ${workspaceRoot}/bld/debug_qvm_hpp && meson test && cd ${workspaceRoot}/bld/debug_qvm_lite_hpp && meson test",
+			"command": "cd ${workspaceRoot}/bld/debug && ninja && meson test && cd ${workspaceRoot}/bld/debug_qvm_hpp && ninja && meson test && cd ${workspaceRoot}/bld/debug_qvm_lite_hpp && ninja && meson test",
 			"problemMatcher": {
 				"base": "$gcc",
 				"fileLocation": [
@@ -60,7 +60,7 @@
 			"dependsOn": [
 				"Generate headers"
 			],
-			"command": "cd ${workspaceRoot}/bld/release && meson test && cd ${workspaceRoot}/bld/release_qvm_hpp && meson test && cd ${workspaceRoot}/bld/release_qvm_lite_hpp && meson test",
+			"command": "cd ${workspaceRoot}/bld/release && ninja && meson test && cd ${workspaceRoot}/bld/release_qvm_hpp && ninja && meson test && cd ${workspaceRoot}/bld/release_qvm_lite_hpp && ninja && meson test",
 			"problemMatcher": {
 				"base": "$gcc",
 				"fileLocation": [
@@ -92,7 +92,7 @@
 			},
 			"label": "Test current editor file",
 			"type": "shell",
-			"command": "cd ${workspaceRoot}/bld/debug && meson test ${fileBasenameNoExtension}",
+            "command": "cd ${workspaceRoot}/bld/debug && ninja && { meson test ${fileBasenameNoExtension} || cat ./meson-logs/testlog.txt }",
 			"problemMatcher": {
 				"base": "$gcc",
 				"fileLocation": [

@@ -4863,7 +4863,7 @@ This exception indicates that an operation requires a matrix with non-zero deter
 ==== `INLINE`
 ===== `BOOST_QVM_INLINE`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4875,7 +4875,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions.
+This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/config.hpp>`. A user-defined `BOOST_QVM_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions.
 
 '''
 
@@ -4883,7 +4883,7 @@ This macro is not used directly by QVM, except as the default value of other mac
 ==== `FORCE_INLINE`
 ===== `BOOST_QVM_FORCE_INLINE`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4895,7 +4895,7 @@ namespace boost { namespace qvm {
 } }
 ----
 
-This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/inline.hpp>`. A user-defined `BOOST_QVM_FORCE_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions, to indicate that the compiler must inline the function. Of course, actual inlining may or may not occur.
+This macro is not used directly by QVM, except as the default value of other macros from `<boost/qvm/config.hpp>`. A user-defined `BOOST_QVM_FORCE_INLINE` should expand to a value that is valid substitution of the `inline` keyword in function definitions, to indicate that the compiler must inline the function. Of course, actual inlining may or may not occur.
 
 '''
 
@@ -4903,7 +4903,7 @@ This macro is not used directly by QVM, except as the default value of other mac
 ==== `INLINE_TRIVIAL`
 ===== `BOOST_QVM_INLINE_TRIVIAL`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4923,7 +4923,7 @@ QVM uses `BOOST_QVM_INLINE_TRIVIAL` in definitions of functions that are not cri
 ==== `INLINE_CRITICAL`
 ===== `BOOST_QVM_INLINE_CRITICAL`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4943,7 +4943,7 @@ QVM uses `BOOST_QVM_INLINE_CRITICAL` in definitions of functions that are critic
 ==== `INLINE_OPERATIONS`
 ===== `BOOST_QVM_INLINE_OPERATIONS`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {
@@ -4963,7 +4963,7 @@ QVM uses `BOOST_QVM_INLINE_OPERATIONS` in definitions of functions that implemen
 ==== `INLINE_RECURSION`
 ===== `BOOST_QVM_INLINE_RECURSION`
 
-.#include <boost/qvm/inline.hpp>
+.#include <boost/qvm/config.hpp>
 [source,c++]
 ----
 namespace boost { namespace qvm {

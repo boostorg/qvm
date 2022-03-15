@@ -148,6 +148,7 @@ if option_enable_unit_tests
 		'vec_index_test',
 		'vec_register_test',
 		'vec_traits_array_test',
+		'vec_traits_gnuc_test',
 		'vec_traits_std_array_test',
 		'zero_mat_test',
 		'zero_quat_test',

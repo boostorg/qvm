@@ -3,6 +3,9 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
+#ifndef BOOST_QVM_CONFIG_HPP_INCLUDED
+#define BOOST_QVM_CONFIG_HPP_INCLUDED
+
 #ifndef BOOST_QVM_FORCEINLINE
 #   if defined(_MSC_VER)
 #       define BOOST_QVM_FORCEINLINE __forceinline
@@ -39,4 +42,6 @@
 #   else
 #       define BOOST_QVM_CONSTEXPR
 #   endif
+#endif
+
 #endif

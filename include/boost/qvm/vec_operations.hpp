@@ -126,15 +126,15 @@ cross( A const & a, B const & b )
     {
     typedef typename deduce_vec2<A,B,3>::type R;
     R r;
-    vec_traits<R>::template write_element<0>(r)=
+    write_vec_element<0>(r,
         vec_traits<A>::template read_element<1>(a)*vec_traits<B>::template read_element<2>(b)-
-        vec_traits<A>::template read_element<2>(a)*vec_traits<B>::template read_element<1>(b);
-    vec_traits<R>::template write_element<1>(r)=
+        vec_traits<A>::template read_element<2>(a)*vec_traits<B>::template read_element<1>(b));
+    write_vec_element<1>(r,
         vec_traits<A>::template read_element<2>(a)*vec_traits<B>::template read_element<0>(b)-
-        vec_traits<A>::template read_element<0>(a)*vec_traits<B>::template read_element<2>(b);
-    vec_traits<R>::template write_element<2>(r)=
+        vec_traits<A>::template read_element<0>(a)*vec_traits<B>::template read_element<2>(b));
+    write_vec_element<2>(r,
         vec_traits<A>::template read_element<0>(a)*vec_traits<B>::template read_element<1>(b)-
-        vec_traits<A>::template read_element<1>(a)*vec_traits<B>::template read_element<0>(b);
+        vec_traits<A>::template read_element<1>(a)*vec_traits<B>::template read_element<0>(b));
     return r;
     }
 
@@ -360,7 +360,7 @@ typename enable_if_c<
 operator/=( A & a, B b )
     {
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<A>::write_element_idx(i,a)/=b;
+        write_vec_element_idx(i,a,vec_traits<A>::read_element_idx(i,a)/b);
     return a;
     }
 
@@ -388,7 +388,7 @@ operator/( A const & a, B b )
     typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)/b;
+        write_vec_element_idx(i,r,vec_traits<A>::read_element_idx(i,a)/b);
     return r;
     }
 
@@ -534,7 +534,7 @@ typename enable_if_c<
 operator-=( A & a, B const & b )
     {
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<A>::write_element_idx(i,a)-=vec_traits<B>::read_element_idx(i,b);
+        write_vec_element_idx(i,a,vec_traits<A>::read_element_idx(i,a)-vec_traits<B>::read_element_idx(i,b));
     return a;
     }
 
@@ -562,7 +562,7 @@ operator-( A const & a )
     typedef typename deduce_vec<A>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=-vec_traits<A>::read_element_idx(i,a);
+        write_vec_element_idx(i,r,-vec_traits<A>::read_element_idx(i,a));
     return r;
     }
 
@@ -591,7 +591,7 @@ operator-( A const & a, B const & b )
     typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)-vec_traits<B>::read_element_idx(i,b);
+        write_vec_element_idx(i,r,vec_traits<A>::read_element_idx(i,a)-vec_traits<B>::read_element_idx(i,b));
     return r;
     }
 
@@ -617,7 +617,7 @@ typename enable_if_c<
 operator*=( A & a, B b )
     {
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<A>::write_element_idx(i,a)*=b;
+        write_vec_element_idx(i,a,vec_traits<A>::read_element_idx(i,a)*b);
     return a;
     }
 
@@ -645,7 +645,7 @@ operator*( A const & a, B b )
     typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)*b;
+        write_vec_element_idx(i,r,vec_traits<A>::read_element_idx(i,a)*b);
     return r;
     }
 
@@ -673,7 +673,7 @@ operator*( A a, B const & b )
     typedef typename deduce_vec2<A,B,vec_traits<B>::dim>::type R;
     R r;
     for( int i=0; i!=vec_traits<B>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=a*vec_traits<B>::read_element_idx(i,b);
+        write_vec_element_idx(i,r,a*vec_traits<B>::read_element_idx(i,b));
     return r;
     }
 
@@ -739,7 +739,7 @@ normalized( A const & a )
     typedef typename deduce_vec<A>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)*rm;
+        write_vec_element_idx(i,r,vec_traits<A>::read_element_idx(i,a)*rm);
     return r;
     }
 
@@ -762,7 +762,7 @@ normalize( A & a )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
     T rm=scalar_traits<T>::value(1)/sqrt(m);
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<A>::write_element_idx(i,a)*=rm;
+        write_vec_element_idx(i,a,vec_traits<A>::read_element_idx(i,a)*rm);
     }
 
 ////////////////////////////////////////////////
@@ -788,7 +788,7 @@ typename enable_if_c<
 operator+=( A & a, B const & b )
     {
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<A>::write_element_idx(i,a)+=vec_traits<B>::read_element_idx(i,b);
+        write_vec_element_idx(i,a,vec_traits<A>::read_element_idx(i,a)+vec_traits<B>::read_element_idx(i,b));
     return a;
     }
 
@@ -817,7 +817,7 @@ operator+( A const & a, B const & b )
     typedef typename deduce_vec2<A,B,vec_traits<A>::dim>::type R;
     R r;
     for( int i=0; i!=vec_traits<A>::dim; ++i )
-        vec_traits<R>::write_element_idx(i,r)=vec_traits<A>::read_element_idx(i,a)+vec_traits<B>::read_element_idx(i,b);
+        write_vec_element_idx(i,r,vec_traits<A>::read_element_idx(i,a)+vec_traits<B>::read_element_idx(i,b));
     return r;
     }
 
@@ -854,11 +854,75 @@ qvm_detail
             return r;
             }
         };
+
+    template <class V,bool WriteElementRef=vec_write_element_ref<V>::value>
+    struct vref_write_traits;
+
+    template <class V>
+    struct
+    vref_write_traits<V,true>
+        {
+        typedef typename vec_traits<V>::scalar_type scalar_type;
+        typedef qvm_detail::vref_<V> this_vector;
+        static int const dim=vec_traits<V>::dim;
+
+        template <int I>
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        scalar_type &
+        write_element( this_vector & x )
+            {
+            BOOST_QVM_STATIC_ASSERT(I>=0);
+            BOOST_QVM_STATIC_ASSERT(I<dim);
+            return vec_traits<V>::template write_element<I>(reinterpret_cast<V &>(x));
+            }
+
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        scalar_type &
+        write_element_idx( int i, this_vector & x )
+            {
+            BOOST_QVM_ASSERT(i>=0);
+            BOOST_QVM_ASSERT(i<dim);
+            return vec_traits<V>::write_element_idx(i,reinterpret_cast<V &>(x));
+            }
+        };
+
+    template <class V>
+    struct
+    vref_write_traits<V,false>
+        {
+        typedef typename vec_traits<V>::scalar_type scalar_type;
+        typedef qvm_detail::vref_<V> this_vector;
+        static int const dim=vec_traits<V>::dim;
+
+        template <int I>
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        void
+        write_element( this_vector & x, scalar_type s )
+            {
+            BOOST_QVM_STATIC_ASSERT(I>=0);
+            BOOST_QVM_STATIC_ASSERT(I<dim);
+            vec_traits<V>::template write_element<I>(reinterpret_cast<V &>(x), s);
+            }
+
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        void
+        write_element_idx( int i, this_vector & x, scalar_type s )
+            {
+            BOOST_QVM_ASSERT(i>=0);
+            BOOST_QVM_ASSERT(i<dim);
+            vec_traits<V>::write_element_idx(i,reinterpret_cast<V &>(x), s);
+            }
+        };
     }
 
 template <class V>
 struct
-vec_traits< qvm_detail::vref_<V> >
+vec_traits< qvm_detail::vref_<V> >:
+    qvm_detail::vref_write_traits<V>
     {
     typedef typename vec_traits<V>::scalar_type scalar_type;
     typedef qvm_detail::vref_<V> this_vector;
@@ -875,17 +939,6 @@ vec_traits< qvm_detail::vref_<V> >
         return vec_traits<V>::template read_element<I>(reinterpret_cast<V const &>(x));
         }
 
-    template <int I>
-    static
-    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
-    scalar_type &
-    write_element( this_vector & x )
-        {
-        BOOST_QVM_STATIC_ASSERT(I>=0);
-        BOOST_QVM_STATIC_ASSERT(I<dim);
-        return vec_traits<V>::template write_element<I>(reinterpret_cast<V &>(x));
-        }
-
     static
     BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
@@ -894,16 +947,6 @@ vec_traits< qvm_detail::vref_<V> >
         BOOST_QVM_ASSERT(i>=0);
         BOOST_QVM_ASSERT(i<dim);
         return vec_traits<V>::read_element_idx(i,reinterpret_cast<V const &>(x));
-        }
-
-    static
-    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
-    scalar_type &
-    write_element_idx( int i, this_vector & x )
-        {
-        BOOST_QVM_ASSERT(i>=0);
-        BOOST_QVM_ASSERT(i<dim);
-        return vec_traits<V>::write_element_idx(i,reinterpret_cast<V &>(x));
         }
     };
 

@@ -15,6 +15,7 @@
 #include <boost/qvm/error.hpp>
 #include <boost/qvm/throw_exception.hpp>
 #include <string>
+#include <cmath>
 
 namespace boost { namespace qvm {
 
@@ -112,10 +113,10 @@ typename enable_if_c<
 convert_to( A const & a )
     {
     R r;
-    quat_traits<R>::template write_element<0>(r) = quat_traits<A>::template read_element<0>(a);
-    quat_traits<R>::template write_element<1>(r) = quat_traits<A>::template read_element<1>(a);
-    quat_traits<R>::template write_element<2>(r) = quat_traits<A>::template read_element<2>(a);
-    quat_traits<R>::template write_element<3>(r) = quat_traits<A>::template read_element<3>(a);
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a));
+    write_quat_element<1>(r,quat_traits<A>::template read_element<1>(a));
+    write_quat_element<2>(r,quat_traits<A>::template read_element<2>(a));
+    write_quat_element<3>(r,quat_traits<A>::template read_element<3>(a));
     return r;
     }
 
@@ -139,37 +140,37 @@ convert_to( A const & a )
         {
         T t = mat[0][0] + mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
         T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
-        quat_traits<R>::template write_element<0>(r)=s*t;
-        quat_traits<R>::template write_element<1>(r)=(mat[2][1]-mat[1][2])*s;
-        quat_traits<R>::template write_element<2>(r)=(mat[0][2]-mat[2][0])*s;
-        quat_traits<R>::template write_element<3>(r)=(mat[1][0]-mat[0][1])*s;
+        write_quat_element<0>(r,s*t);
+        write_quat_element<1>(r,(mat[2][1]-mat[1][2])*s);
+        write_quat_element<2>(r,(mat[0][2]-mat[2][0])*s);
+        write_quat_element<3>(r,(mat[1][0]-mat[0][1])*s);
         }
     else if( mat[0][0]>mat[1][1] && mat[0][0]>mat[2][2] )
         {
         T t = mat[0][0] - mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
         T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
-        quat_traits<R>::template write_element<0>(r)=(mat[2][1]-mat[1][2])*s;
-        quat_traits<R>::template write_element<1>(r)=s*t;
-        quat_traits<R>::template write_element<2>(r)=(mat[1][0]+mat[0][1])*s;
-        quat_traits<R>::template write_element<3>(r)=(mat[0][2]+mat[2][0])*s;
+        write_quat_element<0>(r,(mat[2][1]-mat[1][2])*s);
+        write_quat_element<1>(r,s*t);
+        write_quat_element<2>(r,(mat[1][0]+mat[0][1])*s);
+        write_quat_element<3>(r,(mat[0][2]+mat[2][0])*s);
         }
     else if( mat[1][1]>mat[2][2] )
         {
         T t = - mat[0][0] + mat[1][1] - mat[2][2] + scalar_traits<T>::value(1);
         T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
-        quat_traits<R>::template write_element<0>(r)=(mat[0][2]-mat[2][0])*s;
-        quat_traits<R>::template write_element<1>(r)=(mat[1][0]+mat[0][1])*s;
-        quat_traits<R>::template write_element<2>(r)=s*t;
-        quat_traits<R>::template write_element<3>(r)=(mat[2][1]+mat[1][2])*s;
+        write_quat_element<0>(r,(mat[0][2]-mat[2][0])*s);
+        write_quat_element<1>(r,(mat[1][0]+mat[0][1])*s);
+        write_quat_element<2>(r,s*t);
+        write_quat_element<3>(r,(mat[2][1]+mat[1][2])*s);
         }
     else
         {
         T t = - mat[0][0] - mat[1][1] + mat[2][2] + scalar_traits<T>::value(1);
         T s = (scalar_traits<T>::value(1)/sqrt(t))/2;
-        quat_traits<R>::template write_element<0>(r)=(mat[1][0]-mat[0][1])*s;
-        quat_traits<R>::template write_element<1>(r)=(mat[0][2]+mat[2][0])*s;
-        quat_traits<R>::template write_element<2>(r)=(mat[2][1]+mat[1][2])*s;
-        quat_traits<R>::template write_element<3>(r)=s*t;
+        write_quat_element<0>(r,(mat[1][0]-mat[0][1])*s);
+        write_quat_element<1>(r,(mat[0][2]+mat[2][0])*s);
+        write_quat_element<2>(r,(mat[2][1]+mat[1][2])*s);
+        write_quat_element<3>(r,s*t);
         }
     return r;
     }
@@ -185,10 +186,10 @@ conjugate( A const & a )
     {
     typedef typename deduce_quat<A>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a);
-    quat_traits<R>::template write_element<1>(r)=-quat_traits<A>::template read_element<1>(a);
-    quat_traits<R>::template write_element<2>(r)=-quat_traits<A>::template read_element<2>(a);
-    quat_traits<R>::template write_element<3>(r)=-quat_traits<A>::template read_element<3>(a);
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a));
+    write_quat_element<1>(r,-quat_traits<A>::template read_element<1>(a));
+    write_quat_element<2>(r,-quat_traits<A>::template read_element<2>(a));
+    write_quat_element<3>(r,-quat_traits<A>::template read_element<3>(a));
     return r;
     }
 
@@ -279,10 +280,10 @@ set_identity( A & a )
     typedef typename quat_traits<A>::scalar_type T;
     T const zero=scalar_traits<T>::value(0);
     T const one=scalar_traits<T>::value(1);
-    quat_traits<A>::template write_element<0>(a) = one;
-    quat_traits<A>::template write_element<1>(a) = zero;
-    quat_traits<A>::template write_element<2>(a) = zero;
-    quat_traits<A>::template write_element<3>(a) = zero;
+    write_quat_element<0>(a,one);
+    write_quat_element<1>(a,zero);
+    write_quat_element<2>(a,zero);
+    write_quat_element<3>(a,zero);
     }
 
 ////////////////////////////////////////////////
@@ -369,10 +370,10 @@ typename enable_if_c<
     A &>::type
 operator/=( A & a, B b )
     {
-    quat_traits<A>::template write_element<0>(a)/=b;
-    quat_traits<A>::template write_element<1>(a)/=b;
-    quat_traits<A>::template write_element<2>(a)/=b;
-    quat_traits<A>::template write_element<3>(a)/=b;
+    write_quat_element<0>(a,quat_traits<A>::template read_element<0>(a)/b);
+    write_quat_element<1>(a,quat_traits<A>::template read_element<1>(a)/b);
+    write_quat_element<2>(a,quat_traits<A>::template read_element<2>(a)/b);
+    write_quat_element<3>(a,quat_traits<A>::template read_element<3>(a)/b);
     return a;
     }
 
@@ -385,10 +386,10 @@ operator/( A const & a, B b )
     {
     typedef typename deduce_quat2<A,B>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r) = quat_traits<A>::template read_element<0>(a)/b;
-    quat_traits<R>::template write_element<1>(r) = quat_traits<A>::template read_element<1>(a)/b;
-    quat_traits<R>::template write_element<2>(r) = quat_traits<A>::template read_element<2>(a)/b;
-    quat_traits<R>::template write_element<3>(r) = quat_traits<A>::template read_element<3>(a)/b;
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a)/b);
+    write_quat_element<1>(r,quat_traits<A>::template read_element<1>(a)/b);
+    write_quat_element<2>(r,quat_traits<A>::template read_element<2>(a)/b);
+    write_quat_element<3>(r,quat_traits<A>::template read_element<3>(a)/b);
     return r;
     }
 
@@ -446,10 +447,10 @@ inverse( A const & a )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
     TA rm=scalar_traits<TA>::value(1)/m2;
     R r;
-    quat_traits<R>::template write_element<0>(r) = aa*rm;
-    quat_traits<R>::template write_element<1>(r) = -ab*rm;
-    quat_traits<R>::template write_element<2>(r) = -ac*rm;
-    quat_traits<R>::template write_element<3>(r) = -ad*rm;
+    write_quat_element<0>(r,aa*rm);
+    write_quat_element<1>(r,-ab*rm);
+    write_quat_element<2>(r,-ac*rm);
+    write_quat_element<3>(r,-ad*rm);
     return r;
     }
 
@@ -490,10 +491,10 @@ typename enable_if<
     A &>::type
 operator-=( A & a, B const & b )
     {
-    quat_traits<A>::template write_element<0>(a)-=quat_traits<B>::template read_element<0>(b);
-    quat_traits<A>::template write_element<1>(a)-=quat_traits<B>::template read_element<1>(b);
-    quat_traits<A>::template write_element<2>(a)-=quat_traits<B>::template read_element<2>(b);
-    quat_traits<A>::template write_element<3>(a)-=quat_traits<B>::template read_element<3>(b);
+    write_quat_element<0>(a,quat_traits<A>::template read_element<0>(a)-quat_traits<B>::template read_element<0>(b));
+    write_quat_element<1>(a,quat_traits<A>::template read_element<1>(a)-quat_traits<B>::template read_element<1>(b));
+    write_quat_element<2>(a,quat_traits<A>::template read_element<2>(a)-quat_traits<B>::template read_element<2>(b));
+    write_quat_element<3>(a,quat_traits<A>::template read_element<3>(a)-quat_traits<B>::template read_element<3>(b));
     return a;
     }
 
@@ -506,10 +507,10 @@ operator-( A const & a, B const & b )
     {
     typedef typename deduce_quat2<A,B>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)-quat_traits<B>::template read_element<0>(b);
-    quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)-quat_traits<B>::template read_element<1>(b);
-    quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)-quat_traits<B>::template read_element<2>(b);
-    quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)-quat_traits<B>::template read_element<3>(b);
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a)-quat_traits<B>::template read_element<0>(b));
+    write_quat_element<1>(r,quat_traits<A>::template read_element<1>(a)-quat_traits<B>::template read_element<1>(b));
+    write_quat_element<2>(r,quat_traits<A>::template read_element<2>(a)-quat_traits<B>::template read_element<2>(b));
+    write_quat_element<3>(r,quat_traits<A>::template read_element<3>(a)-quat_traits<B>::template read_element<3>(b));
     return r;
     }
 
@@ -522,10 +523,10 @@ operator-( A const & a )
     {
     typedef typename deduce_quat<A>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=-quat_traits<A>::template read_element<0>(a);
-    quat_traits<R>::template write_element<1>(r)=-quat_traits<A>::template read_element<1>(a);
-    quat_traits<R>::template write_element<2>(r)=-quat_traits<A>::template read_element<2>(a);
-    quat_traits<R>::template write_element<3>(r)=-quat_traits<A>::template read_element<3>(a);
+    write_quat_element<0>(r,-quat_traits<A>::template read_element<0>(a));
+    write_quat_element<1>(r,-quat_traits<A>::template read_element<1>(a));
+    write_quat_element<2>(r,-quat_traits<A>::template read_element<2>(a));
+    write_quat_element<3>(r,-quat_traits<A>::template read_element<3>(a));
     return r;
     }
 
@@ -546,10 +547,10 @@ operator*=( A & a, B const & b )
     TB const bb=quat_traits<B>::template read_element<1>(b);
     TB const bc=quat_traits<B>::template read_element<2>(b);
     TB const bd=quat_traits<B>::template read_element<3>(b);
-    quat_traits<A>::template write_element<0>(a) = aa*ba - ab*bb - ac*bc - ad*bd;
-    quat_traits<A>::template write_element<1>(a) = aa*bb + ab*ba + ac*bd - ad*bc;
-    quat_traits<A>::template write_element<2>(a) = aa*bc + ac*ba + ad*bb - ab*bd;
-    quat_traits<A>::template write_element<3>(a) = aa*bd + ad*ba + ab*bc - ac*bb;
+    write_quat_element<0>(a,aa*ba - ab*bb - ac*bc - ad*bd);
+    write_quat_element<1>(a,aa*bb + ab*ba + ac*bd - ad*bc);
+    write_quat_element<2>(a,aa*bc + ac*ba + ad*bb - ab*bd);
+    write_quat_element<3>(a,aa*bd + ad*ba + ab*bc - ac*bb);
     return a;
     }
 
@@ -560,10 +561,10 @@ typename enable_if_c<
     A &>::type
 operator*=( A & a, B b )
     {
-    quat_traits<A>::template write_element<0>(a)*=b;
-    quat_traits<A>::template write_element<1>(a)*=b;
-    quat_traits<A>::template write_element<2>(a)*=b;
-    quat_traits<A>::template write_element<3>(a)*=b;
+    write_quat_element<0>(a, quat_traits<A>::template read_element<0>(a)*b);
+    write_quat_element<1>(a, quat_traits<A>::template read_element<1>(a)*b);
+    write_quat_element<2>(a, quat_traits<A>::template read_element<2>(a)*b);
+    write_quat_element<3>(a, quat_traits<A>::template read_element<3>(a)*b);
     return a;
     }
 
@@ -586,10 +587,10 @@ operator*( A const & a, B const & b )
     TB const bc=quat_traits<B>::template read_element<2>(b);
     TB const bd=quat_traits<B>::template read_element<3>(b);
     R r;
-    quat_traits<R>::template write_element<0>(r) = aa*ba - ab*bb - ac*bc - ad*bd;
-    quat_traits<R>::template write_element<1>(r) = aa*bb + ab*ba + ac*bd - ad*bc;
-    quat_traits<R>::template write_element<2>(r) = aa*bc + ac*ba + ad*bb - ab*bd;
-    quat_traits<R>::template write_element<3>(r) = aa*bd + ad*ba + ab*bc - ac*bb;
+    write_quat_element<0>(r,aa*ba - ab*bb - ac*bc - ad*bd);
+    write_quat_element<1>(r,aa*bb + ab*ba + ac*bd - ad*bc);
+    write_quat_element<2>(r,aa*bc + ac*ba + ad*bb - ab*bd);
+    write_quat_element<3>(r,aa*bd + ad*ba + ab*bc - ac*bb);
     return r;
     }
 
@@ -602,10 +603,10 @@ operator*( A const & a, B b )
     {
     typedef typename deduce_quat2<A,B>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)*b;
-    quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)*b;
-    quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)*b;
-    quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)*b;
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a)*b);
+    write_quat_element<1>(r,quat_traits<A>::template read_element<1>(a)*b);
+    write_quat_element<2>(r,quat_traits<A>::template read_element<2>(a)*b);
+    write_quat_element<3>(r,quat_traits<A>::template read_element<3>(a)*b);
     return r;
     }
 
@@ -641,10 +642,10 @@ normalized( A const & a )
     T const rm=scalar_traits<T>::value(1)/sqrt(m2);
     typedef typename deduce_quat<A>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=a0*rm;
-    quat_traits<R>::template write_element<1>(r)=a1*rm;
-    quat_traits<R>::template write_element<2>(r)=a2*rm;
-    quat_traits<R>::template write_element<3>(r)=a3*rm;
+    write_quat_element<0>(r,a0*rm);
+    write_quat_element<1>(r,a1*rm);
+    write_quat_element<2>(r,a2*rm);
+    write_quat_element<3>(r,a3*rm);
     return r;
     }
 
@@ -664,10 +665,10 @@ normalize( A & a )
     if( m2==scalar_traits<typename quat_traits<A>::scalar_type>::value(0) )
         BOOST_QVM_THROW_EXCEPTION(zero_magnitude_error());
     T const rm=scalar_traits<T>::value(1)/sqrt(m2);
-    quat_traits<A>::template write_element<0>(a)*=rm;
-    quat_traits<A>::template write_element<1>(a)*=rm;
-    quat_traits<A>::template write_element<2>(a)*=rm;
-    quat_traits<A>::template write_element<3>(a)*=rm;
+    write_quat_element<0>(a,quat_traits<A>::template read_element<0>(a)*rm);
+    write_quat_element<1>(a,quat_traits<A>::template read_element<1>(a)*rm);
+    write_quat_element<2>(a,quat_traits<A>::template read_element<2>(a)*rm);
+    write_quat_element<3>(a,quat_traits<A>::template read_element<3>(a)*rm);
     }
 
 template <class A,class B>
@@ -677,10 +678,10 @@ typename enable_if<
     A &>::type
 operator+=( A & a, B const & b )
     {
-    quat_traits<A>::template write_element<0>(a)+=quat_traits<B>::template read_element<0>(b);
-    quat_traits<A>::template write_element<1>(a)+=quat_traits<B>::template read_element<1>(b);
-    quat_traits<A>::template write_element<2>(a)+=quat_traits<B>::template read_element<2>(b);
-    quat_traits<A>::template write_element<3>(a)+=quat_traits<B>::template read_element<3>(b);
+    write_quat_element<0>(a,quat_traits<A>::template read_element<0>(a)+quat_traits<B>::template read_element<0>(b));
+    write_quat_element<1>(a,quat_traits<A>::template read_element<1>(a)+quat_traits<B>::template read_element<1>(b));
+    write_quat_element<2>(a,quat_traits<A>::template read_element<2>(a)+quat_traits<B>::template read_element<2>(b));
+    write_quat_element<3>(a,quat_traits<A>::template read_element<3>(a)+quat_traits<B>::template read_element<3>(b));
     return a;
     }
 
@@ -693,10 +694,10 @@ operator+( A const & a, B const & b )
     {
     typedef typename deduce_quat2<A,B>::type R;
     R r;
-    quat_traits<R>::template write_element<0>(r)=quat_traits<A>::template read_element<0>(a)+quat_traits<B>::template read_element<0>(b);
-    quat_traits<R>::template write_element<1>(r)=quat_traits<A>::template read_element<1>(a)+quat_traits<B>::template read_element<1>(b);
-    quat_traits<R>::template write_element<2>(r)=quat_traits<A>::template read_element<2>(a)+quat_traits<B>::template read_element<2>(b);
-    quat_traits<R>::template write_element<3>(r)=quat_traits<A>::template read_element<3>(a)+quat_traits<B>::template read_element<3>(b);
+    write_quat_element<0>(r,quat_traits<A>::template read_element<0>(a)+quat_traits<B>::template read_element<0>(b));
+    write_quat_element<1>(r,quat_traits<A>::template read_element<1>(a)+quat_traits<B>::template read_element<1>(b));
+    write_quat_element<2>(r,quat_traits<A>::template read_element<2>(a)+quat_traits<B>::template read_element<2>(b));
+    write_quat_element<3>(r,quat_traits<A>::template read_element<3>(a)+quat_traits<B>::template read_element<3>(b));
     return r;
     }
 
@@ -710,18 +711,15 @@ slerp( A const & a, B const & b, C t )
     typedef typename deduce_quat2<A,B>::type R;
     typedef typename quat_traits<R>::scalar_type TR;
     TR const one = scalar_traits<TR>::value(1);
+    TR const threshold = one - one / scalar_traits<TR>::value(2000); //0.9995
     TR dp = dot(a,b);
-    TR sc=one;
-    if( dp < one )
-        {
-        TR const theta = acos(dp);
-        TR const invsintheta = one/sin(theta);
-        TR const scale = sin(theta*(one-t)) * invsintheta;
-        TR const invscale = sin(theta*t) * invsintheta * sc;
-        return a*scale + b*invscale;
-        }
-    else
+    if( dp > threshold )
         return normalized(a+(b-a)*t);
+    if( dp < -one )
+        dp = -one;
+    double theta_0 = acos(dp);
+    double theta = theta_0*t;
+    return a*cos(theta) + normalized(b-a*dp)*sin(theta);
     }
 
 ////////////////////////////////////////////////
@@ -757,6 +755,47 @@ qvm_detail
             return r;
             }
         };
+
+    template <class Q,bool WriteElementRef=quat_write_element_ref<Q>::value>
+    struct qref_write_traits;
+
+    template <class Q>
+    struct
+    qref_write_traits<Q,true>
+        {
+        typedef typename quat_traits<Q>::scalar_type scalar_type;
+        typedef qvm_detail::qref_<Q> this_quaternion;
+
+        template <int I>
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        scalar_type &
+        write_element( this_quaternion & x )
+            {
+            BOOST_QVM_STATIC_ASSERT(I>=0);
+            BOOST_QVM_STATIC_ASSERT(I<4);
+            return quat_traits<Q>::template write_element<I>(reinterpret_cast<Q &>(x));
+            }
+        };
+
+    template <class Q>
+    struct
+    qref_write_traits<Q,false>
+        {
+        typedef typename quat_traits<Q>::scalar_type scalar_type;
+        typedef qvm_detail::qref_<Q> this_quaternion;
+
+        template <int I>
+        static
+        BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
+        void
+        write_element( this_quaternion & x, scalar_type s )
+            {
+            BOOST_QVM_STATIC_ASSERT(I>=0);
+            BOOST_QVM_STATIC_ASSERT(I<4);
+            quat_traits<Q>::template write_element<I>(reinterpret_cast<Q &>(x), s);
+            }
+        };
     }
 
 template <class Q>
@@ -764,7 +803,8 @@ struct quat_traits;
 
 template <class Q>
 struct
-quat_traits< qvm_detail::qref_<Q> >
+quat_traits< qvm_detail::qref_<Q> >:
+    qvm_detail::qref_write_traits<Q>
     {
     typedef typename quat_traits<Q>::scalar_type scalar_type;
     typedef qvm_detail::qref_<Q> this_quaternion;
@@ -778,17 +818,6 @@ quat_traits< qvm_detail::qref_<Q> >
         BOOST_QVM_STATIC_ASSERT(I>=0);
         BOOST_QVM_STATIC_ASSERT(I<4);
         return quat_traits<Q>::template read_element<I>(reinterpret_cast<Q const &>(x));
-        }
-
-    template <int I>
-    static
-    BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
-    scalar_type &
-    write_element( this_quaternion & x )
-        {
-        BOOST_QVM_STATIC_ASSERT(I>=0);
-        BOOST_QVM_STATIC_ASSERT(I<4);
-        return quat_traits<Q>::template write_element<I>(reinterpret_cast<Q &>(x));
         }
     };
 
@@ -891,10 +920,10 @@ set_zero( A & a )
     {
     typedef typename quat_traits<A>::scalar_type T;
     T const zero=scalar_traits<T>::value(0);
-    quat_traits<A>::template write_element<0>(a) = zero;
-    quat_traits<A>::template write_element<1>(a) = zero;
-    quat_traits<A>::template write_element<2>(a) = zero;
-    quat_traits<A>::template write_element<3>(a) = zero;
+    write_quat_element<0>(a,zero);
+    write_quat_element<1>(a,zero);
+    write_quat_element<2>(a,zero);
+    write_quat_element<3>(a,zero);
     }
 
 ////////////////////////////////////////////////
@@ -1424,15 +1453,16 @@ axis_angle( A const & a, B & b )
         }
     if( T s=sqrt(1-a0*a0) )
         {
-        vec_traits<B>::template write_element<0>(b) = a1/s;
-        vec_traits<B>::template write_element<1>(b) = a2/s;
-        vec_traits<B>::template write_element<2>(b) = a3/s;
+        write_vec_element<0>(b, a1/s);
+        write_vec_element<1>(b, a2/s);
+        write_vec_element<2>(b, a3/s);
         }
     else
         {
         typedef typename vec_traits<B>::scalar_type U;
-        vec_traits<B>::template write_element<0>(b) = scalar_traits<U>::value(1);
-        vec_traits<B>::template write_element<1>(b) = vec_traits<B>::template write_element<2>(b) = scalar_traits<U>::value(0);
+        write_vec_element<0>(b, scalar_traits<U>::value(1));
+        write_vec_element<1>(b, scalar_traits<U>::value(0));
+        write_vec_element<2>(b, scalar_traits<U>::value(0));
         }
     return scalar_traits<T>::value(2) * qvm::acos(a0);
     }

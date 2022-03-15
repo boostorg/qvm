@@ -6,7 +6,7 @@
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-#include <boost/qvm/inline.hpp>
+#include <boost/qvm/config.hpp>
 #include <boost/qvm/deduce_mat.hpp>
 #include <boost/qvm/assert.hpp>
 
@@ -41,9 +41,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> >
     read_element( this_matrix const & x )
         {
         BOOST_QVM_STATIC_ASSERT(Row>=0);
-        BOOST_QVM_STATIC_ASSERT(Row<int(Rows));
+        BOOST_QVM_STATIC_ASSERT(Row<rows);
         BOOST_QVM_STATIC_ASSERT(Col>=0);
-        BOOST_QVM_STATIC_ASSERT(Col<int(Cols));
+        BOOST_QVM_STATIC_ASSERT(Col<cols);
         return x[Row][Col];
         }
 
@@ -54,9 +54,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> >
     write_element( this_matrix & x )
         {
         BOOST_QVM_STATIC_ASSERT(Row>=0);
-        BOOST_QVM_STATIC_ASSERT(Row<int(Rows));
+        BOOST_QVM_STATIC_ASSERT(Row<rows);
         BOOST_QVM_STATIC_ASSERT(Col>=0);
-        BOOST_QVM_STATIC_ASSERT(Col<int(Cols));
+        BOOST_QVM_STATIC_ASSERT(Col<cols);
         return x[Row][Col];
         }
 
@@ -66,9 +66,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> >
     read_element_idx( int row, int col, this_matrix const & x )
         {
         BOOST_QVM_ASSERT(row>=0);
-        BOOST_QVM_ASSERT(row<int(Rows));
+        BOOST_QVM_ASSERT(row<rows);
         BOOST_QVM_ASSERT(col>=0);
-        BOOST_QVM_ASSERT(col<int(Cols));
+        BOOST_QVM_ASSERT(col<cols);
         return x[row][col];
         }
 
@@ -78,9 +78,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> >
     write_element_idx( int row, int col, this_matrix & x )
         {
         BOOST_QVM_ASSERT(row>=0);
-        BOOST_QVM_ASSERT(row<int(Rows));
+        BOOST_QVM_ASSERT(row<rows);
         BOOST_QVM_ASSERT(col>=0);
-        BOOST_QVM_ASSERT(col<int(Cols));
+        BOOST_QVM_ASSERT(col<cols);
         return x[row][col];
         }
     };
@@ -101,9 +101,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> const>
     read_element( this_matrix & x )
         {
         BOOST_QVM_STATIC_ASSERT(Row>=0);
-        BOOST_QVM_STATIC_ASSERT(Row<int(Rows));
+        BOOST_QVM_STATIC_ASSERT(Row<rows);
         BOOST_QVM_STATIC_ASSERT(Col>=0);
-        BOOST_QVM_STATIC_ASSERT(Col<int(Cols));
+        BOOST_QVM_STATIC_ASSERT(Col<cols);
         return x[Row][Col];
         }
 
@@ -113,9 +113,9 @@ mat_traits<std::array<std::array<T,Rows>,Cols> const>
     read_element_idx( int row, int col, this_matrix & x )
         {
         BOOST_QVM_ASSERT(row>=0);
-        BOOST_QVM_ASSERT(row<int(Rows));
+        BOOST_QVM_ASSERT(row<rows);
         BOOST_QVM_ASSERT(col>=0);
-        BOOST_QVM_ASSERT(col<int(Cols));
+        BOOST_QVM_ASSERT(col<cols);
         return x[row][col];
         }
     };
@@ -193,9 +193,9 @@ mat_traits<T[Rows][Cols]>
     read_element( this_matrix const & x )
         {
         BOOST_QVM_STATIC_ASSERT(Row>=0);
-        BOOST_QVM_STATIC_ASSERT(Row<Rows);
+        BOOST_QVM_STATIC_ASSERT(Row<rows);
         BOOST_QVM_STATIC_ASSERT(Col>=0);
-        BOOST_QVM_STATIC_ASSERT(Col<Cols);
+        BOOST_QVM_STATIC_ASSERT(Col<cols);
         return x[Row][Col];
         }
 
@@ -206,9 +206,9 @@ mat_traits<T[Rows][Cols]>
     write_element( this_matrix & x )
         {
         BOOST_QVM_STATIC_ASSERT(Row>=0);
-        BOOST_QVM_STATIC_ASSERT(Row<Rows);
+        BOOST_QVM_STATIC_ASSERT(Row<rows);
         BOOST_QVM_STATIC_ASSERT(Col>=0);
-        BOOST_QVM_STATIC_ASSERT(Col<Cols);
+        BOOST_QVM_STATIC_ASSERT(Col<cols);
         return x[Row][Col];
         }
 
