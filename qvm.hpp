@@ -1,6 +1,6 @@
 // QVM single header distribution. Do not edit.
 
-// Generated on 04/13/2022 from https://github.com/boostorg/qvm/tree/8aa0e24.
+// Generated on 04/15/2022 from https://github.com/boostorg/qvm/tree/5791440.
 // Latest versions:
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp
@@ -8045,7 +8045,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -8354,7 +8358,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -8444,7 +8452,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -8550,7 +8562,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -9065,7 +9081,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -9227,7 +9247,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -9335,7 +9359,11 @@ qvm_detail
             a[2][2] = a22;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -10011,7 +10039,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -10209,7 +10241,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -10407,7 +10443,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -11186,7 +11226,11 @@ struct
 mat
     {
     T a[Rows][Cols];
-    template <class R>
+    template <class R
+#if __cplusplus >= 201103L
+        , class = typename enable_if<is_mat<R> >::type
+#endif
+    >
     operator R() const
         {
         R r;
@@ -11607,7 +11651,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -11709,7 +11757,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12145,7 +12197,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12262,7 +12318,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12356,7 +12416,11 @@ qvm_detail
             a[3] = rm*z*s;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12439,7 +12503,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12573,7 +12641,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12707,7 +12779,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -12963,7 +13039,11 @@ qvm_detail
     struct
     quat_v_
         {
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         operator R() const
             {
             R r;
@@ -13146,7 +13226,7 @@ quat_traits_defaults
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-// Expanded at line 11279: #include <boost/qvm/detail/quat_assign.hpp>
+// Expanded at line 11323: #include <boost/qvm/detail/quat_assign.hpp>
 // Expanded at line 902: #include <boost/qvm/assert.hpp>
 // Expanded at line 1225: #include <boost/qvm/static_assert.hpp>
 
@@ -13157,7 +13237,11 @@ struct
 quat
     {
     T a[4];
-    template <class R>
+    template <class R
+#if __cplusplus >= 201103L
+        , class = typename enable_if<is_quat<R> >::type
+#endif
+    >
     operator R() const
         {
         R r;
@@ -13550,7 +13634,7 @@ assign( A & a, B const & b )
 // Expanded at line 929: #include <boost/qvm/deduce_scalar.hpp>
 // Expanded at line 1505: #include <boost/qvm/deduce_vec.hpp>
 // Expanded at line 32: #include <boost/qvm/error.hpp>
-// Expanded at line 13292: #include <boost/qvm/gen/vec_assign2.hpp>
+// Expanded at line 13376: #include <boost/qvm/gen/vec_assign2.hpp>
 // Expanded at line 7488: #include <boost/qvm/math.hpp>
 // Expanded at line 1225: #include <boost/qvm/static_assert.hpp>
 // Expanded at line 1606: #include <boost/qvm/throw_exception.hpp>
@@ -14190,7 +14274,7 @@ qvm_detail
 // Expanded at line 929: #include <boost/qvm/deduce_scalar.hpp>
 // Expanded at line 1505: #include <boost/qvm/deduce_vec.hpp>
 // Expanded at line 32: #include <boost/qvm/error.hpp>
-// Expanded at line 13347: #include <boost/qvm/gen/vec_assign3.hpp>
+// Expanded at line 13431: #include <boost/qvm/gen/vec_assign3.hpp>
 // Expanded at line 7488: #include <boost/qvm/math.hpp>
 // Expanded at line 1225: #include <boost/qvm/static_assert.hpp>
 // Expanded at line 1606: #include <boost/qvm/throw_exception.hpp>
@@ -14851,7 +14935,7 @@ qvm_detail
 // Expanded at line 929: #include <boost/qvm/deduce_scalar.hpp>
 // Expanded at line 1505: #include <boost/qvm/deduce_vec.hpp>
 // Expanded at line 32: #include <boost/qvm/error.hpp>
-// Expanded at line 13403: #include <boost/qvm/gen/vec_assign4.hpp>
+// Expanded at line 13487: #include <boost/qvm/gen/vec_assign4.hpp>
 // Expanded at line 7488: #include <boost/qvm/math.hpp>
 // Expanded at line 1225: #include <boost/qvm/static_assert.hpp>
 // Expanded at line 1606: #include <boost/qvm/throw_exception.hpp>
@@ -15686,7 +15770,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -15779,7 +15867,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -16345,7 +16437,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -17095,7 +17191,7 @@ BOOST_QVM_GNUC_VEC_TYPE(double,4);
 // Distributed under the Boost Software License, Version 1.0. (See accompanying
 // file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
 
-// Expanded at line 13282: #include <boost/qvm/detail/vec_assign.hpp>
+// Expanded at line 13366: #include <boost/qvm/detail/vec_assign.hpp>
 // Expanded at line 902: #include <boost/qvm/assert.hpp>
 // Expanded at line 1225: #include <boost/qvm/static_assert.hpp>
 
@@ -17106,7 +17202,11 @@ struct
 vec
     {
     T a[D];
-    template <class R>
+    template <class R
+#if __cplusplus >= 201103L
+        , class = typename enable_if<is_vec<R> >::type
+#endif
+    >
     operator R() const
         {
         R r;
@@ -17939,7 +18039,7 @@ BOOST_QVM_REGISTER_VEC_2_READ_WRITE(VecType, ScalarType, Element0, Element1, Ele
 #ifndef BOOST_QVM_VEC_REGISTER3_HPP
 #define BOOST_QVM_VEC_REGISTER3_HPP
 
-// Expanded at line 17774: #include <boost/qvm/detail/vec_register_impl.hpp>
+// Expanded at line 17874: #include <boost/qvm/detail/vec_register_impl.hpp>
 
 #define BOOST_QVM_REGISTER_VEC_3_READ(VecType, ScalarType, Read0, Read1, Read2)             \
 BOOST_QVM_DETAIL_REGISTER_VEC_SPECIALIZE_VEC_TRAITS_READ(VecType, ScalarType, 3)            \
@@ -17970,7 +18070,7 @@ BOOST_QVM_REGISTER_VEC_3_READ_WRITE(VecType, ScalarType, Element0, Element1, Ele
 #ifndef BOOST_QVM_VEC_REGISTER4_HPP
 #define BOOST_QVM_VEC_REGISTER4_HPP
 
-// Expanded at line 17774: #include <boost/qvm/detail/vec_register_impl.hpp>
+// Expanded at line 17874: #include <boost/qvm/detail/vec_register_impl.hpp>
 
 #define BOOST_QVM_REGISTER_VEC_4_READ(VecType, ScalarType, Read0, Read1, Read2, Read3)      \
 BOOST_QVM_DETAIL_REGISTER_VEC_SPECIALIZE_VEC_TRAITS_READ(VecType, ScalarType, 4)            \
@@ -18046,7 +18146,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -18218,7 +18322,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -18390,7 +18498,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -18633,7 +18745,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -18828,7 +18944,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -18997,7 +19117,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -19166,7 +19290,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -19361,7 +19489,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -19551,7 +19683,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -19729,7 +19865,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -19914,7 +20054,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20092,7 +20236,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20190,7 +20338,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20310,7 +20462,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20488,7 +20644,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_mat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20893,7 +21053,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20962,7 +21126,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -20984,7 +21152,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -21833,7 +22005,7 @@ XX( S & a )
 // This file was generated by a program. Do not edit manually.
 
 // Expanded at line 102: #include <boost/qvm/config.hpp>
-// Expanded at line 20743: #include <boost/qvm/detail/swizzle_traits.hpp>
+// Expanded at line 20903: #include <boost/qvm/detail/swizzle_traits.hpp>
 // Expanded at line 153: #include <boost/qvm/enable_if.hpp>
 
 namespace boost { namespace qvm {
@@ -25999,7 +26171,7 @@ XXX( S & a )
 // This file was generated by a program. Do not edit manually.
 
 // Expanded at line 102: #include <boost/qvm/config.hpp>
-// Expanded at line 20743: #include <boost/qvm/detail/swizzle_traits.hpp>
+// Expanded at line 20903: #include <boost/qvm/detail/swizzle_traits.hpp>
 // Expanded at line 153: #include <boost/qvm/enable_if.hpp>
 
 namespace boost { namespace qvm {
