@@ -44,7 +44,11 @@ qvm_detail
     struct
     quat_v_
         {
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_vec<R> >::type
+#endif
+        >
         operator R() const
             {
             R r;

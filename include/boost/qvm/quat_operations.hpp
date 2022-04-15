@@ -208,7 +208,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -310,7 +314,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -746,7 +754,11 @@ qvm_detail
             return *this;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -863,7 +875,11 @@ qvm_detail
 
         public:
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -957,7 +973,11 @@ qvm_detail
             a[3] = rm*z*s;
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -1040,7 +1060,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -1174,7 +1198,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
@@ -1308,7 +1336,11 @@ qvm_detail
             {
             }
 
-        template <class R>
+        template <class R
+#if __cplusplus >= 201103L
+            , class = typename enable_if<is_quat<R> >::type
+#endif
+        >
         BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_TRIVIAL
         operator R() const
             {
