@@ -8,6 +8,8 @@
 
 #include <exception>
 
+#include <boost/qvm/config.hpp>
+
 namespace boost { namespace qvm {
 
 struct
@@ -15,12 +17,12 @@ error:
     std::exception
     {
     char const *
-    what() const throw()
+    what() const BOOST_QVM_NOEXCEPT
         {
         return "Boost QVM error";
         }
 
-    ~error() throw()
+    ~error() BOOST_QVM_NOEXCEPT
         {
         }
     };

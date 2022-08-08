@@ -36,6 +36,14 @@
 #   define BOOST_QVM_INLINE_RECURSION BOOST_QVM_INLINE_OPERATIONS
 #endif
 
+#ifndef BOOST_QVM_NOEXCEPT
+#   if __cplusplus >= 201103L
+#       define BOOST_QVM_NOEXCEPT noexcept
+#   else
+#       define BOOST_QVM_NOEXCEPT throw()
+#   endif
+#endif
+
 #ifndef BOOST_QVM_CONSTEXPR
 #   if __cplusplus >= 201703L
 #       define BOOST_QVM_CONSTEXPR constexpr
