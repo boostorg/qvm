@@ -97,30 +97,6 @@ local windows_pipeline(name, image, environment, arch = "amd64") =
 
 [
     linux_pipeline(
-        "Linux 14.04 GCC 4.4",
-        "cppalliance/droneubuntu1404:1",
-        { TOOLSET: 'gcc', COMPILER: 'g++-4.4', CXXSTD: '98,0x' },
-        "g++-4.4",
-        [ "ppa:ubuntu-toolchain-r/test" ],
-    ),
-
-    linux_pipeline(
-        "Linux 14.04 GCC 4.6",
-        "cppalliance/droneubuntu1404:1",
-        { TOOLSET: 'gcc', COMPILER: 'g++-4.6', CXXSTD: '98,0x' },
-        "g++-4.6",
-        [ "ppa:ubuntu-toolchain-r/test" ],
-    ),
-
-    linux_pipeline(
-        "Linux 14.04 GCC 4.7",
-        "cppalliance/droneubuntu1404:1",
-        { TOOLSET: 'gcc', COMPILER: 'g++-4.7', CXXSTD: '98,0x' },
-        "g++-4.7",
-        [ "ppa:ubuntu-toolchain-r/test" ],
-    ),
-
-    linux_pipeline(
         "Linux 14.04 GCC 4.8*",
         "cppalliance/droneubuntu1404:1",
         { TOOLSET: 'gcc', COMPILER: 'g++', CXXSTD: '03,11' },
@@ -230,19 +206,17 @@ local windows_pipeline(name, image, environment, arch = "amd64") =
     ),
 
     linux_pipeline(
-        "Linux 20.04 Clang 14 UBSAN",
-        "cppalliance/droneubuntu2004:1",
+        "Linux 22.04 Clang 14 UBSAN",
+        "cppalliance/droneubuntu2204:1",
         { TOOLSET: 'clang', COMPILER: 'clang++-14', CXXSTD: '03,11,14,17,20' } + ubsan,
         "clang-14",
-        ["deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"],
     ),
 
     linux_pipeline(
-        "Linux 20.04 Clang 14 ASAN",
-        "cppalliance/droneubuntu2004:1",
+        "Linux 22.04 Clang 14 ASAN",
+        "cppalliance/droneubuntu2204:1",
         { TOOLSET: 'clang', COMPILER: 'clang++-14', CXXSTD: '03,11,14,17,20' } + asan,
         "clang-14",
-        ["deb http://apt.llvm.org/focal/ llvm-toolchain-focal-14 main"],
     ),
 
     macos_pipeline(
