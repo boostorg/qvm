@@ -1,6 +1,6 @@
 // QVM single header distribution. Do not edit.
 
-// Generated on 04/15/2022 from https://github.com/boostorg/qvm/tree/5791440.
+// Generated on 01/29/2023 from https://github.com/boostorg/qvm/tree/6c40de6.
 // Latest versions:
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp
@@ -11677,7 +11677,7 @@ quat_traits< qvm_detail::identity_quat_<T> >
     static
     BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
-    read_element( this_quaternion const & x )
+    read_element( this_quaternion const & )
         {
         BOOST_QVM_STATIC_ASSERT(I>=0);
         BOOST_QVM_STATIC_ASSERT(I<4);
@@ -11687,7 +11687,7 @@ quat_traits< qvm_detail::identity_quat_<T> >
     static
     BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
-    read_element_idx( int i, this_quaternion const & x )
+    read_element_idx( int i, this_quaternion const & )
         {
         BOOST_QVM_ASSERT(i>=0);
         BOOST_QVM_ASSERT(i<4);
@@ -12344,7 +12344,7 @@ quat_traits< qvm_detail::zero_q_<T> >
     static
     BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
-    read_element( this_quaternion const & x )
+    read_element( this_quaternion const & )
         {
         BOOST_QVM_STATIC_ASSERT(I>=0);
         BOOST_QVM_STATIC_ASSERT(I<4);
@@ -12354,7 +12354,7 @@ quat_traits< qvm_detail::zero_q_<T> >
     static
     BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_CRITICAL
     scalar_type
-    read_element_idx( int i, this_quaternion const & x )
+    read_element_idx( int i, this_quaternion const & )
         {
         BOOST_QVM_ASSERT(i>=0);
         BOOST_QVM_ASSERT(i<4);
@@ -17167,10 +17167,10 @@ template <class> struct is_vec;
         enum { value = true };\
         };
 
-BOOST_QVM_GNUC_VEC_TYPE(float,2);
-BOOST_QVM_GNUC_VEC_TYPE(float,4);
-BOOST_QVM_GNUC_VEC_TYPE(double,2);
-BOOST_QVM_GNUC_VEC_TYPE(double,4);
+BOOST_QVM_GNUC_VEC_TYPE(float,2)
+BOOST_QVM_GNUC_VEC_TYPE(float,4)
+BOOST_QVM_GNUC_VEC_TYPE(double,2)
+BOOST_QVM_GNUC_VEC_TYPE(double,4)
 
 #undef BOOST_QVM_GNUC_VEC_TYPE
 
