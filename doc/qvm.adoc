@@ -2383,6 +2383,18 @@ Preconditions: :: `t>=0 && t\<=1`.
 
 Returns: :: A quaternion that is the result of Spherical Linear Interpolation of the quaternions `a` and `b` and the interpolation parameter `c`. When `slerp` is applied to unit quaternions, the quaternion path maps to a path through 3D rotations in a standard way. The effect is a rotation with uniform angular velocity around a fixed rotation axis.
 
+[WARNING]
+--
+Many slerp implementations always take "the short path" if the angle between the input quaternions is greater than 180 degrees, however this is not the case with QVM.
+
+There are use cases for both behaviors. If "the short path" behavior is preferable, when calling `slerp`, negate one of the quaternions if the dot product between the two quaternions is negative:
+
+[source,c++]
+----
+auto r = slerp( dot(q1, q2) < 0 ? -q1 : q1, q2, t);
+----
+--
+
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
 '''
