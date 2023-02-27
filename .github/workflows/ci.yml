@@ -177,6 +177,12 @@ jobs:
         run: |
           echo "using ${{matrix.toolset}} : : ${{matrix.compiler}} ;" > ~/user-config.jam
 
+      - name: Generate headers
+        run: |
+          cd ..\boost-root\libs\qvm
+          python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o test/qvm.hpp boost/qvm
+          python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p include -o test/qvm_lite.hpp boost/qvm
+
       - name: Run tests
         run: |
           cd ../boost-root
