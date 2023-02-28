@@ -179,7 +179,7 @@ jobs:
 
       - name: Generate headers
         run: |
-          cd ..\boost-root\libs\qvm
+          cd ../boost-root/libs/qvm
           python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o test/qvm.hpp boost/qvm
           python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p include -o test/qvm_lite.hpp boost/qvm
 
@@ -243,7 +243,7 @@ jobs:
 
       - name: Generate headers
         run: |
-          cd ../boost-root/libs/qvm
+          cd ..\boost-root\libs\qvm
           python gen/generate_single_header.py -i include/boost/qvm/all.hpp -p include -o test/qvm.hpp boost/qvm
           python gen/generate_single_header.py -i include/boost/qvm/lite.hpp -p include -o test/qvm_lite.hpp boost/qvm
 
