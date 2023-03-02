@@ -714,20 +714,50 @@ BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
 typename lazy_enable_if_c<
     is_quat<A>::value && is_quat<B>::value && is_scalar<C>::value,
     deduce_quat2<A,B> >::type
-slerp( A const & a, B const & b, C t )
+slerp360( A const & a, B const & b, C t )
     {
     typedef typename deduce_quat2<A,B>::type R;
     typedef typename quat_traits<R>::scalar_type TR;
     TR const one = scalar_traits<TR>::value(1);
     TR const threshold = one - one / scalar_traits<TR>::value(2000); //0.9995
-    TR dp = dot(a,b);
-    if( dp > threshold )
-        return normalized(a+(b-a)*t);
-    if( dp < -one )
-        dp = -one;
-    double theta_0 = acos(dp);
-    double theta = theta_0*t;
-    return a*cos(theta) + normalized(b-a*dp)*sin(theta);
+    TR const dp = dot(a,b);
+    TR const abs_dp = abs(dp);
+    if( abs_dp > threshold )
+        return a*(one-t) + b*t;
+    TR const th = acos(dp);
+    TR const invsinth = one / sin(th);
+    return a * (sin(th * (one-t)) * invsinth) + b * (sin(th * t) * invsinth);
+    }
+
+template <class A,class B,class C>
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
+typename lazy_enable_if_c<
+    is_quat<A>::value && is_quat<B>::value && is_scalar<C>::value,
+    deduce_quat2<A,B> >::type
+slerp180( A const & a, B const & b, C t )
+    {
+    typedef typename deduce_quat2<A,B>::type R;
+    typedef typename quat_traits<R>::scalar_type TR;
+    TR const one = scalar_traits<TR>::value(1);
+    TR const threshold = one - one / scalar_traits<TR>::value(2000); //0.9995
+    TR const dp = dot(a,b);
+    TR const abs_dp = abs(dp);
+    if( abs_dp > threshold )
+        return a*(one-t)*sign(dp) + b*t;
+    TR const th = acos(abs_dp);
+    TR const invsinth = one / sin(th);
+    return a * (sin(th * (one-t)) * invsinth * sign(dp)) + b * (sin(th * t) * invsinth);
+    }
+
+template <class A,class B,class C>
+BOOST_QVM_DEPRECATED("please use slerp180 or slerp360")
+BOOST_QVM_CONSTEXPR BOOST_QVM_INLINE_OPERATIONS
+typename lazy_enable_if_c<
+    is_quat<A>::value && is_quat<B>::value && is_scalar<C>::value,
+    deduce_quat2<A,B> >::type
+slerp( A const & a, B const & b, C t )
+    {
+    return slerp360(a, b, t);
     }
 
 ////////////////////////////////////////////////
@@ -1518,6 +1548,8 @@ sfinae
     using ::boost::qvm::inverse;
     using ::boost::qvm::mag_sqr;
     using ::boost::qvm::mag;
+    using ::boost::qvm::slerp360;
+    using ::boost::qvm::slerp180;
     using ::boost::qvm::slerp;
     using ::boost::qvm::operator-=;
     using ::boost::qvm::operator-;

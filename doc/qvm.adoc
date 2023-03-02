@@ -2363,7 +2363,7 @@ NOTE: The <<deduce_quat,`deduce_quat`>> template can be specialized to deduce th
 '''
 
 [[slerp]]
-==== `slerp`
+==== `slerp180` / `slerp360`
 
 .#include <boost/qvm/quat_operations.hpp>
 [source,c++]
@@ -2374,7 +2374,22 @@ namespace boost { namespace qvm {
   //  is_quat<A>::value && is_quat<B>::value && is_scalar<C>
   template <class A,class B,class C>
   typename deduce_quat2<A,B> >::type
-  slerp( A const & a, B const & b, C c );
+  slerp180( A const & a, B const & b, C c );
+
+  //Only enabled if:
+  //  is_quat<A>::value && is_quat<B>::value && is_scalar<C>
+  template <class A,class B,class C>
+  typename deduce_quat2<A,B> >::type
+  slerp360( A const & a, B const & b, C c );
+
+  //Only enabled if:
+  //  is_quat<A>::value && is_quat<B>::value && is_scalar<C>
+  template <class A,class B,class C>
+  typename deduce_quat2<A,B> >::type
+  slerp( A const & a, B const & b, C c ) // Deprecated
+    {
+    return slerp360(a, b, t);
+    }
 
 } }
 ----
@@ -2383,17 +2398,22 @@ Preconditions: :: `t>=0 && t\<=1`.
 
 Returns: :: A quaternion that is the result of Spherical Linear Interpolation of the quaternions `a` and `b` and the interpolation parameter `c`. When `slerp` is applied to unit quaternions, the quaternion path maps to a path through 3D rotations in a standard way. The effect is a rotation with uniform angular velocity around a fixed rotation axis.
 
-[WARNING]
---
-Many slerp implementations always take "the short path" if the angle between the input quaternions is greater than 180 degrees, however this is not the case with QVM.
+When rotations represented by `a` and `b` are separated by more than 180 degrees, `slerp180` always takes the shorter path on the sphere, while `slerp360` does not. There are use cases for both behaviors, since each introduces a discontinuity under different conditions.
 
-There are use cases for both behaviors. If "the short path" behavior is preferable, when calling `slerp`, negate one of the quaternions if the dot product between the two quaternions is negative:
+Mathematically:
 
 [source,c++]
 ----
-auto r = slerp( dot(q1, q2) < 0 ? -q1 : q1, q2, t);
+auto q = slerp180(a, b, t);
 ----
---
+is equivalent to
+
+[source,c++]
+----
+auto q = slerp360(dot(a, b) < 0 ? -a : a, b, t);
+----
+
+NOTE: Previous versions of QVM implemented only the `slerp360` behavior, but under the name `slerp`. This is preserved for compatibility, but `slerp` is now deprecated. Please use either `slerp180` or `slerp360`.
 
 NOTE: The <<deduce_quat2,`deduce_quat2`>> template can be specialized to deduce the desired return type, given the types `A` and `B`.
 
