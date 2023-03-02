@@ -119,7 +119,7 @@ function switch_style()
 <li><a href="#quat_dot"><code>dot</code></a></li>
 <li><a href="#conjugate"><code>conjugate</code></a></li>
 <li><a href="#quat_inverse"><code>inverse</code></a></li>
-<li><a href="#slerp"><code>slerp</code></a></li>
+<li><a href="#slerp"><code>slerp180</code> / <code>slerp360</code></a></li>
 <li><a href="#zero_quat"><code>zero_quat</code></a></li>
 <li><a href="#quat_set_zero"><code>set_zero</code></a></li>
 <li><a href="#identity_quat"><code>identity_quat</code></a></li>
@@ -451,7 +451,7 @@ QVM does not depend on Boost or other libraries.
     <span class="p">}</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="p">&gt;</span>
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element</span><span class="p">(</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element</span><span class="p">(</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">I</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -459,7 +459,7 @@ QVM does not depend on Boost or other libraries.
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span> <span class="c1">//optional</span>
 
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span> <span class="c1">//optional</span>
 
@@ -1285,7 +1285,7 @@ For the quaternion <code>a + bi + cj + dk</code>, the elements are assumed to be
     <span class="p">}</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="p">&gt;</span>
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element</span><span class="p">(</span> <span class="n">fquat</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">q</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element</span><span class="p">(</span> <span class="n">fquat</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">q</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">q</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">I</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -1626,7 +1626,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
     <span class="p">}</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">I</span><span class="p">&gt;</span>
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element</span><span class="p">(</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element</span><span class="p">(</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">I</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -1634,7 +1634,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span> <span class="c1">//optional</span>
 
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">float3</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">v</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">v</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
     <span class="p">}</span> <span class="c1">//optional</span>
 
@@ -1691,11 +1691,11 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
     <span class="p">}</span>
 
     <span class="k">static</span> <span class="n">BOOST_QVM_INLINE_CRITICAL</span>
-    <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">vec_type</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">vec_type</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">vec_traits</span><span class="o">&lt;</span><span class="n">vec_type</span><span class="o">&gt;::</span><span class="n">write_element_idx</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="n">vec_type</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
     <span class="p">}</span>
 
-    <span class="nl">protected:</span>
+    <span class="k">protected</span><span class="o">:</span>
 
     <span class="k">static</span> <span class="n">BOOST_QVM_INLINE_TRIVIAL</span>
     <span class="n">scalar_type</span> <span class="o">&amp;</span> <span class="n">write_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">vec_type</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
@@ -2005,7 +2005,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
     <span class="p">}</span>
 
     <span class="k">template</span> <span class="o">&lt;</span><span class="kt">int</span> <span class="n">R</span><span class="p">,</span><span class="kt">int</span> <span class="n">C</span><span class="p">&gt;</span>
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element</span><span class="p">(</span> <span class="n">float33</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element</span><span class="p">(</span> <span class="n">float33</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">R</span><span class="p">][</span><span class="n">C</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -2013,7 +2013,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
       <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
     <span class="p">}</span>
 
-    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">float33</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="kr">inline</span> <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">float33</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">m</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -2067,11 +2067,11 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
     <span class="p">}</span>
 
     <span class="k">static</span> <span class="n">BOOST_QVM_INLINE_CRITICAL</span>
-    <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">mat_type</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">mat_type</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">mat_traits</span><span class="o">&lt;</span><span class="n">mat_type</span><span class="o">&gt;::</span><span class="n">write_element_idx</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="k">const_cast</span><span class="o">&lt;</span><span class="n">mat_type</span> <span class="o">&amp;&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">));</span>
     <span class="p">}</span>
 
-    <span class="nl">protected:</span>
+    <span class="k">protected</span><span class="o">:</span>
 
     <span class="k">static</span> <span class="n">BOOST_QVM_INLINE_TRIVIAL</span>
     <span class="n">scalar_type</span> <span class="o">&amp;</span> <span class="n">write_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">r</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">mat_type</span> <span class="o">&amp;</span> <span class="n">m</span> <span class="p">)</span> <span class="p">{</span>
@@ -2315,7 +2315,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
         <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">I</span><span class="p">];</span>
       <span class="p">}</span>
 
-      <span class="k">static</span> <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">vec</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Dim</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="k">static</span> <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">vec</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Dim</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
       <span class="p">}</span>
 
@@ -2376,7 +2376,7 @@ Alternatively, <code>write_element</code> and <code>write_element_idx</code> may
       <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">Row</span><span class="p">][</span><span class="n">Col</span><span class="p">];</span>
     <span class="p">}</span>
 
-    <span class="k">static</span> <span class="n">scalar_type</span> <span class="n">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="n">mat</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Rows</span><span class="p">,</span><span class="n">Cols</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="n">scalar_type</span> <span class="nf">read_element_idx</span><span class="p">(</span> <span class="kt">int</span> <span class="n">row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">col</span><span class="p">,</span> <span class="n">mat</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="n">Rows</span><span class="p">,</span><span class="n">Cols</span><span class="o">&gt;</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">x</span> <span class="p">)</span> <span class="p">{</span>
       <span class="k">return</span> <span class="n">x</span><span class="p">.</span><span class="n">a</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">];</span>
     <span class="p">}</span>
 
@@ -3480,7 +3480,7 @@ The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be speciali
 <hr>
 </div>
 <div class="sect3">
-<h4 id="slerp"><code>slerp</code></h4>
+<h4 id="slerp"><code>slerp180</code> / <code>slerp360</code></h4>
 <div class="listingblock">
 <div class="title">#include &lt;boost/qvm/quat_operations.hpp&gt;</div>
 <div class="content">
@@ -3490,7 +3490,22 @@ The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be speciali
   <span class="c1">//  is_quat&lt;A&gt;::value &amp;&amp; is_quat&lt;B&gt;::value &amp;&amp; is_scalar&lt;C&gt;</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">C</span><span class="p">&gt;</span>
   <span class="k">typename</span> <span class="n">deduce_quat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">type</span>
-  <span class="n">slerp</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span> <span class="n">c</span> <span class="p">);</span>
+  <span class="n">slerp180</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span> <span class="n">c</span> <span class="p">);</span>
+
+  <span class="c1">//Only enabled if:</span>
+  <span class="c1">//  is_quat&lt;A&gt;::value &amp;&amp; is_quat&lt;B&gt;::value &amp;&amp; is_scalar&lt;C&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">C</span><span class="p">&gt;</span>
+  <span class="k">typename</span> <span class="n">deduce_quat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">type</span>
+  <span class="n">slerp360</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span> <span class="n">c</span> <span class="p">);</span>
+
+  <span class="c1">//Only enabled if:</span>
+  <span class="c1">//  is_quat&lt;A&gt;::value &amp;&amp; is_quat&lt;B&gt;::value &amp;&amp; is_scalar&lt;C&gt;</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">,</span><span class="k">class</span> <span class="nc">B</span><span class="p">,</span><span class="k">class</span> <span class="nc">C</span><span class="p">&gt;</span>
+  <span class="k">typename</span> <span class="n">deduce_quat2</span><span class="o">&lt;</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="o">&gt;</span> <span class="o">&gt;::</span><span class="n">type</span>
+  <span class="n">slerp</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span><span class="p">,</span> <span class="n">B</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">b</span><span class="p">,</span> <span class="n">C</span> <span class="n">c</span> <span class="p">)</span> <span class="c1">// Deprecated</span>
+    <span class="p">{</span>
+    <span class="k">return</span> <span class="n">slerp360</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span>
+    <span class="p">}</span>
 
 <span class="p">}</span> <span class="p">}</span></code></pre>
 </div>
@@ -3506,6 +3521,37 @@ The <a href="#deduce_quat"><code>deduce_quat</code></a> template can be speciali
 <p>A quaternion that is the result of Spherical Linear Interpolation of the quaternions <code>a</code> and <code>b</code> and the interpolation parameter <code>c</code>. When <code>slerp</code> is applied to unit quaternions, the quaternion path maps to a path through 3D rotations in a standard way. The effect is a rotation with uniform angular velocity around a fixed rotation axis.</p>
 </dd>
 </dl>
+</div>
+<div class="paragraph">
+<p>When rotations represented by <code>a</code> and <code>b</code> are separated by more than 180 degrees, <code>slerp180</code> always takes the shorter path on the sphere, while <code>slerp360</code> does not. There are use cases for both behaviors, since each introduces a discontinuity under different conditions.</p>
+</div>
+<div class="paragraph">
+<p>Mathematically:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">slerp180</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is equivalent to</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">slerp360</span><span class="p">(</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">-</span><span class="n">a</span> <span class="o">:</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">t</span><span class="p">);</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Previous versions of QVM implemented only the <code>slerp360</code> behavior, but under the name <code>slerp</code>. This is preserved for compatibility, but <code>slerp</code> is now deprecated. Please use either <code>slerp180</code> or <code>slerp360</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock note">
 <table>
