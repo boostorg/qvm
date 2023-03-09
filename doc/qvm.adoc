@@ -4866,14 +4866,15 @@ namespace boost { namespace qvm {
 
   //Only enabled if:
   //  is_mat<A>::value &&
-  //  mat_traits<A>::rows==mat_traits<A>::cols && mat_traits<A>::rows>=3
+  //  (mat_traits<A>::rows==mat_traits<A>::cols || mat_traits<A>::rows+1==mat_traits<A>::cols) &&
+  //  mat_traits<A>::cols>=3
   template <class A>
   -unspecified-return-type- translation( A & a );
 
 } }
 ----
 
-The expression `translation(m)` returns an lvalue <<view_proxy,view proxy>> that accesses the translation component of the square matrix `m`, which is a vector of size `D`-1, where `D` is the size of `m`.
+The expression `translation(m)` returns an lvalue <<view_proxy,view proxy>> that accesses the translation component of the square matrix `m`, which is a vector of size `C`-1, where `C` is the number of column in `m`.
 
 '''
 
