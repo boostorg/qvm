@@ -6764,7 +6764,8 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 
   <span class="c1">//Only enabled if:</span>
   <span class="c1">//  is_mat&lt;A&gt;::value &amp;&amp;</span>
-  <span class="c1">//  mat_traits&lt;A&gt;::rows==mat_traits&lt;A&gt;::cols &amp;&amp; mat_traits&lt;A&gt;::rows&gt;=3</span>
+  <span class="c1">//  (mat_traits&lt;A&gt;::rows==mat_traits&lt;A&gt;::cols || mat_traits&lt;A&gt;::rows+1==mat_traits&lt;A&gt;::cols) &amp;&amp;</span>
+  <span class="c1">//  mat_traits&lt;A&gt;::cols&gt;=3</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
   <span class="o">-</span><span class="n">unspecified</span><span class="o">-</span><span class="k">return</span><span class="o">-</span><span class="n">type</span><span class="o">-</span> <span class="n">translation</span><span class="p">(</span> <span class="n">A</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
 
@@ -6772,7 +6773,7 @@ If <code>v</code> is a 3D vector, the expression <code>diag_mat(XYZ1(v))</code> 
 </div>
 </div>
 <div class="paragraph">
-<p>The expression <code>translation(m)</code> returns an lvalue <a href="#view_proxy">view proxy</a> that accesses the translation component of the square matrix <code>m</code>, which is a vector of size <code>D</code>-1, where <code>D</code> is the size of <code>m</code>.</p>
+<p>The expression <code>translation(m)</code> returns an lvalue <a href="#view_proxy">view proxy</a> that accesses the translation component of the square matrix <code>m</code>, which is a vector of size <code>C</code>-1, where <code>C</code> is the number of column in <code>m</code>.</p>
 </div>
 <hr>
 </div>
