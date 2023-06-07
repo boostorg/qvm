@@ -1,6 +1,6 @@
 // QVM single header distribution. Do not edit.
 
-// Generated on 05/14/2023 from https://github.com/boostorg/qvm/tree/2c5728f.
+// Generated on 06/07/2023 from https://github.com/boostorg/qvm/tree/fa272cb.
 // Latest versions:
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp
@@ -21300,7 +21300,7 @@ vec_traits<qvm_detail::sws_<OriginalScalar,SwizzleList> >
         BOOST_QVM_STATIC_ASSERT(I>=0);
         BOOST_QVM_STATIC_ASSERT(I<dim);
         int const idx=qvm_detail::swizzle<SwizzleList,I>::value;
-        BOOST_QVM_STATIC_ASSERT(idx==0);
+        BOOST_QVM_STATIC_ASSERT(idx<1);
         return reinterpret_cast<OriginalScalar &>(x);
         }
     };
