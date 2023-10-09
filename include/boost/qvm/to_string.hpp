@@ -10,7 +10,7 @@
 
 #include <string>
 
- namespace boost { namespace qvm {
+namespace boost { namespace qvm {
 
 namespace qvm_to_string_detail = std;
 
