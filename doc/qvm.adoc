@@ -394,6 +394,8 @@ QVM is split into multiple headers to allow different compilation units to `#inc
 
 The tables below list commonly used components and the headers they're found in. Header names containing a number define functions that only work with objects of that dimension; e.g. `vec_operations2.hpp` contains only functions for working with 2D vectors.
 
+The header `boost/qvm/to_string.hpp` must be included before calling any `to_string` overload defined in namespace `boost::qvm`.
+
 The header `boost/qvm/all.hpp` is provided for convenience. It includes all other QVM headers.
 
 In addition, Boost QVM is available in single-header format for maximum portability. See <<Distribution>>.
@@ -2786,6 +2788,27 @@ Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a quate
 
 '''
 
+[[quat_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/quat_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_quat<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
+
+NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
+
+'''
+
 [[qref]]
 ==== `qref`
 
@@ -3348,6 +3371,27 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a vector of the same dimensions as `a`, but with <<vec_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
+
+'''
+
+[[vec_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/vec_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_vec<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
+
+NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
 
 '''
 
@@ -4450,6 +4494,27 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a matrix of the same dimensions as `a`, but with <<mat_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
+
+'''
+
+[[mat_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/mat_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_mat<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
+
+NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
 
 '''
 

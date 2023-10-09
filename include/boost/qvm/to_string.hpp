@@ -10,18 +10,9 @@
 
 #include <string>
 
-namespace boost { namespace qvm {
+ namespace boost { namespace qvm {
 
-namespace
-qvm_to_string_detail
-    {
-    template <class T>
-    std::string
-    to_string( T const & x )
-        {
-        return std::to_string(x);
-        }
-    }
+namespace qvm_to_string_detail = std;
 
 } }
 
