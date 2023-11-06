@@ -394,8 +394,6 @@ QVM is split into multiple headers to allow different compilation units to `#inc
 
 The tables below list commonly used components and the headers they're found in. Header names containing a number define functions that only work with objects of that dimension; e.g. `vec_operations2.hpp` contains only functions for working with 2D vectors.
 
-The header `boost/qvm/to_string.hpp` must be included before calling any `to_string` overload defined in namespace `boost::qvm`.
-
 The header `boost/qvm/all.hpp` is provided for convenience. It includes all other QVM headers.
 
 In addition, Boost QVM is available in single-header format for maximum portability. See <<Distribution>>.
@@ -2805,8 +2803,6 @@ namespace boost { namespace qvm {
 
 Returns: :: A string representation of the value of `a`, in unspecified format.
 
-NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
-
 '''
 
 [[qref]]
@@ -3390,8 +3386,6 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A string representation of the value of `a`, in unspecified format.
-
-NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
 
 '''
 
@@ -4513,8 +4507,6 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A string representation of the value of `a`, in unspecified format.
-
-NOTE: Calling any `to_string` overload defined in the `boost::qvm` namespace requires `#include <boost/qvm/to_string.hpp>`.
 
 '''
 
