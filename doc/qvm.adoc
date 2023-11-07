@@ -2786,6 +2786,25 @@ Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a quate
 
 '''
 
+[[quat_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/quat_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_quat<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
+
+'''
+
 [[qref]]
 ==== `qref`
 
@@ -3348,6 +3367,25 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a vector of the same dimensions as `a`, but with <<vec_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
+
+'''
+
+[[vec_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/vec_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_vec<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
 
 '''
 
@@ -4450,6 +4488,25 @@ namespace boost { namespace qvm {
 ----
 
 Returns: :: A read-only <<view_proxy,view proxy>> of `a` that looks like a matrix of the same dimensions as `a`, but with <<mat_traits,`scalar_type`>> `Scalar` and elements constructed from the corresponding elements of `a`.
+
+'''
+
+[[mat_to_string]]
+==== `to_string`
+
+.#include <boost/qvm/mat_operations.hpp>
+[source,c++]
+----
+namespace boost { namespace qvm {
+
+  //Only enabled if: is_mat<A>::value
+  template <class A>
+  std::string to_string( A const & a );
+
+} }
+----
+
+Returns: :: A string representation of the value of `a`, in unspecified format.
 
 '''
 

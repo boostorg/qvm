@@ -4,9 +4,9 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Configure Meson build directories",
+			"label": "Setup Meson build directories",
 			"type": "shell",
-			"command": "cd ${workspaceRoot} && meson bld/debug && meson -D qvm_header_mode='single' bld/debug_qvm_hpp && meson -D qvm_header_mode='single_lite' bld/debug_qvm_lite_hpp && meson bld/release --buildtype release && meson -D qvm_header_mode='single' bld/release_qvm_hpp --buildtype release && meson -D qvm_header_mode='single_lite' bld/release_qvm_lite_hpp --buildtype release",
+			"command": "cd ${workspaceRoot} && meson setup bld/debug && meson setup -D qvm_header_mode='single' -D cpp_std=c++11 bld/debug_qvm_hpp && meson setup -D qvm_header_mode='single_lite' bld/debug_qvm_lite_hpp && meson setup bld/release --buildtype release && meson setup -D qvm_header_mode='single' -D cpp_std=c++11 bld/release_qvm_hpp --buildtype release && meson setup -D qvm_header_mode='single_lite' bld/release_qvm_lite_hpp --buildtype release",
 			"problemMatcher": []
 		},
 		{
