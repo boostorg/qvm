@@ -137,6 +137,7 @@ function switch_style()
 <li><a href="#quat_set_rotz"><code>set_rotz</code></a></li>
 <li><a href="#quat_rotate_z"><code>rotate_z</code></a></li>
 <li><a href="#quat_scalar_cast"><code>scalar_cast</code></a></li>
+<li><a href="#quat_to_string"><code>to_string</code></a></li>
 <li><a href="#qref"><code>qref</code></a></li>
 </ul>
 </li>
@@ -165,6 +166,7 @@ function switch_style()
 <li><a href="#zero_vec"><code>zero_vec</code></a></li>
 <li><a href="#vec_set_zero"><code>set_zero</code></a></li>
 <li><a href="#vec_scalar_cast"><code>scalar_cast</code></a></li>
+<li><a href="#vec_to_string"><code>to_string</code></a></li>
 <li><a href="#vref"><code>vref</code></a></li>
 </ul>
 </li>
@@ -207,6 +209,7 @@ function switch_style()
 <li><a href="#perspective_lh"><code>perspective_lh</code></a></li>
 <li><a href="#perspective_rh"><code>perspective_rh</code></a></li>
 <li><a href="#mat_scalar_cast"><code>scalar_cast</code></a></li>
+<li><a href="#mat_to_string"><code>to_string</code></a></li>
 <li><a href="#mref"><code>mref</code></a></li>
 </ul>
 </li>
@@ -4033,6 +4036,30 @@ The <code>rot_quat</code> function is not a <a href="#view_proxy">view proxy</a>
 <hr>
 </div>
 <div class="sect3">
+<h4 id="quat_to_string"><code>to_string</code></h4>
+<div class="listingblock">
+<div class="title">#include &lt;boost/qvm/quat_operations.hpp&gt;</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
+
+  <span class="c1">//Only enabled if: is_quat&lt;A&gt;::value</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">to_string</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Returns: </dt>
+<dd>
+<p>A string representation of the value of <code>a</code>, in unspecified format.</p>
+</dd>
+</dl>
+</div>
+<hr>
+</div>
+<div class="sect3">
 <h4 id="qref"><code>qref</code></h4>
 <div class="listingblock">
 <div class="title">#include &lt;boost/qvm/quat_operations.hpp&gt;</div>
@@ -4825,6 +4852,30 @@ The <a href="#deduce_vec2"><code>deduce_vec2</code></a> (and <a href="#deduce_sc
 <dt class="hdlist1">Returns: </dt>
 <dd>
 <p>A read-only <a href="#view_proxy">view proxy</a> of <code>a</code> that looks like a vector of the same dimensions as <code>a</code>, but with <a href="#vec_traits"><code>scalar_type</code></a> <code>Scalar</code> and elements constructed from the corresponding elements of <code>a</code>.</p>
+</dd>
+</dl>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="vec_to_string"><code>to_string</code></h4>
+<div class="listingblock">
+<div class="title">#include &lt;boost/qvm/vec_operations.hpp&gt;</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
+
+  <span class="c1">//Only enabled if: is_vec&lt;A&gt;::value</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">to_string</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Returns: </dt>
+<dd>
+<p>A string representation of the value of <code>a</code>, in unspecified format.</p>
 </dd>
 </dl>
 </div>
@@ -6275,6 +6326,30 @@ These functions are not view proxies; they return a temp object.
 <dt class="hdlist1">Returns: </dt>
 <dd>
 <p>A read-only <a href="#view_proxy">view proxy</a> of <code>a</code> that looks like a matrix of the same dimensions as <code>a</code>, but with <a href="#mat_traits"><code>scalar_type</code></a> <code>Scalar</code> and elements constructed from the corresponding elements of <code>a</code>.</p>
+</dd>
+</dl>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="mat_to_string"><code>to_string</code></h4>
+<div class="listingblock">
+<div class="title">#include &lt;boost/qvm/mat_operations.hpp&gt;</div>
+<div class="content">
+<pre class="rouge highlight nowrap"><code data-lang="c++"><span class="k">namespace</span> <span class="n">boost</span> <span class="p">{</span> <span class="k">namespace</span> <span class="n">qvm</span> <span class="p">{</span>
+
+  <span class="c1">//Only enabled if: is_mat&lt;A&gt;::value</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">A</span><span class="p">&gt;</span>
+  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">to_string</span><span class="p">(</span> <span class="n">A</span> <span class="k">const</span> <span class="o">&amp;</span> <span class="n">a</span> <span class="p">);</span>
+
+<span class="p">}</span> <span class="p">}</span></code></pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Returns: </dt>
+<dd>
+<p>A string representation of the value of <code>a</code>, in unspecified format.</p>
 </dd>
 </dl>
 </div>
