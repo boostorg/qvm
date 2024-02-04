@@ -1,6 +1,6 @@
 // QVM single header distribution. Do not edit.
 
-// Generated on 11/07/2023 from https://github.com/boostorg/qvm/tree/c6b6134.
+// Generated on 02/04/2024 from https://github.com/boostorg/qvm/tree/cbf353a.
 // Latest versions:
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp
 //      https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm_lite.hpp

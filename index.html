@@ -5707,6 +5707,18 @@ The <a href="#deduce_mat"><code>deduce_mat</code></a> (and <a href="#deduce_mat2
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
+These functions are semantically equivalent to multiplying matrices returned by <a href="#rotx_mat"><code>rotx_mat</code></a> / <a href="#roty_mat"><code>roty_mat</code></a> / <a href="#rotz_mat"><code>rotz_mat</code></a>. For example, <code>rot_mat_yzx&lt;3&gt;(a, b, c)</code> is semantically equivalent to <code>roty_mat&lt;3&gt;(a) * rotz_mat&lt;3&gt;(b) * rotx_mat&lt;3&gt;(c)</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
 These functions are not view proxies; they return a temp object.
 </td>
 </tr>
