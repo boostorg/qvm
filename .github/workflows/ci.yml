@@ -148,13 +148,13 @@ jobs:
             install: clang-16
           - toolset: clang
             cxxstd: "03,11,14,17,2a"
-            os: macos-11
-          - toolset: clang
-            cxxstd: "03,11,14,17,20,2b"
             os: macos-12
           - toolset: clang
             cxxstd: "03,11,14,17,20,2b"
             os: macos-13
+          - toolset: clang
+            cxxstd: "03,11,14,17,20,2b"
+            os: macos-14
 
     runs-on: ${{matrix.os}}
     container: ${{matrix.container}}
@@ -164,7 +164,7 @@ jobs:
         shell: bash
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup container environment
         if: matrix.container
@@ -245,7 +245,7 @@ jobs:
     runs-on: ${{matrix.os}}
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Boost
         shell: cmd
