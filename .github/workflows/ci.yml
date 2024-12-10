@@ -152,7 +152,8 @@ jobs:
             install: clang-16
           - toolset: clang
             compiler: clang++-17
-            cxxstd: "11,14,17,20,2b"
+            # https://github.com/llvm/llvm-project/issues/59827: disabled 2b/23 for clang-17 with libstdc++13 in 24.04
+            cxxstd: "11,14,17,20"
             os: ubuntu-24.04
             install: clang-17
           - toolset: clang
