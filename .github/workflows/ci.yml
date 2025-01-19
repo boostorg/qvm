@@ -21,63 +21,49 @@ jobs:
             cxxstd: "03,11"
             os: ubuntu-latest
             container: ubuntu:18.04
-            install: g++-4.8-multilib
-            address-model: 32,64
+            install: g++-4.8
           - toolset: gcc-5
             cxxstd: "03,11,14,1z"
             os: ubuntu-latest
             container: ubuntu:18.04
-            install: g++-5-multilib
-            address-model: 32,64
+            install: g++-5
           - toolset: gcc-6
             cxxstd: "03,11,14,1z"
             os: ubuntu-latest
             container: ubuntu:18.04
-            install: g++-6-multilib
-            address-model: 32,64
+            install: g++-6
           - toolset: gcc-7
             cxxstd: "03,11,14,17"
             os: ubuntu-latest
             container: ubuntu:18.04
-            install: g++-7-multilib
-            address-model: 32,64
           - toolset: gcc-8
             cxxstd: "03,11,14,17,2a"
             os: ubuntu-20.04
-            install: g++-8-multilib
-            address-model: 32,64
+            install: g++-8
           - toolset: gcc-9
             cxxstd: "03,11,14,17,2a"
             os: ubuntu-20.04
-            install: g++-9-multilib
-            address-model: 32,64
           - toolset: gcc-10
             cxxstd: "03,11,14,17,2a"
             os: ubuntu-20.04
-            install: g++-10-multilib
-            address-model: 32,64
+            install: g++-10
           - toolset: gcc-11
             cxxstd: "03,11,14,17,20"
             os: ubuntu-22.04
-            install: g++-11-multilib
-            address-model: 32,64
           - toolset: gcc-12
             cxxstd: "03,11,14,17,20,2b"
             os: ubuntu-22.04
-            install: g++-12-multilib
-            address-model: 32,64
+            install: g++-12
           - toolset: gcc-13
             cxxstd: "03,11,14,17,20,2b"
             os: ubuntu-latest
-            container: ubuntu:23.04
-            install: g++-13-multilib
-            address-model: 32,64
+            container: ubuntu:24.04
+            install: g++-13
           - toolset: gcc-14
             cxxstd: "03,11,14,17,20,2b"
             os: ubuntu-latest
             container: ubuntu:24.04
-            install: g++-14-multilib
-            address-model: 32,64
+            install: g++-14
           - toolset: clang
             compiler: clang++-3.9
             cxxstd: "03,11,14"
@@ -149,13 +135,13 @@ jobs:
           - toolset: clang
             compiler: clang++-16
             cxxstd: "03,11,14,17,20,2b"
-            container: ubuntu:23.04
+            container: ubuntu:24.04
             os: ubuntu-latest
             install: clang-16
           - toolset: clang
             compiler: clang++-17
             cxxstd: "03,11,14,17,20,2b"
-            container: ubuntu:23.10
+            container: ubuntu:24.04
             os: ubuntu-latest
             install: clang-17
           - toolset: clang
@@ -165,14 +151,20 @@ jobs:
             os: ubuntu-latest
             install: clang-18
           - toolset: clang
+            compiler: clang++-19
             cxxstd: "03,11,14,17,20,2b"
-            os: macos-12
+            container: ubuntu:24.10
+            os: ubuntu-latest
+            install: clang-19
           - toolset: clang
             cxxstd: "03,11,14,17,20,2b"
             os: macos-13
           - toolset: clang
             cxxstd: "03,11,14,17,20,2b"
             os: macos-14
+          - toolset: clang
+            cxxstd: "03,11,14,17,20,2b"
+            os: macos-15
 
     runs-on: ${{matrix.os}}
 
@@ -252,7 +244,7 @@ jobs:
       matrix:
         include:
           - toolset: msvc-14.0
-            cxxstd: 14,latest
+            cxxstd: "14"
             addrmd: 32,64
             os: windows-2019
           - toolset: msvc-14.2
@@ -264,7 +256,7 @@ jobs:
             addrmd: 32,64
             os: windows-2022
           - toolset: clang-win
-            cxxstd: "14,17,latest"
+            cxxstd: "14,17,20,latest"
             addrmd: 32,64
             os: windows-2022
           - toolset: gcc
