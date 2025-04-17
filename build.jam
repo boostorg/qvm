@@ -6,12 +6,11 @@
 require-b2 5.2 ;
 
 project /boost/qvm
-    : common-requirements
-        <include>include
     ;
 
 explicit
-    [ alias boost_qvm : : : : <library>$(boost_dependencies) ]
+    [ alias boost_qvm : : :
+        : <include>include <library>$(boost_dependencies) ]
     [ alias all : boost_qvm test ]
     ;
 
