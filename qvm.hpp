@@ -1,5 +1,5 @@
 // QVM single header distribution. Do not edit.
-// Generated on Jan 19, 2025 from https://github.com/boostorg/qvm/tree/daabde8.
+// Generated on Dec 23, 2025 from https://github.com/boostorg/qvm/tree/fb40ddd.
 
 // Latest published versions:
 //	https://raw.githubusercontent.com/boostorg/qvm/gh-pages/qvm.hpp
@@ -11100,7 +11100,7 @@ mat
         , class = typename enable_if<is_mat<R> >::type
 #endif
     >
-    operator R() const
+    BOOST_QVM_CONSTEXPR operator R() const
         {
         R r;
         assign(r,*this);
@@ -13106,7 +13106,7 @@ quat
         , class = typename enable_if<is_quat<R> >::type
 #endif
     >
-    operator R() const
+    BOOST_QVM_CONSTEXPR operator R() const
         {
         R r;
         assign(r,*this);
@@ -16967,7 +16967,7 @@ vec
         , class = typename enable_if<is_vec<R> >::type
 #endif
     >
-    operator R() const
+    BOOST_QVM_CONSTEXPR operator R() const
         {
         R r;
         assign(r,*this);
